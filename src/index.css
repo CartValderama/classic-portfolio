@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+
+@theme {
+  --font-geist: "Geist", sans-serif;
+  --font-times: "Times New Roman", serif;
+}
+
+/* Scrollbar Styles (WebKit Browsers) */
+::-webkit-scrollbar {
+  width: 2px; /* Scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b; /* Track (background) */
+}
+
+::-webkit-scrollbar-thumb {
+  background: 27272a; /* Thumb (scroll handle) */
+  border-radius: 10px; /* Rounded edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: 27272a; /* Thumb hover effect */
+}
+
+/* Firefox Custom Scrollbar */
+* {
+  scrollbar-color: #27272a #09090b; /* Thumb and track */
+  scrollbar-width: thin; /* Options: auto, thin, none */
+}
+
+:root {
+  font-weight: 300;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #09090b;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
