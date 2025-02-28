@@ -1,34 +1,22 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { RiShutDownLine } from "react-icons/ri";
+import MainScreen from "./MonitorContent/MainScreen";
+import { useStart } from "../context/StartContext";
 
-type MonitorScreenProps = {
-  select: boolean;
-};
+const Monitor = () => {
+  const { start } = useStart();
 
-const MonitorScreen = ({ select }: MonitorScreenProps) => {
-  useEffect(() => {
-    if (select) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [select]);
   return (
     <motion.div
       initial={false}
       animate={
-        select
-          ? { opacity: 1, scale: 1, x: 0 }
-          : { opacity: 1, scale: 0.45, x: 365 }
+        start
+          ? { opacity: 1, scale: 1.3, x: 0, y: 27 }
+          : { opacity: 1, scale: 0.5, x: 365 }
       }
       transition={{ duration: 1, ease: "linear" }}
       className={`z-10 ${
-        select
+        start
           ? "min-w-screen min-h-screen flex flex-col items-center justify-center absolute"
           : "hidden"
       }`}
@@ -37,15 +25,17 @@ const MonitorScreen = ({ select }: MonitorScreenProps) => {
         {/* monitor screen*/}
         <div className="sm:w-[53rem] 2xl:w-[67rem] sm:h-[35rem] 2xl:h-[46rem] rounded-2xl relative flex justify-center items-center">
           <div className="absolute bg-[#a0926f] w-full h-full opacity-40 rounded-3xl"></div>
-          <div className="absolute top-2 sm:left-[.65rem] 2xl:left-[.7rem] sm:w-[97.5%] 2xl:w-[98%]  sm:border-[2.5rem] 2xl:border-[3rem] border-transparent border-t-[#847959] rounded"></div>
-          <div className="absolute top-3 left-2 h-[96.7%] sm:border-[2.5rem] 2xl:border-[3rem] border-b-[1.5rem] border-transparent border-l-[#a0926f] rounded"></div>
-          <div className="absolute top-3 right-2 h-[96.7%] sm:border-[2.5rem] 2xl:border-[3rem] border-b-[1.5rem] border-transparent border-r-[#a0926f] rounded"></div>
+          <div className="absolute top-3 sm:left-[.65rem] 2xl:left-[.45rem] sm:w-[97.5%] 2xl:w-[98.6%]  sm:border-[2.5rem] 2xl:border-[3rem] border-transparent border-t-[#847959] rounded-lg"></div>
+          <div className="absolute top-3 left-[.65rem] 2xl:left-[.5rem] h-[96.7%] sm:border-[2.5rem] 2xl:border-[3rem] border-b-[1.5rem] border-transparent border-l-[#a0926f] rounded-lg"></div>
+          <div className="absolute top-3 right-[.65rem] 2xl:right-[.53rem] h-[96.7%] sm:border-[2.5rem] 2xl:border-[3rem] border-b-[1.5rem] border-transparent border-r-[#a0926f] rounded-lg"></div>
           <div
-            className="bg-[#0b0b0b] sm:w-[46.5rem] 2xl:w-[59rem] sm:h-[29.5rem] 2xl:h-[39rem] flex items-center 
-              justify-center shadow-inner rounded-xl scale-102"
+            className="z-30 relative bg-[#0b0b0b] sm:mt-1 2xl:mt-0 sm:w-[46.8rem] 2xl:w-[60.1rem] sm:h-[28.9rem] 2xl:h-[38.6rem] flex items-center 
+              justify-center shadow-inner"
           >
             {/* main screen */}
-            <div></div>
+
+            <MainScreen />
+
             {/* monitor buttons*/}
             <div className="absolute sm:-bottom-30 2xl:-bottom-34 flex flex-row-reverse items-baseline justify-between w-full">
               <div className="flex flex-row-reverse gap-x-12">
@@ -61,7 +51,7 @@ const MonitorScreen = ({ select }: MonitorScreenProps) => {
               </div>
 
               <p className="text-xl text-[#a0926f] font-semibold font-times">
-                ViewSonic
+                McQueen
               </p>
             </div>
           </div>
@@ -84,4 +74,4 @@ const MonitorScreen = ({ select }: MonitorScreenProps) => {
   );
 };
 
-export default MonitorScreen;
+export default Monitor;

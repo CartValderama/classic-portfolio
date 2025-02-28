@@ -15,7 +15,7 @@ const Computer = () => {
           {/* main screen */}
           <div></div>
           {/* monitor buttons*/}
-          <div className="absolute -bottom-18 flex flex-row-reverse items-baseline justify-between w-full">
+          <div className="absolute -bottom-16 flex flex-row-reverse items-baseline justify-between w-full">
             <div className="flex flex-row-reverse gap-x-3">
               <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#aba072] text-[#8d845f] text-xs">
                 <RiShutDownLine />
@@ -29,7 +29,7 @@ const Computer = () => {
             </div>
 
             <p className="text-xs text-[#a0926f] font-semibold font-times">
-              ViewSonic
+              McQueen
             </p>
           </div>
         </div>

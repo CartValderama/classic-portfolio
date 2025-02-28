@@ -1,9 +1,25 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-geist: "Geist", sans-serif;
   --font-times: "Times New Roman", serif;
+  --font-system: "VT323", monospace;
+  --font-fixedsys: "Fixedsys Excelsior", monospace;
+  --font-ms: "MS Sans Serif", sans-serif;
+
+  --animate-loading: load 0.8s steps(2) infinite;
+  @keyframes load {
+    0% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
 }
 
 /* Scrollbar Styles (WebKit Browsers) */
@@ -30,22 +46,10 @@
   scrollbar-width: thin; /* Options: auto, thin, none */
 }
 
-:root {
-  font-weight: 300;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #09090b;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  font-weight: 300;
 }
