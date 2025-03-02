@@ -36,7 +36,12 @@ interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {}
 
-export function Button({ className, variant, size, ...props }: ButtonProps) {
+export function ButtonMain({
+  className,
+  variant,
+  size,
+  ...props
+}: ButtonProps) {
   return (
     <motion.button
       whileTap={{ scale: 0.98 }}

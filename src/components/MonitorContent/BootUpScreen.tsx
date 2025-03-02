@@ -35,8 +35,9 @@ const BootUpScreen = () => {
 
   return (
     <motion.div
+      key={start ? "start-true" : "start-false"}
       initial={{ opacity: 1 }}
-      animate={start && { opacity: 0 }}
+      animate={start ? { opacity: 0 } : { opacity: 1 }}
       transition={{
         duration: 0.1,
         delay: 20,
@@ -45,7 +46,7 @@ const BootUpScreen = () => {
     >
       <motion.div
         initial={{ opacity: 1 }}
-        animate={start && { opacity: 0 }}
+        animate={start ? { opacity: 0 } : { opacity: 1 }}
         transition={{
           duration: 0.1,
           delay: 14,
@@ -54,7 +55,7 @@ const BootUpScreen = () => {
       >
         <motion.div
           initial={{ opacity: 0 }}
-          animate={start && { opacity: 1 }}
+          animate={start ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, delay: 1 + Math.random() * 0.1 }}
         >
           <img
@@ -68,7 +69,7 @@ const BootUpScreen = () => {
           <motion.p
             key={index}
             initial={{ opacity: 0 }}
-            animate={start && { opacity: 1 }}
+            animate={start ? { opacity: 1 } : { opacity: 0 }}
             transition={{
               duration: 0.1,
               delay: index === 0 ? 2 : 2 + index * 0.4,
@@ -84,7 +85,7 @@ const BootUpScreen = () => {
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
-        animate={start && { opacity: 1 }}
+        animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{
           duration: 0.1,
           delay: 16,

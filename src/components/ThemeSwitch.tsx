@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { Button } from "./Button";
+import { ButtonMain } from "./Button";
 import { BiMoon, BiSun } from "react-icons/bi";
 import { useStart } from "../context/StartContext";
 
@@ -20,7 +20,7 @@ export default function ThemeSwitch({
   const { theme, toggleTheme } = useTheme();
   const { start } = useStart();
   return (
-    <Button
+    <ButtonMain
       variant={variant}
       size={size}
       onClick={toggleTheme}
@@ -28,6 +28,6 @@ export default function ThemeSwitch({
       className={className}
     >
       {theme === "light" ? <BiMoon /> : <BiSun />}
-    </Button>
+    </ButtonMain>
   );
 }
