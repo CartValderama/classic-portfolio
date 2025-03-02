@@ -1,0 +1,40 @@
+diff --git a/node_modules/@react95/core/cjs/TaskBar/TaskBar.cjs b/node_modules/@react95/core/cjs/TaskBar/TaskBar.cjs
+index 9f546dc..b48ea44 100644
+--- a/node_modules/@react95/core/cjs/TaskBar/TaskBar.cjs
++++ b/node_modules/@react95/core/cjs/TaskBar/TaskBar.cjs
+@@ -46,10 +46,6 @@ const TaskBar = React.forwardRef(
+     return /* @__PURE__ */ React.createElement(
+       Frame.Frame,
+       {
+-        position: "fixed",
+-        bottom: "0px",
+-        left: "0px",
+-        right: "0px",
+         display: "flex",
+         justifyContent: "space-between",
+         h: "28px",
+diff --git a/node_modules/@react95/core/esm/Dropdown/Dropdown.css.ts.vanilla.css b/node_modules/@react95/core/esm/Dropdown/Dropdown.css.ts.vanilla.css
+index b2d5377..04c16ad 100644
+--- a/node_modules/@react95/core/esm/Dropdown/Dropdown.css.ts.vanilla.css
++++ b/node_modules/@react95/core/esm/Dropdown/Dropdown.css.ts.vanilla.css
+@@ -46,5 +46,5 @@ inset 1.5px 1.5px 0px 1.5px var(--r95-color-borderLightest);
+   appearance: none;
+   box-shadow: inset -1px -1px 0 0 var(--r95-color-material),
+ inset 1px 1px 0 0 var(--r95-color-borderDarkest),
+-0.5px 0.5px 0 0.5px var(--r95-color-borderLightest);;
++0.5px 0.5px 0 0.5px var(--r95-color-borderLightest);
+ }
+\ No newline at end of file
+diff --git a/node_modules/@react95/core/esm/TaskBar/TaskBar.mjs b/node_modules/@react95/core/esm/TaskBar/TaskBar.mjs
+index f06b52a..20dbff5 100644
+--- a/node_modules/@react95/core/esm/TaskBar/TaskBar.mjs
++++ b/node_modules/@react95/core/esm/TaskBar/TaskBar.mjs
+@@ -44,7 +44,7 @@ const TaskBar = forwardRef(
+     return /* @__PURE__ */ React.createElement(
+       Frame,
+       {
+-        position: "fixed",
++        //removed a postion attribute here
+         bottom: "0px",
+         left: "0px",
+         right: "0px",
