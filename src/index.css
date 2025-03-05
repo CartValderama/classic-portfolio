@@ -5,6 +5,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --breakpoint-2xl: 1540px;
+
   --font-geist: "Geist", sans-serif;
   --font-times: "Times New Roman", serif;
   --font-system: "VT323", monospace;
@@ -22,25 +24,6 @@
   }
 }
 
-/* Scrollbar Styles (WebKit Browsers) */
-::-webkit-scrollbar {
-  width: 2px; /* Scrollbar width */
-}
-
-::-webkit-scrollbar-track {
-  background: #09090b; /* Track (background) */
-}
-
-::-webkit-scrollbar-thumb {
-  background: 27272a; /* Thumb (scroll handle) */
-  border-radius: 10px; /* Rounded edges */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: 27272a; /* Thumb hover effect */
-}
-
-/* Firefox Custom Scrollbar */
 * {
   scrollbar-color: #27272a #09090b; /* Thumb and track */
   scrollbar-width: thin; /* Options: auto, thin, none */

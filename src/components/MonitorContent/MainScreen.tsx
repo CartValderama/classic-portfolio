@@ -3,7 +3,7 @@ import DesktopScreen from "./DesktopScreen";
 
 const MainScreen = () => {
   return (
-    <div className="w-full h-full relative .desktop-screen">
+    <div className="w-full h-full relative">
       <BootUpScreen />
       <DesktopScreen />
     </div>

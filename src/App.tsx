@@ -1,17 +1,14 @@
 import React from "react";
-import Desktop from "./device orientation/Desktop";
-import Mobile from "./device orientation/Mobile";
 import ThemeContextProvider from "./context/ThemeContext.tsx";
 import StartContextProvider from "./context/StartContext.tsx";
-import "@react95/core/themes/win95.css";
+import Layout from "./Layout.tsx";
 
 function App() {
   return (
     <React.Fragment>
       <StartContextProvider>
         <ThemeContextProvider>
-          <Desktop />
-          <Mobile />
+          <Layout />
         </ThemeContextProvider>
       </StartContextProvider>
     </React.Fragment>
