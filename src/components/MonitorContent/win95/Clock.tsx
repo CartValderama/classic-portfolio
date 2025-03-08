@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BiBell } from "react-icons/bi";
+import { FaBell } from "react-icons/fa6";
 
 export const Clock = () => {
   const [timer, setTimer] = useState("");
@@ -20,8 +20,8 @@ export const Clock = () => {
   }, []);
 
   return (
-    <div className="border border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center">
-      <BiBell className="text-xs mt-0.5" />
+    <div className="border border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-0.5 items-center">
+      <FaBell className="text-xs text-stone-900" />
       {timer}
     </div>
   );

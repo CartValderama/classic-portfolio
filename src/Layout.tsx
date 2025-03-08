@@ -1,4 +1,4 @@
-import { ButtonMain } from "../src/components/Button";
+import { ButtonMain } from "./components/ButtonMain";
 import ThemeSwitch from "../src/components/ThemeSwitch";
 import { BsGithub } from "react-icons/bs";
 import { useStart } from "../src/context/StartContext";
@@ -10,9 +10,11 @@ const Layout = () => {
 
   return (
     <div
-      className={`min-h-screen min-w-screen flex-col items-center justify-between text-lg bg-[#fcfdfc] overflow-hidden dark:bg-[#09090b] dark:text-white hidden lg:flex default-scroll`}
+      className={`min-h-screen min-w-screen flex-col items-center justify-between text-lg bg-[#fcfdfc] overflow-hidden dark:bg-[#09090b] dark:text-white flex default-scroll`}
     >
+      {/* buffer for small scaled monitor */}
       <div className={`${!start && "mb-40 2xl:mb-30"}`}></div>
+      {/* header */}
       <motion.header
         initial={{ opacity: 1, y: 0 }}
         animate={start ? { opacity: 0, y: -200 } : { opacity: 1, y: 0 }}
@@ -45,13 +47,16 @@ const Layout = () => {
           </div>
         </nav>
       </motion.header>
+      {/* main */}
       <main
         className={`flex items-center flex-col justify-between relative ${
           start && "my-40 2xl:my-50"
         }`}
       >
+        {/* insert content here */}
         <Desktop />
       </main>
+      {/* footer */}
       <motion.footer
         initial={{ opacity: 1, y: 0 }}
         animate={start ? { opacity: 0, y: 200 } : { opacity: 1, y: 0 }}

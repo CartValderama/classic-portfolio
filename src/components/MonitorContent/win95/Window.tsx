@@ -1,5 +1,12 @@
 import { useDragControls, motion, useMotionValue } from "framer-motion";
 import React, { useState } from "react";
+import { Button } from "./Button";
+import {
+  FaRegWindowMaximize,
+  FaRegWindowRestore,
+  FaXmark,
+} from "react-icons/fa6";
+import { MdMinimize } from "react-icons/md";
 
 type WindowProps = {
   constraintsRef: React.RefObject<HTMLDivElement | null>;
@@ -10,40 +17,49 @@ type WindowProps = {
   onActive: () => void;
   onMinimizeRestore: () => void;
   title: string;
+  Icon: React.ComponentType<{
+    className?: string;
+    variant?: "32x32_4" | "16x16_4";
+  }>;
+  iWidth: number;
+  iHeight: number;
+  isResize: boolean;
   children: React.ReactNode;
 };
 
 const Window = ({
   constraintsRef,
   isOpen,
-  isMinimized,
   onOpen,
   isActive,
   onActive,
+  isMinimized,
   onMinimizeRestore,
   title,
+  Icon,
+  iWidth,
+  iHeight,
+  isResize,
   children,
 }: WindowProps) => {
   const [isMaximized, setIsMaximized] = useState(false);
-  const [size, setSize] = useState({ width: 250, height: 200 });
+  const [size, setSize] = useState({ width: iWidth, height: iHeight });
   const [isResizing, setIsResizing] = useState(false);
 
   const dragControls = useDragControls();
-  const x = useMotionValue(40 + Math.random() * 20);
-  const y = useMotionValue(40 + Math.random() * 20);
+  const x = useMotionValue(20 + Math.random() * 100);
+  const y = useMotionValue(20 + Math.random() * 100);
 
   const [preMaximizePosition, setPreMaximizePosition] = useState({
     x: 0,
     y: 0,
   });
   const [preMaximizeSize, setPreMaximizeSize] = useState({
-    width: 10,
-    height: 10,
+    width: 0,
+    height: 0,
   });
 
-  const handleMaximize = (e: React.MouseEvent) => {
-    e.stopPropagation();
-
+  const handleMaximize = () => {
     if (!isMaximized) {
       setPreMaximizePosition({ x: x.get(), y: y.get() });
       setPreMaximizeSize({ width: size.width, height: size.height });
@@ -58,8 +74,12 @@ const Window = ({
     setIsMaximized(!isMaximized);
   };
 
-  const handleClose = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleClose = () => {
+    if (isMaximized) setIsMaximized(!isMaximized);
+
+    setSize({ width: iWidth, height: iHeight });
+    x.set(20 + Math.random() * 100);
+    y.set(20 + Math.random() * 100);
     onOpen(false);
   };
 
@@ -94,8 +114,11 @@ const Window = ({
       }
 
       setSize({
-        width: Math.max(200, Math.min(newWidth, containerRect.width)),
-        height: Math.max(200, Math.min(newHeight, containerRect.height)),
+        width: Math.max(iWidth, Math.min(newWidth, containerRect.width - 160)),
+        height: Math.max(
+          iHeight,
+          Math.min(newHeight, containerRect.height - 120)
+        ),
       });
     };
 
@@ -126,20 +149,18 @@ const Window = ({
         position: "absolute",
         top: isMaximized ? 0 : undefined,
         left: isMaximized ? 0 : undefined,
-        display: isOpen && !isMinimized ? "block" : "none", // Hide if minimized
-        zIndex: isActive ? 100 : 99,
+        visibility: isOpen && !isMinimized ? "visible" : "hidden", // Hide if minimized
+        zIndex: isActive ? 1 : 0,
       }}
       onClick={onActive}
     >
       <div
-        className={`flex h-full flex-col overflow-hidden rounded-md border border-gray-300 bg-white shadow-md select-none ${
-          isActive ? "border-blue-500" : ""
-        }`}
+        className={`flex h-full flex-col justify-between p-0.5 overflow-hidden bg-[#c3c7cb] border border-white border-r-[#868a8e] border-b-[#868a8e] shadow-outline `}
       >
         {/* Title bar */}
         <div
-          className={`flex h-10 items-center justify-between px-3 ${
-            isActive ? "bg-blue-500" : "bg-gray-200"
+          className={`flex text-white items-center select-none justify-between px-1 mb-1 ${
+            isActive ? "bg-[#000e7a]" : "bg-[#7f787f]"
           }`}
           onPointerDown={(e) => {
             dragControls.start(e);
@@ -147,44 +168,48 @@ const Window = ({
           }}
           onMouseDown={() => setIsResizing(false)}
         >
-          <p className="text-sm font-medium">{title}</p>
-          <div className="flex space-x-2">
-            <button
-              onClick={onMinimizeRestore}
-              className="flex h-5 w-5 items-center justify-center rounded-sm hover:bg-gray-300"
-            >
-              {isMinimized ? "+" : "-"}
-            </button>
-            <button
-              onClick={handleMaximize}
-              className="flex h-5 w-5 items-center justify-center rounded-sm hover:bg-gray-300"
-            >
-              +
-            </button>
-            <button
-              onClick={handleClose}
-              className="flex h-5 w-5 items-center justify-center rounded-sm hover:bg-gray-300"
-            >
-              x
-            </button>
+          <h1 className="flex items-center gap-x-1">
+            <Icon variant="16x16_4" />
+            {title}
+          </h1>
+          <div className="flex items-center gap-x-1">
+            <Button size={"icon"} onClick={onMinimizeRestore}>
+              <MdMinimize className="text-black text-[.6rem]" />
+            </Button>
+            <Button size={"icon"} onClick={handleMaximize}>
+              {isMaximized ? (
+                <FaRegWindowRestore className="text-black text-[.6rem]" />
+              ) : (
+                <FaRegWindowMaximize className="text-black text-[.6rem]" />
+              )}
+            </Button>
+            <Button size={"icon"} onClick={handleClose}>
+              <FaXmark className="text-black text-[.6rem]" />
+            </Button>
           </div>
         </div>
 
-        <div className="flex-1 overflow-auto p-4">
-          <p>This is a simple modal window with minimal styling.</p>
-          <p className="mt-2">You can:</p>
-          {children}
-        </div>
+        {/* Content */}
+        {children}
 
-        {/* Resize handle */}
-        {!isMaximized && !isMinimized && (
+        {/* Resize corner */}
+        <div
+          className={` items-center gap-x-0.5 ${
+            !isMaximized && isResize ? "flex mt-1" : "hidden"
+          }`}
+        >
+          <div className="border h-4 w-4/6 border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center"></div>
+          <div className="relative border h-4 w-2/6 border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center"></div>
           <div
-            className="absolute bottom-0 right-0 h-6 w-6 cursor-nwse-resize"
+            className="absolute bottom-0 right-0 w-[6px] h-2  cursor-nwse-resize"
             onMouseDown={handleResize}
           >
-            <div className="h-0 w-0 border-b-8 border-r-8 border-gray-400"></div>
+            <div className="relative">
+              <span className="absolute top-[3px] right-[0px] h-[1px] w-[9px] bg-[#4e4949] rotate-135"></span>
+              <span className="absolute top-[5px] right-[.3px] h-[1px] w-1 bg-[#565252] rotate-135"></span>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </motion.div>
   );

@@ -14,6 +14,9 @@
   --font-ms: "MS Sans Serif", sans-serif;
 
   --animate-loading: load 0.8s steps(2) infinite;
+
+  --shadow-outline: 1px 1px 0 black;
+
   @keyframes load {
     0% {
       visibility: hidden;

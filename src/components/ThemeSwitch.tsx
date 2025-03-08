@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { ButtonMain } from "./Button";
+import { ButtonMain } from "./ButtonMain";
 import { BiMoon, BiSun } from "react-icons/bi";
 import { useStart } from "../context/StartContext";
 

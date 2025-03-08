@@ -36,7 +36,7 @@ const Monitor = () => {
             <span className="w-[35%] h-[30%] bg-[#aba072] rounded-xs"></span>
           </div>
 
-          <div className="flex items-center gap-x-1 text-[#a0926f]">
+          <div className="flex items-center gap-x-1 text-[#a0926f] select-none">
             <BiGlobe className="text-[2.3rem]" />
             <p className="font-semibold font-times text-xl">McQueen</p>
           </div>

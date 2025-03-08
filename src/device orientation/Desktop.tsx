@@ -1,4 +1,4 @@
-import { ButtonMain } from "../components/Button";
+import { ButtonMain } from "../components/ButtonMain";
 import Monitor from "../components/Monitor";
 import { useStart } from "../context/StartContext";
 import { motion } from "framer-motion";
@@ -8,8 +8,9 @@ const Desktop = () => {
 
   return (
     <div
-      className={`flex sm:max-w-[85rem] justify-between 2xl:max-w-[96rem] items-center relative px-7 w-full`}
+      className={`hidden lg:flex max-w-[85rem] justify-between 2xl:max-w-[96rem] items-center relative px-7 w-full`}
     >
+      {/* text explanation */}
       <motion.div
         initial={{ x: 0, opacity: 1 }}
         animate={
@@ -22,7 +23,7 @@ const Desktop = () => {
         <h1 className="font-geist text-4xl font-bold leading-11">
           Windows 95-Inspired Portfolio
         </h1>
-        <div className="flex flex-col gap-y-2 font-geist sm:text-base xl:text-lg leading-8">
+        <div className="flex flex-col gap-y-2 font-geist text-base xl:text-lg leading-8">
           <p>
             A Windows 95-inspired portfolio blending nostalgia with modern
             design. The interactive, retro-style interface allows you to explore
@@ -59,6 +60,7 @@ const Desktop = () => {
           </ButtonMain>
         </div>
       </motion.div>
+      {/* small scaled monitor */}
       <Monitor />
     </div>
   );

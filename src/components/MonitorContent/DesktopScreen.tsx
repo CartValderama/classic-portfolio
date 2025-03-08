@@ -1,16 +1,23 @@
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
-import { Access227, Joy102, Shell3242 } from "@react95/icons";
+import { Computer, Joy102, Write1 } from "@react95/icons";
 import TaskBar from "./win95/TaskBar";
 import Window from "./win95/Window";
 import { useRef, useState } from "react";
 import AboutMe from "./AboutMe";
+import Tictactoe from "../Games/Tictactoe";
+import Wordle from "../Games/Wordle";
 
-type DesktopAppProps = {
-  Icon: React.ComponentType<{ className?: string; variant?: "32x32_4" }>;
+export type DesktopAppProps = {
+  Icon: React.ComponentType<{
+    className?: string;
+    variant?: "32x32_4" | "16x16_4";
+  }>;
   label: string;
   id: string;
   Component: React.ComponentType;
+  iWidth: number;
+  iHeight: number;
 };
 
 type WindowsProps = {
@@ -18,9 +25,30 @@ type WindowsProps = {
 };
 
 const desktopApps: DesktopAppProps[] = [
-  { Icon: Shell3242, label: "About Me", id: "about", Component: AboutMe },
-  { Icon: Joy102, label: "Tictactoe", id: "tictactoe", Component: AboutMe },
-  { Icon: Access227, label: "Wordle", id: "wordle", Component: AboutMe },
+  {
+    Icon: Computer,
+    label: "About Me",
+    id: "about",
+    Component: AboutMe,
+    iWidth: 400,
+    iHeight: 350,
+  },
+  {
+    Icon: Joy102,
+    label: "Tictactoe",
+    id: "tictactoe",
+    Component: Tictactoe,
+    iWidth: 250,
+    iHeight: 350,
+  },
+  {
+    Icon: Write1,
+    label: "Wordle",
+    id: "wordle",
+    Component: Wordle,
+    iWidth: 400,
+    iHeight: 350,
+  },
 ];
 
 const DesktopScreen = () => {
@@ -28,19 +56,16 @@ const DesktopScreen = () => {
   const [openWindows, setOpenWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
-
     wordle: false,
   });
   const [activeWindows, setActiveWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
-
     wordle: false,
   });
   const [minimizedWindows, setMinimizedWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
-
     wordle: false,
   });
 
@@ -83,13 +108,13 @@ const DesktopScreen = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.3, delay: 0 }}
+      transition={{ duration: 0, delay: 16 }}
       className="relative z-[999] top-0 flex w-full h-full flex-col justify-between leading-6 bg-[#196364] font-system text-black"
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.3, delay: 0 }}
+        transition={{ duration: 0, delay: 17 }}
         className="relative flex flex-col justify-start items-start overflow-hidden gap-y-6 px-3 py-4 text-[#010101] w-full h-full"
         ref={constraintsRef}
       >
@@ -106,10 +131,14 @@ const DesktopScreen = () => {
         ))}
 
         {/* Render windows */}
-        {desktopApps.map(({ id, Component, label }) => (
+        {desktopApps.map(({ id, Component, label, Icon, iWidth, iHeight }) => (
           <Window
             key={id}
             title={label}
+            Icon={Icon}
+            iWidth={iWidth}
+            iHeight={iHeight}
+            isResize={true}
             constraintsRef={constraintsRef}
             isOpen={openWindows[id]}
             isMinimized={minimizedWindows[id]}
@@ -130,7 +159,7 @@ const DesktopScreen = () => {
 
       {/* TaskBar */}
       <TaskBar
-        start={start}
+        desktopApps={desktopApps}
         openWindows={openWindows}
         minimizedWindows={minimizedWindows}
         onMinimizeRestore={handleMinimizeRestore}
