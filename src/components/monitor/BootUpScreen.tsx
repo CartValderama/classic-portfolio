@@ -40,7 +40,7 @@ const BootUpScreen = () => {
       animate={start ? { opacity: 0 } : { opacity: 1 }}
       transition={{
         duration: 0.1,
-        delay: 14,
+        delay: 8,
       }}
       className="z-50 absolute flex w-full h-full font-system opacity-85 2xl:text-xl blur-[.4px] text-neutral-200"
     >
@@ -50,14 +50,14 @@ const BootUpScreen = () => {
         animate={start ? { opacity: 0 } : { opacity: 1 }}
         transition={{
           duration: 0.1,
-          delay: 10,
+          delay: 5,
         }}
         className="relative flex-1 leading-6 2xl:leading-7 p-5"
       >
         <motion.div
           initial={{ opacity: 0 }}
           animate={start ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0, delay: 0.5 + Math.random() * 0.1 }}
+          transition={{ duration: 0, delay: 2 }}
         >
           <img
             src="https://i.imgur.com/wA8i2DU.png"
@@ -73,7 +73,7 @@ const BootUpScreen = () => {
             animate={start ? { opacity: 1 } : { opacity: 0 }}
             transition={{
               duration: 0.1,
-              delay: index === 0 ? 2 : 2 + index * 0.4,
+              delay: index === 0 ? 2 : 2 + index * 0.1,
             }}
             className={`${
               index === bootMessages.length - 1 &&
@@ -91,7 +91,7 @@ const BootUpScreen = () => {
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{
           duration: 0.1,
-          delay: 12,
+          delay: 6,
         }}
         className={`w-full h-full flex flex-col justify-center items-center absolute leading-6 font-system p-5`}
       >

@@ -1,5 +1,5 @@
 import { useDragControls, motion, useMotionValue } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./Button";
 import {
   FaRegWindowMaximize,
@@ -7,6 +7,7 @@ import {
   FaXmark,
 } from "react-icons/fa6";
 import { MdMinimize } from "react-icons/md";
+import { useStart } from "../../../context/StartContext";
 
 type WindowProps = {
   constraintsRef: React.RefObject<HTMLDivElement | null>;
@@ -42,6 +43,7 @@ const Window = ({
   isResize,
   children,
 }: WindowProps) => {
+  const { start } = useStart();
   const [isMaximized, setIsMaximized] = useState(false);
   const [size, setSize] = useState({ width: iWidth, height: iHeight });
   const [isResizing, setIsResizing] = useState(false);
@@ -58,6 +60,13 @@ const Window = ({
     width: 0,
     height: 0,
   });
+
+  useEffect(() => {
+    if (!start) {
+      handleClose();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [start]);
 
   const handleMaximize = () => {
     if (!isMaximized) {
@@ -114,10 +123,10 @@ const Window = ({
       }
 
       setSize({
-        width: Math.max(iWidth, Math.min(newWidth, containerRect.width - 160)),
+        width: Math.max(iWidth, Math.min(newWidth, containerRect.width - 150)),
         height: Math.max(
           iHeight,
-          Math.min(newHeight, containerRect.height - 120)
+          Math.min(newHeight, containerRect.height - 100)
         ),
       });
     };
@@ -159,7 +168,7 @@ const Window = ({
       >
         {/* Title bar */}
         <div
-          className={`flex text-white items-center select-none justify-between px-1 mb-1 ${
+          className={`flex text-white items-center select-none justify-between px-1 py-0.5 mb-1 ${
             isActive ? "bg-[#000e7a]" : "bg-[#7f787f]"
           }`}
           onPointerDown={(e) => {

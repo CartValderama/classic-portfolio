@@ -5,19 +5,20 @@ import { cn } from "../../../lib/utils";
 import type { ButtonHTMLAttributes } from "react";
 
 const buttonVariants = cva(
-  "bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white text-black capitalize flex items-center",
+  "bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white text-black capitalize flex items-center cursor-pointer",
   {
     variants: {
       variant: {
-        default: "justify-center",
+        default: "justify-center px-1",
         tab: "gap-x-[5.5px] px-2",
-        subtle:
+        ghost:
           "hover:bg-[#000e7a] hover:text-white border-none bg-none px-1 py-1 flex w-full",
+        subtle: "hover:bg-white/50 bg-transparent border-none border-b min-w-0",
       },
       size: {
-        default: "min-w-14",
+        default: "",
         tab: "min-w-32",
-        icon: "border-[1.5px] h-4 w-4",
+        icon: "border-[1.5px] h-5 w-5",
       },
     },
     defaultVariants: {

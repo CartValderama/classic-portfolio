@@ -44,7 +44,7 @@ const TaskBar = ({
     <motion.div
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0, delay: 17 }}
+      transition={{ duration: 0, delay: start ? 11 : 0 }}
       className={`bg-[#c3c7cb] border-t border-t-white w-full flex items-center justify-between gap-x-2 py-[3px] px-[3px] select-none`}
     >
       {/* Start Button */}
@@ -59,7 +59,7 @@ const TaskBar = ({
           </p>
           <div className="flex flex-col-reverse w-full">
             <Button
-              variant={"subtle"}
+              variant={"ghost"}
               className="h-9"
               onClick={() => {
                 setShowTaskBarMenu(false);
@@ -75,7 +75,7 @@ const TaskBar = ({
             </Button>
             <span className="border border-white border-t-[#7b7d7b] border-l-[#7b7d7b] flex mx-1"></span>
             <Button
-              variant={"subtle"}
+              variant={"ghost"}
               className="h-9"
               onClick={() => {
                 setShowTaskBarMenu(false);
@@ -93,7 +93,7 @@ const TaskBar = ({
               </span>
             </Button>{" "}
             <Button
-              variant={"subtle"}
+              variant={"ghost"}
               className="h-9"
               onClick={() => {
                 setShowTaskBarMenu(false);

@@ -1,4 +1,4 @@
-import MainScreen from "./MonitorContent/MainScreen";
+import MainScreen from "./monitor/MainScreen";
 import { BiGlobe } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { useStart } from "../context/StartContext";
