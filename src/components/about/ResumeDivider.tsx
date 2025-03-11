@@ -6,9 +6,13 @@ const ResumeDivider = () => {
       <FileFind2 variant="32x32_1" />
       <div>
         <p className="text-lg font-semibold">Want to see my CV?</p>
-        <a href="" className="underline">
-          {" "}
-          Click this link to download it!
+        <a
+          href="/docs/CV_ValderamaCart.pdf"
+          download
+          className="flex gap-1 items-center underline"
+          aria-label="Download Cart Valderama's resume as a PDF"
+        >
+          <span aria-label="resume">Click this link to download it!</span>
         </a>
       </div>
     </div>

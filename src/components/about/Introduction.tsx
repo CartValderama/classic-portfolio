@@ -6,7 +6,7 @@ import ResumeDivider from "./ResumeDivider";
 const Introduction = ({ selectMenu }: selectMenuProps) => {
   return (
     <div
-      className={`flex-col items-center gap-y-4 max-w-xl border-t py-4 my-4 blur-[.4px] sepia-[20%] contrast-75 ${
+      className={`flex-col items-center gap-y-4 max-w-xl border-t pt-4 my-4 ${
         selectMenu === "Introduction" ? "flex" : "hidden"
       }`}
     >
@@ -17,8 +17,8 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
         <p>
           Hello! Welcome to the second version of my web portfolio. After
           receiving feedback that the previous version lacked excitement and
-          interactivity, I've created a refreshed and more dynamic experience.
-          Feel free to explore and check out the projects I've been working on.
+          interactivity, I’ve created a more engaging and dynamic experience.
+          Feel free to explore and check out the projects I’ve worked on.
         </p>
       </section>
 
@@ -34,7 +34,7 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
               <img
                 src="https://i.imgur.com/6VSZ344.jpeg"
                 alt="picture of cart"
-                className="pt-2 w-54 contrast-140"
+                className="pt-2 w-54"
               />
               <p className="text-[.7rem]">
                 Figure 1: My photo from Forte Digital.

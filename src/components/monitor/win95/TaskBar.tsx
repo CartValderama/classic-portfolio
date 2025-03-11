@@ -126,12 +126,10 @@ const TaskBar = ({
 
       {/* Taskbar Buttons for Open Windows */}
       <div className="w-full flex items-center justify-start gap-x-1">
-        {desktopApps.reverse().map(({ id, Icon, label }) => {
-          // Check if the app's window is open
-          const isOpen = openWindows[id];
-          if (!isOpen) return null;
-
-          return (
+        {desktopApps
+          .filter(({ id }) => openWindows[id]) // Filter only open apps
+          .reverse() // Reverse the order if needed
+          .map(({ id, Icon, label }) => (
             <Button
               key={id}
               variant={"tab"}
@@ -160,8 +158,7 @@ const TaskBar = ({
             >
               <Icon variant="16x16_4" /> {label}
             </Button>
-          );
-        })}
+          ))}
       </div>
 
       {/* Clock */}

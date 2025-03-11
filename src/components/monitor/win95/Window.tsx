@@ -41,6 +41,7 @@ const Window = ({
   iWidth,
   iHeight,
   isResize,
+
   children,
 }: WindowProps) => {
   const { start } = useStart();
@@ -159,7 +160,8 @@ const Window = ({
         top: isMaximized ? 0 : undefined,
         left: isMaximized ? 0 : undefined,
         visibility: isOpen && !isMinimized ? "visible" : "hidden", // Hide if minimized
-        zIndex: isActive ? 1 : 0,
+        zIndex:
+          isActive && isMaximized ? 3 : isActive ? 2 : isMaximized ? 1 : 0,
       }}
       onClick={onActive}
     >

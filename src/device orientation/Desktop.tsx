@@ -21,15 +21,16 @@ const Desktop = () => {
         className={`flex flex-col justify-center gap-y-5 w-1/2`}
       >
         <h1 className="font-geist text-4xl font-bold leading-11">
-          Windows 95-Inspired Portfolio
+          Nostalgia Portfolio
         </h1>
         <div className="flex flex-col gap-y-2 font-geist text-base xl:text-lg leading-8">
           <p>
-            A Windows 95-inspired portfolio blending nostalgia with modern
-            design. The interactive, retro-style interface allows you to explore
-            my projects, skills, and background in a fun and engaging way. With
-            its vintage look, this unique experience showcases my journey in web
-            development.
+            A portfolio inspired by the old devices I used as a kid, featuring
+            Windows 95 interface and a Samsung Champ layout.{" "}
+            <span className="font-bold">
+              Since you're viewing this on a desktop-sized screen, you're
+              currently in Windows 95 mode.
+            </span>
           </p>
           <p>
             For a more accessible experience, you can switch to the old version

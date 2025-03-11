@@ -8,7 +8,7 @@ type homeMenuProps = {
 const Home = ({ selectMenu, setSelectMenu }: homeMenuProps) => {
   return (
     <div
-      className={`w-full h-full flex-col justify-center items-center gap-y-3 blur-[.4px] sepia-[20%] contrast-75 ${
+      className={`w-full h-full flex-col justify-center items-center gap-y-3  ${
         selectMenu === "Home" ? "flex" : "hidden"
       }`}
     >

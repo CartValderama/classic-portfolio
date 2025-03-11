@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../monitor/win95/Button";
 import Home from "./Home";
 import Introduction from "./Introduction";
@@ -14,10 +14,17 @@ export type selectMenuProps = {
 const AboutMe = () => {
   const { start } = useStart();
   const [selectMenu, setSelectMenu] = useState("Home");
+  const aboutMeContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!start) setSelectMenu("Home");
   }, [start]);
+
+  useEffect(() => {
+    if (aboutMeContentRef.current) {
+      aboutMeContentRef.current.scrollTop = 0;
+    }
+  }, [selectMenu]);
 
   return (
     <div className="relative flex flex-col flex-1 overflow-auto px-0.5">
@@ -34,7 +41,10 @@ const AboutMe = () => {
           </Button>
         ))}
       </div>
-      <div className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-[.85rem] leading-6 px-2 font-chivo ">
+      <div
+        className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-[.85rem] leading-6 px-4 font-chivo"
+        ref={aboutMeContentRef}
+      >
         <Home selectMenu={selectMenu} setSelectMenu={setSelectMenu} />
         <Introduction selectMenu={selectMenu} />
         <Projects selectMenu={selectMenu} />

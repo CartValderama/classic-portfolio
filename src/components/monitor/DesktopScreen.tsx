@@ -26,14 +26,6 @@ type WindowsProps = {
 
 const desktopApps: DesktopAppProps[] = [
   {
-    Icon: Mailnews8,
-    label: "About Me",
-    id: "about",
-    Component: AboutMe,
-    iWidth: 620,
-    iHeight: 400,
-  },
-  {
     Icon: Joy102,
     label: "Tictactoe",
     id: "tictactoe",
@@ -48,6 +40,14 @@ const desktopApps: DesktopAppProps[] = [
     Component: Wordle,
     iWidth: 400,
     iHeight: 350,
+  },
+  {
+    Icon: Mailnews8,
+    label: "About Me",
+    id: "about",
+    Component: AboutMe,
+    iWidth: 640,
+    iHeight: 400,
   },
 ];
 
@@ -109,7 +109,7 @@ const DesktopScreen = () => {
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0, delay: start ? 10 : 0 }}
-      className="relative z-[999] top-0 flex w-full h-full flex-col justify-between leading-6 bg-[#196364] font-system text-black"
+      className="relative z-[999] top-0 flex w-full h-full flex-col justify-between leading-6 bg-[#196364] font-system text-black "
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -131,30 +131,32 @@ const DesktopScreen = () => {
         ))}
 
         {/* Render windows */}
-        {desktopApps.map(({ id, Component, label, Icon, iWidth, iHeight }) => (
-          <Window
-            key={id}
-            title={label}
-            Icon={Icon}
-            iWidth={iWidth}
-            iHeight={iHeight}
-            isResize={true}
-            constraintsRef={constraintsRef}
-            isOpen={openWindows[id]}
-            isMinimized={minimizedWindows[id]}
-            onOpen={(value: boolean | ((prev: boolean) => boolean)) => {
-              setOpenWindows((prev) => ({
-                ...prev,
-                [id]: typeof value === "function" ? value(prev[id]) : value,
-              }));
-            }}
-            isActive={activeWindows[id]}
-            onActive={() => handleActiveWindows(id)}
-            onMinimizeRestore={() => handleMinimizeRestore(id)}
-          >
-            <Component />
-          </Window>
-        ))}
+        {desktopApps
+          .reverse()
+          .map(({ id, Component, label, Icon, iWidth, iHeight }) => (
+            <Window
+              key={id}
+              title={label}
+              Icon={Icon}
+              iWidth={iWidth}
+              iHeight={iHeight}
+              isResize={true}
+              constraintsRef={constraintsRef}
+              isOpen={openWindows[id]}
+              isMinimized={minimizedWindows[id]}
+              onOpen={(value: boolean | ((prev: boolean) => boolean)) => {
+                setOpenWindows((prev) => ({
+                  ...prev,
+                  [id]: typeof value === "function" ? value(prev[id]) : value,
+                }));
+              }}
+              isActive={activeWindows[id]}
+              onActive={() => handleActiveWindows(id)}
+              onMinimizeRestore={() => handleMinimizeRestore(id)}
+            >
+              <Component />
+            </Window>
+          ))}
       </motion.div>
 
       {/* TaskBar */}
