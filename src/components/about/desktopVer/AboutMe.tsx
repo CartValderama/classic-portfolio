@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { Button } from "../monitor/win95/Button";
+import { Button } from "../../monitor/win95/Button";
 import Home from "./Home";
 import Introduction from "./Introduction";
 import Projects from "./Projects";
 import Experience from "./Experience";
-import { useStart } from "../../context/StartContext";
-import { aboutMeMenu } from "../../data/aboutMenu";
+import { useStart } from "../../../context/StartContext";
+import { aboutMeMenu } from "../../../data/aboutMenu";
 
 export type selectMenuProps = {
   selectMenu: string;
@@ -42,7 +42,7 @@ const AboutMe = () => {
         ))}
       </div>
       <div
-        className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-[.85rem] leading-6 px-4 font-chivo"
+        className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-[.85rem] leading-6 px-4 font-georgia"
         ref={aboutMeContentRef}
       >
         <Home selectMenu={selectMenu} setSelectMenu={setSelectMenu} />

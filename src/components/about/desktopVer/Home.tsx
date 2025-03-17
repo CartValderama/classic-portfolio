@@ -1,4 +1,4 @@
-import { aboutMeMenu } from "../../data/aboutMenu";
+import { aboutMeMenu } from "../../../data/aboutMenu";
 
 type homeMenuProps = {
   selectMenu: string;
@@ -8,17 +8,21 @@ type homeMenuProps = {
 const Home = ({ selectMenu, setSelectMenu }: homeMenuProps) => {
   return (
     <div
-      className={`w-full h-full flex-col justify-center items-center gap-y-3  ${
+      className={`w-full h-full flex-col justify-center items-center gap-y-4  ${
         selectMenu === "Home" ? "flex" : "hidden"
       }`}
     >
-      <h1 className="font-gothic text-7xl">Get to Know Me</h1>
-      <div className="flex items-center gap-x-4">
+      <h1 className="text-7xl font-bold">Get to Know Me</h1>
+      <div className="flex items-center gap-x-8">
         {aboutMeMenu.map((menu, idx) => (
           <button
             key={idx}
             onClick={() => setSelectMenu(menu)}
-            className="underline text-lg hover:text-[#000e7a] cursor-pointer"
+            className={`${
+              menu === "Home"
+                ? "font-bold "
+                : " hover:text-[#000e7a] hover:no-underline hover:opacity-100 underline opacity-60"
+            } text-lg  cursor-pointer `}
           >
             {menu}
           </button>

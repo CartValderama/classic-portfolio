@@ -16,14 +16,14 @@ const Monitor = () => {
     >
       {/* monitor head*/}
       <div
-        className={`bg-[#dbd49d] w-[56rem] h-[46rem] 2xl:w-[66rem] 2xl:h-[56rem] relative rounded-2xl flex flex-col items-center justify-between py-10 shadow-lg shadow-[#847959] dark:shadow-[#0b0b0b]`}
+        className={`bg-[#dbd49d] w-[58rem] h-[48rem] 2xl:w-[66rem] 2xl:h-[56rem] relative rounded-2xl flex flex-col items-center justify-between py-10 shadow-lg shadow-[#847959] dark:shadow-[#0b0b0b]`}
       >
         {/* main screen */}
         <div className="w-[88%] h-[88%] rounded-xl relative flex justify-center items-start">
           <div className="absolute bg-[#a0926f] w-full h-full opacity-35 rounded-md"></div>
           <div className="absolute mt-2 w-[98.5%] h-[98%] rounded border-[1rem] border-t-[#847959] border-x-[#a0926f] border-b-[1.2rem] 2xl:border-b-[1.5rem]  border-b-transparent"></div>
 
-          <div className="absolute mt-6 bg-[#0b0b0b] w-[94.3%] 2xl:w-[95.2%] h-[92%] 2xl:h-[92.5%]">
+          <div className="absolute mt-6 bg-[#0b0b0b] w-[95%] h-[92%] 2xl:h-[92.5%]">
             <MainScreen />
           </div>
         </div>

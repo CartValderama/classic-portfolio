@@ -5,7 +5,7 @@ const ResumeDivider = () => {
     <div className="border-y flex items-center w-full gap-x-4 py-3 my-2">
       <FileFind2 variant="32x32_1" />
       <div>
-        <p className="text-lg font-semibold">Want to see my CV?</p>
+        <p className="font-semibold">Want to see my CV?</p>
         <a
           href="/docs/CV_ValderamaCart.pdf"
           download

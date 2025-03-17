@@ -5,7 +5,6 @@ import { DesktopAppProps } from "../DesktopScreen";
 import { AiFillRobot } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { Computer3 } from "@react95/icons";
-import { FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
 import { useStart } from "../../../context/StartContext";
 
@@ -92,29 +91,11 @@ const TaskBar = ({
                 Source Code
               </span>
             </Button>{" "}
-            <Button
-              variant={"ghost"}
-              className="h-9"
-              onClick={() => {
-                setShowTaskBarMenu(false);
-                window.open(
-                  "https://www.linkedin.com/in/cart-valderama/",
-                  "_blank"
-                );
-              }}
-            >
-              <span className="flex items-center gap-x-2 text-sm px-1">
-                <i>
-                  <FaLinkedin className="text-2xl text-sky-700" />
-                </i>
-                LinkedIn
-              </span>
-            </Button>
           </div>
         </div>
         <Button
           variant={"default"}
-          className="shadow-outline"
+          className="shadow-outline focus:outline-none"
           onClick={() => setShowTaskBarMenu(!showTaskBarMenu)}
         >
           <span className="flex items-center gap-x-0.5">

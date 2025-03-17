@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
-@import url("https://fonts.cdnfonts.com/css/archivo-narrow-3");
 @import url("https://fonts.cdnfonts.com/css/franklin-gothic");
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url("https://fonts.cdnfonts.com/css/chomsky");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -14,7 +14,8 @@
   --font-system: "VT323", monospace;
   --font-ms: "MS Sans Serif", sans-serif;
   --font-gothic: "Franklin Gothic", sans-serif;
-  --font-chivo: "Archivo Narrow", sans-serif;
+  --font-georgia: "Georgia", serif;
+  --font-chomsky: "Chomsky", sans-serif;
 
   --animate-loading: load 0.8s steps(2) infinite;
 

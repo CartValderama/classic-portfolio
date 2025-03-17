@@ -50,8 +50,8 @@ const Window = ({
   const [isResizing, setIsResizing] = useState(false);
 
   const dragControls = useDragControls();
-  const x = useMotionValue(20 + Math.random() * 100);
-  const y = useMotionValue(20 + Math.random() * 100);
+  const x = useMotionValue(20 + Math.random() * 50);
+  const y = useMotionValue(20 + Math.random() * 50);
 
   const [preMaximizePosition, setPreMaximizePosition] = useState({
     x: 0,
@@ -88,8 +88,8 @@ const Window = ({
     if (isMaximized) setIsMaximized(!isMaximized);
 
     setSize({ width: iWidth, height: iHeight });
-    x.set(20 + Math.random() * 100);
-    y.set(20 + Math.random() * 100);
+    x.set(20 + Math.random() * 50);
+    y.set(20 + Math.random() * 50);
     onOpen(false);
   };
 
@@ -187,7 +187,11 @@ const Window = ({
             <Button size={"icon"} onClick={onMinimizeRestore}>
               <MdMinimize className="text-black text-[.6rem]" />
             </Button>
-            <Button size={"icon"} onClick={handleMaximize}>
+            <Button
+              size={"icon"}
+              onClick={handleMaximize}
+              className={`${!isResize && "hidden"}`}
+            >
               {isMaximized ? (
                 <FaRegWindowRestore className="text-black text-[.6rem]" />
               ) : (
@@ -201,7 +205,7 @@ const Window = ({
         </div>
 
         {/* Content */}
-        {children}
+        {isOpen && children}
 
         {/* Resize corner */}
         <div
@@ -209,8 +213,8 @@ const Window = ({
             !isMaximized && isResize ? "flex mt-1" : "hidden"
           }`}
         >
-          <div className="border h-4 w-4/6 border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center"></div>
-          <div className="relative border h-4 w-2/6 border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center"></div>
+          <div className="border h-6 w-4/6 border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center"></div>
+          <div className="relative border h-6 w-2/6 border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center"></div>
           <div
             className="absolute bottom-0 right-0 w-[6px] h-2  cursor-nwse-resize"
             onMouseDown={handleResize}

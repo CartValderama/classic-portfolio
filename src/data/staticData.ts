@@ -37,7 +37,7 @@ export const techStack = [
     color: "#ffbc14",
   },
   {
-    skill: "Shadcn UI",
+    skill: "Shadcn",
     color: "#46423f",
   },
   {

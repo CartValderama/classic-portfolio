@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
-import { Joy102, Mailnews8, Write1 } from "@react95/icons";
+import { Joy102, Mailnews8, Shell3242, Write1 } from "@react95/icons";
 import TaskBar from "./win95/TaskBar";
 import Window from "./win95/Window";
 import { useRef, useState } from "react";
-import AboutMe from "../about/AboutMe";
+import AboutMe from "../about/desktopVer/AboutMe";
 import Tictactoe from "../games/Tictactoe";
 import Wordle from "../games/Wordle";
+import AgeOfWar from "../games/AgeOfWar";
 
 export type DesktopAppProps = {
   Icon: React.ComponentType<{
@@ -26,6 +27,14 @@ type WindowsProps = {
 
 const desktopApps: DesktopAppProps[] = [
   {
+    Icon: Shell3242,
+    label: "Age of War",
+    id: "ageofwar",
+    Component: AgeOfWar,
+    iWidth: 300,
+    iHeight: 300,
+  },
+  {
     Icon: Joy102,
     label: "Tictactoe",
     id: "tictactoe",
@@ -38,15 +47,15 @@ const desktopApps: DesktopAppProps[] = [
     label: "Wordle",
     id: "wordle",
     Component: Wordle,
-    iWidth: 400,
-    iHeight: 350,
+    iWidth: 350,
+    iHeight: 460,
   },
   {
     Icon: Mailnews8,
     label: "About Me",
     id: "about",
     Component: AboutMe,
-    iWidth: 640,
+    iWidth: 730,
     iHeight: 400,
   },
 ];
@@ -57,16 +66,19 @@ const DesktopScreen = () => {
     about: false,
     tictactoe: false,
     wordle: false,
+    ageofwar: false,
   });
   const [activeWindows, setActiveWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
     wordle: false,
+    ageofwar: false,
   });
   const [minimizedWindows, setMinimizedWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
     wordle: false,
+    ageofwar: false,
   });
 
   const constraintsRef = useRef<HTMLDivElement | null>(null);
@@ -122,7 +134,7 @@ const DesktopScreen = () => {
         {desktopApps.map(({ Icon, label, id }) => (
           <button
             key={id}
-            className="bg-none shadow-none w-12 p-0 flex flex-col justify-center leading-[1.1] text-[0.9rem] gap-[5px] hover:bg-white/10"
+            className="bg-none shadow-none w-16 h-16 p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] gap-[5px] hover:bg-white/10"
             onDoubleClick={() => handleOpenWindows(id)}
           >
             <Icon className="w-[3rem]" variant="32x32_4" />
@@ -140,7 +152,7 @@ const DesktopScreen = () => {
               Icon={Icon}
               iWidth={iWidth}
               iHeight={iHeight}
-              isResize={true}
+              isResize={id === "tictactoe" ? false : true}
               constraintsRef={constraintsRef}
               isOpen={openWindows[id]}
               isMinimized={minimizedWindows[id]}

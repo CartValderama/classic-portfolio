@@ -1,1 +1,1 @@
-export const aboutMeMenu = ["Home", "Introduction", "Projects", "Experience"];
+export const aboutMeMenu = ["Home", "Introduction", "Experience", "Projects"];
