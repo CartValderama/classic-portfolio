@@ -18,7 +18,7 @@ type PuzzleStoreProps = {
   init: () => void;
   submitGuess: () => void;
   handleKeyup: (e: KeyboardEvent) => void;
-
+  handleKeyClick: (e: string) => void;
   allGuesses: () => string[];
   exactGuesses: () => string[];
   inexactGuesses: () => string[];
@@ -167,7 +167,7 @@ const Querty = () => {
 
   return (
     <div className="flex flex-wrap items-center justify-center text-xs gap-0.5 max-w-[20rem]">
-      {qwerty.split("").map((char) => {
+      {qwerty.split("").map((char, i) => {
         const bgColor = exactGuesses().includes(char)
           ? "bg-green-400"
           : inexactGuesses().includes(char)
@@ -178,6 +178,7 @@ const Querty = () => {
 
         return (
           <Button
+            key={i}
             variant={"default"}
             className={`uppercase py-1 px-2 ${bgColor}`}
             onClick={() => handleKeyClick(char)}

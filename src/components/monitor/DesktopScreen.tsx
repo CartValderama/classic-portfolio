@@ -55,7 +55,7 @@ const desktopApps: DesktopAppProps[] = [
     label: "About Me",
     id: "about",
     Component: AboutMe,
-    iWidth: 730,
+    iWidth: 715,
     iHeight: 400,
   },
 ];

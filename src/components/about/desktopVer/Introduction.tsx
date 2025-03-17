@@ -18,9 +18,9 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
 
       <HeadDivider dateOnly={false} />
 
-      <section className="flex flex-col hyphens-auto">
+      <section className="flex flex-col hyphens-auto mb-4">
         <article className="grid grid-cols-3 gap-x-4">
-          <h2 className="col-span-3 text-[3.1rem] leading-13 font-bold mt-2 capitalize text-">
+          <h2 className="col-span-3 text-[3.04rem] leading-13 font-bold mt-2 capitalize text-center">
             a *little* bit about myself
           </h2>
 
@@ -99,7 +99,7 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
         <ToolsDivider />
 
         <article className="grid grid-cols-3 gap-x-4 text-justify ">
-          <h3 className="col-span-1 text-3xl my-1">Background</h3>
+          <h3 className="col-span-1 text-3xl my-1">Education</h3>
           <div className="row-start-2">
             <p>
               My main educational journey began after moving to Norway. Why only
