@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
-import { Joy102, Mailnews8, Shell3242, Write1 } from "@react95/icons";
+import { Access110, Joy102, Mailnews8, Tree, Write1 } from "@react95/icons";
 import TaskBar from "./win95/TaskBar";
 import Window from "./win95/Window";
 import { useRef, useState } from "react";
 import AboutMe from "../about/desktopVer/AboutMe";
 import Tictactoe from "../games/Tictactoe";
 import Wordle from "../games/Wordle";
+import OldPorfolio from "./OldPortolio";
 import AgeOfWar from "../games/AgeOfWar";
 
 export type DesktopAppProps = {
@@ -27,28 +28,36 @@ type WindowsProps = {
 
 const desktopApps: DesktopAppProps[] = [
   {
-    Icon: Shell3242,
+    Icon: Tree,
     label: "Age of War",
     id: "ageofwar",
     Component: AgeOfWar,
-    iWidth: 300,
-    iHeight: 300,
+    iWidth: 450,
+    iHeight: 450,
   },
   {
     Icon: Joy102,
     label: "Tictactoe",
     id: "tictactoe",
     Component: Tictactoe,
-    iWidth: 250,
-    iHeight: 350,
+    iWidth: 300,
+    iHeight: 400,
   },
   {
     Icon: Write1,
     label: "Wordle",
     id: "wordle",
     Component: Wordle,
-    iWidth: 350,
-    iHeight: 460,
+    iWidth: 400,
+    iHeight: 560,
+  },
+  {
+    Icon: Access110,
+    label: "Old Portfolio",
+    id: "oldportfolio",
+    Component: OldPorfolio,
+    iWidth: 500,
+    iHeight: 500,
   },
   {
     Icon: Mailnews8,
@@ -66,18 +75,21 @@ const DesktopScreen = () => {
     about: false,
     tictactoe: false,
     wordle: false,
+    oldportfolio: false,
     ageofwar: false,
   });
   const [activeWindows, setActiveWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
     wordle: false,
+    oldportfolio: false,
     ageofwar: false,
   });
   const [minimizedWindows, setMinimizedWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
     wordle: false,
+    oldportfolio: false,
     ageofwar: false,
   });
 
@@ -152,7 +164,7 @@ const DesktopScreen = () => {
               Icon={Icon}
               iWidth={iWidth}
               iHeight={iHeight}
-              isResize={id === "tictactoe" ? false : true}
+              isResize={id === "tictactoe" || id === "wordle" ? false : true}
               constraintsRef={constraintsRef}
               isOpen={openWindows[id]}
               isMinimized={minimizedWindows[id]}

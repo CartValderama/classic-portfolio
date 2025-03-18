@@ -34,17 +34,16 @@ const Experience = ({ selectMenu }: selectMenuProps) => {
               </p>
             </div>
             <p>
-              Development ran from January to June 2024, with the goal of
-              integrating AI into flashcard-based lea-
+              Development started from January to June 2024. In the end, we were
+              abled to satisfy
             </p>{" "}
           </div>
 
           <div className="col-start-2 row-span-3 mt-1">
             <div>
               <p>
-                -rning. In the end, we were abled to satisfy Forte's
-                requirements and also achieved the highest grade possible for
-                our thesis. My contributions for this project were:
+                Forte's requirements and also achieved the highest grade
+                possible for our thesis. My contributions for this project were:
               </p>
               <p>
                 <span className="mr-2">§</span>
@@ -68,9 +67,9 @@ const Experience = ({ selectMenu }: selectMenuProps) => {
             </div>
             <h3 className="text-3xl my-2 capitalize">Nander Group</h3>
             <p>
-              Completed a school mandatory one-month internship with Nander
-              Structural Engineering Group from January to February 2018 to gain
-              hands-on experience in a profesio-
+              Completed a school mandatory internship with Nander Structural
+              Engineering Group from January to February 2018 to gain hands-on
+              experi-
             </p>
           </div>
 
@@ -81,8 +80,8 @@ const Experience = ({ selectMenu }: selectMenuProps) => {
             </div>
             <div>
               <p>
-                -nal work setting. Here are the things the I learned and
-                contributed during my time in Nander:
+                -ence in a profesional work setting. Here are the things the I
+                learned and contributed during my time in Nander:
               </p>
               <p>
                 <span className="mr-2">§</span>
@@ -95,8 +94,7 @@ const Experience = ({ selectMenu }: selectMenuProps) => {
                 <strong className="font-bold">
                   Gained basic understading on how to operate AutoCAD
                 </strong>{" "}
-                by working and testing Nander's previous blueprint designs and
-                templates.
+                by working and testing Nander's previous blueprint designs.
               </p>
             </div>
           </div>

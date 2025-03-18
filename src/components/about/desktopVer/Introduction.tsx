@@ -20,7 +20,7 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
 
       <section className="flex flex-col hyphens-auto mb-4">
         <article className="grid grid-cols-3 gap-x-4">
-          <h2 className="col-span-3 text-[3.04rem] leading-13 font-bold mt-2 capitalize text-center">
+          <h2 className="col-span-3 text-[3.1rem] leading-13 font-bold mt-2 capitalize text-center">
             a *little* bit about myself
           </h2>
 
@@ -34,12 +34,11 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
               opportunities.
             </p>
             <p>
-              I prefer working on the frontend but I can handle some backend as
+              I like working on the frontend but I can handle some backend as
               well if needed. My approach to work mainly involves creating a web
               layout that is both simple and intuitive enough to accommodate a
               wide range of users. In order to backed this approach, I use my
-              solid foundation in technologies such as <i>HTML</i>, <i>CSS</i>,{" "}
-              <i>JavaScript</i>,
+              solid foundation in technologies such as <i>HTML</i>,
             </p>
           </div>
 
@@ -55,43 +54,34 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
               </p>
             </div>
             <p>
-              <i>TypeScript</i>, and <i>Git</i>, along with experience with
-              libraries and frameworks like <i>React</i>, <i>Bootsrap</i>,{" "}
-              <i>TailwindCSS</i>, and <i>Vite</i>.
+              <i>CSS</i>, <i>JavaScript</i>, <i>TypeScript</i>, and <i>Git</i>,
+              along with experience with libraries and frameworks like{" "}
+              <i>Tailwind</i>, <i>React</i>, <i>Bootstrap</i>, and <i>Vite</i>.
             </p>
             <p>
               This is actually the second version of my portfolio, as the first
-              one w-
+              one too plain for others.
             </p>
           </div>
 
           <div className="row-start-2 row-span-1 col-start-3 text-justify">
             <p>
-              -as too plain and bland for others. So this time, I've added more
-              interactivity and showcased some of my personality to create a
-              more engaging experience and give a better sense of who I am,
-              without being as boring as the previous one{" "}
-              <span>
-                (
-                <a
-                  href="https://cart-valderama-portfolio.vercel.app/"
-                  target="_blank"
-                  className="underline"
-                >
-                  see first version
-                </a>
-                )
-              </span>
-              .
+              So this time, I've added more interactivity and showcased some of
+              my personality to create a more engaging experience and give a
+              better sense of who I am, without being as boring as the previous
+              one.
             </p>
             <p>
               I really hope you enjoy exploring this version of my personal
               portfolio as much as I enjoyed designing and creating it.
             </p>
             <p>
-              If you have any questions regarding my portfolio or potential
-              work, feel free to contact me via email at
-              cartantonio200@gmail.com.
+              If you have any questions about my portfolio or potential work
+              opportunities, feel free to reach out via email at{" "}
+              <a href="mailto:cartantonio200@gmail.com">
+                cartantonio200@gmail.com
+              </a>{" "}
+              or send an SMS to 90883637.
             </p>
           </div>
         </article>
@@ -102,51 +92,47 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
           <h3 className="col-span-1 text-3xl my-1">Education</h3>
           <div className="row-start-2">
             <p>
-              My main educational journey began after moving to Norway. Why only
-              began here? Because my senior highschool diploma from the
-              Philippines was not recognized by universities in Norway, so I had
-              to repeat highschool here, which caused some delays.
+              My main educational journey began after moving to Norway. I had to
+              repeat highschool because my senior highschool diploma from the
+              Philippines was not recognized by universities in Norway.
             </p>
             <p>
-              After obtaining the required general qualifications at Stabekk
+              After obtaining the required general competence at Stabekk
               Videregående Skole in 2020, I continued my studies at Oslo
               Metropolitan University, where I pursued a{" "}
               <strong className="font-bold">Bachelor's Degree</strong> in{" "}
-              <strong className="font-bold">
-                Information Technology and graduated in 2024
-              </strong>
-              . Currently,
+              <strong className="font-bold">Information Technology</strong> and
+              graduated in 2024 .
             </p>
           </div>
           <div className="row-span-3">
             <p>
-              I am continuing my studies with a{" "}
-              <strong className="font-bold">Master's Degree</strong> in{" "}
-              <strong className="font-bold">Universal Design of ICT</strong> at
-              the same institution, where I am learning more about
-              accessibility.
+              Current, I'm taking my{" "}
+              <strong className="font-bold">
+                Master's Degree in Universal Design of ICT
+              </strong>{" "}
+              at the same institution.
             </p>
             <p>
-              Outside of academics, I have completed several certifications from
-              freeCodeCamp.org, including Web Responsive Design in 2023 and
+              Outside of academics, I have completed certifications from
+              freeCodeCamp, which are Web Responsive Design in 2023 and
               JavaScript Legacy (both the main and beta versions) in 2024.
             </p>
             <h3 className="text-3xl my-1">I'm Fluent In</h3>
             <p>
               I can speak Filipino (Tagalog) and am proficient in English (US).
               While I prefer to speak and converse in English in work, I have
-              B1-level proficiency in Norwegian,
+              B1-level proficiency in Norwegian, which I
             </p>
           </div>
           <div className="row-span-3">
-            <p> which I use mainly for reading and writing.</p>
+            <p> use mainly for reading important documents.</p>
             <h3 className="text-3xl my-1">My Hobbies</h3>
             <p>
               Outside of coding web interfaces, I have a strong interest in
               sports, especially basketball. Moving to Norway, a non-nasketball
               country, made it challenging to continue this hobby at first.
-              Fortunately, I found and joined Filipino basketball leagues, which
-              made it easier to play with others.
+              Fortunately, I found and joined Filipino basketball leagues.
             </p>
             <p>
               Another thing I enjoy is barbecuing. I usually do it during the

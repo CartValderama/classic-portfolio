@@ -42,7 +42,7 @@ const AboutMe = () => {
         ))}
       </div>
       <div
-        className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-[.85rem] leading-6 px-2 font-georgia"
+        className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-base leading-6 px-2 font-georgia"
         ref={aboutMeContentRef}
       >
         <Home selectMenu={selectMenu} setSelectMenu={setSelectMenu} />

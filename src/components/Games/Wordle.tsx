@@ -150,7 +150,7 @@ const Guess = ({ word, guess, isGuessed }: GuessProps) => {
         return (
           <p
             key={i}
-            className={`border m-0.5 min-h-10 min-w-12 flex text-xs items-center justify-center uppercase ${bgColor} `}
+            className={`border m-0.5 min-h-12 min-w-14 flex text-xs items-center justify-center uppercase ${bgColor} `}
           >
             {guess[i]}
           </p>
@@ -180,7 +180,7 @@ const Querty = () => {
           <Button
             key={i}
             variant={"default"}
-            className={`uppercase py-1 px-2 ${bgColor}`}
+            className={`uppercase py-2 px-3 ${bgColor}`}
             onClick={() => handleKeyClick(char)}
           >
             {char}
@@ -189,14 +189,14 @@ const Querty = () => {
       })}
       <Button
         variant={"default"}
-        className="bg-gray-200 py-1 px-2"
+        className="bg-gray-200 py-2 px-3"
         onClick={() => handleKeyClick("Delete")}
       >
         Del
       </Button>
       <Button
         variant={"default"}
-        className="bg-gray-200 py-1 px-2"
+        className="bg-gray-200 py-2 px-3"
         onClick={() => handleKeyClick("Enter")}
       >
         Enter
@@ -220,7 +220,7 @@ const Wordle = () => {
   return (
     <div className="flex flex-col items-center justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-2 font-georgia">
       <h1 className="mb-1 font-bold">
-        {won ? "You Win!" : lost ? "You Lose!" : "Wordle"}
+        {won ? "You Win!" : lost ? "You Lose!" : "Guess The Word"}
       </h1>
 
       <div className="flex flex-col gap-y-2">
@@ -239,7 +239,7 @@ const Wordle = () => {
 
       <Button
         variant={"default"}
-        className={`bg-gray-200 py-1 px-2 text-xs opacity-0 select-none cursor-auto ${
+        className={`bg-gray-200 py-2 px-3 text-xs opacity-0 select-none cursor-auto ${
           (lost || won) && "opacity-100 select-all cursor-pointer"
         }`}
         disabled={!(won || lost)}

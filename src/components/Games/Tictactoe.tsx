@@ -177,16 +177,15 @@ const TicTacToe = () => {
             </span>
           </p>
         </div>
-
         <div className="grid grid-cols-3 justify-items-center place-items-center flex-1 w-full border border-white border-l-[#868a8e] border-t-[#868a8e]">
           {board.map((cell, index) => (
             <Button
               key={index}
               onClick={() => handleClick(index)}
               disabled={!!cell || !!winner || isDraw}
-              className="w-full h-[70px]  text-3xl"
+              className="w-full h-full flex justify-center items-center text-4xl"
             >
-              {cell}
+              {cell || <span className="opacity-0">X</span>}
             </Button>
           ))}
         </div>

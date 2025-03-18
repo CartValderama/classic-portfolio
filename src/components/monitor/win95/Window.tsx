@@ -112,23 +112,20 @@ const Window = ({
       moveEvent.preventDefault();
       moveEvent.stopPropagation();
 
-      const newWidth = startWidth + (moveEvent.clientX - startX);
-      const newHeight = startHeight + (moveEvent.clientY - startY);
+      // Calculate the new width and height based on cursor movement
+      const deltaX = moveEvent.clientX - startX;
+      const deltaY = moveEvent.clientY - startY;
 
-      if (
-        x.get() + containerRect.width * 0.18 + newWidth > containerRect.width ||
-        y.get() + containerRect.height * 0.185 + newHeight >
-          containerRect.height
-      ) {
-        return;
-      }
+      const newWidth = startWidth + deltaX;
+      const newHeight = startHeight + deltaY;
+
+      // Ensure the new size stays within the container bounds
+      const maxWidth = containerRect.width - 13 - x.get();
+      const maxHeight = containerRect.height - 18 - y.get();
 
       setSize({
-        width: Math.max(iWidth, Math.min(newWidth, containerRect.width - 150)),
-        height: Math.max(
-          iHeight,
-          Math.min(newHeight, containerRect.height - 100)
-        ),
+        width: Math.max(iWidth, Math.min(newWidth, maxWidth)),
+        height: Math.max(iHeight, Math.min(newHeight, maxHeight)),
       });
     };
 
@@ -205,7 +202,19 @@ const Window = ({
         </div>
 
         {/* Content */}
-        {isOpen && children}
+        {isOpen && (
+          <div
+            className={`w-full h-full flex flex-col relative overflow-auto
+            `}
+          >
+            <div
+              className={`absolute w-full h-full -z-10 ${
+                isResizing && "opacity-50 z-10 bg-white"
+              }`}
+            ></div>
+            {children}
+          </div>
+        )}
 
         {/* Resize corner */}
         <div

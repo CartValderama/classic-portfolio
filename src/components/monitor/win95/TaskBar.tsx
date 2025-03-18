@@ -115,7 +115,7 @@ const TaskBar = ({
               key={id}
               variant={"tab"}
               size={"tab"}
-              className={`${
+              className={`min-w-34 ${
                 minimizedWindows[id] // If the window is minimized
                   ? "shadow-outline"
                   : isActive[id] // If the window is active
