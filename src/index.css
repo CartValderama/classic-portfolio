@@ -2,6 +2,7 @@
 @import url("https://fonts.cdnfonts.com/css/franklin-gothic");
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 @import url("https://fonts.cdnfonts.com/css/chomsky");
+@import url("https://fonts.cdnfonts.com/css/la-rapidita");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -16,8 +17,12 @@
   --font-gothic: "Franklin Gothic", sans-serif;
   --font-georgia: "Georgia", serif;
   --font-chomsky: "Chomsky", sans-serif;
+  --font-dvd: "La Rapidita", sans-serif;
 
   --animate-loading: load 0.8s steps(2) infinite;
+  --animate-dvd: moveX 4.9s linear 0s infinite alternate,
+    moveY 3.8s linear 0s infinite alternate;
+  --animate-fontcolor: colorChange 5s infinite;
 
   --shadow-outline: 1px 1px 0 black;
 
@@ -29,6 +34,42 @@
       visibility: visible;
     }
   }
+
+  @keyframes moveX {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: calc(100% - 220px); /* Adjust based on logo width */
+    }
+  }
+
+  @keyframes moveY {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: calc(100% - 40px); /* Adjust based on logo height */
+    }
+  }
+
+  @keyframes colorChange {
+    0% {
+      color: blue;
+    }
+    25% {
+      color: red;
+    }
+    50% {
+      color: yellow;
+    }
+    75% {
+      color: green;
+    }
+    100% {
+      color: blue;
+    }
+  }
 }
 
 html {
@@ -37,4 +78,23 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   font-weight: 300;
+}
+
+.box {
+  background-color: black;
+  margin: 0 auto;
+  width: 500px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.box b {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #999999;
+  position: absolute;
+  animation: moveX 5s linear 0s infinite alternate,
+    moveY 5s linear 0s infinite alternate;
 }

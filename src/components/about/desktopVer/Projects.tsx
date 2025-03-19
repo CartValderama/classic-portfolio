@@ -2,13 +2,7 @@ import { projects } from "../../../data/projects";
 import { selectMenuProps } from "./AboutMe";
 import HeadDivider from "../divider/HeadDivider";
 import ResumeDivider from "../divider/ResumeDivider";
-import {
-  BsCheck2Circle,
-  BsGithub,
-  BsGlobe,
-  BsHammer,
-  BsPeople,
-} from "react-icons/bs";
+import { BsGithub, BsGlobe, BsPeople } from "react-icons/bs";
 
 const Projects = ({ selectMenu }: selectMenuProps) => {
   return (
@@ -21,10 +15,7 @@ const Projects = ({ selectMenu }: selectMenuProps) => {
 
       <section className="flex flex-col gap-y-8 mb-4">
         {projects.map(
-          (
-            { name, desc, figDesc, source, demo, topics, img, status, solo },
-            idx
-          ) => (
+          ({ name, desc, figDesc, source, demo, topics, img, solo }, idx) => (
             <article
               key={idx}
               className={`flex flex-col gap-y-2 text-justify border-t py-2 ${
@@ -60,34 +51,23 @@ const Projects = ({ selectMenu }: selectMenuProps) => {
                 </div>
 
                 <p className={`col-start-2 row-start-3 `}>{desc?.[2]}</p>
-                <div className="col-start-3 row-start-3 flex flex-col gap-0.5 text-xs font-ms mt-2 mb-1">
+                <div className="col-start-3 row-start-3 flex flex-col gap-0.5 text-sm font-ms mt-1">
                   <a
                     href={source}
                     target="_blank"
-                    className="bg-black text-white px-2 py-[0.31rem] flex items-center justify-start gap-x-2 underline"
+                    className="bg-black text-white p-2 flex items-center justify-start gap-x-2 underline"
                   >
-                    <BsGithub /> Click this for source code
+                    <BsGithub /> Check out source code
                   </a>
                   <a
                     href={demo}
                     target="_blank"
-                    className="bg-black text-white px-2 py-[0.31rem] flex items-center justify-start gap-x-2 underline"
+                    className="bg-black text-white p-2 flex items-center justify-start gap-x-2 underline"
                   >
                     <BsGlobe /> Click this to see demo
                   </a>
-                  <p className="bg-black text-white flex px-2 py-[0.31rem] items-center justify-start gap-x-2">
+                  <p className="bg-black text-white flex p-2 items-center justify-start gap-x-2">
                     <BsPeople /> {solo ? "Personal Project" : "Group Project"}
-                  </p>
-                  <p className="bg-black text-white px-2 py-[0.31rem] flex items-center justify-start ">
-                    {status ? (
-                      <span className="flex items-center gap-x-2">
-                        <BsCheck2Circle /> Completed
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-x-2">
-                        <BsHammer /> Ongoing
-                      </span>
-                    )}
                   </p>
                 </div>
               </div>

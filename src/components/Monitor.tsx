@@ -23,7 +23,7 @@ const Monitor = () => {
           <div className="absolute bg-[#a0926f] w-full h-full opacity-35 rounded-md"></div>
           <div className="absolute mt-2 w-[98.5%] h-[98%] rounded border-[1rem] border-t-[#847959] border-x-[#a0926f] border-b-[1.5rem]  border-b-transparent"></div>
 
-          <div className="absolute mt-6 bg-[#0b0b0b] w-[95.1%] h-[92.1%]">
+          <div className="absolute mt-6 bg-[#0b0b0b] w-[95.1%] h-[92.3%]">
             <MainScreen />
           </div>
         </div>

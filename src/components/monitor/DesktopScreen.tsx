@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
-import { Access110, Joy102, Mailnews8, Tree, Write1 } from "@react95/icons";
+import {
+  Access110,
+  Joy102,
+  Mailnews8,
+  Mplayer10,
+  Write1,
+} from "@react95/icons";
 import TaskBar from "./win95/TaskBar";
 import Window from "./win95/Window";
 import { useRef, useState } from "react";
@@ -8,7 +14,7 @@ import AboutMe from "../about/desktopVer/AboutMe";
 import Tictactoe from "../games/Tictactoe";
 import Wordle from "../games/Wordle";
 import OldPorfolio from "./OldPortolio";
-import AgeOfWar from "../games/AgeOfWar";
+import Credits from "../Credits";
 
 export type DesktopAppProps = {
   Icon: React.ComponentType<{
@@ -28,10 +34,10 @@ type WindowsProps = {
 
 const desktopApps: DesktopAppProps[] = [
   {
-    Icon: Tree,
-    label: "Age of War",
-    id: "ageofwar",
-    Component: AgeOfWar,
+    Icon: Mplayer10,
+    label: "Credits",
+    id: "credits",
+    Component: Credits,
     iWidth: 450,
     iHeight: 450,
   },
@@ -48,7 +54,7 @@ const desktopApps: DesktopAppProps[] = [
     label: "Wordle",
     id: "wordle",
     Component: Wordle,
-    iWidth: 400,
+    iWidth: 360,
     iHeight: 560,
   },
   {
@@ -76,21 +82,21 @@ const DesktopScreen = () => {
     tictactoe: false,
     wordle: false,
     oldportfolio: false,
-    ageofwar: false,
+    credits: false,
   });
   const [activeWindows, setActiveWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
     wordle: false,
     oldportfolio: false,
-    ageofwar: false,
+    credits: false,
   });
   const [minimizedWindows, setMinimizedWindows] = useState<WindowsProps>({
     about: false,
     tictactoe: false,
     wordle: false,
     oldportfolio: false,
-    ageofwar: false,
+    credits: false,
   });
 
   const constraintsRef = useRef<HTMLDivElement | null>(null);
