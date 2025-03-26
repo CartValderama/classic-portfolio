@@ -5,7 +5,9 @@ import DesktopScreen from "./DesktopScreen";
 const MainScreen = () => {
   const { start } = useStart();
   return (
-    <div className={`w-full h-full relative ${!start && "select-none"}`}>
+    <div
+      className={`w-full h-full  relative ${!start && "select-none bg-black"}`}
+    >
       <BootUpScreen />
       <DesktopScreen />
     </div>

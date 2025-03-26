@@ -89,9 +89,7 @@ const getAIMove = (board: Board): number => {
 
 const TicTacToe = () => {
   const [board, setBoard] = useState<Board>(Array(9).fill(EMPTY));
-  const [currentPlayer, setCurrentPlayer] = useState<"X" | "O">(
-    Math.random() < 0.5 ? PLAYER_X : PLAYER_O
-  );
+  const [currentPlayer, setCurrentPlayer] = useState<"X" | "O">("X");
   const [gameMode, setGameMode] = useState<"human" | "ai">("human");
   const [control, setControl] = useState(false);
 
@@ -130,7 +128,7 @@ const TicTacToe = () => {
   const resetGame = () => {
     setControl(false);
     setBoard(Array(9).fill(EMPTY));
-    setCurrentPlayer(Math.random() < 0.5 ? PLAYER_X : PLAYER_O); // Randomize starting player
+    setCurrentPlayer(PLAYER_X); // Randomize starting player
   };
 
   const winner = checkWinner(board);

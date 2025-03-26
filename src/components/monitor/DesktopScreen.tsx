@@ -10,11 +10,11 @@ import {
 import TaskBar from "./win95/TaskBar";
 import Window from "./win95/Window";
 import { useRef, useState } from "react";
-import AboutMe from "../about/desktopVer/AboutMe";
+import AboutMe from "../about/AboutMe";
 import Tictactoe from "../games/Tictactoe";
 import Wordle from "../games/Wordle";
 import OldPorfolio from "./OldPortolio";
-import Credits from "../Credits";
+import Credits from "./Credits";
 
 export type DesktopAppProps = {
   Icon: React.ComponentType<{
@@ -70,7 +70,7 @@ const desktopApps: DesktopAppProps[] = [
     label: "About Me",
     id: "about",
     Component: AboutMe,
-    iWidth: 715,
+    iWidth: 330,
     iHeight: 400,
   },
 ];
@@ -137,14 +137,14 @@ const DesktopScreen = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={start ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0, delay: start ? 10 : 0 }}
-      className="relative z-[999] top-0 flex w-full h-full flex-col justify-between leading-6 bg-[#196364] font-system text-black "
+      animate={start ? { opacity: 1, zIndex: 10 } : { opacity: 1, zIndex: -1 }}
+      transition={{ duration: 0, delay: start ? 6.9 : 0 }}
+      className={`relative flex w-full h-full flex-col justify-between bg-[#196364] font-system text-black`}
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0, delay: start ? 11 : 0 }}
+        transition={{ duration: 0, delay: start ? 8 : 0 }}
         className="relative flex flex-col justify-start items-start overflow-hidden gap-y-6 px-3 py-4 text-[#010101] w-full h-full"
         ref={constraintsRef}
       >

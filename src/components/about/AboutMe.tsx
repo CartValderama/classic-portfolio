@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { Button } from "../../monitor/win95/Button";
-import Home from "./Home";
+import { Button } from "../monitor/win95/Button";
 import Introduction from "./Introduction";
 import Projects from "./Projects";
 import Experience from "./Experience";
-import { useStart } from "../../../context/StartContext";
-import { aboutMeMenu } from "../../../data/aboutMenu";
+import { useStart } from "../../context/StartContext";
+import { aboutMeMenu } from "../../data/staticData";
+import More from "./More";
 
 export type selectMenuProps = {
   selectMenu: string;
@@ -13,11 +13,11 @@ export type selectMenuProps = {
 
 const AboutMe = () => {
   const { start } = useStart();
-  const [selectMenu, setSelectMenu] = useState("Home");
+  const [selectMenu, setSelectMenu] = useState("Intro");
   const aboutMeContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!start) setSelectMenu("Home");
+    if (!start) setSelectMenu("Intro");
   }, [start]);
 
   useEffect(() => {
@@ -42,13 +42,13 @@ const AboutMe = () => {
         ))}
       </div>
       <div
-        className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-base leading-6 px-2 font-georgia"
+        className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-base leading-6 px-4 py-6 font-geist"
         ref={aboutMeContentRef}
       >
-        <Home selectMenu={selectMenu} setSelectMenu={setSelectMenu} />
         <Introduction selectMenu={selectMenu} />
         <Projects selectMenu={selectMenu} />
         <Experience selectMenu={selectMenu} />
+        <More selectMenu={selectMenu} />
       </div>
     </div>
   );

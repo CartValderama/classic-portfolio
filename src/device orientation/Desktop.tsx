@@ -1,5 +1,5 @@
 import { ButtonMain } from "../components/ButtonMain";
-import Monitor from "../components/Monitor";
+import Monitor from "../components/monitor/Monitor";
 import { useStart } from "../context/StartContext";
 import { motion } from "framer-motion";
 

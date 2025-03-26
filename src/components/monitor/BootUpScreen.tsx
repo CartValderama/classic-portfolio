@@ -37,12 +37,12 @@ const BootUpScreen = () => {
     <motion.div
       key={start ? "start-true" : "start-false"}
       initial={{ opacity: 1 }}
-      animate={start ? { opacity: 0 } : { opacity: 1 }}
+      animate={start ? { opacity: 0, zIndex: -1 } : { opacity: 1, zIndex: 10 }}
       transition={{
         duration: 0.1,
-        delay: 8,
+        delay: 7,
       }}
-      className="z-50 absolute flex w-full h-full font-system opacity-85 2xl:text-xl blur-[.4px] text-neutral-200"
+      className="z-10 absolute flex w-full h-full font-system opacity-85 text-xl blur-[.4px] bg-black text-neutral-200"
     >
       {/* boot up screen */}
       <motion.div
@@ -52,7 +52,7 @@ const BootUpScreen = () => {
           duration: 0.1,
           delay: 5,
         }}
-        className="relative flex-1 leading-6 2xl:leading-7 p-5"
+        className="relative flex-1 leading-7 p-5"
       >
         <motion.div
           initial={{ opacity: 0 }}
@@ -62,7 +62,7 @@ const BootUpScreen = () => {
           <img
             src="https://i.imgur.com/wA8i2DU.png"
             alt=""
-            className="w-44 h-40 2xl:w-60 2xl:h-56 absolute top-0 right-0 mx-5 my-2 backdrop-grayscale-75 blur-[.4px] grayscale-100"
+            className="w-60 h-56 absolute top-0 right-0 mx-5 my-2 backdrop-grayscale-75 blur-[.4px] grayscale-100"
           />
         </motion.div>
 
@@ -77,7 +77,7 @@ const BootUpScreen = () => {
             }}
             className={`${
               index === bootMessages.length - 1 &&
-              "animate-loading absolute bottom-0 mb-5 text-2xl 2xl:text-4xl"
+              "animate-loading absolute bottom-0 mb-5 text-4xl"
             } ${text.startsWith("Detecting") && "ml-5"}`}
           >
             {formatMessage(text)}
@@ -91,7 +91,7 @@ const BootUpScreen = () => {
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{
           duration: 0.1,
-          delay: 6,
+          delay: 5.5,
         }}
         className={`w-full h-full flex flex-col justify-center items-center absolute leading-6 font-system p-5`}
       >

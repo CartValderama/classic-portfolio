@@ -2,6 +2,8 @@ import { create } from "zustand";
 import words from "../games/gameData/word.json";
 import { useEffect } from "react";
 import { Button } from "../monitor/win95/Button";
+import { MdKeyboardBackspace } from "react-icons/md";
+import { GrReturn } from "react-icons/gr";
 
 type GuessProps = {
   word: string;
@@ -150,7 +152,7 @@ const Guess = ({ word, guess, isGuessed }: GuessProps) => {
         return (
           <p
             key={i}
-            className={`border m-0.5 min-h-12 min-w-14 flex text-xs items-center justify-center uppercase ${bgColor} `}
+            className={`border m-0.5 min-h-12 min-w-14 flex items-center justify-center uppercase ${bgColor} `}
           >
             {guess[i]}
           </p>
@@ -161,46 +163,58 @@ const Guess = ({ word, guess, isGuessed }: GuessProps) => {
 };
 
 const Querty = () => {
-  const qwerty = "qwertyuiopasdfghjklzxcvbnm";
+  const qwerty = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
   const { exactGuesses, allGuesses, inexactGuesses, handleKeyClick } =
     PuzzleStore();
 
   return (
-    <div className="flex flex-wrap items-center justify-center text-xs gap-0.5 max-w-[20rem]">
-      {qwerty.split("").map((char, i) => {
-        const bgColor = exactGuesses().includes(char)
-          ? "bg-green-400"
-          : inexactGuesses().includes(char)
-          ? "bg-yellow-400"
-          : allGuesses().includes(char)
-          ? "bg-gray-400"
-          : "bg-gray-200";
+    <div className="flex flex-wrap items-center justify-center gap-0.5 max-w-[20rem]">
+      {qwerty.map((row, idx) => (
+        <div key={idx} className="flex justify-center gap-0.5">
+          {/* Render each key */}
+          {row.split("").map((char, idy) => {
+            const bgColor = exactGuesses().includes(char)
+              ? "bg-green-400"
+              : inexactGuesses().includes(char)
+              ? "bg-yellow-400"
+              : allGuesses().includes(char)
+              ? "bg-gray-400"
+              : "bg-gray-200";
+            return (
+              <Button
+                key={idy}
+                variant={"default"}
+                className={`uppercase px-2 py-1 ${bgColor}`}
+                onClick={() => handleKeyClick(char)}
+              >
+                {char}
+              </Button>
+            );
+          })}
 
-        return (
-          <Button
-            key={i}
-            variant={"default"}
-            className={`uppercase py-2 px-3 ${bgColor}`}
-            onClick={() => handleKeyClick(char)}
-          >
-            {char}
-          </Button>
-        );
-      })}
-      <Button
-        variant={"default"}
-        className="bg-gray-200 py-2 px-3"
-        onClick={() => handleKeyClick("Delete")}
-      >
-        Del
-      </Button>
-      <Button
-        variant={"default"}
-        className="bg-gray-200 py-2 px-3"
-        onClick={() => handleKeyClick("Enter")}
-      >
-        Enter
-      </Button>
+          {/* Add Backspace button to the first row */}
+          {idx === 0 && (
+            <Button
+              variant={"default"}
+              className="bg-gray-200 px-2 py-1"
+              onClick={() => handleKeyClick("Delete")}
+            >
+              <MdKeyboardBackspace />
+            </Button>
+          )}
+
+          {/* Add Return button to the middle row */}
+          {idx === Math.floor(qwerty.length / 2) && (
+            <Button
+              variant={"default"}
+              className="bg-gray-200 px-2 py-1"
+              onClick={() => handleKeyClick("Enter")}
+            >
+              <GrReturn />
+            </Button>
+          )}
+        </div>
+      ))}
     </div>
   );
 };
@@ -218,8 +232,8 @@ const Wordle = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-2 font-georgia">
-      <h1 className="mb-1 font-bold">
+    <div className="flex flex-col items-center justify-start flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-2">
+      <h1 className="my-2 text-2xl font-bold">
         {won ? "You Win!" : lost ? "You Lose!" : "Guess The Word"}
       </h1>
 
@@ -239,7 +253,7 @@ const Wordle = () => {
 
       <Button
         variant={"default"}
-        className={`bg-gray-200 py-2 px-3 text-xs opacity-0 select-none cursor-auto ${
+        className={`bg-gray-200 p-2 opacity-0 select-none cursor-auto ${
           (lost || won) && "opacity-100 select-all cursor-pointer"
         }`}
         disabled={!(won || lost)}

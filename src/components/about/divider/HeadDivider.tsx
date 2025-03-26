@@ -20,19 +20,18 @@ const HeadDivider = ({ dateOnly }: headDividerProps) => {
 
   return (
     <div
-      className={` flex border-y ${
+      className={` flex border-y my-2 ${
         dateOnly ? "justify-center " : "justify-between "
       } items-center w-full gap-x-4 py-2 text-xs`}
     >
-      <p className={`${dateOnly && "hidden"}`}>Second portfolio version</p>
-      <p>Oslo, {date}</p>
+      <p>{date}</p>
       <a
         href="</div>/docs/CV_ValderamaCart.pdf"
         download
         className={`flex gap-1 items-center underline ${dateOnly && "hidden"}`}
         aria-label="Download Cart Valderama's resume as a PDF"
       >
-        Click this to download my CV
+        Check out my CV
       </a>
     </div>
   );

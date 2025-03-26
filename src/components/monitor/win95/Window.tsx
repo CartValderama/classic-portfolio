@@ -209,7 +209,7 @@ const Window = ({
           >
             <div
               className={`absolute w-full h-full -z-10 ${
-                isResizing && "opacity-50 z-10 bg-white"
+                (isResizing || !isActive) && "opacity-30 z-10 bg-white"
               }`}
             ></div>
             {children}
@@ -226,7 +226,10 @@ const Window = ({
           <div className="relative border h-6 w-2/6 border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center"></div>
           <div
             className="absolute bottom-0 right-0 w-[6px] h-2  cursor-nwse-resize"
-            onMouseDown={handleResize}
+            onMouseDown={(e) => {
+              handleResize(e);
+              onActive();
+            }}
           >
             <div className="relative">
               <span className="absolute top-[3px] right-[0px] h-[1px] w-[9px] bg-[#4e4949] rotate-135"></span>

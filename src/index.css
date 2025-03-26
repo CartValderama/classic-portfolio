@@ -78,23 +78,5 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   font-weight: 300;
-}
-
-.box {
   background-color: black;
-  margin: 0 auto;
-  width: 500px;
-  height: 300px;
-  position: relative;
-  overflow: hidden;
-}
-
-.box b {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-color: #999999;
-  position: absolute;
-  animation: moveX 5s linear 0s infinite alternate,
-    moveY 5s linear 0s infinite alternate;
 }

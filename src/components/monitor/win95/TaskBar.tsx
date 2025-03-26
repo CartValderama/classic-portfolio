@@ -43,8 +43,8 @@ const TaskBar = ({
     <motion.div
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0, delay: start ? 11 : 0 }}
-      className={`bg-[#c3c7cb] border-t border-t-white w-full flex items-center justify-between gap-x-2 py-[3px] px-[3px] select-none`}
+      transition={{ duration: 0, delay: start ? 8 : 0 }}
+      className={`bg-[#c3c7cb] border-t border-t-white w-full flex items-center justify-between gap-x-4 py-[3px] px-[3px] select-none`}
     >
       {/* Start Button */}
       <div ref={menuRef} className="relative">
@@ -95,7 +95,7 @@ const TaskBar = ({
         </div>
         <Button
           variant={"default"}
-          className="shadow-outline focus:outline-none"
+          className="shadow-outline focus:outline-none px-2"
           onClick={() => setShowTaskBarMenu(!showTaskBarMenu)}
         >
           <span className="flex items-center gap-x-0.5">
