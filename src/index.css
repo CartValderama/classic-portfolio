@@ -9,6 +9,7 @@
 
 @theme {
   --breakpoint-2xl: 1540px;
+  --breakpoint-lg: 1025px;
 
   --font-geist: "Geist", sans-serif;
   --font-times: "Times New Roman", serif;

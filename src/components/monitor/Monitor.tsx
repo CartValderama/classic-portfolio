@@ -7,11 +7,11 @@ const Monitor = () => {
   return (
     <motion.div
       initial={{ scale: 0.4 }}
-      animate={start ? { scale: 1, y: 90 } : { scale: 0.4 }}
+      animate={start ? { scale: 1 } : { scale: 0.4 }}
       transition={{ duration: 0.6, delay: 1 }}
       layout="position"
       className={`flex flex-col items-center w-full absolute -right-[30%] ${
-        start ? "right-0 mt-20 2xl:mt-0" : "mr-12 xl:mr-0 mt-10"
+        start ? "right-0 mt-50 2xl:mt-10" : "mr-12 xl:mr-0 mt-10"
       }`}
     >
       {/* monitor head*/}

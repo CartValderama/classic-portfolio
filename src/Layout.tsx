@@ -4,21 +4,21 @@ import { BsGithub } from "react-icons/bs";
 import { useStart } from "../src/context/StartContext";
 import { motion } from "framer-motion";
 import Desktop from "./device orientation/Desktop";
+import Mobile from "./device orientation/Mobile";
 
 const Layout = () => {
   const { start } = useStart();
 
   return (
     <div
-      className={`min-h-screen min-w-screen flex-col items-center justify-between text-lg bg-[#fcfdfc] overflow-hidden dark:bg-[#09090b] dark:text-white flex default-scroll`}
+      className={`relative text-lg bg-[#fcfdfc] overflow-hidden dark:bg-[#09090b] dark:text-white flex items-center default-scroll`}
     >
-      {/* buffer for small scaled monitor */}
-      <div className={`${!start && "mb-40 2xl:mb-30"}`}></div>
       {/* header */}
       <motion.header
         initial={{ opacity: 1, y: 0 }}
         animate={start ? { opacity: 0, y: -200 } : { opacity: 1, y: 0 }}
-        className={`fixed z-[999] w-full flex justify-center border-b border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform duration-[1500ms] ease-linear backdrop-blur-lg shadow-black/[0.03]`}
+        transition={{ duration: 1.5, delay: 0.6 }}
+        className={`fixed top-0 z-[999] w-full flex justify-center border-b border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear backdrop-blur-[0.5rem] shadow-black/[0.03] bg-[#fcfdfc]/60 dark:bg-[#09090b]/70 `}
         style={{
           transformOrigin: "center -300%",
         }}
@@ -47,22 +47,22 @@ const Layout = () => {
           </div>
         </nav>
       </motion.header>
+
       {/* main */}
       <main
-        className={`flex items-center flex-col justify-between relative ${
-          start && "my-40 2xl:my-50"
-        }`}
+        className={`flex min-h-screen min-w-screen items-center justify-center`}
       >
         {/* insert content here */}
         <Desktop />
+        <Mobile />
       </main>
+
       {/* footer */}
       <motion.footer
         initial={{ opacity: 1, y: 0 }}
         animate={start ? { opacity: 0, y: 200 } : { opacity: 1, y: 0 }}
-        className={`w-full flex justify-center items-center border-t border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform duration-[1500ms] ease-linear text-sm ${
-          !start && "mt-40 2xl:mt-30"
-        }`}
+        transition={{ duration: 1.5, delay: 0.6 }}
+        className={`absolute bottom-0 w-full flex justify-center items-center border-t border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear text-xs md:text-sm`}
         style={{
           transformOrigin: "left 300%",
         }}

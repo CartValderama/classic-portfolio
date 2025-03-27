@@ -8,7 +8,7 @@ const Desktop = () => {
 
   return (
     <div
-      className={`hidden lg:flex max-w-[85rem] justify-between 2xl:max-w-[96rem] items-center relative px-7 w-full`}
+      className={`hidden lg:flex max-w-[85rem] justify-between 2xl:max-w-[96rem] items-center relative px-7 w-full h-[44rem] 2xl:h-[54rem]`}
     >
       {/* text explanation */}
       <motion.div
@@ -21,15 +21,15 @@ const Desktop = () => {
         className={`flex flex-col justify-center gap-y-5 w-1/2`}
       >
         <h1 className="font-geist text-4xl font-bold leading-11">
-          Nostalgia Portfolio
+          Classic Portfolio
         </h1>
-        <div className="flex flex-col gap-y-2 font-geist text-base xl:text-lg leading-8">
+        <div className="flex flex-col gap-y-2 font-geist text-base xl:text-lg leading-8 ">
           <p>
             A portfolio inspired by the old devices I used as a kid, featuring
-            Windows 95 interface and a Samsung Champ layout.{" "}
+            Windows 95 interface and a Samsung Ace layout.{" "}
             <span className="font-bold">
               Since you're viewing this on a desktop-sized screen, you're
-              currently in Windows 95 mode.
+              currently in Windows 95 layout.
             </span>
           </p>
           <p>

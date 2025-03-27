@@ -26,9 +26,9 @@ const More = ({ selectMenu }: selectMenuProps) => {
         <h2 className="text-2xl capitalize font-bold">languages i speak</h2>
 
         <p>
-          I can speak Filipino (Tagalog) and am proficient in English (US).
-          While I prefer to speak and converse in English in work, I have
-          B1-level proficiency in Norwegian, which I use mainly for reading
+          I am fluent in Filipino (Tagalog) and proficient in English (US). In
+          professional settings, I prefer to communicate in English. I also have
+          B1-level proficiency in Norwegian, which I primarily use for reading
           important documents.
         </p>
       </div>
@@ -38,9 +38,7 @@ const More = ({ selectMenu }: selectMenuProps) => {
         <p className="mb-2">
           Outside of academics, I have pursued additional learning through
           certifications from freeCodeCamp. These certifications have allowed me
-          to refine my skills in web development, JavaScript programming, and
-          problem-solving, further strengthening my expertise in frontend
-          technologies.
+          to refine my skills in web development.
         </p>
         <ul className="flex flex-col gap-y-2">
           {certificates.map(({ title, date, desc, url }, idx) => (
