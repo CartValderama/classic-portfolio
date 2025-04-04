@@ -9,30 +9,30 @@ import {
 } from "@react95/icons";
 import TaskBar from "./win95/TaskBar";
 import Window from "./win95/Window";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import AboutMe from "../about/AboutMe";
 import Tictactoe from "../games/Tictactoe";
 import Wordle from "../games/Wordle";
 import OldPorfolio from "./OldPortolio";
 import Credits from "./Credits";
+import {
+  useApplicationStore,
+  AppID,
+} from "../../store/AppStore/DesktopApplicationStore";
 
-export type DesktopAppProps = {
+export type AppProps = {
   Icon: React.ComponentType<{
     className?: string;
     variant?: "32x32_4" | "16x16_4";
   }>;
   label: string;
-  id: string;
+  id: AppID;
   Component: React.ComponentType;
   iWidth: number;
   iHeight: number;
 };
 
-type WindowsProps = {
-  [key: string]: boolean;
-};
-
-const desktopApps: DesktopAppProps[] = [
+const apps: AppProps[] = [
   {
     Icon: Mplayer10,
     label: "Credits",
@@ -73,66 +73,20 @@ const desktopApps: DesktopAppProps[] = [
     iWidth: 330,
     iHeight: 400,
   },
-];
+] as const;
 
 const DesktopScreen = () => {
   const { start } = useStart();
-  const [openWindows, setOpenWindows] = useState<WindowsProps>({
-    about: false,
-    tictactoe: false,
-    wordle: false,
-    oldportfolio: false,
-    credits: false,
-  });
-  const [activeWindows, setActiveWindows] = useState<WindowsProps>({
-    about: false,
-    tictactoe: false,
-    wordle: false,
-    oldportfolio: false,
-    credits: false,
-  });
-  const [minimizedWindows, setMinimizedWindows] = useState<WindowsProps>({
-    about: false,
-    tictactoe: false,
-    wordle: false,
-    oldportfolio: false,
-    credits: false,
-  });
-
   const constraintsRef = useRef<HTMLDivElement | null>(null);
-
-  // Handle activating a window
-  const handleActiveWindows = (id: string) => {
-    setActiveWindows((prev) => {
-      const newActiveWindows = Object.keys(prev).reduce((acc, key) => {
-        acc[key] = key === id;
-        return acc;
-      }, {} as WindowsProps);
-
-      return newActiveWindows;
-    });
-  };
-
-  // Handle opening a window
-  const handleOpenWindows = (id: string) => {
-    setOpenWindows((prev) => ({
-      ...prev,
-      [id]: true,
-    }));
-    handleActiveWindows(id);
-    setMinimizedWindows((prev) => ({
-      ...prev,
-      [id]: false,
-    }));
-  };
-
-  // Handle minimizing/restoring a window
-  const handleMinimizeRestore = (id: string) => {
-    setMinimizedWindows((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
+  const {
+    openWindows,
+    activeWindows,
+    minimizedWindows,
+    handleActiveWindows,
+    handleOpenWindows,
+    handleMinimizeRestore,
+    closeWindow,
+  } = useApplicationStore();
 
   return (
     <motion.div
@@ -149,7 +103,7 @@ const DesktopScreen = () => {
         ref={constraintsRef}
       >
         {/* Render desktop icons */}
-        {desktopApps.map(({ Icon, label, id }) => (
+        {apps.map(({ Icon, label, id }) => (
           <button
             key={id}
             className="bg-none shadow-none w-16 h-16 p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] gap-[5px] hover:bg-white/10"
@@ -161,7 +115,7 @@ const DesktopScreen = () => {
         ))}
 
         {/* Render windows */}
-        {desktopApps
+        {apps
           .reverse()
           .map(({ id, Component, label, Icon, iWidth, iHeight }) => (
             <Window
@@ -173,15 +127,16 @@ const DesktopScreen = () => {
               isResize={id === "tictactoe" || id === "wordle" ? false : true}
               constraintsRef={constraintsRef}
               isOpen={openWindows[id]}
-              isMinimized={minimizedWindows[id]}
-              onOpen={(value: boolean | ((prev: boolean) => boolean)) => {
-                setOpenWindows((prev) => ({
-                  ...prev,
-                  [id]: typeof value === "function" ? value(prev[id]) : value,
-                }));
+              onOpen={(value: boolean) => {
+                if (value) {
+                  handleOpenWindows(id);
+                } else {
+                  closeWindow(id);
+                }
               }}
               isActive={activeWindows[id]}
               onActive={() => handleActiveWindows(id)}
+              isMinimized={minimizedWindows[id]}
               onMinimizeRestore={() => handleMinimizeRestore(id)}
             >
               <Component />
@@ -191,7 +146,7 @@ const DesktopScreen = () => {
 
       {/* TaskBar */}
       <TaskBar
-        desktopApps={desktopApps}
+        desktopApps={apps}
         openWindows={openWindows}
         minimizedWindows={minimizedWindows}
         onMinimizeRestore={handleMinimizeRestore}

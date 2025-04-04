@@ -1,19 +1,20 @@
 import { motion } from "framer-motion";
 import { Clock } from "./Clock";
 import { Button } from "./Button";
-import { DesktopAppProps } from "../DesktopScreen";
+import { AppProps } from "../DesktopScreen";
 import { AiFillRobot } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { Computer3 } from "@react95/icons";
 import { FaSquareGithub } from "react-icons/fa6";
 import { useStart } from "../../../context/StartContext";
+import { AppID } from "../../../store/AppStore/DesktopApplicationStore";
 
 type TaskBarProps = {
-  desktopApps: DesktopAppProps[];
+  desktopApps: AppProps[];
   openWindows: { [key: string]: boolean };
   minimizedWindows: { [key: string]: boolean };
-  onMinimizeRestore: (id: string) => void;
-  onActive: (id: string) => void;
+  onMinimizeRestore: (id: AppID) => void;
+  onActive: (id: AppID) => void;
   isActive: { [key: string]: boolean };
 };
 

@@ -5,26 +5,30 @@ import { useStart } from "../src/context/StartContext";
 import { motion } from "framer-motion";
 import Desktop from "./device orientation/Desktop";
 import Mobile from "./device orientation/Mobile";
+import { FaLaptopCode } from "react-icons/fa6";
 
 const Layout = () => {
   const { start } = useStart();
 
   return (
     <div
-      className={`relative text-lg bg-[#fcfdfc] overflow-hidden dark:bg-[#09090b] dark:text-white flex items-center default-scroll`}
+      className={`relative text-lg bg-[#f9fafb] overflow-hidden dark:bg-[#09090b] dark:text-white flex items-center default-scroll`}
     >
       {/* header */}
       <motion.header
         initial={{ opacity: 1, y: 0 }}
         animate={start ? { opacity: 0, y: -200 } : { opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.6 }}
-        className={`fixed top-0 z-[999] w-full flex justify-center border-b border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear backdrop-blur-[0.5rem] shadow-black/[0.03] bg-[#fcfdfc]/60 dark:bg-[#09090b]/70 `}
+        className={`fixed top-0 z-[999] w-full flex justify-center border-b border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear backdrop-blur-[0.5rem] shadow-black/[0.03] bg-[#f9fafb]/60 dark:bg-[#09090b]/70 `}
         style={{
           transformOrigin: "center -300%",
         }}
       >
         <nav className="w-full max-w-[85rem] 2xl:max-w-[96rem] border-x border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] px-4 md:px-8 py-5 flex justify-between items-center ">
-          <h1 className="text-xl font-bold">Cart's Portfolio</h1>
+          <h1 className="text-xl flex items-center gap-x-2 font-bold">
+            <FaLaptopCode className="text-3xl md:text-3xl " />
+            <span className="hidden md:flex"> CartValderama</span>
+          </h1>
           <div className="flex items-center gap-x-1">
             <ButtonMain
               variant={"ghost"}

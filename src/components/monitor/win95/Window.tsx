@@ -13,7 +13,7 @@ type WindowProps = {
   constraintsRef: React.RefObject<HTMLDivElement | null>;
   isOpen: boolean;
   isMinimized: boolean;
-  onOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onOpen: (value: boolean) => void;
   isActive: boolean;
   onActive: () => void;
   onMinimizeRestore: () => void;

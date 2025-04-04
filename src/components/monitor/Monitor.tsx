@@ -11,7 +11,7 @@ const Monitor = () => {
       transition={{ duration: 0.6, delay: 1 }}
       layout="position"
       className={`flex flex-col items-center w-full absolute -right-[30%] ${
-        start ? "right-0 mt-50 2xl:mt-10" : "mr-12 xl:mr-0 mt-10"
+        start ? "right-0 mt-40 2xl:mt-20" : "mr-12 xl:mr-0 mt-10"
       }`}
     >
       {/* monitor head*/}

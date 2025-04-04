@@ -28,7 +28,7 @@ const AboutMe = () => {
 
   return (
     <div className="relative flex flex-col flex-1 overflow-auto px-0.5">
-      <div className="h-6 border-b border-b-[#868a8e] flex items-center gap-x-4 px-1">
+      <div className="bg-white p-4 lg:p-1 lg:bg-transparent h-6 border-b border-b-[#868a8e] flex items-center gap-x-4 ">
         {aboutMeMenu.map((menu, idx) => (
           <Button
             key={idx}
@@ -42,7 +42,7 @@ const AboutMe = () => {
         ))}
       </div>
       <div
-        className="flex items-start justify-center flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] text-base leading-6 px-4 py-6 font-geist"
+        className="flex items-start justify-center flex-1 overflow-auto bg-white lg:border border-white border-t-none border-l-[#868a8e] text-base leading-6 px-4 py-6 font-geist"
         ref={aboutMeContentRef}
       >
         <Introduction selectMenu={selectMenu} />
