@@ -8,7 +8,6 @@ import {
 } from "react-icons/fa";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { GrBraille } from "react-icons/gr";
-
 import {
   svgBootstrap,
   svgCSS,
@@ -28,8 +27,76 @@ import {
   svgVSCode,
   svgZustand,
 } from "./svgList";
+import { AppID } from "../store/AppStore/DesktopApplicationStore";
+import {
+  Access110,
+  Joy102,
+  Mailnews8,
+  Mplayer10,
+  Write1,
+} from "@react95/icons";
+import Credits from "../components/monitor/Credits";
+import Tictactoe from "../components/games/Tictactoe";
+import Wordle from "../components/games/Wordle";
+import OldPorfolio from "../components/monitor/OldPortolio";
+import AboutMe from "../components/about/AboutMe";
+
+export type AppProps = {
+  DesktopIcon: React.ComponentType<{
+    className?: string;
+    variant?: "32x32_4" | "16x16_4";
+  }>;
+  label: string;
+  id: AppID;
+  Component: React.ComponentType;
+  iWidth: number;
+  iHeight: number;
+};
 
 export const aboutMeMenu = ["Intro", "Experience", "Projects", "More"];
+
+export const apps: AppProps[] = [
+  {
+    DesktopIcon: Mplayer10,
+    label: "Credits",
+    id: "credits",
+    Component: Credits,
+    iWidth: 450,
+    iHeight: 450,
+  },
+  {
+    DesktopIcon: Joy102,
+    label: "Tictactoe",
+    id: "tictactoe",
+    Component: Tictactoe,
+    iWidth: 300,
+    iHeight: 400,
+  },
+  {
+    DesktopIcon: Write1,
+    label: "Wordle",
+    id: "wordle",
+    Component: Wordle,
+    iWidth: 360,
+    iHeight: 560,
+  },
+  {
+    DesktopIcon: Access110,
+    label: "Old Portfolio",
+    id: "oldportfolio",
+    Component: OldPorfolio,
+    iWidth: 500,
+    iHeight: 500,
+  },
+  {
+    DesktopIcon: Mailnews8,
+    label: "About Me",
+    id: "about",
+    Component: AboutMe,
+    iWidth: 330,
+    iHeight: 400,
+  },
+] as const;
 
 export const techStack = [
   {

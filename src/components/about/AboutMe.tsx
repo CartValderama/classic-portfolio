@@ -27,7 +27,7 @@ const AboutMe = () => {
   }, [selectMenu]);
 
   return (
-    <div className="relative flex flex-col flex-1 overflow-auto px-0.5">
+    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5">
       <div className="bg-white p-4 lg:p-1 lg:bg-transparent h-6 border-b border-b-[#868a8e] flex items-center gap-x-4 ">
         {aboutMeMenu.map((menu, idx) => (
           <Button
@@ -36,7 +36,7 @@ const AboutMe = () => {
             className=" lowercase"
             onClick={() => setSelectMenu(menu)}
           >
-            <span className="underline uppercase">{menu[0]}</span>
+            <span className="lg:underline uppercase">{menu[0]}</span>
             {menu.slice(1)}
           </Button>
         ))}

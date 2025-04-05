@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Clock } from "./Clock";
 import { Button } from "./Button";
-import { AppProps } from "../DesktopScreen";
+import { AppProps } from "../../../data/staticData";
 import { AiFillRobot } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { Computer3 } from "@react95/icons";
@@ -111,7 +111,7 @@ const TaskBar = ({
         {desktopApps
           .filter(({ id }) => openWindows[id]) // Filter only open apps
           .reverse() // Reverse the order if needed
-          .map(({ id, Icon, label }) => (
+          .map(({ id, DesktopIcon, label }) => (
             <Button
               key={id}
               variant={"tab"}
@@ -138,7 +138,7 @@ const TaskBar = ({
                 }
               }}
             >
-              <Icon variant="16x16_4" /> {label}
+              <DesktopIcon variant="16x16_4" /> {label}
             </Button>
           ))}
       </div>

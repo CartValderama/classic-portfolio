@@ -29,7 +29,6 @@ export default function ThemeContextProvider({
       document.documentElement.classList.remove("dark");
       document.documentElement.classList.add("light");
     }
-    console.log(theme);
   };
 
   useEffect(() => {
