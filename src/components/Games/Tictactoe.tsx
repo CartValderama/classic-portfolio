@@ -87,7 +87,7 @@ const getAIMove = (board: Board): number => {
   return move;
 };
 
-const TicTacToe = () => {
+const Tictactoe = () => {
   const [board, setBoard] = useState<Board>(Array(9).fill(EMPTY));
   const [currentPlayer, setCurrentPlayer] = useState<"X" | "O">("X");
   const [gameMode, setGameMode] = useState<"human" | "ai">("human");
@@ -192,4 +192,4 @@ const TicTacToe = () => {
   );
 };
 
-export default TicTacToe;
+export default Tictactoe;

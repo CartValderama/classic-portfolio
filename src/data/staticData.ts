@@ -36,11 +36,11 @@ import {
   Mplayer10,
   Write1,
 } from "@react95/icons";
-import Credits from "../components/monitor/Credits";
-import TicTacToe from "../components/games/Tictactoe";
-import Wordle from "../components/games/Wordle";
-import OldPorfolio from "../components/monitor/OldPortolio";
 import AboutMe from "../components/about/AboutMe";
+import Credits from "../components/monitor/Credits";
+import OldPorfolio from "../components/monitor/OldPortolio";
+import Tictactoe from "../components/games/Tictactoe";
+import Wordle from "../components/games/Wordle";
 import { IconType } from "react-icons";
 import { TbLetterW } from "react-icons/tb";
 import { IoAccessibility } from "react-icons/io5";
@@ -78,7 +78,7 @@ export const apps: AppProps[] = [
     iconStyle: " text-white bg-sky-700 p-2 rounded-lg",
     label: "Tictactoe",
     id: "tictactoe",
-    Component: TicTacToe,
+    Component: Tictactoe,
     iWidth: 300,
     iHeight: 400,
   },

@@ -2,14 +2,14 @@ import { useStart } from "../../context/StartContext";
 import { apps } from "../../data/staticData";
 import { useApplicationStore } from "../../store/AppStore/DesktopApplicationStore";
 import { AnimatePresence, motion } from "framer-motion";
-import StatusBar from "./StatusBar";
 import { FaGithub, FaLinkedinIn, FaPowerOff } from "react-icons/fa6";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import { MainMobileScreenProps } from "./MainMobileScreen";
+import { useEffect } from "react";
+import StatusBar from "./StatusBar";
 import Wordle from "../../components/games/Wordle";
 import AboutMe from "../about/AboutMe";
-import { useEffect } from "react";
 
 const homeApp = [
   {
