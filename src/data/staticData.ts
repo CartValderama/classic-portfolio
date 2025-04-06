@@ -39,8 +39,8 @@ import {
 import AboutMe from "../components/about/AboutMe";
 import Credits from "../components/monitor/Credits";
 import OldPorfolio from "../components/monitor/OldPortolio";
-import Tictactoe from "../components/gamess/tictactoe/Tictactoe";
-import Wordle from "../components/gamess/wordle/Wordle";
+import Tictactoe from "../components/games/tictactoe/Tictactoe";
+import Wordle from "../components/games/wordle/Wordle";
 import { IconType } from "react-icons";
 import { TbLetterW } from "react-icons/tb";
 import { IoAccessibility } from "react-icons/io5";
