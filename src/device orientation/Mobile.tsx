@@ -41,7 +41,8 @@ const Mobile = () => {
           >
             Get Started
           </ButtonMain>
-          <button
+          <ButtonMain
+            variant={"default"}
             onClick={() => {
               window.open(
                 "https://cart-valderama-portfolio.vercel.app/",
@@ -51,7 +52,7 @@ const Mobile = () => {
             disabled={start}
           >
             Visit Accessible Version
-          </button>
+          </ButtonMain>
         </div>
       </motion.div>
       <Phone />
