@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedinIn, FaPowerOff } from "react-icons/fa6";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import { MainMobileScreenProps } from "./MainMobileScreen";
-import Wordle from "../games/Wordle";
+import Wordle from "../../components/games/Wordle";
 import AboutMe from "../about/AboutMe";
 import { useEffect } from "react";
 
