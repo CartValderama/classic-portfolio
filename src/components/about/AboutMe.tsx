@@ -28,12 +28,12 @@ const AboutMe = () => {
 
   return (
     <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5">
-      <div className="bg-white p-4 lg:p-1 lg:bg-transparent h-6 border-b border-b-[#868a8e] flex items-center gap-x-4 ">
+      <div className="bg-white px-4 py-8 text-lg lg:text-sm lg:p-1 lg:bg-transparent h-6 border-b border-b-[#868a8e] flex items-center justify-between gap-x-4">
         {aboutMeMenu.map((menu, idx) => (
           <Button
             key={idx}
             variant={"subtle"}
-            className=" lowercase"
+            className={`lowercase ${menu === selectMenu && "underline"}`}
             onClick={() => setSelectMenu(menu)}
           >
             <span className="lg:underline uppercase">{menu[0]}</span>

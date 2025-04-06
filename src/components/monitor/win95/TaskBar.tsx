@@ -7,28 +7,23 @@ import { useEffect, useRef, useState } from "react";
 import { Computer3 } from "@react95/icons";
 import { FaSquareGithub } from "react-icons/fa6";
 import { useStart } from "../../../context/StartContext";
-import { AppID } from "../../../store/AppStore/DesktopApplicationStore";
+import { useApplicationStore } from "../../../store/AppStore/DesktopApplicationStore";
 
 type TaskBarProps = {
-  desktopApps: AppProps[];
-  openWindows: { [key: string]: boolean };
-  minimizedWindows: { [key: string]: boolean };
-  onMinimizeRestore: (id: AppID) => void;
-  onActive: (id: AppID) => void;
-  isActive: { [key: string]: boolean };
+  apps: AppProps[];
 };
 
-const TaskBar = ({
-  desktopApps,
-  openWindows,
-  minimizedWindows,
-  onMinimizeRestore,
-  onActive,
-  isActive,
-}: TaskBarProps) => {
+const TaskBar = ({ apps }: TaskBarProps) => {
   const { start, setStart } = useStart();
   const [showTaskBarMenu, setShowTaskBarMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const {
+    openWindows,
+    activeWindows,
+    minimizedWindows,
+    handleActiveWindows,
+    handleMinimizeRestore,
+  } = useApplicationStore();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -44,7 +39,7 @@ const TaskBar = ({
     <motion.div
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0, delay: start ? 8 : 0 }}
+      transition={{ duration: 0, delay: start ? 10 : 0 }}
       className={`bg-[#c3c7cb] border-t border-t-white w-full flex items-center justify-between gap-x-4 py-[3px] px-[3px] select-none`}
     >
       {/* Start Button */}
@@ -108,33 +103,29 @@ const TaskBar = ({
 
       {/* Taskbar Buttons for Open Windows */}
       <div className="w-full flex items-center justify-start gap-x-1">
-        {desktopApps
-          .filter(({ id }) => openWindows[id]) // Filter only open apps
-          .reverse() // Reverse the order if needed
+        {apps
+          .filter(({ id }) => openWindows[id])
+          .reverse()
           .map(({ id, DesktopIcon, label }) => (
             <Button
               key={id}
               variant={"tab"}
               size={"tab"}
               className={`min-w-34 ${
-                minimizedWindows[id] // If the window is minimized
+                minimizedWindows[id]
                   ? "shadow-outline"
-                  : isActive[id] // If the window is active
+                  : activeWindows[id]
                   ? "bg-[#c3c7cb] border-[#868a8e] border-r-white border-b-white"
                   : "shadow-outline"
               }`}
               onClick={() => {
                 if (minimizedWindows[id]) {
-                  // If minimized, make it active and restore it
-                  onActive(id);
-                  onMinimizeRestore(id);
-                } else if (!isActive[id]) {
-                  // If not active, make it active
-                  onActive(id);
+                  handleActiveWindows(id);
+                  handleMinimizeRestore(id);
+                } else if (!activeWindows[id]) {
+                  handleActiveWindows(id);
                 } else {
-                  // If already active, minimize it
-                  isActive[id] = false;
-                  onMinimizeRestore(id);
+                  handleMinimizeRestore(id);
                 }
               }}
             >

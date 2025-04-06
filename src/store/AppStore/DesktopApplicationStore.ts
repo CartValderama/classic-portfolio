@@ -14,6 +14,7 @@ type ApplicationStore = {
   activeWindows: AppState;
   minimizedWindows: AppState;
   handleActiveWindows: (id: AppID) => void;
+  handleInactiveWindows: (id: AppID) => void;
   handleOpenWindows: (id: AppID) => void;
   handleMinimizeRestore: (id: AppID) => void;
   closeWindow: (id: AppID) => void;
@@ -58,10 +59,18 @@ export const useApplicationStore = create<ApplicationStore>((set) => ({
         ...state.minimizedWindows,
         [id]: !state.minimizedWindows[id],
       },
-      // When minimizing, also deactivate the window
       activeWindows: {
         ...state.activeWindows,
         [id]: state.minimizedWindows[id] ? true : false,
+      },
+    })),
+
+  handleInactiveWindows: (id) =>
+    set((state) => ({
+      // When minimizing, also deactivate the window
+      activeWindows: {
+        ...state.activeWindows,
+        [id]: false,
       },
     })),
 

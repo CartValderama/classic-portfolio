@@ -1,32 +1,47 @@
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
-import { GrMultiple } from "react-icons/gr";
-import { AiOutlineRollback } from "react-icons/ai";
 import MainMobileScreen from "./MainMobileScreen";
+import { useState } from "react";
+import {
+  AppID,
+  useApplicationStore,
+} from "../../store/AppStore/DesktopApplicationStore";
 
 const Phone = () => {
   const { start } = useStart();
+  const [isShowApps, setShowApps] = useState(false);
+  const { activeWindows, handleInactiveWindows } = useApplicationStore();
+
+  const handleActiveWindows = () => {
+    const activeWindow = Object.keys(activeWindows).find(
+      (key) => activeWindows[key as keyof typeof activeWindows] === true
+    );
+
+    if (activeWindow) {
+      handleInactiveWindows(activeWindow as AppID);
+    }
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.4 }}
       animate={start ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.4 }}
-      transition={{ duration: 0.6, delay: 2 }}
+      transition={{
+        duration: 0.6,
+        delay: start ? 2 : 0, // Only delay when appearing (start=true)
+        ease: "easeInOut", // Smoother scaling
+      }}
       layout="position"
-      className={`flex w-full h-full flex-col items-center justify-center absolute mobile:max-w-[30rem]  ${
-        start ? "z-10" : "-z-10"
-      }`}
+      className={`flex w-full h-full flex-col items-center justify-center absolute mobile:max-w-[30rem] `}
     >
-      <div
-        className={`w-full mobile:max-w-[30rem] min-h-[50rem] mobile:max-h-[50rem] flex-1 relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]`}
-      >
+      <div className="w-full mobile:max-w-[30rem] min-h-[40rem] mobile:max-h-[50rem] flex-1 relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]">
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-18 absolute -right-1 rounded-r-lg top-40"></div>
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-30 absolute -left-1 rounded-l-lg top-60"></div>
         <div className="mobile:border-10 border-[#242429] mobile:rounded-[7rem] w-full h-full">
           <div className="mobile:border-2 border-[#515455] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center">
-            <div className="mobile:border-2 border-[#171718] mobile:rounded-[6rem] w-full flex-1 flex flex-col items-center justify-center bg-[#131314] py-12 px-2 mobile:px-8 gap-y-5">
-              <div className="flex flex-col items-center w-full ">
-                <div className=" flex items-center justify-between gap-y-2 w-full">
+            <div className="mobile:border-2 border-[#171718] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center bg-[#131314] py-10 px-6 mobile:px-8 ">
+              <div className="flex flex-col justify-center items-center w-full mb-5">
+                <div className="flex items-center justify-between w-full">
                   <div className="w-5 h-5 ml-5"></div>
                   <div className="w-38 h-2 bg-[#242425] rounded-3xl border-2 border-[#515455]"></div>
                   <div className="bg-[#1e1e1e] border-2 border-[#464646] w-5 h-5 rounded-full mr-5 flex items-center justify-center">
@@ -39,17 +54,22 @@ const Phone = () => {
               </div>
 
               {/* main screen */}
-              <div className="h-full flex-1 rounded-xs [&::-webkit-scrollbar]:hidden">
-                <MainMobileScreen />
+              <div className="w-full h-full rounded-xs ">
+                <MainMobileScreen
+                  isShowApps={isShowApps}
+                  setShowApps={setShowApps}
+                />
               </div>
 
-              <div className=" flex justify-around w-full items-center ">
-                <button className="flex items-center">
-                  <GrMultiple className="text-2xl text-[#878d8f]" />
-                </button>
-                <button className="w-20 h-10 border-3 border-[#515455] rounded-xl"></button>
-                <button className="flex items-center">
-                  <AiOutlineRollback className="text-3xl text-[#878d8f]" />
+              <div className=" w-full flex items-center justify-center mt-5">
+                <button
+                  className=" w-20 h-12 border-3 border-[#515455] rounded-xl active:scale-98 cursor-pointer"
+                  onClick={() => {
+                    setShowApps(false);
+                    handleActiveWindows();
+                  }}
+                >
+                  <div className="w-full h-full bg-[#131314] rounded-lg border-[#797777] border"></div>
                 </button>
               </div>
             </div>

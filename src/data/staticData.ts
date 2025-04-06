@@ -5,6 +5,7 @@ import {
   FaPalette,
   FaUserGraduate,
   FaLaptopCode,
+  FaInfoCircle,
 } from "react-icons/fa";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { GrBraille } from "react-icons/gr";
@@ -40,12 +41,17 @@ import Tictactoe from "../components/games/Tictactoe";
 import Wordle from "../components/games/Wordle";
 import OldPorfolio from "../components/monitor/OldPortolio";
 import AboutMe from "../components/about/AboutMe";
+import { IconType } from "react-icons";
+import { TbLetterW } from "react-icons/tb";
+import { IoAccessibility } from "react-icons/io5";
 
 export type AppProps = {
   DesktopIcon: React.ComponentType<{
     className?: string;
     variant?: "32x32_4" | "16x16_4";
   }>;
+  MobileIcon: IconType;
+  iconStyle: string;
   label: string;
   id: AppID;
   Component: React.ComponentType;
@@ -58,6 +64,8 @@ export const aboutMeMenu = ["Intro", "Experience", "Projects", "More"];
 export const apps: AppProps[] = [
   {
     DesktopIcon: Mplayer10,
+    MobileIcon: FaInfoCircle,
+    iconStyle: "text-white bg-sky-700 p-2 rounded-lg",
     label: "Credits",
     id: "credits",
     Component: Credits,
@@ -66,6 +74,8 @@ export const apps: AppProps[] = [
   },
   {
     DesktopIcon: Joy102,
+    MobileIcon: FaInfoCircle,
+    iconStyle: " text-white bg-sky-700 p-2 rounded-lg",
     label: "Tictactoe",
     id: "tictactoe",
     Component: Tictactoe,
@@ -74,6 +84,8 @@ export const apps: AppProps[] = [
   },
   {
     DesktopIcon: Write1,
+    MobileIcon: TbLetterW,
+    iconStyle: "text-white bg-[#55a459] p-2 rounded-lg",
     label: "Wordle",
     id: "wordle",
     Component: Wordle,
@@ -82,6 +94,8 @@ export const apps: AppProps[] = [
   },
   {
     DesktopIcon: Access110,
+    MobileIcon: IoAccessibility,
+    iconStyle: "text-white bg-sky-700 p-2 rounded-lg",
     label: "Old Portfolio",
     id: "oldportfolio",
     Component: OldPorfolio,
@@ -90,6 +104,8 @@ export const apps: AppProps[] = [
   },
   {
     DesktopIcon: Mailnews8,
+    MobileIcon: FaInfoCircle,
+    iconStyle: "text-white bg-amber-400 p-2 rounded-lg",
     label: "About Me",
     id: "about",
     Component: AboutMe,

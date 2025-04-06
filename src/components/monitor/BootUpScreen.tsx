@@ -40,7 +40,7 @@ const BootUpScreen = () => {
       animate={start ? { opacity: 0, zIndex: -1 } : { opacity: 1, zIndex: 10 }}
       transition={{
         duration: 0.1,
-        delay: 7,
+        delay: 8,
       }}
       className="z-10 absolute flex w-full h-full font-system opacity-85 text-xl blur-[.4px] bg-black text-neutral-200"
     >

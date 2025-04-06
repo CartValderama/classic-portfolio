@@ -35,7 +35,7 @@ const Querty = () => {
     PuzzleStore();
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-0.5 max-w-[20rem]">
+    <div className="flex flex-wrap items-center justify-center gap-0.5 max-w-[20rem] ">
       {qwerty.map((row, idx) => (
         <div key={idx} className="flex justify-center gap-0.5">
           {/* Render each key */}
@@ -99,8 +99,8 @@ const Wordle = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-start flex-1 overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-2">
-      <h1 className="my-2 text-2xl font-bold">
+    <div className="flex flex-col items-center justify-start flex-1 h-full lg:h-auto overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-2">
+      <h1 className="my-2 text-xl font-bold">
         {won ? "You Win!" : lost ? "You Lose!" : "Guess The Word"}
       </h1>
 

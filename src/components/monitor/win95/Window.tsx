@@ -8,15 +8,14 @@ import {
 } from "react-icons/fa6";
 import { MdMinimize } from "react-icons/md";
 import { useStart } from "../../../context/StartContext";
+import {
+  AppID,
+  useApplicationStore,
+} from "../../../store/AppStore/DesktopApplicationStore";
 
 type WindowProps = {
+  id: AppID;
   constraintsRef: React.RefObject<HTMLDivElement | null>;
-  isOpen: boolean;
-  isMinimized: boolean;
-  onOpen: (value: boolean) => void;
-  isActive: boolean;
-  onActive: () => void;
-  onMinimizeRestore: () => void;
   title: string;
   Icon: React.ComponentType<{
     className?: string;
@@ -29,25 +28,31 @@ type WindowProps = {
 };
 
 const Window = ({
+  id,
   constraintsRef,
-  isOpen,
-  onOpen,
-  isActive,
-  onActive,
-  isMinimized,
-  onMinimizeRestore,
   title,
   Icon,
   iWidth,
   iHeight,
   isResize,
-
   children,
 }: WindowProps) => {
   const { start } = useStart();
   const [isMaximized, setIsMaximized] = useState(false);
   const [size, setSize] = useState({ width: iWidth, height: iHeight });
   const [isResizing, setIsResizing] = useState(false);
+
+  const {
+    openWindows,
+    activeWindows,
+    minimizedWindows,
+    handleActiveWindows,
+    handleMinimizeRestore,
+    handleInactiveWindows,
+    closeWindow,
+  } = useApplicationStore();
+
+  console.log("activeWindows", activeWindows);
 
   const dragControls = useDragControls();
   const x = useMotionValue(20 + Math.random() * 50);
@@ -90,7 +95,7 @@ const Window = ({
     setSize({ width: iWidth, height: iHeight });
     x.set(20 + Math.random() * 50);
     y.set(20 + Math.random() * 50);
-    onOpen(false);
+    closeWindow(id);
   };
 
   const handleResize = (e: React.MouseEvent) => {
@@ -156,11 +161,18 @@ const Window = ({
         position: "absolute",
         top: isMaximized ? 0 : undefined,
         left: isMaximized ? 0 : undefined,
-        visibility: isOpen && !isMinimized ? "visible" : "hidden", // Hide if minimized
+        visibility:
+          openWindows[id] && !minimizedWindows[id] ? "visible" : "hidden", // Hide if minimized
         zIndex:
-          isActive && isMaximized ? 3 : isActive ? 2 : isMaximized ? 1 : 0,
+          activeWindows[id] && isMaximized
+            ? 3
+            : activeWindows[id]
+            ? 2
+            : isMaximized
+            ? 1
+            : 0,
       }}
-      onClick={onActive}
+      onClick={() => handleActiveWindows(id)}
     >
       <div
         className={`flex h-full flex-col justify-between p-0.5 overflow-hidden bg-[#c3c7cb] border border-white border-r-[#868a8e] border-b-[#868a8e] shadow-outline `}
@@ -168,11 +180,10 @@ const Window = ({
         {/* Title bar */}
         <div
           className={`flex text-white items-center select-none justify-between px-1 py-0.5 mb-1 ${
-            isActive ? "bg-[#000e7a]" : "bg-[#7f787f]"
+            activeWindows[id] ? "bg-[#000e7a]" : "bg-[#7f787f]"
           }`}
           onPointerDown={(e) => {
             dragControls.start(e);
-            onActive();
           }}
           onMouseDown={() => setIsResizing(false)}
         >
@@ -181,12 +192,26 @@ const Window = ({
             {title}
           </h1>
           <div className="flex items-center gap-x-1">
-            <Button size={"icon"} onClick={onMinimizeRestore}>
+            <Button
+              size={"icon"}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleMinimizeRestore(id);
+                if (!minimizedWindows[id]) {
+                  handleInactiveWindows(id);
+                } else {
+                  handleActiveWindows(id);
+                }
+              }}
+            >
               <MdMinimize className="text-black text-[.6rem]" />
             </Button>
             <Button
               size={"icon"}
-              onClick={handleMaximize}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleMaximize();
+              }}
               className={`${!isResize && "hidden"}`}
             >
               {isMaximized ? (
@@ -195,21 +220,27 @@ const Window = ({
                 <FaRegWindowMaximize className="text-black text-[.6rem]" />
               )}
             </Button>
-            <Button size={"icon"} onClick={handleClose}>
+            <Button
+              size={"icon"}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleClose();
+              }}
+            >
               <FaXmark className="text-black text-[.6rem]" />
             </Button>
           </div>
         </div>
 
         {/* Content */}
-        {isOpen && (
+        {openWindows[id] && (
           <div
             className={`w-full h-full flex flex-col relative overflow-auto
             `}
           >
             <div
               className={`absolute w-full h-full -z-10 ${
-                (isResizing || !isActive) && "opacity-30 z-10 bg-white"
+                (isResizing || !activeWindows[id]) && "opacity-30 z-10 bg-white"
               }`}
             ></div>
             {children}
@@ -228,7 +259,7 @@ const Window = ({
             className="absolute bottom-0 right-0 w-[6px] h-2  cursor-nwse-resize"
             onMouseDown={(e) => {
               handleResize(e);
-              onActive();
+              handleActiveWindows(id);
             }}
           >
             <div className="relative">

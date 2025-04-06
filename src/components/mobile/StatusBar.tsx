@@ -1,0 +1,120 @@
+import { useState, useEffect } from "react";
+import { BsLightningChargeFill } from "react-icons/bs";
+
+interface BatteryManager extends EventTarget {
+  charging: boolean;
+  chargingTime: number;
+  dischargingTime: number;
+  level: number;
+}
+
+declare global {
+  interface Navigator {
+    getBattery?: () => Promise<BatteryManager>;
+  }
+}
+
+const StatusBar = () => {
+  const [time, setTime] = useState<Date>(new Date());
+  const [batteryLevel, setBatteryLevel] = useState<number>(100);
+  const [isCharging, setIsCharging] = useState<boolean>(false);
+  const [batterySupported, setBatterySupported] = useState<boolean>(true);
+
+  // Update time every second
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Get actual battery information
+  useEffect(() => {
+    if (navigator.getBattery) {
+      navigator
+        .getBattery()
+        .then((battery: BatteryManager) => {
+          // Update state with current battery info
+          updateBatteryInfo(battery);
+
+          // Set up event listeners
+          battery.addEventListener("levelchange", () =>
+            updateBatteryInfo(battery)
+          );
+          battery.addEventListener("chargingchange", () =>
+            updateBatteryInfo(battery)
+          );
+
+          return () => {
+            battery.removeEventListener("levelchange", () =>
+              updateBatteryInfo(battery)
+            );
+            battery.removeEventListener("chargingchange", () =>
+              updateBatteryInfo(battery)
+            );
+          };
+        })
+        .catch((error) => {
+          console.error("Error accessing battery API:", error);
+          setBatterySupported(false);
+        });
+    } else {
+      setBatterySupported(false);
+    }
+
+    // Fallback simulation if battery API not supported
+    if (!navigator.getBattery) {
+      const interval = setInterval(() => {
+        setBatteryLevel((prev) => Math.max(5, (prev - 1) % 100));
+      }, 60000);
+      return () => clearInterval(interval);
+    }
+  }, []);
+
+  const updateBatteryInfo = (battery: BatteryManager) => {
+    setBatteryLevel(Math.round(battery.level * 100));
+    setIsCharging(battery.charging);
+  };
+
+  const getBatteryColor = (): string => {
+    if (isCharging) return "bg-blue-400";
+    if (batteryLevel > 60) return "bg-green-500";
+    if (batteryLevel > 20) return "bg-yellow-500";
+    return "bg-red-500";
+  };
+
+  const getBatteryBorderColor = (): string => {
+    if (isCharging) return "border-blue-400";
+    if (batteryLevel > 60) return "border-green-500";
+    if (batteryLevel > 20) return "border-yellow-500";
+    return "border-red-500";
+  };
+
+  return (
+    <div className="w-full bg-white/2 flex justify-end px-4 text-white text-sm gap-x-2 py-1">
+      {/* Battery + Icons */}
+
+      <div className="relative flex flex-col items-center mt-[1px]">
+        <div className={`w-[4px] h-[2px] ${getBatteryColor()} rounded-t-sm`} />
+        <div
+          className={`w-3 h-4 border-[1px] ${getBatteryBorderColor()} flex flex-col justify-end relative`}
+        >
+          <div
+            className={`w-full ${getBatteryColor()}`}
+            style={{
+              height: batterySupported ? `${batteryLevel}%` : "100%",
+            }}
+          ></div>
+          {isCharging && (
+            <BsLightningChargeFill className="absolute bottom-[1px] text-[.65rem]" />
+          )}
+        </div>
+      </div>
+
+      {/* Clock */}
+      <div className="font-medium text-base p-0">
+        {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+      </div>
+    </div>
+  );
+};
+
+export default StatusBar;

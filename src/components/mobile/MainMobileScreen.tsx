@@ -1,13 +1,23 @@
 import { useStart } from "../../context/StartContext";
 import HomeScreen from "./HomeScreen";
+import MobileBootUpScreen from "./MobileBootUpScreen";
 
-const MainMobileScreen = () => {
+export type MainMobileScreenProps = {
+  isShowApps: boolean;
+  setShowApps: (value: boolean) => void;
+};
+
+const MainMobileScreen = ({
+  isShowApps,
+  setShowApps,
+}: MainMobileScreenProps) => {
   const { start } = useStart();
   return (
     <div
-      className={`w-full h-full relative ${!start && "select-none bg-black"} `}
+      className={`w-full h-full relative ${!start && "select-none "} bg-black`}
     >
-      <HomeScreen />
+      <MobileBootUpScreen />
+      <HomeScreen isShowApps={isShowApps} setShowApps={setShowApps} />
     </div>
   );
 };
