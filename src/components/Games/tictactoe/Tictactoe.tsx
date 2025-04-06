@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../monitor/win95/Button";
+import { Button } from "../../monitor/win95/Button";
 
 // Constants
 const EMPTY = null;
@@ -87,7 +87,7 @@ const getAIMove = (board: Board): number => {
   return move;
 };
 
-export const Tictactoe = () => {
+const Tictactoe = () => {
   const [board, setBoard] = useState<Board>(Array(9).fill(EMPTY));
   const [currentPlayer, setCurrentPlayer] = useState<"X" | "O">("X");
   const [gameMode, setGameMode] = useState<"human" | "ai">("human");
@@ -191,3 +191,5 @@ export const Tictactoe = () => {
     </div>
   );
 };
+
+export default Tictactoe;
