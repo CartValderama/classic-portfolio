@@ -38,7 +38,7 @@ const Phone = () => {
       layout="position"
       className={`flex w-full h-full flex-col items-center justify-center absolute mobile:max-w-[30rem] `}
     >
-      <div className="w-full mobile:max-w-[30rem] min-h-[40rem] mobile:max-h-[50rem] flex-1 relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]">
+      <div className="w-full mobile:max-w-[30rem] flex-1 relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]">
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-18 absolute -right-1 rounded-r-lg top-40"></div>
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-30 absolute -left-1 rounded-l-lg top-60"></div>
         <div className="mobile:border-10 border-[#242429] mobile:rounded-[7rem] w-full h-full">
@@ -58,7 +58,7 @@ const Phone = () => {
               </div>
 
               {/* main screen */}
-              <div className="w-full h-[550px] rounded-xs ">
+              <div className="w-full h-full rounded-xs ">
                 <MainMobileScreen
                   isShowApps={isShowApps}
                   setShowApps={setShowApps}
