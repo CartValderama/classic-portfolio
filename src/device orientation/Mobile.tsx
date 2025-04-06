@@ -6,7 +6,7 @@ import Phone from "../components/mobile/Phone";
 const Mobile = () => {
   const { start, setStart } = useStart();
   return (
-    <div className="lg:hidden flex h-screen items-center justify-center px-4 text-sm">
+    <div className="lg:hidden flex h-screen items-center justify-center px-4 text-sm ">
       <motion.div
         initial={{ opacity: 1 }}
         animate={start ? { opacity: 0 } : { opacity: 1 }}
@@ -42,7 +42,7 @@ const Mobile = () => {
             Get Started
           </ButtonMain>
           <ButtonMain
-            variant={"default"}
+            variant={"ghost"}
             onClick={() => {
               window.open(
                 "https://cart-valderama-portfolio.vercel.app/",
