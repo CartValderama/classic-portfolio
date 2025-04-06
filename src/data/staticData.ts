@@ -37,7 +37,7 @@ import {
   Write1,
 } from "@react95/icons";
 import Credits from "../components/monitor/Credits";
-import Tictactoe from "../components/games/Tictactoe";
+import TicTacToe from "../components/games/Tictactoe";
 import Wordle from "../components/games/Wordle";
 import OldPorfolio from "../components/monitor/OldPortolio";
 import AboutMe from "../components/about/AboutMe";
@@ -78,7 +78,7 @@ export const apps: AppProps[] = [
     iconStyle: " text-white bg-sky-700 p-2 rounded-lg",
     label: "Tictactoe",
     id: "tictactoe",
-    Component: Tictactoe,
+    Component: TicTacToe,
     iWidth: 300,
     iHeight: 400,
   },

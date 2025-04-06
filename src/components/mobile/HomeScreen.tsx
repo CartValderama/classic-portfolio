@@ -6,10 +6,9 @@ import StatusBar from "./StatusBar";
 import { FaGithub, FaLinkedinIn, FaPowerOff } from "react-icons/fa6";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
-import AboutMe from "../about/AboutMe";
 import { MainMobileScreenProps } from "./MainMobileScreen";
 import Wordle from "../games/Wordle";
-import OldPorfolio from "../monitor/OldPortolio";
+import AboutMe from "../about/AboutMe";
 import { useEffect } from "react";
 
 const homeApp = [
@@ -159,7 +158,6 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
                     className="absolute text-black w-full h-full"
                   >
                     {appId === "wordle" && <Wordle />}
-                    {appId === "oldportfolio" && <OldPorfolio />}
                     {appId === "about" && <AboutMe />}
                   </motion.div>
                 )}

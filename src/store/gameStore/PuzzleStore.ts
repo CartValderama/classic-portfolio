@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import words from "../../components/games/gameData/word.json";
+import words from "./gameData/word.json";
 
 export type GuessProps = {
   word: string;
