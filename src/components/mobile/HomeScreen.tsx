@@ -9,7 +9,7 @@ import { MainMobileScreenProps } from "./MainMobileScreen";
 import { useEffect } from "react";
 import StatusBar from "./StatusBar";
 import AboutMe from "../about/AboutMe";
-import Wordle from "../games/wordle/Wordle";
+import Wordle from "../gamess/wordle/Wordle";
 
 const homeApp = [
   {
