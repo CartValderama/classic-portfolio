@@ -39,7 +39,7 @@ import {
 import AboutMe from "../components/about/AboutMe";
 import Credits from "../components/monitor/Credits";
 import OldPorfolio from "../components/monitor/OldPortolio";
-import Tictactoe from "../components/games/Tictactoe";
+import { Tictactoe } from "../components/games/Tictactoe";
 import Wordle from "../components/games/Wordle";
 import { IconType } from "react-icons";
 import { TbLetterW } from "react-icons/tb";
