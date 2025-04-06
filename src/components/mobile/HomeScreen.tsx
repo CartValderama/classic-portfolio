@@ -8,7 +8,7 @@ import { AiFillHome } from "react-icons/ai";
 import { MainMobileScreenProps } from "./MainMobileScreen";
 import { useEffect } from "react";
 import StatusBar from "./StatusBar";
-import Wordle from "../../components/games/Wordle";
+import Wordle from "../games/Wordle";
 import AboutMe from "../about/AboutMe";
 
 const homeApp = [
