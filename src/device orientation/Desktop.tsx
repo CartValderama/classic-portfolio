@@ -8,7 +8,7 @@ const Desktop = () => {
 
   return (
     <div
-      className={`hidden lg:flex max-w-[85rem] justify-between 2xl:max-w-[96rem] items-center relative px-7 w-full min-h-[44rem] 2xl:h-[54rem]`}
+      className={`hidden lg:flex max-w-[85rem] 2xl:max-w-[96rem] items-center relative px-7 w-full min-h-[44rem] 2xl:h-[54rem]`}
     >
       {/* text explanation */}
       <motion.div

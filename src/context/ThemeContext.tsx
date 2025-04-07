@@ -1,10 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 
 type Theme = "light" | "dark";
-type ThemeContextProviderProps = {
-  children: React.ReactNode;
-};
-
 type ThemeContextType = {
   theme: Theme;
   toggleTheme: () => void;
@@ -12,38 +8,33 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export default function ThemeContextProvider({
+export default function ThemeProvider({
   children,
-}: ThemeContextProviderProps) {
+}: {
+  children: React.ReactNode;
+}) {
   const [theme, setTheme] = useState<Theme>("dark");
 
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-      window.localStorage.setItem("theme", "dark");
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-    } else {
-      setTheme("light");
-      window.localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-    }
-  };
+  useEffect(() => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme") as Theme | null;
-
-    if (localTheme) {
-      setTheme(localTheme);
-      if (localTheme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
-    }
+    setTheme("dark");
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
   }, []);
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const newTheme = prev === "light" ? "dark" : "light";
+      // Update localStorage when toggling
+      localStorage.setItem("theme", newTheme);
+      return newTheme;
+    });
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -54,10 +45,8 @@ export default function ThemeContextProvider({
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-
-  if (context === null) {
-    throw new Error("Usetheme must be used within a ThemeContextProvider");
+  if (!context) {
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
-
   return context;
 }
