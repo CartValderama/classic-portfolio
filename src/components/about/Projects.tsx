@@ -60,7 +60,9 @@ const Projects = ({ selectMenu }: selectMenuProps) => {
 
               <div className="flex flex-col items-center gap-y-1 mt-2">
                 <img src={img} alt={name} />
-                <p className="text-sm text-center">{figDesc}</p>
+                <p className="text-sm lg:text-sm text-center italic">
+                  {figDesc}
+                </p>
               </div>
 
               <div className="flex flex-col gap-y-1">

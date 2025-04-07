@@ -7,9 +7,7 @@ const ContactDivider = () => {
       <div>
         <p className="font-medium">Any Questions?</p>
 
-        <p className="flex items-center gap-x-4 text-sm">
-          Email: cartantonio2000@gmail.com
-        </p>
+        <p className="flex items-center text-sm">cartantonio2000@gmail.com</p>
       </div>
     </div>
   );
