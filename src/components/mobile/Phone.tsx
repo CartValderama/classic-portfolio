@@ -36,15 +36,15 @@ const Phone = () => {
         ease: "easeInOut", // Smoother scaling
       }}
       layout="position"
-      className={`flex w-full h-full flex-col items-center justify-center absolute mobile:max-w-[30rem] `}
+      className={`flex w-full h-full flex-col items-center justify-center absolute mobile:max-w-[30rem]`}
     >
-      <div className="w-full mobile:max-w-[30rem] flex-1 relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]">
+      <div className="w-full relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]">
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-18 absolute -right-1 rounded-r-lg top-40"></div>
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-30 absolute -left-1 rounded-l-lg top-60"></div>
         <div className="mobile:border-10 border-[#242429] mobile:rounded-[7rem] w-full h-full">
           <div className="mobile:border-2 border-[#515455] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center">
-            <div className="mobile:border-2 border-[#171718] mobile:rounded-[6rem] w-full h-full flex flex-col items-center mobile:justify-center bg-[#131314] py-4 px-4 mobile:px-8 ">
-              <div className="hidden mobile:flex flex-col justify-center items-center mobile:w-full mobile:mb-6">
+            <div className="mobile:border-2 border-[#171718] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center bg-[#131314] py-10 px-6 mobile:px-8 ">
+              <div className="flex flex-col justify-center items-center w-full mb-5">
                 <div className="flex items-center justify-between w-full">
                   <div className="w-5 h-5 ml-5"></div>
                   <div className="w-38 h-2 bg-[#242425] rounded-3xl border-2 border-[#515455]"></div>
@@ -65,7 +65,7 @@ const Phone = () => {
                 />
               </div>
 
-              <div className="w-full flex items-center justify-center my-6">
+              <div className=" w-full flex items-center justify-center mt-5">
                 <button
                   className=" w-20 h-12 border-3 border-[#515455] rounded-xl active:scale-98 cursor-pointer"
                   onClick={() => {
