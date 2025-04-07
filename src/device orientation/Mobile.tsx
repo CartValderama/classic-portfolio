@@ -6,7 +6,7 @@ import Phone from "../components/mobile/Phone";
 const Mobile = () => {
   const { start, setStart } = useStart();
   return (
-    <div className="lg:hidden flex h-screen items-center justify-center px-4 text-sm ">
+    <div className="lg:hidden flex items-center justify-center px-4 text-sm ">
       <motion.div
         initial={{ opacity: 1 }}
         animate={start ? { opacity: 0 } : { opacity: 1 }}
