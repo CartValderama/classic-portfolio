@@ -74,7 +74,7 @@ const More = ({ selectMenu }: selectMenuProps) => {
 
           <div className="flex flex-col items-center gap-y-1">
             <img src={"https://i.imgur.com/A1uwrAH.jpeg"} alt="" />
-            <p className="text-xs text-center">
+            <p className="text-xs lg:text-sm text-center italic">
               Figure 6: Filipino Basketball League in Trondheim, Norway
             </p>
           </div>
