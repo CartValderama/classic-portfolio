@@ -67,7 +67,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
         <div className="w-full bg-black ">
           <StatusBar />
         </div>
-        <div className="p-6 flex flex-col justify-between gap-y-15">
+        <div className="p-4 flex flex-col justify-between gap-y-15">
           <div
             className={`${
               isShowApps ? "opacity-100" : "opacity-0 -z-10"

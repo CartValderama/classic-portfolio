@@ -43,7 +43,7 @@ const Phone = () => {
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-30 absolute -left-1 rounded-l-lg top-60"></div>
         <div className="mobile:border-10 border-[#242429] mobile:rounded-[7rem] w-full h-full">
           <div className="mobile:border-2 border-[#515455] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center">
-            <div className="mobile:border-2 border-[#171718] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center bg-[#131314] py-10 px-6 mobile:px-8 ">
+            <div className="mobile:border-2 border-[#171718] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center bg-[#131314] py-10 px-4 mobile:px-6 ">
               <div className="flex flex-col justify-center items-center w-full mb-5">
                 <div className="flex items-center justify-between w-full">
                   <div className="w-5 h-5 ml-5"></div>
