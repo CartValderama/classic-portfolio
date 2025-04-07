@@ -10,8 +10,15 @@ import { useEffect } from "react";
 import StatusBar from "./StatusBar";
 import AboutMe from "../about/AboutMe";
 import Wordle from "../games/wordle/Wordle";
+import { GiBananaPeeled } from "react-icons/gi";
 
 const homeApp = [
+  {
+    name: "Old Portfolio",
+    url: "https://cart-valderama-portfolio.vercel.app/",
+    HomeIcon: GiBananaPeeled,
+    style: "text-white bg-stone-700 p-3 rounded-lg",
+  },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/cart-valderama/",
@@ -103,20 +110,6 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
           </div>
 
           <div className="grid grid-cols-4 gap-x-3">
-            <button
-              className="flex flex-col place-items-center cursor-pointer hover:opacity-80 active:scale-95 transition-all duration-100"
-              onClick={() => {
-                const url = "https://cart-valderama-portfolio.vercel.app/";
-
-                if (url) {
-                  window.open(url, "_blank", "noopener,noreferrer");
-                }
-              }}
-            >
-              <span className="text-[1.9rem] text-white bg-stone-700 p-1 rounded-lg font-bold aspect-square uppercase">
-                CA
-              </span>
-            </button>
             {homeApp.map(({ HomeIcon, url, style }, index) => (
               <button
                 key={index}

@@ -6,8 +6,8 @@ const Monitor = () => {
   const { start } = useStart();
   return (
     <motion.div
-      initial={{ scale: 0.45 }}
-      animate={start ? { scale: 1 } : { scale: 0.45 }}
+      initial={{ scale: 0.4 }}
+      animate={start ? { scale: 1 } : { scale: 0.4 }}
       transition={{ duration: 0.6, delay: 1 }}
       layout="position"
       className={`flex flex-col items-center w-full absolute -right-[29%] ${
