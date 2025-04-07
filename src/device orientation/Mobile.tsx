@@ -7,8 +7,8 @@ const Mobile = () => {
   const { start, setStart } = useStart();
   return (
     <div
-      className={`lg:hidden flex items-center justify-center px-4 text-sm  ${
-        start ? "min-h-[650px]" : "h-[650px]"
+      className={`lg:hidden flex items-center justify-center px-4 text-sm ${
+        start ? "min-h-[700px]" : "min-h-[550px]"
       }`}
     >
       <motion.div

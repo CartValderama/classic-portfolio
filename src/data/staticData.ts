@@ -89,7 +89,7 @@ export const apps: AppProps[] = [
     label: "Wordle",
     id: "wordle",
     Component: Wordle,
-    iWidth: 360,
+    iWidth: 300,
     iHeight: 560,
   },
   {

@@ -58,7 +58,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
       key={start ? "start-true" : "start-false"}
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0, delay: 10 }}
+      transition={{ duration: 0, delay: 8 }}
       className="flex h-full flex-col justify-between bg-black bg-cover bg-center text-white relative overflow-auto [&::-webkit-scrollbar]:hidden"
     >
       {/* Background image - fixed at the back */}
@@ -88,7 +88,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
               }}
             >
               <FaPowerOff className="text-[3.2rem] text-white bg-red-700 p-2 rounded-lg" />
-              <span>ShutDown</span>
+              <span className="text-xs">ShutDown</span>
             </button>
             {apps
               .filter(
@@ -104,7 +104,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
                   onClick={() => handleOpenWindows(id)}
                 >
                   <MobileIcon className={`text-[3.2rem] ${iconStyle}`} />
-                  <span>{label}</span>
+                  <span className="text-xs">{label}</span>
                 </button>
               ))}
           </div>

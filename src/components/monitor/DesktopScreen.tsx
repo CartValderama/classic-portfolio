@@ -15,13 +15,13 @@ const DesktopScreen = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1, zIndex: 10 } : { opacity: 0, zIndex: -1 }}
-      transition={{ duration: 0, delay: start ? 6.9 : 0 }}
+      transition={{ duration: 0, delay: start ? 7 : 0 }}
       className={`relative flex w-full h-full flex-col justify-between bg-[#196364] font-system text-black`}
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0, delay: start ? 10 : 0 }}
+        transition={{ duration: 0, delay: start ? 8 : 0 }}
         className="relative flex flex-col-reverse justify-end items-start overflow-hidden gap-y-6 px-3 py-4 text-[#010101] w-full h-full"
         ref={constraintsRef}
       >

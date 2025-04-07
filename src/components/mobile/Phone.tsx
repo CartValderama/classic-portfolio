@@ -32,18 +32,18 @@ const Phone = () => {
       }
       transition={{
         duration: 0.6,
-        delay: start ? 2 : 0, // Only delay when appearing (start=true)
-        ease: "easeInOut", // Smoother scaling
+        delay: start ? 2 : 0,
+        ease: "easeInOut",
       }}
       layout="position"
-      className={`flex w-full h-full flex-col items-center justify-center absolute mobile:max-w-[30rem]`}
+      className={`flex w-full h-full mobile:max-h-[50rem] flex-col items-center justify-center absolute mobile:max-w-[30rem]`}
     >
       <div className="w-full h-full relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]">
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-18 absolute -right-1 rounded-r-lg top-40"></div>
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-30 absolute -left-1 rounded-l-lg top-60"></div>
         <div className="mobile:border-10 border-[#242429] mobile:rounded-[7rem] w-full h-full">
           <div className="mobile:border-2 border-[#515455] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center">
-            <div className="mobile:border-2 border-[#171718] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center bg-[#131314] py-10 px-4 mobile:px-6 ">
+            <div className="mobile:border-2 border-[#171718] mobile:rounded-[6rem] w-full h-full flex flex-col items-center justify-center bg-[#131314] py-10 px-8 ">
               <div className="flex flex-col justify-center items-center w-full mb-5">
                 <div className="flex items-center justify-between w-full">
                   <div className="w-5 h-5 ml-5"></div>
