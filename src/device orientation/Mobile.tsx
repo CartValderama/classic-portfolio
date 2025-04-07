@@ -12,8 +12,8 @@ const Mobile = () => {
       }`}
     >
       <motion.div
-        initial={{ opacity: 1 }}
-        animate={start ? { opacity: 0 } : { opacity: 1 }}
+        initial={{ opacity: 1, zIndex: 1 }}
+        animate={start ? { opacity: 0, zIndex: 0 } : { opacity: 1, zIndex: 1 }}
         transition={{ duration: 0.6, delay: 1 }}
         layout="position"
         className={`flex flex-col md:items-center md:text-lg justify-center gap-y-2 w-full `}

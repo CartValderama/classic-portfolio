@@ -24,12 +24,8 @@ const Phone = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.4, zIndex: -10 }}
-      animate={
-        start
-          ? { opacity: 1, scale: 1, zIndex: 0 }
-          : { opacity: 0, scale: 0.4, zIndex: -10 }
-      }
+      initial={{ opacity: 0, scale: 0.4 }}
+      animate={start ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.4 }}
       transition={{
         duration: 0.6,
         delay: start ? 2 : 0,
