@@ -2,7 +2,7 @@ import { GuessProps } from "../../../store/gameStore/PuzzleStore";
 
 export const Guess = ({ word, guess, isGuessed }: GuessProps) => {
   return (
-    <div className="flex w-[85%] h-full gap-x-0.5">
+    <div className="flex w-[80%] h-full gap-x-0.5">
       {new Array(4).fill(0).map((_, i) => {
         const bgColor = !isGuessed
           ? "bg-white"

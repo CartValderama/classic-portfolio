@@ -9,22 +9,23 @@ export const Qwerty = () => {
     PuzzleStore();
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-0.5 w-full">
+    <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[25%]">
       {abcd.map((row, idx) => (
         <div
           key={idx}
-          className="flex justify-center gap-0.5 w-full font-semibold lg:font-normal"
+          className="flex justify-center gap-0.5 w-full h-full font-semibold lg:font-normal"
         >
-          {/* Add Backspace button to the first row */}
+          {/* Add Backspace button to the last row */}
           {idx === 3 && (
             <Button
               variant={"default"}
-              className="bg-gray-200 px-2 py-1 w-full border-0 rounded lg:border-1 lg:rounded-none"
+              className="bg-gray-200 h-full w-full border-0 rounded lg:border lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Delete")}
             >
               <MdKeyboardBackspace />
             </Button>
           )}
+
           {/* Render each key */}
           {row.split("").map((char, idy) => {
             const bgColor = exactGuesses().includes(char)
@@ -38,12 +39,12 @@ export const Qwerty = () => {
               <Button
                 key={idy}
                 variant={"default"}
-                className={`uppercase px-2 py-1 ${bgColor} w-full min-h-10 border-0 rounded ${
+                className={`uppercase h-full w-full ${bgColor} border-0 rounded flex items-center justify-center ${
                   char && "active:scale-95"
-                } transition-transform duration-100 lg:border-1 lg:rounded-none`}
+                } transition-transform duration-100 lg:border lg:rounded-none`}
                 onClick={() => handleKeyClick(char)}
               >
-                {char}
+                <span className="text-xs">{char}</span>
               </Button>
             );
           })}
@@ -52,7 +53,7 @@ export const Qwerty = () => {
           {idx === 3 && (
             <Button
               variant={"default"}
-              className="bg-gray-200 px-2 py-1 w-full border-0 rounded lg:border-1 lg:rounded-none"
+              className="bg-gray-200 h-full w-full border-0 rounded lg:border lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Enter")}
             >
               <GrReturn />
