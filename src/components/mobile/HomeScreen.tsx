@@ -52,7 +52,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0, delay: 10 }}
-      className="flex flex-col justify-between bg-black bg-cover bg-center text-white relative overflow-auto [&::-webkit-scrollbar]:hidden"
+      className="flex h-full flex-col justify-between bg-black bg-cover bg-center text-white relative overflow-auto [&::-webkit-scrollbar]:hidden"
     >
       {/* Background image - fixed at the back */}
       <div
@@ -63,15 +63,15 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
           backgroundImage: "url('https://i.imgur.com/6pSOBUF.jpeg')",
         }}
       ></div>
-      <div className="z-10 flex flex-col justify-between relative">
+      <div className="z-10 h-full flex flex-col justify-between relative">
         <div className="w-full bg-black ">
           <StatusBar />
         </div>
-        <div className="p-4 flex flex-col justify-between gap-y-15">
+        <div className="p-4 h-full flex flex-col justify-between">
           <div
             className={`${
               isShowApps ? "opacity-100" : "opacity-0 -z-10"
-            } grid grid-cols-4 grid-rows-4 h-full gap-x-3`}
+            } grid grid-cols-4 grid-rows-4 gap-x-3`}
           >
             <button
               className="flex flex-col justify-center items-center text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95"
