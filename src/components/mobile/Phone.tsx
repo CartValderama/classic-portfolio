@@ -50,7 +50,9 @@ const Phone = () => {
                     </div>
                   </div>
                 </div>
-                <p className="uppercase font-bold text-lg">SpamSung</p>
+                <p className="uppercase font-bold text-lg text-white">
+                  SpamSung
+                </p>
               </div>
 
               {/* main screen */}
