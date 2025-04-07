@@ -26,7 +26,7 @@ const Projects = ({ selectMenu }: selectMenuProps) => {
             <div key={idx} className="flex flex-col gap-y-2">
               <div className="flex flex-wrap justify-between items-center gap-x-12 gap-y-1">
                 <h2 className="text-2xl capitalize font-bold mr-2">{name}</h2>
-                <div className="flex gap-x-2 capitalize text-sm">
+                <div className="flex gap-x-4 capitalize text-sm">
                   <a
                     href={source}
                     target="_blank"
