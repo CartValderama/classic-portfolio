@@ -8,7 +8,7 @@ const Desktop = () => {
 
   return (
     <div
-      className={`hidden lg:flex max-w-[85rem] justify-between 2xl:max-w-[96rem] items-center relative px-7 w-full h-[44rem] 2xl:h-[54rem]`}
+      className={`hidden lg:flex max-w-[85rem] justify-between 2xl:max-w-[96rem] items-center relative px-7 w-full`}
     >
       {/* text explanation */}
       <motion.div
@@ -61,6 +61,7 @@ const Desktop = () => {
           </ButtonMain>
         </div>
       </motion.div>
+
       {/* small scaled monitor */}
       <Monitor />
     </div>
