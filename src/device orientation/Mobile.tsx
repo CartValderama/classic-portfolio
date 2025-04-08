@@ -16,12 +16,12 @@ const Mobile = () => {
         animate={start ? { opacity: 0, zIndex: 0 } : { opacity: 1, zIndex: 1 }}
         transition={{ duration: 0.6, delay: 1 }}
         layout="position"
-        className={`flex flex-col md:items-center md:text-lg justify-center gap-y-2 w-full `}
+        className={`flex flex-col mobile:items-center mobile:text-sm sm:text-lg justify-center gap-y-2 w-full `}
       >
-        <h1 className="font-geist text-3xl md:text-4xl font-bold">
+        <h1 className="font-geist text-3xl mobile:text-4xl font-bold">
           Classic Portfolio
         </h1>
-        <div className="flex flex-col gap-y-3 font-geist leading-7 md:text-center md:w-[70%]">
+        <div className="flex flex-col gap-y-3 font-geist leading-7 mobile:text-center mobile:w-[70%]">
           <p>
             A portfolio inspired by the old devices I used as a kid, featuring
             Windows 95 interface and a Samsung Ace layout.{" "}
