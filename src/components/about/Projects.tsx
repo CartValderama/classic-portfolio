@@ -23,10 +23,10 @@ const Projects = ({ selectMenu }: selectMenuProps) => {
       <div className="flex flex-col gap-y-6">
         {projects.map(
           ({ name, source, demo, img, topics, desc, figDesc }, idx) => (
-            <div key={idx} className="flex flex-col gap-y-2">
-              <div className="flex flex-wrap justify-between items-center gap-x-12 gap-y-1">
+            <div key={idx} className="flex flex-col gap-y-1">
+              <div className="flex flex-wrap justify-between items-center gap-y-1 mb-2 gap-x-4">
                 <h2 className="text-2xl capitalize font-bold mr-2">{name}</h2>
-                <div className="flex gap-x-4 capitalize text-sm">
+                <div className="flex gap-x-3 capitalize text-sm">
                   <a
                     href={source}
                     target="_blank"
@@ -43,7 +43,7 @@ const Projects = ({ selectMenu }: selectMenuProps) => {
                     className="underline flex items-center gap-x-0.5"
                   >
                     <BsGlobe />
-                    <span>live demo</span>
+                    <span> live demo</span>
                   </a>
                 </div>
               </div>

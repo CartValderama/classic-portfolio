@@ -191,13 +191,13 @@ export const tools = [
 
 export const projects = [
   {
-    name: "Nostalgia Portfolio",
+    name: "Second Portfolio",
     desc: [
       "This is my latest portfolio, which was created in March 2025. After receiving feedback on my previous personal portfolio, I decided to create a more dynamic and interactive design. This time, I focused more on building a fun web portfolio to showcase my skills in a unique way.",
       "Since TailwindCSS dropped its newest version, I used this opportunity to test its version 4 out in this personal project. Additionally, To further challenge myself and develop my skills, I chose not to use any component libraries and create everything from scratch.",
     ],
     figDesc:
-      "Figure 1: Home page of my Nostalgia Portfolio, displayed on a desktop screen",
+      "Figure 1: Home page of my Classic Portfolio, displayed on a desktop screen",
     source: "https://github.com/CartValderama/win95-portfolio",
     demo: "https://cart-valderama-portfolio.vercel.app/",
     topics: ["tailwind", "react", "framer", "vite", "typescript"],
@@ -206,7 +206,7 @@ export const projects = [
     solo: true,
   },
   {
-    name: "Accessibility Portfolio",
+    name: "First Portfolio",
     desc: [
       "One of the courses during my first semester in the master's program inspired me to create my own accessible portfolio, which was completed in September 2024. I have utlizied the use of ARIA tools to make this project to atleast satify the WCAG's conformance level of A and AA.",
       "This is also the first time I used Framer Motion for animations, unlike handling them with vanilla JavaScript. In this project, I practiced using TanStack Query to cache data that was fetched from my GitHub repository.",
@@ -228,18 +228,18 @@ export const projects = [
     figDesc: "Figure 3: The game menu of the Quiz Mode in AICEE.",
     source: "https://github.com/CartValderama/bachelor-project",
     demo: "",
-    topics: ["react", "asp.net", "azure", "gpt", "tailwind", "mlflow"],
+    topics: ["react", "dotnet", "azure", "gpt", "mlflow"],
     img: "https://i.imgur.com/dJtzbY7.png",
     status: true,
     solo: false,
   },
   {
-    name: "DungeonKeep Escape",
+    name: "Dungeon Escape",
     desc: [
-      "DungeonKeep Escape is a 2D pixel game I built by following a tutorial on youtube from ChrisCourses in December 2023 to practice my JavaScript in preparation for my bachelor's project.",
+      "Dungeon Escape is a 2D pixel game I built by following a tutorial on youtube from ChrisCourses in December 2023 to practice my JavaScript in preparation for my bachelor's project.",
       "It was built using JavaScript, HTML, and CSS. I used Tiled to design the dungeon maps and Piskel to customize the character sprites. I chose to create this type of project as my practice because I'm interested in learning more about pixel art. The game focuses on exploring dungeon rooms and jumping between platforms.",
     ],
-    figDesc: "Figure 4: Small playthrough of DungeonKeep Escape",
+    figDesc: "Figure 4: Small playthrough of Dungeon Escape",
     source: "https://github.com/CartValderama/Dungeon-Escape",
     demo: "https://dungeon-escape.vercel.app/",
     topics: ["javascript", "gsap", "tiled", "pixelart", "OOP"],
@@ -257,7 +257,7 @@ export const projects = [
       "Figure 5: One of the game mode in the Web App Project, called feedback mode.",
     source: "https://github.com/CartValderama/angular-flashcard-app",
     demo: "",
-    topics: ["angular", "asp.net", "gpt", "bootstrap", "typescript"],
+    topics: ["angular", "dotnet", "gpt", "typescript"],
     img: "https://i.imgur.com/zdZAc2W.png",
     status: true,
     solo: false,
