@@ -98,7 +98,9 @@ const Window = ({
     closeWindow(id);
   };
 
-  const handleResize = (e: React.MouseEvent) => {
+  const handleResize = (e: React.PointerEvent) => {
+    if (isMaximized) return; // Don't allow resizing when maximized
+
     setIsResizing(true);
     e.stopPropagation();
     e.preventDefault();
@@ -113,7 +115,7 @@ const Window = ({
 
     const containerRect = container.getBoundingClientRect();
 
-    const onMouseMove = (moveEvent: MouseEvent) => {
+    const onPointerMove = (moveEvent: PointerEvent) => {
       moveEvent.preventDefault();
       moveEvent.stopPropagation();
 
@@ -134,14 +136,14 @@ const Window = ({
       });
     };
 
-    const onMouseUp = () => {
+    const onPointerUp = () => {
       setIsResizing(false);
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseup", onMouseUp);
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
     };
 
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
   };
 
   return (
@@ -162,7 +164,7 @@ const Window = ({
         top: isMaximized ? 0 : undefined,
         left: isMaximized ? 0 : undefined,
         visibility:
-          openWindows[id] && !minimizedWindows[id] ? "visible" : "hidden", // Hide if minimized
+          openWindows[id] && !minimizedWindows[id] ? "visible" : "hidden",
         zIndex:
           activeWindows[id] && isMaximized
             ? 3
@@ -175,7 +177,7 @@ const Window = ({
       onClick={() => handleActiveWindows(id)}
     >
       <div
-        className={`flex h-full flex-col justify-between p-0.5 overflow-hidden bg-[#c3c7cb] border border-white border-r-[#868a8e] border-b-[#868a8e] shadow-outline `}
+        className={`flex h-full flex-col justify-between p-0.5 overflow-hidden bg-[#c3c7cb] border border-white border-r-[#868a8e] border-b-[#868a8e] shadow-outline touch-none`}
       >
         {/* Title bar */}
         <div
@@ -183,9 +185,15 @@ const Window = ({
             activeWindows[id] ? "bg-[#000e7a]" : "bg-[#7f787f]"
           }`}
           onPointerDown={(e) => {
-            dragControls.start(e);
+            if (
+              !isMaximized &&
+              (e.pointerType === "touch" || e.pointerType === "mouse")
+            ) {
+              e.preventDefault(); // Important for touch devices
+              dragControls.start(e);
+              setIsResizing(false);
+            }
           }}
-          onMouseDown={() => setIsResizing(false)}
         >
           <h1 className="flex items-center gap-x-1">
             <Icon variant="16x16_4" />
@@ -257,7 +265,7 @@ const Window = ({
           <div className="relative border h-6 w-2/6 border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-1 items-center"></div>
           <div
             className="absolute bottom-0 right-0 w-[6px] h-2  cursor-nwse-resize"
-            onMouseDown={(e) => {
+            onPointerDown={(e) => {
               handleResize(e);
               handleActiveWindows(id);
             }}

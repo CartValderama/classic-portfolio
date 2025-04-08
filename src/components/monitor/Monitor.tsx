@@ -10,13 +10,13 @@ const Monitor = () => {
       animate={start ? { scale: 1 } : { scale: 0.4 }}
       transition={{ duration: 0.6, delay: 1 }}
       layout="position"
-      className={`flex flex-col items-center w-full absolute -right-[29%] ${
-        start ? "right-0 mt-45 2xl:mt-20" : "mr-13 xl:mr-0"
+      className={`flex flex-col items-center w-full absolute -right-[30%] 2xl:-right-[34%] ${
+        start ? "right-0 2xl:right-0 mt-62 2xl:mt-40" : "mr-13 xl:mr-0"
       }`}
     >
       {/* monitor head*/}
       <div
-        className={`bg-[#dbd49d] w-[63rem] h-[53rem] relative rounded-3xl flex flex-col items-center justify-between py-10 shadow-lg shadow-[#847959] dark:shadow-[#0b0b0b]`}
+        className={`bg-[#dbd49d] w-[68rem] h-[57rem] relative rounded-3xl flex flex-col items-center justify-between py-10 shadow-lg shadow-[#847959] dark:shadow-[#0b0b0b]`}
       >
         {/* main screen */}
         <div className="w-[90%] h-[90%] rounded-2xl relative flex justify-center items-center">
@@ -42,23 +42,23 @@ const Monitor = () => {
           </div>
 
           <div className="flex items-center gap-x-1 text-[#a0926f] select-none">
-            <p className="font-semibold font-dvd text-2xl">McQueen</p>
+            <p className="font-semibold font-dvd text-2xl">Valderama</p>
           </div>
         </div>
       </div>
       {/* monitor stand */}
       <div
-        className={`relative w-[65rem] flex flex-col-reverse items-center justify-center`}
+        className={`relative w-[80rem] flex flex-col-reverse items-center justify-center`}
       >
         <div className="mt-6 flex flex-col-reverse items-center w-full ">
-          <div className="w-[30%] h-8 rounded-b-[90%] bg-[#b3ac7e] scale-200 "></div>
-          <div className="w-[30%] h-8 rounded-[50%] bg-[#887e50] scale-200"></div>
+          <div className="w-[30%] h-12 rounded-b-[90%] bg-[#b3ac7e] scale-200 "></div>
+          <div className="w-[30%] h-12 rounded-[50%] bg-[#887e50] scale-200"></div>
         </div>
         <div className="-mt-10 absolute flex flex-col-reverse items-center w-full">
-          <div className="w-[20%] h-6 rounded-b-[90%] bg-[#b3ac7e] scale-200 "></div>
-          <div className="w-[20%] h-6 rounded-[50%] bg-[#887e50] scale-200"></div>
+          <div className="w-[20%] h-10 rounded-b-[90%] bg-[#b3ac7e] scale-200 "></div>
+          <div className="w-[20%] h-10 rounded-[50%] bg-[#887e50] scale-200"></div>
         </div>
-        <div className="w-[70%] h-7 bg-[#b3ac7e] rounded-b-xl z-10 "></div>
+        <div className="w-[70%] h-10 bg-[#b3ac7e] rounded-b-xl z-10 "></div>
       </div>
     </motion.div>
   );

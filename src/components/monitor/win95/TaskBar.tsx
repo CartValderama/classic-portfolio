@@ -50,7 +50,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
           } bottom-[2.1rem] -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-w-44 min-h-48`}
         >
           <p className="bg-[#7b7d7b] text-[#c3c7cb] flex flex-col items-start rotate-180 [writing-mode:vertical-rl] text-xl font-black font-ms px-2 py-1">
-            McQueen95
+            ValderamaOS
           </p>
           <div className="flex flex-col-reverse w-full">
             <Button

@@ -82,3 +82,13 @@ html {
   font-weight: 300;
   background-color: #09090b;
 }
+
+body {
+  cursor: default !important;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: auto !important;
+  }
+}
