@@ -31,6 +31,12 @@ const DesktopScreen = () => {
             key={id}
             className="bg-none shadow-none w-16 h-16 p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] gap-[5px] hover:bg-white/10"
             onDoubleClick={() => handleOpenWindows(id)}
+            onPointerDown={(e) => {
+              if (e.pointerType === "touch" || e.pointerType === "pen") {
+                e.preventDefault();
+                handleOpenWindows(id);
+              }
+            }}
           >
             <DesktopIcon className="w-[3rem]" variant="32x32_4" />
             <span>{label}</span>
