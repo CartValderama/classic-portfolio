@@ -14,7 +14,7 @@ const MobileBootUpScreen = () => {
         duration: 0.1,
         delay: 7,
       }}
-      className="z-10 absolute flex w-full h-full font-system opacity-85 text-xl blur-[.4px]  text-neutral-200"
+      className="z-10 absolute flex w-full h-full font-system opacity-85 text-xl  text-neutral-200"
     >
       {/* Boot up screen */}
       <motion.div
