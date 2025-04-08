@@ -66,7 +66,7 @@ const Layout = () => {
         initial={{ opacity: 1, y: 0 }}
         animate={start ? { opacity: 0, y: 200 } : { opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.6 }}
-        className={`absolute bottom-0 w-full flex justify-center items-center border-t border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear text-xs md:text-sm`}
+        className={`absolute bottom-0 w-full flex justify-center items-center border-y border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear text-xs md:text-sm`}
         style={{
           transformOrigin: "left 300%",
         }}
