@@ -28,7 +28,7 @@ const AboutMe = () => {
 
   return (
     <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 ">
-      <div className="bg-white py-8 px-4 flex justify-center text-lg lg:text-base lg:p-1 lg:bg-transparent h-6 border-b border-b-[#868a8e] w-full">
+      <div className="bg-white py-8 px-4 flex justify-center lg:justify-start text-lg lg:text-base lg:p-1 lg:bg-transparent h-6 border-b border-b-[#868a8e] w-full">
         <div className="flex items-center justify-between lg:justify-start max-w-xl w-full lg:gap-x-4">
           {aboutMeMenu.map((menu, idx) => (
             <Button
