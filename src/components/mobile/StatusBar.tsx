@@ -89,30 +89,30 @@ const StatusBar = () => {
   };
 
   return (
-    <div className="w-full bg-white/2 flex justify-end px-4 text-white text-sm gap-x-2 py-1 mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:h-full mobile:[@media(max-height:450px)]:items-end mobile:[@media(max-height:450px)]:px-0 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:py-4 mobile:[@media(max-height:450px)]:gap-y-2 mobile:[@media(max-height:450px)]:flex-col">
+    <div className="w-full bg-white/2 flex justify-end px-4 text-white text-sm gap-x-2 py-1 mobile:[@media(max-height:550px)]:w-auto mobile:[@media(max-height:550px)]:h-full mobile:[@media(max-height:550px)]:items-end mobile:[@media(max-height:550px)]:px-0 mobile:[@media(max-height:550px)]:gap-x-0 mobile:[@media(max-height:550px)]:py-4 mobile:[@media(max-height:550px)]:gap-y-2 mobile:[@media(max-height:550px)]:flex-col">
       {/* Battery + Icons */}
 
-      <div className="relative flex flex-col items-center mt-[1px] mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:mt-0 mobile:[@media(max-height:450px)]:mr-[1px]">
+      <div className="relative flex flex-col items-center mt-[1px] mobile:[@media(max-height:550px)]:flex-row-reverse mobile:[@media(max-height:550px)]:mt-0 mobile:[@media(max-height:550px)]:mr-[1px]">
         <div
-          className={`w-[4px] h-[2px] ${getBatteryColor()} rounded-t-sm mobile:[@media(max-height:450px)]:w-[2px] mobile:[@media(max-height:450px)]:h-[4px] mobile:[@media(max-height:450px)]:rounded-t-none mobile:[@media(max-height:450px)]:rounded-r-sm`}
+          className={`w-[4px] h-[2px] ${getBatteryColor()} rounded-t-sm mobile:[@media(max-height:550px)]:w-[2px] mobile:[@media(max-height:550px)]:h-[4px] mobile:[@media(max-height:550px)]:rounded-t-none mobile:[@media(max-height:550px)]:rounded-r-sm`}
         />
         <div
-          className={`w-3 h-4 border-[1px] ${getBatteryBorderColor()} flex flex-col justify-end relative mobile:[@media(max-height:450px)]:w-4 mobile:[@media(max-height:450px)]:h-3 mobile:[@media(max-height:450px)]:flex-row-reverse`}
+          className={`w-3 h-4 border-[1px] ${getBatteryBorderColor()} flex flex-col justify-end relative mobile:[@media(max-height:550px)]:w-4 mobile:[@media(max-height:550px)]:h-3 mobile:[@media(max-height:550px)]:flex-row-reverse`}
         >
           <div
-            className={`w-full ${getBatteryColor()} mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:h-full`}
+            className={`w-full ${getBatteryColor()} mobile:[@media(max-height:550px)]:w-auto mobile:[@media(max-height:550px)]:h-full`}
             style={{
               width: batterySupported ? `${batteryLevel}%` : "100%",
             }}
           ></div>
           {isCharging && (
-            <BsLightningChargeFill className="absolute bottom-[1px] text-[.65rem] mobile:[@media(max-height:450px)]:rotate-90 mobile:[@media(max-height:450px)]:bottom-0" />
+            <BsLightningChargeFill className="absolute bottom-[1px] text-[.65rem] mobile:[@media(max-height:550px)]:rotate-90 mobile:[@media(max-height:550px)]:bottom-0" />
           )}
         </div>
       </div>
 
       {/* Clock */}
-      <div className="font-medium text-base p-0 mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
+      <div className="font-medium text-base p-0 mobile:[@media(max-height:550px)]:[writing-mode:vertical-lr]">
         {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
       </div>
     </div>

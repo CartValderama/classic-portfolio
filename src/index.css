@@ -8,7 +8,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --breakpoint-mobile: 550px;
+  --breakpoint-mobile: 541px;
 
   --font-geist: "Geist", sans-serif;
   --font-times: "Times New Roman", serif;
