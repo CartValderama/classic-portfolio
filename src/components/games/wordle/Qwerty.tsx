@@ -44,7 +44,7 @@ export const Qwerty = () => {
                 } transition-transform duration-100 lg:border lg:rounded-none`}
                 onClick={() => handleKeyClick(char)}
               >
-                <span className="text-xs">{char}</span>
+                <span className="text-sm">{char}</span>
               </Button>
             );
           })}

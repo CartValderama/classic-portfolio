@@ -90,7 +90,7 @@ export const apps: AppProps[] = [
     id: "wordle",
     Component: Wordle,
     iWidth: 300,
-    iHeight: 560,
+    iHeight: 450,
   },
   {
     DesktopIcon: Access110,
@@ -100,7 +100,7 @@ export const apps: AppProps[] = [
     id: "oldportfolio",
     Component: OldPorfolio,
     iWidth: 500,
-    iHeight: 500,
+    iHeight: 450,
   },
   {
     DesktopIcon: Mailnews8,

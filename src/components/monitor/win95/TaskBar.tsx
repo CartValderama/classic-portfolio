@@ -102,7 +102,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
       </div>
 
       {/* Taskbar Buttons for Open Windows */}
-      <div className="w-full flex items-center justify-start gap-x-1">
+      <div className="w-full h-full flex items-baseline justify-start gap-x-1">
         {apps
           .filter(({ id }) => openWindows[id])
           .reverse()
@@ -110,8 +110,10 @@ const TaskBar = ({ apps }: TaskBarProps) => {
             <Button
               key={id}
               variant={"tab"}
-              size={"tab"}
-              className={`min-w-34 ${
+              className={`h-full flex items-center 
+              min-w-0 flex-1
+              max-w-36 px-2 gap-1 truncate text-[.9rem]
+              ${
                 minimizedWindows[id]
                   ? "shadow-outline"
                   : activeWindows[id]

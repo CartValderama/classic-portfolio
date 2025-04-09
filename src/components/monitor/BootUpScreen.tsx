@@ -62,7 +62,7 @@ const BootUpScreen = () => {
           <img
             src="https://i.imgur.com/wA8i2DU.png"
             alt=""
-            className="w-60 h-56 absolute top-0 right-0 mx-5 my-2 backdrop-grayscale-75 blur-[.4px] grayscale-100"
+            className="w-[20%] absolute top-0 right-0 mx-5 my-2 backdrop-grayscale-75 blur-[.4px] grayscale-100"
           />
         </motion.div>
 

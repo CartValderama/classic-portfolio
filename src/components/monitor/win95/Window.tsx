@@ -127,8 +127,8 @@ const Window = ({
       const newHeight = startHeight + deltaY;
 
       // Ensure the new size stays within the container bounds
-      const maxWidth = containerRect.width - 13 - x.get();
-      const maxHeight = containerRect.height - 18 - y.get();
+      const maxWidth = containerRect.width - 5 - x.get();
+      const maxHeight = containerRect.height - 8 - y.get();
 
       setSize({
         width: Math.max(iWidth, Math.min(newWidth, maxWidth)),

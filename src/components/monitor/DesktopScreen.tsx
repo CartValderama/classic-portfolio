@@ -22,7 +22,7 @@ const DesktopScreen = () => {
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="relative flex flex-col-reverse justify-end items-start overflow-hidden gap-y-6 px-3 py-4 text-[#010101] w-full h-full"
+        className="relative flex flex-col-reverse justify-end items-start overflow-hidden gap-y-6 pt-2 pl-1 text-[#010101] w-full h-full"
         ref={constraintsRef}
       >
         {/* Render desktop icons */}

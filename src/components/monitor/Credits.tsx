@@ -22,7 +22,7 @@ const Credits = () => {
     },
     {
       task: "Critique",
-      people: "Maryle Valderama, Jhon Valderama ",
+      people: "Maryle Valderama, Jhon Valderama, Elijah Cuady ",
     },
     {
       task: "Inspiration",

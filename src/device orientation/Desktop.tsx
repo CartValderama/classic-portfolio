@@ -8,7 +8,7 @@ const Desktop = () => {
 
   return (
     <div
-      className={`hidden lg:flex max-w-[85rem] 2xl:max-w-[96rem] items-center relative px-7 w-full min-h-[45rem] 2xl:h-[52rem]`}
+      className={`hidden lg:flex flex-row-reverse max-w-[85rem] items-center relative px-8 w-full h-screen min-h-[600px]`}
     >
       {/* text explanation */}
       <motion.div
@@ -18,7 +18,7 @@ const Desktop = () => {
         }
         transition={{ duration: 0.6, delay: 1 }}
         layout="position"
-        className={`flex flex-col justify-center gap-y-5 w-6/11 2xl:w-5/9`}
+        className={`absolute left-0 flex flex-col justify-center gap-y-5 xl:w-6/10 lg:w-6/12 ml-8`}
       >
         <h1 className="font-geist text-4xl font-bold leading-11">
           Classic Portfolio
