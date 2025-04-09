@@ -6,11 +6,11 @@ const Monitor = () => {
   const { start } = useStart();
   return (
     <motion.div
-      initial={{ width: "24rem", height: "18rem", scale: 0.95 }}
+      initial={{ width: "24rem", height: "18rem", scale: 0.85 }}
       animate={
         start
           ? { width: "100%", height: "100%", marginTop: "6.5rem", scale: 1 }
-          : { width: "24rem", height: "18rem", scale: 0.95 }
+          : { width: "24rem", height: "18rem", scale: 0.85 }
       }
       transition={{ duration: 0.6, delay: 1 }}
       className={`flex flex-col justify-center items-center relative mb-[6.5rem]`}
@@ -24,7 +24,7 @@ const Monitor = () => {
             : { width: "24rem", height: "18rem" }
         }
         transition={{ duration: 0.6, delay: 1 }}
-        className={`bg-[#dbd49d] 2xl:max-w-[1240px] lg:max-w-[950px] relative rounded-lg flex flex-col items-center justify-center shadow shadow-[#847959] dark:shadow-[#0b0b0b] `}
+        className={`bg-[#dbd49d] xl:max-w-[1200px] lg:[@media(max-height:750px)]:max-w-[1000px] relative rounded-lg flex flex-col items-center justify-center shadow shadow-[#847959] dark:shadow-[#0b0b0b] `}
       >
         {/* main screen */}
         <motion.div
@@ -57,7 +57,7 @@ const Monitor = () => {
         initial={{ width: "24rem" }}
         animate={start ? { width: "100%" } : { width: "24rem" }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="absolute 2xl:max-w-[1240px] lg:max-w-[950px] -bottom-[40%] h-[40%] flex flex-col items-center justify-center "
+        className="absolute xl:max-w-[1200px] lg:[@media(max-height:750px)]:max-w-[1000px] -bottom-[40%] h-[40%] flex flex-col items-center justify-center "
       >
         <div className="w-[85%] h-[15%] bg-[#c0ba89] rounded-b"></div>
         <div className="w-[40%] h-[8%] bg-[#aaa57d]"></div>

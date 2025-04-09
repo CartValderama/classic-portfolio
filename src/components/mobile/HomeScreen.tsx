@@ -59,7 +59,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0, delay: 8 }}
-      className="flex h-full flex-col justify-between bg-black bg-cover bg-center text-white relative overflow-auto [&::-webkit-scrollbar]:hidden mobile:[@media(max-height:550px)]:w-full mobile:[@media(max-height:550px)]:h-full mobile:[@media(max-height:550px)]:flex-row-reverse mobile:[@media(max-height:550px)]:items-stretch"
+      className="flex h-full flex-col justify-between bg-black bg-cover bg-center text-white relative overflow-auto [&::-webkit-scrollbar]:hidden mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:h-full mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:items-stretch "
     >
       {/* Background image - fixed at the back */}
       <div
@@ -71,25 +71,25 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
         }}
       ></div>
 
-      <div className="z-10 h-full flex flex-col justify-between relative mobile:[@media(max-height:550px)]:h-auto mobile:[@media(max-height:550px)]:w-full mobile:[@media(max-height:550px)]:flex-row-reverse mobile:[@media(max-height:550px)]:items-stretch">
-        <div className="w-full bg-black mobile:[@media(max-height:550px)]:w-auto mobile:[@media(max-height:550px)]:h-full">
+      <div className="z-10 h-full flex flex-col justify-between relative mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:items-stretch">
+        <div className="w-full bg-black mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:h-full">
           <StatusBar />
         </div>
-        <div className="p-4 h-full flex flex-col justify-between mobile:[@media(max-height:550px)]:w-full mobile:[@media(max-height:550px)]:h-auto mobile:[@media(max-height:550px)]:flex-row-reverse">
+        <div className="p-4 h-full flex flex-col justify-between mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:flex-row-reverse">
           <div
             className={`${
               isShowApps ? "opacity-100" : "opacity-0 -z-10"
-            } grid grid-cols-4 grid-rows-4 gap-x-3 mobile:[@media(max-height:550px)]:grid-cols-1 mobile:[@media(max-height:550px)]:gap-y-3`}
+            } grid grid-cols-4 grid-rows-4 gap-x-3 mobile:[@media(max-height:450px)]:grid-cols-1 mobile:[@media(max-height:450px)]:gap-y-3`}
           >
             <button
-              className="flex flex-col justify-center items-center text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:550px)]:flex-row-reverse"
+              className="flex flex-col justify-center items-center text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
               onClick={() => {
                 setStart(!start);
                 setShowApps(false);
               }}
             >
-              <FaPowerOff className="text-[3.2rem] text-white bg-red-700 p-2 rounded-lg mobile:[@media(max-height:550px)]:rotate-90" />
-              <span className="text-xs mobile:[@media(max-height:550px)]:[writing-mode:vertical-lr]">
+              <FaPowerOff className="text-[3.2rem] text-white bg-red-700 p-2 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
+              <span className="text-xs mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
                 ShutDown
               </span>
             </button>
@@ -103,20 +103,20 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
               .map(({ MobileIcon, label, id, iconStyle }) => (
                 <button
                   key={id}
-                  className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:550px)]:flex-row-reverse"
+                  className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
                   onClick={() => handleOpenWindows(id)}
                 >
                   <MobileIcon
-                    className={`text-[3.2rem] ${iconStyle} mobile:[@media(max-height:550px)]:rotate-90`}
+                    className={`text-[3.2rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
                   />
-                  <span className="text-xs mobile:[@media(max-height:550px)]:[writing-mode:vertical-lr]">
+                  <span className="text-xs mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
                     {label}
                   </span>
                 </button>
               ))}
           </div>
 
-          <div className="grid grid-cols-4 gap-x-3  mobile:[@media(max-height:550px)]:grid-cols-1 mobile:[@media(max-height:550px)]:gap-x-0 mobile:[@media(max-height:550px)]:gap-y-3 mobile:[@media(max-height:550px)]:place-items-center">
+          <div className="grid grid-cols-4 gap-x-3  mobile:[@media(max-height:450px)]:grid-cols-1 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:gap-y-3 mobile:[@media(max-height:450px)]:place-items-center">
             {homeApp.map(({ HomeIcon, url, style }, index) => (
               <button
                 key={index}
@@ -128,7 +128,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
                 }}
               >
                 <HomeIcon
-                  className={`text-[3.2rem] ${style} mobile:[@media(max-height:550px)]:rotate-90`}
+                  className={`text-[3.2rem] ${style} mobile:[@media(max-height:450px)]:rotate-90`}
                 />
               </button>
             ))}
@@ -137,9 +137,9 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
               onClick={() => setShowApps(!isShowApps)}
             >
               {isShowApps ? (
-                <AiFillHome className="text-[3.2rem] text-white bg-emerald-700 p-1.5 rounded-lg mobile:[@media(max-height:550px)]:rotate-90" />
+                <AiFillHome className="text-[3.2rem] text-white bg-emerald-700 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
               ) : (
-                <IoAppsSharp className="text-[3.2rem] text-white bg-emerald-700 p-1 rounded-lg mobile:[@media(max-height:550px)]:rotate-90" />
+                <IoAppsSharp className="text-[3.2rem] text-white bg-emerald-700 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
               )}
             </button>
           </div>

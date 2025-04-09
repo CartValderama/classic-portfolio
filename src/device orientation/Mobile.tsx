@@ -6,7 +6,9 @@ import Phone from "../components/mobile/Phone";
 const Mobile = () => {
   const { start, setStart } = useStart();
   return (
-    <div className={`lg:hidden flex items-center justify-center px-4 text-sm `}>
+    <div
+      className={`lg:hidden flex items-center justify-center px-4 text-sm min-h-[700px] mobile:[@media(max-height:450px)]:min-h-auto`}
+    >
       <motion.div
         initial={{
           opacity: 1,
@@ -21,7 +23,7 @@ const Mobile = () => {
         }
         transition={{ duration: 0.6, delay: 1 }}
         layout="position"
-        className={`flex flex-col mobile:items-center mobile:text-sm sm:text-lg justify-center gap-y-2 w-full h-full`}
+        className={`flex flex-col mobile:items-center mobile:text-sm sm:text-lg justify-center gap-y-2 w-full`}
       >
         <h1 className="font-geist text-3xl mobile:text-4xl font-bold">
           Classic Portfolio
