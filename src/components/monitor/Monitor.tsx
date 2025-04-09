@@ -9,7 +9,7 @@ const Monitor = () => {
       initial={{ width: "28rem", height: "20rem", scale: 0.85 }}
       animate={
         start
-          ? { width: "100%", height: "100%", marginTop: "6.5rem", scale: 0.6 }
+          ? { width: "100%", height: "100%", marginTop: "6.5rem", scale: 1 }
           : { width: "28rem", height: "20rem", scale: 0.85 }
       }
       transition={{ duration: 0.6, delay: 1 }}
