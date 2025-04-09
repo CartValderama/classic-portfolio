@@ -34,7 +34,7 @@ const Phone = () => {
       layout="position"
       className={`flex w-full h-full flex-col items-center justify-center absolute`}
     >
-      <div className="w-full mobile:w-[80%] h-full relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]">
+      <div className="w-full h-full mobile:max-w-[70%] mobile:min-h-[800px] mobile:max-h-[900px] relative mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem]">
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-18 absolute -right-1 rounded-r-lg top-40"></div>
         <div className="hidden mobile:block bg-[#868484] w-0.5 h-30 absolute -left-1 rounded-l-lg top-60"></div>
         <div className="mobile:border-10 border-[#242429] mobile:rounded-[7rem] w-full h-full">

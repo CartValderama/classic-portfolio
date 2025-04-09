@@ -58,6 +58,7 @@ const Layout = () => {
       >
         {/* insert content here */}
         <Desktop />
+        <Mobile />
       </main>
 
       {/* footer */}
