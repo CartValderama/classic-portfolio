@@ -27,19 +27,21 @@ const AboutMe = () => {
   }, [selectMenu]);
 
   return (
-    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5">
-      <div className="bg-white px-4 py-8 text-lg lg:text-base lg:p-1 lg:bg-transparent h-6 border-b border-b-[#868a8e] flex items-center justify-between lg:justify-start gap-x-4">
-        {aboutMeMenu.map((menu, idx) => (
-          <Button
-            key={idx}
-            variant={"subtle"}
-            className={`lowercase ${menu === selectMenu && "underline"}`}
-            onClick={() => setSelectMenu(menu)}
-          >
-            <span className="lg:underline uppercase">{menu[0]}</span>
-            {menu.slice(1)}
-          </Button>
-        ))}
+    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 ">
+      <div className="bg-white py-8 px-4 flex justify-center text-lg lg:text-base lg:p-1 lg:bg-transparent h-6 border-b border-b-[#868a8e] w-full">
+        <div className="flex items-center justify-between lg:justify-start max-w-xl w-full">
+          {aboutMeMenu.map((menu, idx) => (
+            <Button
+              key={idx}
+              variant={"subtle"}
+              className={`lowercase ${menu === selectMenu && "underline"}`}
+              onClick={() => setSelectMenu(menu)}
+            >
+              <span className="lg:underline uppercase">{menu[0]}</span>
+              {menu.slice(1)}
+            </Button>
+          ))}
+        </div>
       </div>
       <div
         className="flex items-start justify-center flex-1 overflow-auto bg-white lg:border border-white border-t-none border-l-[#868a8e] text-sm lg:text-base leading-6 p-4 font-geist"

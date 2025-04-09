@@ -8,7 +8,7 @@ const Mobile = () => {
   return (
     <div
       className={`lg:hidden flex items-center justify-center px-4 text-sm ${
-        start ? "min-h-[600px] landscape:min-h-[1000px]" : "min-h-[550px]"
+        start ? "" : "min-h-[550px]"
       }`}
     >
       <motion.div
