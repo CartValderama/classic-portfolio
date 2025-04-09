@@ -17,8 +17,8 @@ const Wordle = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-between w-full h-full overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-3 py-4">
-      <div className="flex flex-col items-center gap-y-3 w-full h-[70%]">
+    <div className="flex flex-col items-center justify-between w-full h-full overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-3 py-4 ">
+      <div className="flex flex-col items-center gap-y-3 w-full h-[70%] mobile:[@media(max-height:550px)]:min-h-[20rem]">
         <h1 className=" text-2xl font-bold">
           {won ? "You Win!" : lost ? "You Lose!" : "Guess The Word"}
         </h1>

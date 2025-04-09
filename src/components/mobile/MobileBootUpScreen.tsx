@@ -14,14 +14,14 @@ const MobileBootUpScreen = () => {
         duration: 0.1,
         delay: 7,
       }}
-      className="z-10 absolute flex w-full h-full font-system opacity-85 text-xl  text-neutral-200"
+      className="z-10 absolute flex w-full h-full font-system opacity-85 text-xl text-neutral-200"
     >
       {/* Boot up screen */}
       <motion.div
         initial={{ opacity: 1 }}
         animate={start ? { opacity: 0 } : { opacity: 1 }}
         transition={{ duration: 0.1, delay: 5 }}
-        className="relative flex-1 flex flex-col gap-4 items-center justify-center p-5"
+        className="relative flex-1 flex flex-col gap-4 items-center justify-center mobile:[@media(max-height:550px)]:rotate-90"
       >
         {/* Android */}
         <motion.div
@@ -56,7 +56,7 @@ const MobileBootUpScreen = () => {
           duration: 0.1,
           delay: 5.5,
         }}
-        className={`w-full h-full flex flex-col justify-center items-center absolute font-system p-5 `}
+        className={`w-full h-full flex flex-col justify-center items-center absolute font-system p-5 mobile:[@media(max-height:550px)]:rotate-90`}
       >
         <h1>Welcome to My Personal Portfolio</h1>
         <p className="text-sm">Version 2.0 - February 2025</p>

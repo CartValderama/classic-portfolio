@@ -92,21 +92,19 @@ const StatusBar = () => {
     <div className="w-full bg-white/2 flex justify-end px-4 text-white text-sm gap-x-2 py-1 mobile:[@media(max-height:550px)]:w-auto mobile:[@media(max-height:550px)]:h-full mobile:[@media(max-height:550px)]:items-end mobile:[@media(max-height:550px)]:px-0 mobile:[@media(max-height:550px)]:gap-x-0 mobile:[@media(max-height:550px)]:py-4 mobile:[@media(max-height:550px)]:gap-y-2 mobile:[@media(max-height:550px)]:flex-col">
       {/* Battery + Icons */}
 
-      <div className="relative flex flex-col items-center mt-[1px] mobile:[@media(max-height:550px)]:flex-row-reverse mobile:[@media(max-height:550px)]:mt-0 mobile:[@media(max-height:550px)]:mr-[1px]">
+      <div className="relative flex flex-col items-center mt-[1px] mobile:[@media(max-height:550px)]:rotate-90 mobile:[@media(max-height:550px)]:mt-0 mobile:[@media(max-height:550px)]:mr-1.5">
+        <div className={`w-[4px] h-[2px] ${getBatteryColor()} rounded-t-sm`} />
         <div
-          className={`w-[4px] h-[2px] ${getBatteryColor()} rounded-t-sm mobile:[@media(max-height:550px)]:w-[2px] mobile:[@media(max-height:550px)]:h-[4px] mobile:[@media(max-height:550px)]:rounded-t-none mobile:[@media(max-height:550px)]:rounded-r-sm`}
-        />
-        <div
-          className={`w-3 h-4 border-[1px] ${getBatteryBorderColor()} flex flex-col justify-end relative mobile:[@media(max-height:550px)]:w-4 mobile:[@media(max-height:550px)]:h-3 mobile:[@media(max-height:550px)]:flex-row-reverse`}
+          className={`w-3 h-4 border-[1px] ${getBatteryBorderColor()} flex flex-col justify-end relative `}
         >
           <div
             className={`w-full ${getBatteryColor()} mobile:[@media(max-height:550px)]:w-auto mobile:[@media(max-height:550px)]:h-full`}
             style={{
-              width: batterySupported ? `${batteryLevel}%` : "100%",
+              height: batterySupported ? `${batteryLevel}%` : "100%",
             }}
           ></div>
           {isCharging && (
-            <BsLightningChargeFill className="absolute bottom-[1px] text-[.65rem] mobile:[@media(max-height:550px)]:rotate-90 mobile:[@media(max-height:550px)]:bottom-0" />
+            <BsLightningChargeFill className="absolute bottom-[1px] text-[.65rem]" />
           )}
         </div>
       </div>
