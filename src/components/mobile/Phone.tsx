@@ -87,8 +87,10 @@ const Phone = () => {
                 <button
                   className="active:scale-98 cursor-pointer"
                   onClick={() => {
-                    setShowApps(true);
-                    handleActiveWindows();
+                    if (isShowApps) {
+                      setShowApps(true);
+                      handleActiveWindows();
+                    }
                   }}
                 >
                   <AiOutlineRollback className="text-3xl text-[#797777] mobile:[@media(max-height:450px)]:rotate-90" />
