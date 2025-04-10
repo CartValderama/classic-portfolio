@@ -41,6 +41,7 @@ const Window = ({
   const [isMaximized, setIsMaximized] = useState(false);
   const [size, setSize] = useState({ width: iWidth, height: iHeight });
   const [isResizing, setIsResizing] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const {
     openWindows,
@@ -51,8 +52,6 @@ const Window = ({
     handleInactiveWindows,
     closeWindow,
   } = useApplicationStore();
-
-  console.log("activeWindows", activeWindows);
 
   const dragControls = useDragControls();
   const x = useMotionValue(20 + Math.random() * 50);
@@ -70,8 +69,7 @@ const Window = ({
   useEffect(() => {
     if (!start) {
       handleClose();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [start]);
 
   const handleMaximize = () => {
@@ -154,6 +152,8 @@ const Window = ({
       dragConstraints={constraintsRef}
       dragControls={dragControls}
       dragListener={false}
+      onDragStart={() => setIsDragging(true)}
+      onDragEnd={() => setIsDragging(false)}
       whileDrag={{ cursor: !isMaximized ? "grabbing" : "default" }}
       style={{
         x,
@@ -189,6 +189,7 @@ const Window = ({
               !isMaximized &&
               (e.pointerType === "touch" || e.pointerType === "mouse")
             ) {
+              handleActiveWindows(id);
               e.preventDefault(); // Important for touch devices
               dragControls.start(e);
               setIsResizing(false);
@@ -219,6 +220,7 @@ const Window = ({
               onClick={(e) => {
                 e.stopPropagation();
                 handleMaximize();
+                handleActiveWindows(id);
               }}
               className={`${!isResize && "hidden"}`}
             >
@@ -248,8 +250,8 @@ const Window = ({
           >
             <div
               className={`absolute w-full h-full -z-10 ${
-                (isResizing || !activeWindows[id]) && "opacity-30 z-10 bg-white"
-              }`}
+                (isResizing || !activeWindows[id]) && "opacity-10 z-10 bg-white"
+              } ${isDragging && "z-10"}`}
             ></div>
             {children}
           </div>

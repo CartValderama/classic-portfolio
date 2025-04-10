@@ -5,28 +5,28 @@ const Credits = () => {
 
   const credits = [
     {
-      task: "Acknowledging",
-      people: "Those that contributed to this project",
+      task: "Credit",
+      people: ["Contributors in this project"],
     },
     {
       task: "Developer",
-      people: "Cart Valderama",
+      people: ["Cart Valderama"],
     },
     {
       task: "Designer",
-      people: "Cart Valderama",
+      people: ["Cart Valderama"],
     },
     {
       task: "Monitor Design",
-      people: "Jhon Valderama",
+      people: ["Jhon Valderama"],
     },
     {
       task: "Critique",
-      people: "Maryle Valderama, Jhon Valderama, Elijah Cuady ",
+      people: ["Maryle Valderama", "Jhon Valderama", "Elijah Cuady"],
     },
     {
       task: "Inspiration",
-      people: "Windows 95 operating system",
+      people: ["Windows 95 operating system"],
     },
   ];
 
@@ -35,26 +35,34 @@ const Credits = () => {
   };
 
   return (
-    <div
-      className="relative h-full w-full flex flex-1 items-center justify-center bg-black overflow-hidden select-none"
-      onClick={handleClick}
-    >
-      <div className="flex flex-col flex-1 items-center justify-center max-w-xl px-4 text-base text-center gap-y-20 text-white z-20">
-        <div className="flex flex-col gap-y-4 text-3xl">
-          <p className="font-bold text-6xl">{credits[currentCredit].task}</p>
-          <p className="">{credits[currentCredit].people}</p>
-        </div>
+    <div className="relative flex justify-center items-center h-full w-full overflow-hidden select-none lg:bg-black bg-yellow-50">
+      <div
+        onClick={handleClick}
+        className=" flex justify-center items-center lg:w-full lg:h-full min-w-sm min-h-[25rem] lg:bg-black lg:text-white lg:border-0 lg:outline-0 outline-20 outline-yellow-100 border-yellow-200 border-10 bg-white lg:rounded-none rounded-full p-4"
+      >
+        <div className="flex flex-col flex-1 items-center justify-center max-w-xl lg:px-4 px-0 text-base text-center gap-y-20 z-20">
+          <div className="flex flex-col gap-y-4 lg:text-2xl text-lg">
+            <p className="font-bold lg:text-6xl text-4xl">
+              {credits[currentCredit].task}
+            </p>
+            <div className="h-10">
+              {credits[currentCredit].people.map((name, idx) => (
+                <p key={idx}>{name}</p>
+              ))}
+            </div>
+          </div>
 
-        <p className="text-lg">
-          {currentCredit !== credits.length - 1
-            ? "[Click to the screen to continue]"
-            : "[Return to the beginning]"}
-        </p>
-      </div>
-      <div className="absolute text-white animate-dvd z-10">
-        <p className="text-5xl font-dvd font-bold animate-fontcolor opacity-40">
-          Credits
-        </p>
+          <p className="lg:text-lg text-sm lg:animate-none animate-bounce">
+            {currentCredit !== credits.length - 1
+              ? "[Press this the area to continue]"
+              : "[Return to the beginning]"}
+          </p>
+        </div>
+        <div className="lg:block hidden absolute text-white animate-dvd z-10">
+          <p className="text-5xl font-dvd font-bold animate-fontcolor opacity-40">
+            Credit
+          </p>
+        </div>
       </div>
     </div>
   );

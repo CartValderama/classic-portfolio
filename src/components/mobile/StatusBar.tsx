@@ -89,7 +89,7 @@ const StatusBar = () => {
   };
 
   return (
-    <div className="w-full bg-white/2 flex justify-end px-4 text-white text-sm gap-x-2 py-1 mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:h-full mobile:[@media(max-height:450px)]:items-end mobile:[@media(max-height:450px)]:px-0 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:py-4 mobile:[@media(max-height:450px)]:gap-y-2 mobile:[@media(max-height:450px)]:flex-col">
+    <div className="w-full  bg-black  flex justify-end px-2  text-sm gap-x-2 py-1.5 mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:items-end mobile:[@media(max-height:450px)]:px-0 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:py-4 mobile:[@media(max-height:450px)]:gap-y-2 mobile:[@media(max-height:450px)]:flex-col z-20">
       {/* Battery + Icons */}
 
       <div className="relative flex flex-col items-center mt-[1px] mobile:[@media(max-height:450px)]:rotate-90 mobile:[@media(max-height:450px)]:mt-0 mobile:[@media(max-height:450px)]:mr-1.5">

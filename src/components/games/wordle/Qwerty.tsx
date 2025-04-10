@@ -9,7 +9,7 @@ export const Qwerty = () => {
     PuzzleStore();
 
   return (
-    <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[25%] mobile:[@media(max-height:550px)]:min-h-[10rem]">
+    <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[35%] ">
       {abcd.map((row, idx) => (
         <div
           key={idx}
@@ -44,7 +44,9 @@ export const Qwerty = () => {
                 } transition-transform duration-100 lg:border lg:rounded-none`}
                 onClick={() => handleKeyClick(char)}
               >
-                <span className="text-sm">{char}</span>
+                <span className="text-sm mobile:[@media(max-height:450px)]:text-[.7rem] py-0.5">
+                  {char}
+                </span>
               </Button>
             );
           })}

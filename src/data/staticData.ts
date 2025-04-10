@@ -5,9 +5,8 @@ import {
   FaPalette,
   FaUserGraduate,
   FaLaptopCode,
-  FaInfoCircle,
 } from "react-icons/fa";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaCopyright, FaMagnifyingGlass } from "react-icons/fa6";
 import { GrBraille } from "react-icons/gr";
 import {
   svgBootstrap,
@@ -31,9 +30,10 @@ import {
 import { AppID } from "../store/AppStore/DesktopApplicationStore";
 import {
   Access110,
+  Issue,
   Joy102,
   Mailnews8,
-  Mplayer10,
+  Mplayer113,
   Write1,
 } from "@react95/icons";
 import AboutMe from "../components/about/AboutMe";
@@ -42,8 +42,10 @@ import OldPorfolio from "../components/monitor/OldPortolio";
 import Tictactoe from "../components/games/tictactoe/Tictactoe";
 import Wordle from "../components/games/wordle/Wordle";
 import { IconType } from "react-icons";
-import { TbLetterW } from "react-icons/tb";
-import { IoAccessibility } from "react-icons/io5";
+import { TbLetterW, TbTicTac } from "react-icons/tb";
+import { IoAccessibility, IoHelpCircleSharp } from "react-icons/io5";
+import { ImNewspaper } from "react-icons/im";
+import Help from "../components/Guide";
 
 export type AppProps = {
   DesktopIcon: React.ComponentType<{
@@ -63,24 +65,14 @@ export const aboutMeMenu = ["Intro", "Experience", "Projects", "More"];
 
 export const apps: AppProps[] = [
   {
-    DesktopIcon: Mplayer10,
-    MobileIcon: FaInfoCircle,
-    iconStyle: "text-white bg-sky-700 p-2 rounded-lg",
+    DesktopIcon: Mplayer113,
+    MobileIcon: FaCopyright,
+    iconStyle: "text-white bg-yellow-600 p-2 rounded-lg",
     label: "Credits",
     id: "credits",
     Component: Credits,
-    iWidth: 450,
-    iHeight: 450,
-  },
-  {
-    DesktopIcon: Joy102,
-    MobileIcon: FaInfoCircle,
-    iconStyle: " text-white bg-sky-700 p-2 rounded-lg",
-    label: "Tictactoe",
-    id: "tictactoe",
-    Component: Tictactoe,
-    iWidth: 300,
-    iHeight: 400,
+    iWidth: 400,
+    iHeight: 370,
   },
   {
     DesktopIcon: Write1,
@@ -93,24 +85,44 @@ export const apps: AppProps[] = [
     iHeight: 450,
   },
   {
+    DesktopIcon: Joy102,
+    MobileIcon: TbTicTac,
+    iconStyle: " text-white bg-amber-700 p-1 rounded-lg",
+    label: "Tictactoe",
+    id: "tictactoe",
+    Component: Tictactoe,
+    iWidth: 300,
+    iHeight: 400,
+  },
+  {
     DesktopIcon: Access110,
     MobileIcon: IoAccessibility,
-    iconStyle: "text-white bg-sky-700 p-2 rounded-lg",
+    iconStyle: "text-sky-700 bg-white p-2 rounded-lg",
     label: "Old Portfolio",
     id: "oldportfolio",
     Component: OldPorfolio,
     iWidth: 500,
-    iHeight: 450,
+    iHeight: 400,
   },
   {
     DesktopIcon: Mailnews8,
-    MobileIcon: FaInfoCircle,
-    iconStyle: "text-white bg-amber-400 p-2 rounded-lg",
+    MobileIcon: ImNewspaper,
+    iconStyle: " text-amber-900 bg-amber-300 p-2 rounded-lg",
     label: "About Me",
     id: "about",
     Component: AboutMe,
     iWidth: 330,
     iHeight: 400,
+  },
+  {
+    DesktopIcon: Issue,
+    MobileIcon: IoHelpCircleSharp,
+    iconStyle: "text-green-200 bg-green-900 p-1 rounded-lg",
+    label: "Guide",
+    id: "guide",
+    Component: Help,
+    iWidth: 300,
+    iHeight: 365,
   },
 ] as const;
 

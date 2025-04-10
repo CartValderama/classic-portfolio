@@ -8,7 +8,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --breakpoint-mobile: 541px;
+  --breakpoint-mobile: 545px;
 
   --font-geist: "Geist", sans-serif;
   --font-times: "Times New Roman", serif;
@@ -23,6 +23,7 @@
   --animate-dvd: moveX 4.9s linear 0s infinite alternate,
     moveY 3.8s linear 0s infinite alternate;
   --animate-fontcolor: colorChange 5s infinite;
+  --animate-backgroundColor: bgChange 10s infinite ease-in-out
 
   --shadow-outline: 1px 1px 0 black;
 
@@ -70,6 +71,29 @@
       color: blue;
     }
   }
+
+  @keyframes bgChange {
+  0% {
+    background-color: #a7c7e7; /* Soft blue */
+    filter: blur(0px);
+  }
+  25% {
+    background-color: #f8a5c2; /* Blush pink */
+    filter: blur(0.5px);
+  }
+  50% {
+    background-color: #f5e6ca; /* Warm cream */
+    filter: blur(0px);
+  }
+  75% {
+    background-color: #b5ead7; /* Mint green */
+    filter: blur(0.5px);
+  }
+  100% {
+    background-color: #a7c7e7; /* Soft blue */
+    filter: blur(0px);
+  }
+}
 }
 
 html {

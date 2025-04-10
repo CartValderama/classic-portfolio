@@ -10,23 +10,20 @@ import { useEffect } from "react";
 import StatusBar from "./StatusBar";
 import AboutMe from "../about/AboutMe";
 import Wordle from "../games/wordle/Wordle";
-import { GiBananaPeeled } from "react-icons/gi";
+import OldPorfolio from "../monitor/OldPortolio";
+import Guide from "../Guide";
+import Credits from "../monitor/Credits";
+import Tictactoe from "../games/tictactoe/Tictactoe";
 
 const homeApp = [
   {
-    name: "Old Portfolio",
-    url: "https://cart-valderama-portfolio.vercel.app/",
-    HomeIcon: GiBananaPeeled,
-    style: "text-white bg-stone-700 p-3 rounded-lg",
-  },
-  {
-    name: "LinkedIn",
+    label: "LinkedIn",
     url: "https://www.linkedin.com/in/cart-valderama/",
     HomeIcon: FaLinkedinIn,
     style: "text-white bg-sky-700 p-2 rounded-lg",
   },
   {
-    name: "Github",
+    label: "Github",
     url: "https://github.com/CartValderama/win95-portfolio",
     HomeIcon: FaGithub,
     style: "text-white bg-stone-900 p-1.5 rounded-lg",
@@ -34,21 +31,12 @@ const homeApp = [
 ];
 
 const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
-  const { start, setStart } = useStart();
+  const { start } = useStart();
   const { activeWindows, handleOpenWindows } = useApplicationStore();
 
   useEffect(() => {
-    const activeWindow = Object.keys(activeWindows)
-      .filter(
-        (key) =>
-          key !== "credits" && key !== "tictactoe" && key !== "oldportfolio"
-      )
-      .find((key) => activeWindows[key as keyof typeof activeWindows] === true);
-
-    if (activeWindow) {
+    if (activeWindows && isShowApps) {
       setShowApps(true);
-    } else {
-      setShowApps(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeWindows]);
@@ -63,64 +51,41 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
     >
       {/* Background image - fixed at the back */}
       <div
-        className={`absolute inset-0 bg-black bg-cover bg-center transition-opacity duration-200 ${
+        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-200 ${
           isShowApps ? "opacity-30" : "opacity-100"
         }`}
         style={{
-          backgroundImage: "url('https://i.imgur.com/6pSOBUF.jpeg')",
+          backgroundImage: "url('https://i.imgur.com/V5xb8J1.jpeg')",
         }}
       ></div>
 
+      <StatusBar />
+
       <div className="z-10 h-full flex flex-col justify-between relative mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:items-stretch">
-        <div className="w-full bg-black mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:h-full">
-          <StatusBar />
-        </div>
         <div className="p-4 h-full flex flex-col justify-between mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:flex-row-reverse">
           <div
             className={`${
               isShowApps ? "opacity-100" : "opacity-0 -z-10"
-            } grid grid-cols-4 grid-rows-4 gap-x-3 mobile:[@media(max-height:450px)]:grid-cols-1 mobile:[@media(max-height:450px)]:gap-y-3`}
+            } grid grid-cols-4 grid-rows-4 gap-x-3 gap-y-6 justify-items-center place-items-center mobile:[@media(max-height:450px)]:[direction:rtl] mobile:[@media(max-height:450px)]:grid-flow-col mobile:[@media(max-height:450px)]:gap-x-6 mobile:[@media(max-height:450px)]:gap-y-3`}
           >
-            <button
-              className="flex flex-col justify-center items-center text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
-              onClick={() => {
-                setStart(!start);
-                setShowApps(false);
-              }}
-            >
-              <FaPowerOff className="text-[3.2rem] text-white bg-red-700 p-2 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
-              <span className="text-xs mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
-                ShutDown
-              </span>
-            </button>
-            {apps
-              .filter(
-                (app) =>
-                  app.id !== "credits" &&
-                  app.id !== "tictactoe" &&
-                  app.id !== "oldportfolio"
-              )
-              .map(({ MobileIcon, label, id, iconStyle }) => (
-                <button
-                  key={id}
-                  className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
-                  onClick={() => handleOpenWindows(id)}
-                >
-                  <MobileIcon
-                    className={`text-[3.2rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
-                  />
-                  <span className="text-xs mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
-                    {label}
-                  </span>
-                </button>
-              ))}
-          </div>
-
-          <div className="grid grid-cols-4 gap-x-3  mobile:[@media(max-height:450px)]:grid-cols-1 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:gap-y-3 mobile:[@media(max-height:450px)]:place-items-center">
-            {homeApp.map(({ HomeIcon, url, style }, index) => (
+            {apps.map(({ MobileIcon, label, id, iconStyle }) => (
+              <button
+                key={id}
+                className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
+                onClick={() => handleOpenWindows(id)}
+              >
+                <MobileIcon
+                  className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
+                />
+                <span className="text-xs mobile:[@media(max-height:450px)]:text-[0.5rem] mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
+                  {label}
+                </span>
+              </button>
+            ))}
+            {homeApp.map(({ HomeIcon, url, style, label }, index) => (
               <button
                 key={index}
-                className="flex flex-col items-center cursor-pointer hover:opacity-80 active:scale-95 transition-all duration-200"
+                className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
                 onClick={() => {
                   if (url) {
                     window.open(url, "_blank", "noopener,noreferrer");
@@ -128,45 +93,72 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
                 }}
               >
                 <HomeIcon
-                  className={`text-[3.2rem] ${style} mobile:[@media(max-height:450px)]:rotate-90`}
+                  className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${style} mobile:[@media(max-height:450px)]:rotate-90`}
                 />
+                <span className="text-xs mobile:[@media(max-height:450px)]:text-[0.5rem] mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
+                  {label}
+                </span>
               </button>
             ))}
+          </div>
+
+          <div className="grid grid-cols-4 mobile:[@media(max-height:450px)]:grid-cols-1 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:gap-y-3 ">
+            {apps
+              .filter(
+                (app) =>
+                  app.id !== "wordle" &&
+                  app.id !== "tictactoe" &&
+                  app.id !== "oldportfolio"
+              )
+              .map(({ MobileIcon, id, iconStyle }) => (
+                <button
+                  key={id}
+                  className="flex flex-col justify-center items-center cursor-pointer transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
+                  onClick={() => {
+                    handleOpenWindows(id);
+                  }}
+                >
+                  <MobileIcon
+                    className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
+                  />
+                </button>
+              ))}
+
             <button
-              className="flex flex-col items-center cursor-pointer hover:opacity-80 active:scale-95 transition-all duration-100"
+              className="flex flex-col justify-center items-center cursor-pointer transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
               onClick={() => setShowApps(!isShowApps)}
             >
               {isShowApps ? (
-                <AiFillHome className="text-[3.2rem] text-white bg-emerald-700 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
+                <AiFillHome className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-emerald-700 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
               ) : (
-                <IoAppsSharp className="text-[3.2rem] text-white bg-emerald-700 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
+                <IoAppsSharp className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-emerald-700 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
               )}
             </button>
           </div>
         </div>
 
-        {Object.entries(activeWindows)
-          .filter(([appId]) => appId !== "credits" && appId !== "tictactoe")
-          .map(([appId, isActive]) => {
-            if (!isActive) return null;
+        {Object.entries(activeWindows).map(([appId, isActive]) => {
+          if (!isActive) return null;
 
-            return (
-              <AnimatePresence key={appId}>
-                {isShowApps && (
-                  <motion.div
-                    initial={{ scale: 0.9, opacity: 0.4 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.9, opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="absolute text-black w-full h-full"
-                  >
-                    {appId === "wordle" && <Wordle />}
-                    {appId === "about" && <AboutMe />}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            );
-          })}
+          return (
+            <AnimatePresence key={appId}>
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0.4 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="absolute text-black w-full h-full"
+              >
+                {appId === "wordle" && <Wordle />}
+                {appId === "about" && <AboutMe />}
+                {appId === "oldportfolio" && <OldPorfolio />}
+                {appId === "guide" && <Guide />}
+                {appId === "credits" && <Credits />}
+                {appId === "tictactoe" && <Tictactoe />}
+              </motion.div>
+            </AnimatePresence>
+          );
+        })}
       </div>
     </motion.div>
   );

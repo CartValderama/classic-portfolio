@@ -17,12 +17,12 @@ const Wordle = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-between w-full h-full overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-3 py-4 ">
-      <div className="flex flex-col items-center gap-y-3 w-full h-[70%] mobile:[@media(max-height:550px)]:min-h-[20rem]">
-        <h1 className=" text-2xl font-bold">
+    <div className="flex h-full flex-col flex-1 items-center justify-around overflow-auto bg-white border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-3 py-4 ">
+      <div className="flex w-[80%] h-full flex-col gap-y-3">
+        <h1 className="text-2xl mobile:[@media(max-height:450px)]:text-base font-bold text-center">
           {won ? "You Win!" : lost ? "You Lose!" : "Guess The Word"}
         </h1>
-        <div className="flex flex-col items-center w-full h-full gap-y-0.5">
+        <div className="flex flex-col items-center gap-y-0.5 h-full">
           {guesses.map((_, i) => (
             <Guess
               key={i}

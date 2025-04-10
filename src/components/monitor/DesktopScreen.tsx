@@ -22,26 +22,29 @@ const DesktopScreen = () => {
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="relative flex flex-col-reverse justify-end items-start overflow-hidden gap-y-6 pt-2 pl-1 text-[#010101] w-full h-full"
+        className="grid grid-flow-col grid-rows-[repeat(auto-fill,minmax(4rem,1fr))] auto-cols-[4rem] gap-4 h-full w-full relative py-4 px-2 overflow-hidden"
         ref={constraintsRef}
       >
         {/* Render desktop icons */}
-        {apps.map(({ DesktopIcon, label, id }) => (
-          <button
-            key={id}
-            className="bg-none shadow-none w-16 h-16 p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] gap-[5px] hover:bg-white/10"
-            onDoubleClick={() => handleOpenWindows(id)}
-            onPointerDown={(e) => {
-              if (e.pointerType === "touch" || e.pointerType === "pen") {
-                e.preventDefault();
-                handleOpenWindows(id);
-              }
-            }}
-          >
-            <DesktopIcon className="w-[3rem]" variant="32x32_4" />
-            <span>{label}</span>
-          </button>
-        ))}
+        {apps
+          .slice()
+          .reverse()
+          .map(({ DesktopIcon, label, id }) => (
+            <button
+              key={id}
+              className="bg-none shadow-none w-16 h-16 p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] gap-[5px] hover:bg-white/10"
+              onDoubleClick={() => handleOpenWindows(id)}
+              onPointerDown={(e) => {
+                if (e.pointerType === "touch" || e.pointerType === "pen") {
+                  e.preventDefault();
+                  handleOpenWindows(id);
+                }
+              }}
+            >
+              <DesktopIcon className="w-[3rem]" variant="32x32_4" />
+              <span>{label}</span>
+            </button>
+          ))}
 
         {/* Render windows */}
         {apps
@@ -54,7 +57,11 @@ const DesktopScreen = () => {
               Icon={DesktopIcon}
               iWidth={iWidth}
               iHeight={iHeight}
-              isResize={id === "tictactoe" || id === "wordle" ? false : true}
+              isResize={
+                id === "tictactoe" || id === "wordle" || id === "guide"
+                  ? false
+                  : true
+              }
               constraintsRef={constraintsRef}
             >
               <Component />

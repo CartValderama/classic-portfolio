@@ -5,7 +5,8 @@ export type AppID =
   | "tictactoe"
   | "wordle"
   | "oldportfolio"
-  | "credits";
+  | "credits"
+  | "guide";
 
 type AppState = Record<AppID, boolean>;
 
@@ -26,6 +27,7 @@ const initialWindowState: AppState = {
   wordle: false,
   oldportfolio: false,
   credits: false,
+  guide: false,
 };
 
 export const useApplicationStore = create<ApplicationStore>((set) => ({

@@ -7,7 +7,7 @@ const Mobile = () => {
   const { start, setStart } = useStart();
   return (
     <div
-      className={`lg:hidden flex items-center justify-center px-4 text-sm min-h-[700px] mobile:[@media(max-height:450px)]:min-h-auto`}
+      className={`lg:hidden flex items-center justify-center px-4 text-sm min-h-[600px] mobile:min-h-[670px] mobile:[@media(max-height:450px)]:min-h-auto`}
     >
       <motion.div
         initial={{
@@ -23,7 +23,7 @@ const Mobile = () => {
         }
         transition={{ duration: 0.6, delay: 1 }}
         layout="position"
-        className={`flex flex-col mobile:items-center mobile:text-sm sm:text-lg justify-center gap-y-2 w-full`}
+        className={`flex flex-col justify-center items-start mobile:items-center text-sm mobile:text-lg gap-y-2 w-full`}
       >
         <h1 className="font-geist text-3xl mobile:text-4xl font-bold">
           Classic Portfolio
@@ -32,14 +32,15 @@ const Mobile = () => {
           <p>
             A portfolio inspired by the old devices I used as a kid, featuring
             Windows 95 interface and a Samsung Ace layout.{" "}
-            <span className="font-semibold">
+            <span className="font-bold">
               Since you're viewing this on a mobile or tablet-sized screen,
               you're currently in the Samsung Ace layout.
             </span>
           </p>
-          <p>
-            For a more accessible experience, you can switch to the old version
-            of the portfolio by clicking the button below.
+
+          <p className="text-md">
+            Before you click "Get Started", feel free to explore a more
+            accessible version of this portfolio.
           </p>
         </div>
         <div className="flex gap-2 mt-2">
@@ -49,6 +50,7 @@ const Mobile = () => {
               setStart(!start);
             }}
             disabled={start}
+            className="mobile:min-w-42 w-full text-sm mobile:text-lg mobile:py-6"
           >
             Get Started
           </ButtonMain>
@@ -61,8 +63,9 @@ const Mobile = () => {
               );
             }}
             disabled={start}
+            className="min-w-fit mobile:min-w-42 w-full text-sm mobile:text-lg mobile:py-6"
           >
-            Visit Accessible Version
+            Visit Old Version
           </ButtonMain>
         </div>
       </motion.div>

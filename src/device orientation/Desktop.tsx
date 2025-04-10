@@ -8,7 +8,7 @@ const Desktop = () => {
 
   return (
     <div
-      className={`hidden lg:flex flex-row-reverse max-w-[85rem] items-center relative w-full h-screen min-h-[600px]`}
+      className={`hidden lg:flex flex-row-reverse max-w-[85rem] items-center relative w-full h-screen min-h-[600px] px-8`}
     >
       {/* text explanation */}
       <motion.div
@@ -20,7 +20,7 @@ const Desktop = () => {
         layout="position"
         className={`absolute left-0 flex flex-col justify-center gap-y-5 xl:w-6/10 lg:w-6/11 ml-8`}
       >
-        <h1 className="font-geist text-4xl font-bold leading-11">
+        <h1 className="font-geist text-[2.5rem] font-bold leading-11">
           Classic Portfolio
         </h1>
         <div className="flex flex-col gap-y-2 font-geist text-base xl:text-lg leading-8 ">
@@ -40,6 +40,7 @@ const Desktop = () => {
         <div className="flex gap-2">
           <ButtonMain
             variant={"default"}
+            size={"lg"}
             onClick={() => {
               setStart(!start);
             }}
@@ -49,6 +50,7 @@ const Desktop = () => {
           </ButtonMain>
           <ButtonMain
             variant={"ghost"}
+            size={"lg"}
             onClick={() => {
               window.open(
                 "https://cart-valderama-portfolio.vercel.app/",
