@@ -2,7 +2,7 @@ import { useStart } from "../../context/StartContext";
 import { apps } from "../../data/staticData";
 import { useApplicationStore } from "../../store/AppStore/DesktopApplicationStore";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaGithub, FaLinkedinIn, FaPowerOff } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import { MainMobileScreenProps } from "./MainMobileScreen";
