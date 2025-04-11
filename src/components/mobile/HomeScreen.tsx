@@ -57,7 +57,7 @@ const HomeScreen = ({
     >
       {/* Background image - fixed at the back */}
       <div
-        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-200 ${
+        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-200 mobile:[@media(max-height:450px)]:w-full  ${
           isShowApps ? "opacity-30" : "opacity-100"
         }`}
         style={{
@@ -71,6 +71,8 @@ const HomeScreen = ({
         <div className="p-4 h-full flex flex-col justify-between mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:flex-row-reverse">
           <div
             className={`${
+              isHideStatus && "mobile:[@media(max-height:450px)]:mr-6"
+            }  ${
               isShowApps ? "opacity-100" : "opacity-0 -z-10"
             } grid grid-cols-4 grid-rows-4 gap-x-3 gap-y-6 justify-items-center place-items-center mobile:[@media(max-height:450px)]:[direction:rtl] mobile:[@media(max-height:450px)]:grid-flow-col mobile:[@media(max-height:450px)]:gap-x-6 mobile:[@media(max-height:450px)]:gap-y-3`}
           >

@@ -31,19 +31,17 @@ const initialWindowState: AppState = {
 };
 
 export const useApplicationStore = create<ApplicationStore>((set) => ({
-  // Initial state
   openWindows: { ...initialWindowState },
   minimizedWindows: { ...initialWindowState },
   activeWindow: "",
 
-  // Actions
-  handleActiveWindow: (id) => set({ activeWindow: id }), // Simply set the active window ID
+  handleActiveWindow: (id) => set({ activeWindow: id }),
 
   handleOpenWindows: (id) =>
     set((state) => ({
       openWindows: { ...state.openWindows, [id]: true },
       minimizedWindows: { ...state.minimizedWindows, [id]: false },
-      activeWindow: id, // Automatically make newly opened window active
+      activeWindow: id,
     })),
 
   handleMinimizeRestore: (id) =>
@@ -54,7 +52,7 @@ export const useApplicationStore = create<ApplicationStore>((set) => ({
           ...state.minimizedWindows,
           [id]: isMinimizing,
         },
-        activeWindow: isMinimizing ? "" : id, // Clear active if minimizing, set if restoring
+        activeWindow: isMinimizing ? "" : id,
       };
     }),
 
@@ -69,6 +67,6 @@ export const useApplicationStore = create<ApplicationStore>((set) => ({
     set((state) => ({
       openWindows: { ...state.openWindows, [id]: false },
       minimizedWindows: { ...state.minimizedWindows, [id]: false },
-      activeWindow: state.activeWindow === id ? "" : state.activeWindow, // Clear if closing active
+      activeWindow: state.activeWindow === id ? "" : state.activeWindow,
     })),
 }));

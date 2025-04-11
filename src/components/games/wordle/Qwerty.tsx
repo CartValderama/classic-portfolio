@@ -9,7 +9,7 @@ export const Qwerty = () => {
     PuzzleStore();
 
   return (
-    <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[40%] mobile:[@media(max-height:450px)]:w-[50%]">
+    <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[40%] mobile:[@media(max-height:450px)]:max-w-[500px]">
       {abcd.map((row, idx) => (
         <div
           key={idx}

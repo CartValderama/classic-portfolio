@@ -23,7 +23,7 @@ const Phone = () => {
       layout="position"
       className={`flex w-full h-full items-center justify-center absolute `}
     >
-      <div className="w-full h-full min-h-[600px] mobile:w-[600px] mobile:min-h-[820px] mobile:mb-10 mobile:[@media(max-height:450px)]:mb-0 mobile:max-h-[1000px] mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:min-h-auto mobile:[@media(max-height:450px)]:h-full relative [@media(max-height:450px)]:border-0 mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem] [@media(max-height:450px)]:rounded-none ">
+      <div className="w-full h-full min-h-[600px] max-h-[950px] mobile:w-[600px] mobile:min-h-[800px] mobile:mb-10 mobile:[@media(max-height:450px)]:mb-0 mobile:max-h-[1000px] mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:min-h-auto mobile:[@media(max-height:450px)]:h-full relative [@media(max-height:450px)]:border-0 mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem] [@media(max-height:450px)]:rounded-none ">
         <div className="hidden [@media(max-height:450px)]:hidden mobile:block bg-[#868484] w-0.5 h-18 absolute -right-1 rounded-r-lg mobile:rounded-r-2xl top-40"></div>
         <div className="hidden [@media(max-height:450px)]:hidden mobile:block bg-[#868484] w-0.5 h-30 absolute -left-1 rounded-l-lg mobile:rounded-l-2xl top-60"></div>
 

@@ -18,25 +18,33 @@ const Guide = () => {
 
   const slides: Slide[] = [
     {
-      icon: <LuRectangleHorizontal className="text-7xl text-white" />,
+      icon: (
+        <LuRectangleHorizontal className="text-8xl mobile:[@media(max-height:450px)]:text-7xl text-white" />
+      ),
       title: "Home Button",
       description:
         "Press the center button at the bottom of the phone to instantly return to the home screen from any app. Your current app will remain open in the background.",
     },
     {
-      icon: <AiOutlineRollback className="text-7xl text-white" />,
+      icon: (
+        <AiOutlineRollback className="text-8xl mobile:[@media(max-height:450px)]:text-7xl text-white" />
+      ),
       title: "Back Button",
       description:
         "Press the button at the bottom-right of the phone to return to the previous screen. Note: This will close your current app and you may lose unsaved progress in games.",
     },
     {
-      icon: <AiOutlinePoweroff className="text-7xl text-white" />,
+      icon: (
+        <AiOutlinePoweroff className="text-8xl mobile:[@media(max-height:450px)]:text-7xl text-white" />
+      ),
       title: "Power Button",
       description:
         "Press the button on the bottom-left of the phone to turn off the device. This will return you to the landing page and close all apps.",
     },
     {
-      icon: <IoAppsSharp className="text-7xl text-white" />,
+      icon: (
+        <IoAppsSharp className="text-8xl mobile:[@media(max-height:450px)]:text-7xl text-white" />
+      ),
       title: "App Drawer",
       description:
         "Tap the icon at the bottom-center of the phone to open the app drawer. This shows all available applications and lets you switch between them.",
@@ -110,13 +118,13 @@ const Guide = () => {
         <p className="text-4xl mobile:[@media(max-height:450px)]:text-2xl lg:text-2xl font-bold capitalize lg:mt-0 mt-3 mobile:[@media(max-height:450px)]:mt-1">
           <span className="lg:block hidden">quick desktop guide</span>
           <span className="lg:hidden block lg:text-start text-center">
-            quick mobile guide
+            mobile guide
           </span>
         </p>
       </div>
 
       <div className="lg:border h-full w-full border-white border-l-[#868a8e] border-t-[#868a8e] lg:px-2 lg:py-1 mobile:[@media(max-height:450px)]:text-xs">
-        <div className="lg:hidden flex flex-col justify-between h-full w-full relative overflow-hidden">
+        <div className="lg:hidden flex flex-col justify-between items-center h-full w-full relative overflow-hidden">
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
               key={currentSlide}
@@ -135,28 +143,26 @@ const Guide = () => {
               onDragEnd={handleDragEnd}
               onAnimationStart={() => setIsAnimating(true)}
               onAnimationComplete={() => setIsAnimating(false)}
-              className="flex flex-1 flex-col justify-center items-center"
+              className="flex w-full h-full flex-col justify-center items-center "
             >
-              <div className="flex flex-col items-center justify-center">
-                <h3 className="font-medium text-white text-xl mb-2 mobile:[@media(max-height:450px)]:text-lg">
+              <div className="flex flex-col items-center justify-center mobile:[@media(max-height:450px)]:max-w-[500px]">
+                <h3 className="font-medium text-white text-3xl mb-2 mobile:[@media(max-height:450px)]:text-lg">
                   {slides[currentSlide].title}
                 </h3>
                 {slides[currentSlide].icon}
               </div>
-              <p className="text-base text-center mt-2">
+              <p className="text-base text-center mt-2 mobile:[@media(max-height:450px)]:max-w-[500px]">
                 {slides[currentSlide].description}
               </p>
             </motion.div>
           </AnimatePresence>
 
           {/* Navigation buttons */}
-          <div className="flex justify-between items-center mt-4">
+          <div className="flex justify-between items-center mt-4 mobile:[@media(max-height:450px)]:max-w-[500px] w-full">
             <button
               onClick={prevSlide}
               className={`w-20 px-4 py-2 rounded bg-emerald-950 active:scale-90 transition-transform duration-300  font-medium ${
-                currentSlide === 0 || isAnimating
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
+                currentSlide === 0 && "opacity-0"
               }`}
               disabled={currentSlide === 0 || isAnimating}
             >
@@ -198,7 +204,7 @@ const Guide = () => {
           </div>
         </div>
 
-        <ul className="lg:block hidden space-y-1 text-[1rem] leading-snug ml-1">
+        <ul className="lg:block hidden space-y-4 text-[1rem] leading-snug ml-1">
           <li>
             <span className=" lg:text-green-900">Double-click</span> apps to
             open (or <span className=" lg:text-green-900">single tap</span> on

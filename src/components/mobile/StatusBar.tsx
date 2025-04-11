@@ -91,8 +91,9 @@ const StatusBar = ({ isHideStatus }: { isHideStatus: boolean }) => {
 
   return (
     <div
-      className={`w-full mobile:[@media(max-height:450px)]:h-full bg-black justify-end px-2 text-sm gap-x-2 py-1.5 mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:items-end mobile:[@media(max-height:450px)]:px-0 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:py-4 mobile:[@media(max-height:450px)]:gap-y-2 mobile:[@media(max-height:450px)]:flex-col z-20 flex ${
-        isHideStatus && "[@media(max-height:450px)]:hidden"
+      className={`w-full mobile:[@media(max-height:450px)]:h-full bg-black justify-end px-2 text-sm gap-x-2 py-1.5 mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:items-end mobile:[@media(max-height:450px)]:px-0 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:py-4 mobile:[@media(max-height:450px)]:gap-y-2 mobile:[@media(max-height:450px)]:flex-col z-20 flex border border-black ${
+        isHideStatus &&
+        "mobile:[@media(max-height:450px)]:absolute mobile:[@media(max-height:450px)]:opacity-0 "
       }`}
     >
       {/* Battery + Icons */}

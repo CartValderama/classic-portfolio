@@ -1,4 +1,3 @@
-// store/tictactoeStore.ts
 import { create } from "zustand";
 
 type Player = "X" | "O";
@@ -10,7 +9,7 @@ interface TicTacToeStore {
   board: Board;
   currentPlayer: Player;
   gameMode: GameMode;
-  gameStarted: boolean; // New state to track if game has started
+  gameStarted: boolean;
   gameLocked: boolean;
   winner: Player | null;
   isDraw: boolean;
@@ -27,17 +26,16 @@ interface TicTacToeStore {
 }
 
 const useTicTacToeStore = create<TicTacToeStore>((set, get) => {
-  // Helper functions (keep the same as before)
   const checkWinner = (board: Board): Player | null => {
     const winningCombinations = [
       [0, 1, 2],
       [3, 4, 5],
-      [6, 7, 8], // Rows
+      [6, 7, 8],
       [0, 3, 6],
       [1, 4, 7],
-      [2, 5, 8], // Columns
+      [2, 5, 8],
       [0, 4, 8],
-      [2, 4, 6], // Diagonals
+      [2, 4, 6],
     ];
 
     for (const [a, b, c] of winningCombinations) {
@@ -106,7 +104,7 @@ const useTicTacToeStore = create<TicTacToeStore>((set, get) => {
     board: Array(9).fill(null),
     currentPlayer: "X",
     gameMode: "human",
-    gameStarted: false, // Initialize as false
+    gameStarted: false,
     gameLocked: false,
     winner: null,
     isDraw: false,
@@ -121,7 +119,7 @@ const useTicTacToeStore = create<TicTacToeStore>((set, get) => {
       set({
         board: Array(9).fill(null),
         currentPlayer: "X",
-        gameStarted: false, // Reset to false
+        gameStarted: false,
         gameLocked: false,
         winner: null,
         isDraw: false,
@@ -132,16 +130,12 @@ const useTicTacToeStore = create<TicTacToeStore>((set, get) => {
 
       if (board[index] || gameLocked) return;
 
-      // Mark game as started on first move
       if (!gameStarted) {
         set({ gameStarted: true });
       }
-
-      // Make the move
       const newBoard = [...board];
       newBoard[index] = currentPlayer;
 
-      // Check for winner or draw
       const winner = checkWinner(newBoard);
       const isDraw = !winner && newBoard.every((cell) => cell !== null);
 
@@ -152,14 +146,11 @@ const useTicTacToeStore = create<TicTacToeStore>((set, get) => {
         isDraw,
       });
 
-      // If game is over, return
       if (winner || isDraw) return;
 
-      // Switch turns
       const nextPlayer = currentPlayer === "X" ? "O" : "X";
       set({ currentPlayer: nextPlayer });
 
-      // AI move if in AI mode and it's AI's turn
       if (gameMode === "ai" && nextPlayer === "O") {
         const aiMove = getAIMove();
         const aiBoard = [...newBoard];
