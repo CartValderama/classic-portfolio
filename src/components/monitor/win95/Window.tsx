@@ -11,7 +11,7 @@ import { useStart } from "../../../context/StartContext";
 import {
   AppID,
   useApplicationStore,
-} from "../../../store/AppStore/DesktopApplicationStore";
+} from "../../../store/AppStore/ApplicationStore";
 
 type WindowProps = {
   id: AppID;
@@ -45,11 +45,10 @@ const Window = ({
 
   const {
     openWindows,
-    activeWindows,
+    activeWindow,
     minimizedWindows,
-    handleActiveWindows,
+    handleActiveWindow,
     handleMinimizeRestore,
-    handleInactiveWindows,
     closeWindow,
   } = useApplicationStore();
 
@@ -125,8 +124,8 @@ const Window = ({
       const newHeight = startHeight + deltaY;
 
       // Ensure the new size stays within the container bounds
-      const maxWidth = containerRect.width - 5 - x.get();
-      const maxHeight = containerRect.height - 8 - y.get();
+      const maxWidth = containerRect.width - x.get();
+      const maxHeight = containerRect.height - y.get();
 
       setSize({
         width: Math.max(iWidth, Math.min(newWidth, maxWidth)),
@@ -166,15 +165,15 @@ const Window = ({
         visibility:
           openWindows[id] && !minimizedWindows[id] ? "visible" : "hidden",
         zIndex:
-          activeWindows[id] && isMaximized
+          activeWindow === id && isMaximized
             ? 3
-            : activeWindows[id]
+            : activeWindow === id
             ? 2
             : isMaximized
             ? 1
             : 0,
       }}
-      onClick={() => handleActiveWindows(id)}
+      onClick={() => handleActiveWindow(id)}
     >
       <div
         className={`flex h-full flex-col justify-between p-0.5 overflow-hidden bg-[#c3c7cb] border border-white border-r-[#868a8e] border-b-[#868a8e] shadow-outline touch-none`}
@@ -182,15 +181,15 @@ const Window = ({
         {/* Title bar */}
         <div
           className={`flex text-white items-center select-none justify-between px-1 py-0.5 mb-1 ${
-            activeWindows[id] ? "bg-[#000e7a]" : "bg-[#7f787f]"
+            activeWindow === id ? "bg-[#000e7a]" : "bg-[#7f787f]"
           }`}
           onPointerDown={(e) => {
             if (
               !isMaximized &&
               (e.pointerType === "touch" || e.pointerType === "mouse")
             ) {
-              handleActiveWindows(id);
-              e.preventDefault(); // Important for touch devices
+              handleActiveWindow(id);
+              e.preventDefault();
               dragControls.start(e);
               setIsResizing(false);
             }
@@ -206,11 +205,6 @@ const Window = ({
               onClick={(e) => {
                 e.stopPropagation();
                 handleMinimizeRestore(id);
-                if (!minimizedWindows[id]) {
-                  handleInactiveWindows(id);
-                } else {
-                  handleActiveWindows(id);
-                }
               }}
             >
               <MdMinimize className="text-black text-[.6rem]" />
@@ -220,7 +214,7 @@ const Window = ({
               onClick={(e) => {
                 e.stopPropagation();
                 handleMaximize();
-                handleActiveWindows(id);
+                handleActiveWindow(id);
               }}
               className={`${!isResize && "hidden"}`}
             >
@@ -250,7 +244,8 @@ const Window = ({
           >
             <div
               className={`absolute w-full h-full -z-10 ${
-                (isResizing || !activeWindows[id]) && "opacity-10 z-10 bg-white"
+                (isResizing || activeWindow !== id) &&
+                "opacity-10 z-10 bg-white"
               } ${isDragging && "z-10"}`}
             ></div>
             {children}
@@ -269,7 +264,7 @@ const Window = ({
             className="absolute bottom-0 right-0 w-[6px] h-2  cursor-nwse-resize"
             onPointerDown={(e) => {
               handleResize(e);
-              handleActiveWindows(id);
+              handleActiveWindow(id);
             }}
           >
             <div className="relative">

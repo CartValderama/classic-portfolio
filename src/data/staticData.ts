@@ -27,7 +27,7 @@ import {
   svgVSCode,
   svgZustand,
 } from "./svgList";
-import { AppID } from "../store/AppStore/DesktopApplicationStore";
+import { AppID } from "../store/AppStore/ApplicationStore";
 import {
   Access110,
   Issue,
@@ -37,7 +37,7 @@ import {
   Write1,
 } from "@react95/icons";
 import AboutMe from "../components/about/AboutMe";
-import Credits from "../components/monitor/Credits";
+import Credits from "../components/Credits";
 import OldPorfolio from "../components/monitor/OldPortolio";
 import Tictactoe from "../components/games/tictactoe/Tictactoe";
 import Wordle from "../components/games/wordle/Wordle";
@@ -122,7 +122,7 @@ export const apps: AppProps[] = [
     id: "guide",
     Component: Help,
     iWidth: 300,
-    iHeight: 365,
+    iHeight: 370,
   },
 ] as const;
 

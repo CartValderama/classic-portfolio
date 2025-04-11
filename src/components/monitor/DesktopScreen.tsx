@@ -3,7 +3,7 @@ import { useStart } from "../../context/StartContext";
 import TaskBar from "./win95/TaskBar";
 import Window from "./win95/Window";
 import { useRef } from "react";
-import { useApplicationStore } from "../../store/AppStore/DesktopApplicationStore";
+import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 import { apps } from "../../data/staticData";
 
 const DesktopScreen = () => {

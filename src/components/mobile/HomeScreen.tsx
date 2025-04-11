@@ -1,19 +1,27 @@
 import { useStart } from "../../context/StartContext";
 import { apps } from "../../data/staticData";
-import { useApplicationStore } from "../../store/AppStore/DesktopApplicationStore";
-import { AnimatePresence, motion } from "framer-motion";
+import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import { MainMobileScreenProps } from "./MainMobileScreen";
-import { useEffect } from "react";
 import StatusBar from "./StatusBar";
 import AboutMe from "../about/AboutMe";
 import Wordle from "../games/wordle/Wordle";
 import OldPorfolio from "../monitor/OldPortolio";
 import Guide from "../Guide";
-import Credits from "../monitor/Credits";
+import Credits from "../Credits";
 import Tictactoe from "../games/tictactoe/Tictactoe";
+
+const windows = [
+  { id: "wordle", component: <Wordle /> },
+  { id: "about", component: <AboutMe /> },
+  { id: "oldportfolio", component: <OldPorfolio /> },
+  { id: "guide", component: <Guide /> },
+  { id: "credits", component: <Credits /> },
+  { id: "tictactoe", component: <Tictactoe /> },
+];
 
 const homeApp = [
   {
@@ -30,16 +38,14 @@ const homeApp = [
   },
 ];
 
-const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
+const HomeScreen = ({
+  isShowApps,
+  setShowApps,
+  isHideStatus,
+  setHideStatus,
+}: MainMobileScreenProps) => {
   const { start } = useStart();
-  const { activeWindows, handleOpenWindows } = useApplicationStore();
-
-  useEffect(() => {
-    if (activeWindows && isShowApps) {
-      setShowApps(true);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeWindows]);
+  const { activeWindow, handleOpenWindows } = useApplicationStore();
 
   return (
     <motion.div
@@ -59,9 +65,9 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
         }}
       ></div>
 
-      <StatusBar />
+      <StatusBar isHideStatus={isHideStatus} />
 
-      <div className="z-10 h-full flex flex-col justify-between relative mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:items-stretch overflow-auto [&::-webkit-scrollbar]:hidden">
+      <div className="z-10 h-full flex flex-col justify-between relative mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:items-stretch ">
         <div className="p-4 h-full flex flex-col justify-between mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:flex-row-reverse">
           <div
             className={`${
@@ -72,7 +78,10 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
               <button
                 key={id}
                 className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
-                onClick={() => handleOpenWindows(id)}
+                onClick={() => {
+                  setHideStatus(true);
+                  handleOpenWindows(id);
+                }}
               >
                 <MobileIcon
                   className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
@@ -83,14 +92,11 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
               </button>
             ))}
             {homeApp.map(({ HomeIcon, url, style, label }, index) => (
-              <button
+              <a
                 key={index}
                 className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
-                onClick={() => {
-                  if (url) {
-                    window.open(url, "_blank", "noopener,noreferrer");
-                  }
-                }}
+                href={url}
+                onClick={() => {}}
               >
                 <HomeIcon
                   className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${style} mobile:[@media(max-height:450px)]:rotate-90`}
@@ -98,7 +104,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
                 <span className="text-xs mobile:[@media(max-height:450px)]:text-[0.5rem] mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
                   {label}
                 </span>
-              </button>
+              </a>
             ))}
           </div>
 
@@ -115,6 +121,7 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
                   key={id}
                   className="flex flex-col justify-center items-center cursor-pointer transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
                   onClick={() => {
+                    setHideStatus(true);
                     handleOpenWindows(id);
                   }}
                 >
@@ -137,28 +144,25 @@ const HomeScreen = ({ isShowApps, setShowApps }: MainMobileScreenProps) => {
           </div>
         </div>
 
-        {Object.entries(activeWindows).map(([appId, isActive]) => {
-          if (!isActive) return null;
+        {/* Wordle Window */}
 
-          return (
-            <AnimatePresence key={appId}>
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0.4 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="absolute text-black w-full h-full"
-              >
-                {appId === "wordle" && <Wordle />}
-                {appId === "about" && <AboutMe />}
-                {appId === "oldportfolio" && <OldPorfolio />}
-                {appId === "guide" && <Guide />}
-                {appId === "credits" && <Credits />}
-                {appId === "tictactoe" && <Tictactoe />}
-              </motion.div>
-            </AnimatePresence>
-          );
-        })}
+        {windows.map(({ id, component }) => (
+          <motion.div
+            key={id}
+            className="absolute inset-0 text-black overflow-auto [&::-webkit-scrollbar]:hidden"
+            style={{
+              zIndex: activeWindow === id ? 50 : 0,
+              pointerEvents: activeWindow === id ? "auto" : "none",
+            }}
+            animate={{
+              opacity: activeWindow === id ? 1 : 0,
+              scale: activeWindow === id ? 1 : 0.5,
+            }}
+            transition={{ duration: 0.1 }}
+          >
+            {component}
+          </motion.div>
+        ))}
       </div>
     </motion.div>
   );

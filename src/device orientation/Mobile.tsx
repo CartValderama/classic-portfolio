@@ -7,7 +7,7 @@ const Mobile = () => {
   const { start, setStart } = useStart();
   return (
     <div
-      className={`lg:hidden flex items-center justify-center px-4 text-sm min-h-[600px] mobile:min-h-[670px] mobile:[@media(max-height:450px)]:min-h-auto`}
+      className={`lg:hidden flex items-center justify-center mobile:px-8 px-4 text-sm min-h-[600px] mobile:min-h-[660px] mobile:[@media(max-height:450px)]:min-h-auto`}
     >
       <motion.div
         initial={{

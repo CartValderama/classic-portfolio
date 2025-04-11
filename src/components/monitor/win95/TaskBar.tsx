@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { Computer3 } from "@react95/icons";
 import { FaSquareGithub } from "react-icons/fa6";
 import { useStart } from "../../../context/StartContext";
-import { useApplicationStore } from "../../../store/AppStore/DesktopApplicationStore";
+import { useApplicationStore } from "../../../store/AppStore/ApplicationStore";
 
 type TaskBarProps = {
   apps: AppProps[];
@@ -19,9 +19,9 @@ const TaskBar = ({ apps }: TaskBarProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const {
     openWindows,
-    activeWindows,
+    activeWindow,
     minimizedWindows,
-    handleActiveWindows,
+    handleActiveWindow,
     handleMinimizeRestore,
   } = useApplicationStore();
 
@@ -112,26 +112,27 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               variant={"tab"}
               className={`h-full flex items-center 
               min-w-0 flex-1
-              max-w-36 px-2 gap-1 truncate text-[.9rem]
+              max-w-36 px-2 gap-1
               ${
                 minimizedWindows[id]
                   ? "shadow-outline"
-                  : activeWindows[id]
+                  : activeWindow === id
                   ? "bg-[#c3c7cb] border-[#868a8e] border-r-white border-b-white"
                   : "shadow-outline"
               }`}
               onClick={() => {
                 if (minimizedWindows[id]) {
-                  handleActiveWindows(id);
+                  handleActiveWindow(id);
                   handleMinimizeRestore(id);
-                } else if (!activeWindows[id]) {
-                  handleActiveWindows(id);
+                } else if (activeWindow !== id) {
+                  handleActiveWindow(id);
                 } else {
                   handleMinimizeRestore(id);
                 }
               }}
             >
-              <DesktopIcon variant="16x16_4" /> {label}
+              <DesktopIcon variant="16x16_4" />
+              <span className="truncate">{label}</span>
             </Button>
           ))}
       </div>

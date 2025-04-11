@@ -9,42 +9,42 @@ export const Qwerty = () => {
     PuzzleStore();
 
   return (
-    <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[35%] ">
+    <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[40%] mobile:[@media(max-height:450px)]:w-[50%]">
       {abcd.map((row, idx) => (
         <div
           key={idx}
-          className="flex justify-center gap-0.5 w-full h-full font-semibold lg:font-normal"
+          className="flex justify-center gap-0.5 w-full h-full font-semibold lg:font-normal "
         >
           {/* Add Backspace button to the last row */}
           {idx === 3 && (
             <Button
               variant={"default"}
-              className="bg-gray-200 h-full w-full border-0 rounded lg:border lg:rounded-none flex items-center justify-center"
+              className="lg:bg-gray-200 bg-white h-full w-full border-0 rounded lg:border lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Delete")}
             >
-              <MdKeyboardBackspace />
+              <MdKeyboardBackspace className="lg:text-black text-[#38753b] text-xl" />
             </Button>
           )}
 
           {/* Render each key */}
           {row.split("").map((char, idy) => {
-            const bgColor = exactGuesses().includes(char)
-              ? "bg-green-400"
+            const color = exactGuesses().includes(char)
+              ? "bg-[#38753b] text-white"
               : inexactGuesses().includes(char)
-              ? "bg-yellow-400"
+              ? "bg-yellow-400 text-[#38753b]"
               : allGuesses().includes(char)
-              ? "bg-gray-400"
-              : "bg-gray-200";
+              ? "lg:bg-gray-400 bg-gray-500 text-white"
+              : "lg:bg-gray-200 bg-white text-[#38753b]";
             return (
               <Button
                 key={idy}
                 variant={"default"}
-                className={`uppercase h-full w-full ${bgColor} border-0 rounded flex items-center justify-center ${
+                className={`uppercase h-full w-full ${color} border-0 rounded flex items-center justify-center   ${
                   char && "active:scale-95"
                 } transition-transform duration-100 lg:border lg:rounded-none`}
                 onClick={() => handleKeyClick(char)}
               >
-                <span className="text-sm mobile:[@media(max-height:450px)]:text-[.7rem] py-0.5">
+                <span className="text-sm mobile:[@media(max-height:450px)]:text-[.7rem] py-0.5 lg:text-black ">
                   {char}
                 </span>
               </Button>
@@ -55,10 +55,10 @@ export const Qwerty = () => {
           {idx === 3 && (
             <Button
               variant={"default"}
-              className="bg-gray-200 h-full w-full border-0 rounded lg:border lg:rounded-none flex items-center justify-center"
+              className="lg:bg-gray-200 bg-white h-full w-full border-0 rounded lg:border lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Enter")}
             >
-              <GrReturn />
+              <GrReturn className="lg:text-black text-[#38753b] text-xl" />
             </Button>
           )}
         </div>

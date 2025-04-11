@@ -13,7 +13,7 @@ const buttonVariants = cva(
         tab: "gap-x-[5.5px] px-2",
         ghost:
           "hover:bg-[#000e7a] hover:text-white border-none bg-none px-1 py-1 flex w-full",
-        subtle: "hover:bg-white/50 bg-transparent border-none border-b min-w-0",
+        subtle: " bg-transparent border-none border-b",
       },
       size: {
         default: "",

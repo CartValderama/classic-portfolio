@@ -2,26 +2,14 @@ import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
 import MainMobileScreen from "./MainMobileScreen";
 import { useState } from "react";
-import {
-  AppID,
-  useApplicationStore,
-} from "../../store/AppStore/DesktopApplicationStore";
 import { AiOutlinePoweroff, AiOutlineRollback } from "react-icons/ai";
+import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 
 const Phone = () => {
   const { start, setStart } = useStart();
   const [isShowApps, setShowApps] = useState(false);
-  const { activeWindows, handleInactiveWindows } = useApplicationStore();
-
-  const handleActiveWindows = () => {
-    const activeWindow = Object.keys(activeWindows).find(
-      (key) => activeWindows[key as keyof typeof activeWindows] === true
-    );
-
-    if (activeWindow) {
-      handleInactiveWindows(activeWindow as AppID);
-    }
-  };
+  const [isHideStatus, setHideStatus] = useState(false);
+  const { activeWindow, InactiveAll, closeWindow } = useApplicationStore();
 
   return (
     <motion.div
@@ -35,7 +23,7 @@ const Phone = () => {
       layout="position"
       className={`flex w-full h-full items-center justify-center absolute `}
     >
-      <div className="w-full h-full min-h-[600px] mobile:w-[600px] mobile:min-h-[800px] mobile:max-h-[1000px] mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:min-h-auto mobile:[@media(max-height:450px)]:h-full relative [@media(max-height:450px)]:border-0 mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem] [@media(max-height:450px)]:rounded-none ">
+      <div className="w-full h-full min-h-[600px] mobile:w-[600px] mobile:min-h-[820px] mobile:mb-10 mobile:[@media(max-height:450px)]:mb-0 mobile:max-h-[1000px] mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:min-h-auto mobile:[@media(max-height:450px)]:h-full relative [@media(max-height:450px)]:border-0 mobile:border-2 bg-[#2b2b2e] border-[#262627] mobile:rounded-[7rem] [@media(max-height:450px)]:rounded-none ">
         <div className="hidden [@media(max-height:450px)]:hidden mobile:block bg-[#868484] w-0.5 h-18 absolute -right-1 rounded-r-lg mobile:rounded-r-2xl top-40"></div>
         <div className="hidden [@media(max-height:450px)]:hidden mobile:block bg-[#868484] w-0.5 h-30 absolute -left-1 rounded-l-lg mobile:rounded-l-2xl top-60"></div>
 
@@ -58,10 +46,12 @@ const Phone = () => {
               </div>
 
               {/* main screen */}
-              <div className=" rounded-xs w-full h-full">
+              <div className="rounded-xs w-full h-full">
                 <MainMobileScreen
                   isShowApps={isShowApps}
                   setShowApps={setShowApps}
+                  isHideStatus={isHideStatus}
+                  setHideStatus={setHideStatus}
                 />
               </div>
 
@@ -69,6 +59,7 @@ const Phone = () => {
                 <button
                   className="active:scale-98 cursor-pointer"
                   onClick={() => {
+                    setHideStatus(true);
                     setStart(!start);
                     setShowApps(false);
                   }}
@@ -78,8 +69,9 @@ const Phone = () => {
                 <button
                   className="w-24 h-12 border-3 border-[#515455] rounded-xl active:scale-98 cursor-pointer mobile:[@media(max-height:450px)]:w-12 mobile:[@media(max-height:450px)]:h-[25%]"
                   onClick={() => {
+                    setHideStatus(false);
                     setShowApps(false);
-                    handleActiveWindows();
+                    InactiveAll();
                   }}
                 >
                   <div className="w-full h-full bg-[#131314] rounded-lg border-[#797777] border"></div>
@@ -87,9 +79,9 @@ const Phone = () => {
                 <button
                   className="active:scale-98 cursor-pointer"
                   onClick={() => {
-                    if (isShowApps) {
-                      setShowApps(true);
-                      handleActiveWindows();
+                    setHideStatus(false);
+                    if (activeWindow) {
+                      closeWindow(activeWindow);
                     }
                   }}
                 >

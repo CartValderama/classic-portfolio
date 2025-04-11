@@ -8,7 +8,7 @@ const SocialsDivider = () => {
       <div>
         <p className="font-medium">Check out my socials!</p>
         <a
-          href=""
+          href="https://www.linkedin.com/in/cart-valderama/"
           target="_blank"
           className="flex gap-1 items-center underline"
         >

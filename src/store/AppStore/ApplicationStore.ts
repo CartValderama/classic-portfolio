@@ -12,12 +12,12 @@ type AppState = Record<AppID, boolean>;
 
 type ApplicationStore = {
   openWindows: AppState;
-  activeWindows: AppState;
+  activeWindow: AppID | ""; // Now a single string
   minimizedWindows: AppState;
-  handleActiveWindows: (id: AppID) => void;
-  handleInactiveWindows: (id: AppID) => void;
+  handleActiveWindow: (id: AppID) => void; // Renamed to singular
   handleOpenWindows: (id: AppID) => void;
   handleMinimizeRestore: (id: AppID) => void;
+  InactiveAll: () => void;
   closeWindow: (id: AppID) => void;
 };
 
@@ -33,53 +33,42 @@ const initialWindowState: AppState = {
 export const useApplicationStore = create<ApplicationStore>((set) => ({
   // Initial state
   openWindows: { ...initialWindowState },
-  activeWindows: { ...initialWindowState },
   minimizedWindows: { ...initialWindowState },
+  activeWindow: "",
 
   // Actions
-  handleActiveWindows: (id) =>
-    set((state) => ({
-      activeWindows: Object.keys(state.activeWindows).reduce((acc, key) => {
-        acc[key as AppID] = key === id;
-        return acc;
-      }, {} as AppState),
-    })),
+  handleActiveWindow: (id) => set({ activeWindow: id }), // Simply set the active window ID
 
   handleOpenWindows: (id) =>
     set((state) => ({
       openWindows: { ...state.openWindows, [id]: true },
-      activeWindows: Object.keys(state.activeWindows).reduce((acc, key) => {
-        acc[key as AppID] = key === id;
-        return acc;
-      }, {} as AppState),
       minimizedWindows: { ...state.minimizedWindows, [id]: false },
+      activeWindow: id, // Automatically make newly opened window active
     })),
 
   handleMinimizeRestore: (id) =>
-    set((state) => ({
-      minimizedWindows: {
-        ...state.minimizedWindows,
-        [id]: !state.minimizedWindows[id],
-      },
-      activeWindows: {
-        ...state.activeWindows,
-        [id]: state.minimizedWindows[id] ? true : false,
-      },
-    })),
+    set((state) => {
+      const isMinimizing = !state.minimizedWindows[id];
+      return {
+        minimizedWindows: {
+          ...state.minimizedWindows,
+          [id]: isMinimizing,
+        },
+        activeWindow: isMinimizing ? "" : id, // Clear active if minimizing, set if restoring
+      };
+    }),
 
-  handleInactiveWindows: (id) =>
+  InactiveAll: () => {
     set((state) => ({
-      // When minimizing, also deactivate the window
-      activeWindows: {
-        ...state.activeWindows,
-        [id]: false,
-      },
-    })),
+      ...state,
+      activeWindow: "",
+    }));
+  },
 
   closeWindow: (id) =>
     set((state) => ({
       openWindows: { ...state.openWindows, [id]: false },
-      activeWindows: { ...state.activeWindows, [id]: false },
       minimizedWindows: { ...state.minimizedWindows, [id]: false },
+      activeWindow: state.activeWindow === id ? "" : state.activeWindow, // Clear if closing active
     })),
 }));
