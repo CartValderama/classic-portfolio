@@ -8,7 +8,7 @@ const MobileBootUpScreen = () => {
   return (
     <motion.div
       key={start ? "start-true" : "start-false"}
-      initial={{ opacity: 1 }}
+      initial={{ opacity: 1, zIndex: 10 }}
       animate={start ? { opacity: 0, zIndex: -10 } : { opacity: 1, zIndex: 10 }}
       transition={{
         duration: 0.1,

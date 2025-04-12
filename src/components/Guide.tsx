@@ -3,6 +3,7 @@ import { AiOutlinePoweroff, AiOutlineRollback } from "react-icons/ai";
 import { IoAppsSharp } from "react-icons/io5";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import { LuRectangleHorizontal } from "react-icons/lu";
+import { useApplicationStore } from "../store/AppStore/ApplicationStore";
 
 interface Slide {
   icon: React.ReactNode;
@@ -15,6 +16,7 @@ const Guide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const { activeWindow } = useApplicationStore();
 
   const slides: Slide[] = [
     {
@@ -85,17 +87,9 @@ const Guide = () => {
     }
   };
 
-  // Handle keyboard navigation
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent): void => {
-      if (isAnimating) return;
-      if (e.key === "ArrowRight") nextSlide();
-      if (e.key === "ArrowLeft") prevSlide();
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isAnimating]);
+    setCurrentSlide(0);
+  }, [activeWindow]);
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -134,7 +128,7 @@ const Guide = () => {
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 200, damping: 30 },
+                x: { type: "spring", stiffness: 600, damping: 30 },
                 opacity: { duration: 0.1 },
               }}
               drag="x"
