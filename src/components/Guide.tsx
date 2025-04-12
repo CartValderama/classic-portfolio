@@ -145,7 +145,7 @@ const Guide = () => {
                 </h3>
                 {slides[currentSlide].icon}
               </div>
-              <p className="text-base text-center mt-2 mobile:[@media(max-height:450px)]:max-w-[500px]">
+              <p className="text-base text-center mt-2 mobile:[@media(max-height:450px)]:max-w-[500px] mobile:[@media(max-height:450px)]:text-xs">
                 {slides[currentSlide].description}
               </p>
             </motion.div>

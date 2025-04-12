@@ -87,7 +87,7 @@ export const apps: AppProps[] = [
   {
     DesktopIcon: Joy102,
     MobileIcon: TbTicTac,
-    iconStyle: " text-white bg-amber-700 p-1 rounded-lg",
+    iconStyle: " text-white bg-amber-700 p-2 rounded-lg",
     label: "Tictactoe",
     id: "tictactoe",
     Component: Tictactoe,
@@ -117,7 +117,7 @@ export const apps: AppProps[] = [
   {
     DesktopIcon: Issue,
     MobileIcon: IoHelpCircleSharp,
-    iconStyle: "text-green-200 bg-green-900 p-1 rounded-lg",
+    iconStyle: "text-green-200 bg-green-900 p-2 rounded-lg",
     label: "Guide",
     id: "guide",
     Component: Help,

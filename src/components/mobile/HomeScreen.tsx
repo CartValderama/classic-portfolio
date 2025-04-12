@@ -76,23 +76,26 @@ const HomeScreen = ({
               isShowApps ? "opacity-100" : "opacity-0 -z-10"
             } grid grid-cols-4 grid-rows-4 gap-x-3 gap-y-6 justify-items-center place-items-center mobile:[@media(max-height:450px)]:[direction:rtl] mobile:[@media(max-height:450px)]:grid-flow-col mobile:[@media(max-height:450px)]:gap-x-6 mobile:[@media(max-height:450px)]:gap-y-3`}
           >
-            {apps.map(({ MobileIcon, label, id, iconStyle }) => (
-              <button
-                key={id}
-                className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
-                onClick={() => {
-                  setHideStatus(true);
-                  handleOpenWindows(id);
-                }}
-              >
-                <MobileIcon
-                  className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
-                />
-                <span className="text-xs mobile:[@media(max-height:450px)]:text-[0.5rem] mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
-                  {label}
-                </span>
-              </button>
-            ))}
+            {apps
+              .slice()
+              .reverse()
+              .map(({ MobileIcon, label, id, iconStyle }) => (
+                <button
+                  key={id}
+                  className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
+                  onClick={() => {
+                    setHideStatus(true);
+                    handleOpenWindows(id);
+                  }}
+                >
+                  <MobileIcon
+                    className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
+                  />
+                  <span className="text-xs mobile:[@media(max-height:450px)]:text-[0.5rem] mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
+                    {label}
+                  </span>
+                </button>
+              ))}
             {homeApp.map(({ HomeIcon, url, style, label }, index) => (
               <a
                 key={index}
@@ -138,9 +141,9 @@ const HomeScreen = ({
               onClick={() => setShowApps(!isShowApps)}
             >
               {isShowApps ? (
-                <AiFillHome className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-emerald-700 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
+                <AiFillHome className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
               ) : (
-                <IoAppsSharp className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-emerald-700 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
+                <IoAppsSharp className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
               )}
             </button>
           </div>
