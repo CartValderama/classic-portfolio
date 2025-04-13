@@ -128,7 +128,6 @@ const Guide = () => {
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 600, damping: 30 },
                 opacity: { duration: 0.1 },
               }}
               drag="x"

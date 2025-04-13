@@ -77,37 +77,63 @@ const Monitor = () => {
 
           <div className="w-[100%] h-[90%] bg-[#dbd49d] flex flex-col justify-center px-[3%] p-[1.5%] mt-[3%] relative rounded-xs">
             <div
-              className="absolute w-[100%] h-[50%] -top-[49.5%] right-0"
+              className="absolute w-[100%] h-[48.5%] -top-[48%] right-0"
               style={{
                 background: "#aaa57d",
                 clipPath: "polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%)",
               }}
             ></div>
             <div className="flex justify-between items-center h-full w-full">
-              <div className="w-[50%] h-[50%] border-3 border-[#ece8c8] border-t-[#8d8969] border-l-[#817e62]"></div>
-              <div className="w-[30%] h-[12%] bg-[#3d3a22] relative flex justify-center ">
-                <div className="w-[12%] h-[130%] -top-[130%] scale-x-200 bg-[#beb87a] absolute rounded-t-full"></div>
-                <div className="w-[12%] h-[130%] -bottom-[140%] scale-x-200 bg-[#cec68c] absolute rounded-b-full"></div>
-              </div>
+              <motion.div
+                initial={{ borderWidth: ".15rem" }}
+                animate={
+                  start ? { borderWidth: ".4rem" } : { borderWidth: ".15rem" }
+                }
+                transition={{ duration: 0.6, delay: 1 }}
+                className="w-[50%] h-[50%] border-3 border-[#ece8c8] border-t-[#8d8969] border-l-[#817e62]"
+              ></motion.div>
+              <div className="w-[30%] h-[12%] bg-[#3d3a22] relative flex justify-center rounded"></div>
             </div>
             <div className="flex justify-between items-center h-full w-full ">
               <div className="w-[50%] h-[70%] grid grid-cols-18 grid-rows-3 gap-x-1 ">
                 {Array.from({ length: 54 }).map((_, index) => (
-                  <div
+                  <motion.div
+                    initial={{ fontSize: ".35rem" }}
+                    animate={
+                      start ? { fontSize: "1.2rem" } : { fontSize: ".35rem" }
+                    }
+                    transition={{ duration: 0.6, delay: 1 }}
                     key={index}
-                    className="text-[40%] text-[#948d4e] font-black"
+                    className="text-[#948d4e] font-black p-1 pt-0"
                   >
                     o
-                  </div>
+                  </motion.div>
                 ))}
               </div>
               <div className="w-[40%] h-[40%] flex justify-end items-center gap-x-1">
-                <div className="w-[20%] h-full flex gap-x-[15%] items-center">
-                  <div className="bg-red-800 w-[10%] h-[10%] rounded"></div>
-                  <div className="bg-orange-600 w-[10%] h-[10%] rounded"></div>
-                  <div className="bg-green-800 w-[10%] h-[10%] rounded"></div>
+                <div className="w-[30%] h-full flex gap-x-[15%] items-center">
+                  <div className="bg-red-800 w-[10%] h-[20%] rounded"></div>
+                  <div className="bg-orange-600 w-[10%] h-[20%] rounded"></div>
+                  <div className="bg-green-800 w-[10%] h-[20%] rounded"></div>
                 </div>
-                <div className="rounded-full w-[15%] h-[150%] border-2 border-[#ece8c8] border-t-[#99966f] border-r-[#ebe6d1] border-b-[#e6e1cb] border-l-[#999674]"></div>
+                <motion.div
+                  initial={{
+                    width: "1.5rem",
+                    height: "1.5rem",
+                    borderWidth: ".15rem",
+                  }}
+                  animate={
+                    start
+                      ? { width: "4rem", height: "4rem", borderWidth: ".35rem" }
+                      : {
+                          width: "1.5rem",
+                          height: "1.5rem",
+                          borderWidth: ".15rem",
+                        }
+                  }
+                  transition={{ duration: 0.6, delay: 1 }}
+                  className="rounded-full border-2 border-[#ece8c8] border-t-[#99966f] border-r-[#ebe6d1] border-b-[#e6e1cb] border-l-[#999674]"
+                ></motion.div>
               </div>
             </div>
           </div>

@@ -22,7 +22,7 @@ const DesktopScreen = () => {
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="grid grid-flow-col grid-rows-[repeat(auto-fill,minmax(4rem,1fr))] auto-cols-[4rem] gap-4 h-full w-full relative py-4 px-2 overflow-hidden"
+        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(4rem,1fr))] auto-cols-[4rem] gap-5 h-full w-full relative py-4 px-2 overflow-hidden"
         ref={constraintsRef}
       >
         {/* Render desktop icons */}

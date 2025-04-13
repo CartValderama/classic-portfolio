@@ -38,11 +38,6 @@ const Window = ({
   children,
 }: WindowProps) => {
   const { start } = useStart();
-  const [isMaximized, setIsMaximized] = useState(false);
-  const [size, setSize] = useState({ width: iWidth, height: iHeight });
-  const [isResizing, setIsResizing] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-
   const {
     openWindows,
     activeWindow,
@@ -51,6 +46,15 @@ const Window = ({
     handleMinimizeRestore,
     closeWindow,
   } = useApplicationStore();
+
+  const [isMaximized, setIsMaximized] = useState(false);
+  const [size, setSize] = useState({ width: iWidth, height: iHeight });
+  const [isResizing, setIsResizing] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [monitorContainerSize, setMonitorContainerSize] = useState({
+    width: 0,
+    height: 0,
+  });
 
   const dragControls = useDragControls();
   const x = useMotionValue(20 + Math.random() * 50);
@@ -64,6 +68,56 @@ const Window = ({
     width: 0,
     height: 0,
   });
+
+  useEffect(() => {
+    const container = constraintsRef.current;
+    if (!container) return;
+
+    const updateContainerSize = () => {
+      setMonitorContainerSize({
+        width: container.clientWidth,
+        height: container.clientHeight,
+      });
+    };
+
+    updateContainerSize();
+
+    const observer = new ResizeObserver(updateContainerSize);
+    observer.observe(container);
+
+    return () => observer.disconnect();
+  }, [constraintsRef]);
+
+  useEffect(() => {
+    if (isMaximized) return;
+
+    const currentX = x.get();
+    const currentY = y.get();
+    const currentWidth = size.width;
+    const currentHeight = size.height;
+
+    const maxX = monitorContainerSize.width - currentWidth;
+    const maxY = monitorContainerSize.height - currentHeight;
+
+    if (
+      currentX > maxX ||
+      currentY > maxY ||
+      currentWidth > monitorContainerSize.width ||
+      currentHeight > monitorContainerSize.height
+    ) {
+      const newX = Math.max(0, Math.min(currentX, maxX));
+      const newY = Math.max(0, Math.min(currentY, maxY));
+      const newWidth = Math.min(currentWidth, monitorContainerSize.width);
+      const newHeight = Math.min(currentHeight, monitorContainerSize.height);
+
+      x.set(newX);
+      y.set(newY);
+      setSize({
+        width: Math.max(iWidth, newWidth),
+        height: Math.max(iHeight, newHeight),
+      });
+    }
+  }, [monitorContainerSize, x, y, size, isMaximized, iWidth, iHeight]);
 
   useEffect(() => {
     if (!start) {
@@ -96,7 +150,7 @@ const Window = ({
   };
 
   const handleResize = (e: React.PointerEvent) => {
-    if (isMaximized) return; // Don't allow resizing when maximized
+    if (isMaximized) return;
 
     setIsResizing(true);
     e.stopPropagation();
@@ -116,14 +170,12 @@ const Window = ({
       moveEvent.preventDefault();
       moveEvent.stopPropagation();
 
-      // Calculate the new width and height based on cursor movement
       const deltaX = moveEvent.clientX - startX;
       const deltaY = moveEvent.clientY - startY;
 
       const newWidth = startWidth + deltaX;
       const newHeight = startHeight + deltaY;
 
-      // Ensure the new size stays within the container bounds
       const maxWidth = containerRect.width - x.get();
       const maxHeight = containerRect.height - y.get();
 
