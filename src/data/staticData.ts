@@ -70,6 +70,16 @@ export const aboutMeMenu = ["Intro", "Experience", "Projects", "More"];
 
 export const apps: AppProps[] = [
   {
+    DesktopIcon: Access110,
+    MobileIcon: IoAccessibility,
+    iconStyle: "text-sky-700 bg-white p-2 rounded-lg",
+    label: "Old Portolio",
+    id: "oldportfolio",
+    component: React.createElement(OldPorfolio),
+    iWidth: 500,
+    iHeight: 400,
+  },
+  {
     DesktopIcon: Mplayer113,
     MobileIcon: FaCopyright,
     iconStyle: "text-white bg-yellow-600 p-2 rounded-lg",
@@ -99,16 +109,7 @@ export const apps: AppProps[] = [
     iWidth: 300,
     iHeight: 400,
   },
-  {
-    DesktopIcon: Access110,
-    MobileIcon: IoAccessibility,
-    iconStyle: "text-sky-700 bg-white p-2 rounded-lg",
-    label: "Old Portfolio",
-    id: "oldportfolio",
-    component: React.createElement(OldPorfolio),
-    iWidth: 500,
-    iHeight: 400,
-  },
+
   {
     DesktopIcon: Mailnews8,
     MobileIcon: ImNewspaper,

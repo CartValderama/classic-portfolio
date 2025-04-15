@@ -22,7 +22,7 @@ const DesktopScreen = () => {
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(4rem,1fr))] auto-cols-[4rem] 3xl:gap-8 gap-4 h-full w-full relative py-4 px-2 3xl:p-5 overflow-hidden "
+        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(68px,1fr))] auto-cols-[4rem] 3xl:gap-8 gap-2 h-full w-full relative py-4 px-2 3xl:p-5 overflow-hidden "
         ref={constraintsRef}
       >
         {/* Render desktop icons */}
@@ -48,7 +48,7 @@ const DesktopScreen = () => {
                 />
                 <div className="absolute inset-0 bg-[#091558] opacity-0 group-focus:opacity-80" />
               </div>
-              <span className="group-focus:text-white group-focus:bg-[#091558] border-[.5px] border-dashed border-transparent group-focus:border-white">
+              <span className="group-focus:text-white group-focus:bg-[#091558] border-[.5px] border-dashed border-transparent group-focus:border-white truncate w-14 3xl:w-18">
                 {label}
               </span>
             </button>

@@ -9,7 +9,7 @@
 
 @theme {
   --breakpoint-mobile: 545px;
-  --breakpoint-3xl: 2125px;
+  --breakpoint-3xl: 1920px;
 
   --font-geist: "Geist", sans-serif;
   --font-times: "Times New Roman", serif;

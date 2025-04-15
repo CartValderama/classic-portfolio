@@ -29,7 +29,11 @@ const Monitor = () => {
             : { width: "22rem", height: "16rem" }
         }
         transition={{ duration: 0.6, delay: 1 }}
-        className={`bg-[#dbd49d] 2xl:[@media(min-height:1070px)]:max-w-[1760px] xl:max-w-[1300px] xl:[@media(max-height:850px)]:max-w-[1000px] lg:[@media(max-height:750px)]:max-w-[1000px] lg:max-h-[900px] xl:max-h-full relative rounded-sm flex flex-col items-center justify-center z-10`}
+        className="bg-[#dbd49d] max-w-[1760px] max-h-[850px]
+        2xl:max-h-full xl:max-h-[1100px] 
+        [@media(max-height:1060px)]:max-w-[1300px] 
+        [@media(max-height:900px)]:max-w-[1020px] 
+        relative rounded-sm flex flex-col items-center justify-center z-10"
       >
         {/* main screen */}
         <motion.div
@@ -63,16 +67,19 @@ const Monitor = () => {
           initial={{ width: "22rem", height: "8rem" }}
           animate={
             start
-              ? { width: "100%", height: "40rem" }
+              ? { width: "100%", height: "38rem" }
               : { width: "22rem", height: "8rem" }
           }
           transition={{ duration: 0.6, delay: 1 }}
-          className="absolute flex flex-col items-center justify-center rounded-xs 2xl:[@media(min-height:1070px)]:max-w-[1760px] xl:max-w-[1300px] xl:[@media(max-height:850px)]:max-w-[1000px] lg:[@media(max-height:750px)]:max-w-[1000px]"
+          className="absolute flex flex-col items-center justify-center rounded-xs max-w-[1760px]
+          [@media(max-height:1060px)]:max-w-[1300px] 
+          [@media(max-height:900px)]:max-w-[1020px] 
+          2xl:max-h-full xl:max-h-[500px] max-h-[400px]"
         >
           <div className="w-[88%] h-[20%] bg-[#d3cc96] rounded-b-xs z-10 border border-[#d3cc96]"></div>
           <div className="w-[40%] h-[20%] bg-[#cac28d] relative flex justify-center z-10">
             <div className="w-[130%] h-[110%] bg-[#bbb380] absolute -bottom-[35%] rounded-[60%] scale-110"></div>
-            <div className="w-[110%] h-[80%] bg-[#cac28d] absolute -bottom-[2%] rounded-[50%] scale-110"></div>
+            <div className="w-[110%] h-[80%] bg-[#cac28d] absolute -bottom-[1%] rounded-[50%] scale-110"></div>
           </div>
 
           <div className="w-[100%] h-[90%] bg-[#dbd49d] flex flex-col justify-center px-[3%] p-[1.5%] mt-[3%] relative rounded-xs">
