@@ -47,31 +47,29 @@ const TaskBar = ({ apps }: TaskBarProps) => {
         <div
           className={`absolute flex ${
             showTaskBarMenu ? "block z-10" : "hidden"
-          } bottom-[2.1rem] -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-w-44 min-h-48`}
+          } bottom-9 3xl:bottom-12 -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-h-60`}
         >
-          <p className="bg-[#7b7d7b] text-[#c3c7cb] flex flex-col items-start rotate-180 [writing-mode:vertical-rl] text-xl font-black font-ms px-2 py-1">
+          <p className="bg-[#7b7d7b] text-[#c3c7cb] flex flex-col items-start rotate-180 [writing-mode:vertical-rl] text-xl 3xl:text-3xl font-black font-ms px-2 py-1 3xl:px-4 3xl:py-2 ">
             ValderamaOS
           </p>
-          <div className="flex flex-col-reverse w-full">
+          <div className="flex flex-col-reverse">
             <Button
               variant={"ghost"}
-              className="h-9"
+              className="px-2 py-2 gap-x-2 pr-8"
               onClick={() => {
                 setShowTaskBarMenu(false);
                 setStart(false);
               }}
             >
-              <span className="flex items-center gap-x-1 text-sm">
-                <i>
-                  <Computer3 variant="32x32_4" />
-                </i>
-                Shutdown...
-              </span>
+              <i>
+                <Computer3 variant="32x32_4" />
+              </i>
+              <span className="text-sm 3xl:text-xl">Shutdown...</span>
             </Button>
             <span className="border border-white border-t-[#7b7d7b] border-l-[#7b7d7b] flex mx-1"></span>
             <Button
               variant={"ghost"}
-              className="h-9"
+              className="px-2 py-2 gap-x-2 pr-4"
               onClick={() => {
                 setShowTaskBarMenu(false);
                 window.open(
@@ -80,22 +78,20 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                 );
               }}
             >
-              <span className="flex items-center gap-x-2 text-sm px-1">
-                <i>
-                  <FaSquareGithub className="text-2xl text-black" />
-                </i>
-                Source Code
-              </span>
+              <i>
+                <FaSquareGithub className="text-3xl text-black" />
+              </i>
+              <span className="text-sm 3xl:text-xl">Source Code</span>
             </Button>{" "}
           </div>
         </div>
         <Button
           variant={"default"}
-          className="shadow-outline focus:outline-none px-2"
+          className="shadow-outline focus:outline-none px-2 3xl:py-1"
           onClick={() => setShowTaskBarMenu(!showTaskBarMenu)}
         >
-          <span className="flex items-center gap-x-0.5">
-            <AiFillRobot className="text-[.9rem] text-stone-900" />
+          <span className="flex items-center gap-x-0.5 3xl:text-2xl">
+            <AiFillRobot className="text-[.9rem] text-stone-900 3xl:text-2xl" />
             Menu
           </span>
         </Button>
@@ -112,7 +108,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               variant={"tab"}
               className={`h-full flex items-center 
               min-w-0 flex-1
-              max-w-36 px-2 gap-1
+              max-w-36 3xl:max-w-50 px-2 gap-1
               ${
                 minimizedWindows[id]
                   ? "shadow-outline"
@@ -131,8 +127,8 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                 }
               }}
             >
-              <DesktopIcon variant="16x16_4" />
-              <span className="truncate">{label}</span>
+              <DesktopIcon variant="16x16_4" className="3xl:h-5 3xl:w-5" />
+              <span className="truncate 3xl:text-2xl">{label}</span>
             </Button>
           ))}
       </div>

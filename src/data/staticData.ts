@@ -6,7 +6,12 @@ import {
   FaUserGraduate,
   FaLaptopCode,
 } from "react-icons/fa";
-import { FaCopyright, FaMagnifyingGlass } from "react-icons/fa6";
+import {
+  FaCopyright,
+  FaGithub,
+  FaLinkedinIn,
+  FaMagnifyingGlass,
+} from "react-icons/fa6";
 import { GrBraille } from "react-icons/gr";
 import {
   svgBootstrap,
@@ -36,16 +41,16 @@ import {
   Mplayer113,
   Write1,
 } from "@react95/icons";
-import AboutMe from "../components/about/AboutMe";
+import AboutMe from "../components/AboutMe";
 import Credits from "../components/Credits";
 import OldPorfolio from "../components/monitor/OldPortolio";
-import Tictactoe from "../components/games/tictactoe/Tictactoe";
-import Wordle from "../components/games/wordle/Wordle";
+import Tictactoe from "../components/games/Tictactoe";
+import Wordle from "../components/games/Wordle";
 import { IconType } from "react-icons";
 import { TbLetterW, TbTicTac } from "react-icons/tb";
 import { IoAccessibility, IoHelpCircleSharp } from "react-icons/io5";
 import { ImNewspaper } from "react-icons/im";
-import Help from "../components/Guide";
+import Guide from "../components/Guide";
 
 export type AppProps = {
   DesktopIcon: React.ComponentType<{
@@ -56,9 +61,9 @@ export type AppProps = {
   iconStyle: string;
   label: string;
   id: AppID;
-  Component: React.ComponentType;
   iWidth: number;
   iHeight: number;
+  component: React.ReactNode;
 };
 
 export const aboutMeMenu = ["Intro", "Experience", "Projects", "More"];
@@ -70,7 +75,7 @@ export const apps: AppProps[] = [
     iconStyle: "text-white bg-yellow-600 p-2 rounded-lg",
     label: "Credits",
     id: "credits",
-    Component: Credits,
+    component: React.createElement(Credits),
     iWidth: 400,
     iHeight: 370,
   },
@@ -80,7 +85,7 @@ export const apps: AppProps[] = [
     iconStyle: "text-white bg-[#55a459] p-2 rounded-lg",
     label: "Wordle",
     id: "wordle",
-    Component: Wordle,
+    component: React.createElement(Wordle),
     iWidth: 300,
     iHeight: 450,
   },
@@ -90,7 +95,7 @@ export const apps: AppProps[] = [
     iconStyle: " text-white bg-amber-700 p-2 rounded-lg",
     label: "Tictactoe",
     id: "tictactoe",
-    Component: Tictactoe,
+    component: React.createElement(Tictactoe),
     iWidth: 300,
     iHeight: 400,
   },
@@ -100,7 +105,7 @@ export const apps: AppProps[] = [
     iconStyle: "text-sky-700 bg-white p-2 rounded-lg",
     label: "Old Portfolio",
     id: "oldportfolio",
-    Component: OldPorfolio,
+    component: React.createElement(OldPorfolio),
     iWidth: 500,
     iHeight: 400,
   },
@@ -110,8 +115,8 @@ export const apps: AppProps[] = [
     iconStyle: " text-amber-900 bg-amber-300 p-2 rounded-lg",
     label: "About Me",
     id: "about",
-    Component: AboutMe,
-    iWidth: 330,
+    component: React.createElement(AboutMe),
+    iWidth: 400,
     iHeight: 400,
   },
   {
@@ -120,11 +125,26 @@ export const apps: AppProps[] = [
     iconStyle: "text-green-200 bg-green-900 p-2 rounded-lg",
     label: "Guide",
     id: "guide",
-    Component: Help,
+    component: React.createElement(Guide),
     iWidth: 300,
-    iHeight: 370,
+    iHeight: 390,
   },
 ] as const;
+
+export const homeApp = [
+  {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/cart-valderama/",
+    HomeIcon: FaLinkedinIn,
+    style: "text-white bg-sky-700 p-2 rounded-lg",
+  },
+  {
+    label: "Github",
+    url: "https://github.com/CartValderama/win95-portfolio",
+    HomeIcon: FaGithub,
+    style: "text-white bg-stone-900 p-1.5 rounded-lg",
+  },
+];
 
 export const techStack = [
   {
@@ -283,7 +303,7 @@ export const experience = [
     desc: "Developed a proof-of-concept flashcard app for Forte Digital that integrated AI to enhance user feedback and automate flashcard creation, leading to more effective and engaging study sessions.",
     outcomes: [
       "Evaluated the flashcard app’s interface, addressing common issues to ensure compliance with common web accessibility standards.",
-      "Designed a user test that enabled a detailed analysis of AI's impact on students' study sessions",
+      "Designed a user test that enabled a detailed analysis of AI's impact on students' study sessions.",
       "Researched and identified the key study modes to be featured in the application.",
       "Served as the primary frontend developer, creating a simple and intuitive user interface.",
       "Led the team in web design, which helped accelerate the decision-making process regarding the design route and development.",

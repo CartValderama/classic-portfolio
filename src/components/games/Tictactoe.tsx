@@ -1,7 +1,7 @@
-import { Button } from "../../monitor/win95/Button";
-import useTicTacToeStore from "../../../store/gameStore/TitactoeStore";
+import { Button } from "../monitor/win95/Button";
+import useTicTacToeStore from "../../store/gameStore/TitactoeStore";
 import { useEffect } from "react";
-import { useApplicationStore } from "../../../store/AppStore/ApplicationStore";
+import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 
 // Constants
 const PLAYER_X = "X";
@@ -73,7 +73,7 @@ const Tictactoe = () => {
 
       <div className="flex flex-col items-center justify-between flex-1 gap-y-2 overflow-auto lg:border border-white border-t-none border-r-[#868a8e] border-b-[#868a8e] text-[.85rem] leading-6 p-2 lg:p-1 ">
         <div className="flex items-center lg:justify-between justify-center lg:border border-white border-l-[#868a8e] border-t-[#868a8e] w-full mobile:[@media(max-height:450px)]:mt-0 mt-2 mb-2 lg:m-0 lg:p-2 mobile:[@media(max-height:450px)]:max-w-[500px]">
-          <div className="lg:block hidden">
+          <div className="lg:block hidden 3xl:text-base">
             {winner && <p>{winner === PLAYER_X ? "X wins!" : "O wins!"}</p>}
             {isDraw && <p>It's a draw!</p>}
             <p className={winner || isDraw ? "hidden" : ""}>
@@ -104,7 +104,7 @@ const Tictactoe = () => {
               versus computer
             </button>
           </div>
-          <p className="lg:block hidden">
+          <p className="lg:block hidden 3xl:text-base">
             Human vs{" "}
             <span
               className={`${gameMode === "ai" ? "uppercase" : "capitalize"}`}

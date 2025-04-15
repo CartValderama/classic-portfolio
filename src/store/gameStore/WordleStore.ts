@@ -7,7 +7,7 @@ export type GuessProps = {
   isGuessed: boolean;
 };
 
-type PuzzleStoreProps = {
+type WordleStoreProps = {
   word: string;
   guesses: string[];
   currentGuess: number;
@@ -22,7 +22,7 @@ type PuzzleStoreProps = {
   inexactGuesses: () => string[];
 };
 
-export const PuzzleStore = create<PuzzleStoreProps>((set, get) => ({
+export const WordleStore = create<WordleStoreProps>((set, get) => ({
   word: "",
   guesses: Array(5).fill(""),
   currentGuess: 0,

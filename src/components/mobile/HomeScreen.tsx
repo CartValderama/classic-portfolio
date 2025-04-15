@@ -1,42 +1,11 @@
 import { useStart } from "../../context/StartContext";
-import { apps } from "../../data/staticData";
+import { apps, homeApp } from "../../data/staticData";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import { MainMobileScreenProps } from "./MainMobileScreen";
 import StatusBar from "./StatusBar";
-import AboutMe from "../about/AboutMe";
-import Wordle from "../games/wordle/Wordle";
-import OldPorfolio from "../monitor/OldPortolio";
-import Guide from "../Guide";
-import Credits from "../Credits";
-import Tictactoe from "../games/tictactoe/Tictactoe";
-
-const windows = [
-  { id: "wordle", component: <Wordle /> },
-  { id: "about", component: <AboutMe /> },
-  { id: "oldportfolio", component: <OldPorfolio /> },
-  { id: "guide", component: <Guide /> },
-  { id: "credits", component: <Credits /> },
-  { id: "tictactoe", component: <Tictactoe /> },
-];
-
-const homeApp = [
-  {
-    label: "LinkedIn",
-    url: "https://www.linkedin.com/in/cart-valderama/",
-    HomeIcon: FaLinkedinIn,
-    style: "text-white bg-sky-700 p-2 rounded-lg",
-  },
-  {
-    label: "Github",
-    url: "https://github.com/CartValderama/win95-portfolio",
-    HomeIcon: FaGithub,
-    style: "text-white bg-stone-900 p-1.5 rounded-lg",
-  },
-];
 
 const HomeScreen = ({
   isShowApps,
@@ -151,7 +120,7 @@ const HomeScreen = ({
 
         {/* Wordle Window */}
 
-        {windows.map(({ id, component }) => (
+        {apps.map(({ id, component }) => (
           <motion.div
             key={id}
             className="absolute inset-0 text-black overflow-auto [&::-webkit-scrollbar]:hidden"

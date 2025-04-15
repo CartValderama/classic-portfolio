@@ -24,12 +24,15 @@ const Layout = () => {
           transformOrigin: "center -300%",
         }}
       >
-        <nav className="w-full max-w-[85rem] border-x border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] mobile:px-8 px-4 py-5 flex justify-between items-center ">
-          <h1 className="text-xl flex items-center gap-x-2 font-bold">
-            <FaLaptopCode className="text-3xl md:text-3xl " />
-            <span className="hidden md:flex"> CartValderama</span>
+        <nav className="w-full 3xl:max-w-[1760px] max-w-[1360px] border-x border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] mobile:px-8 px-4 py-5 flex justify-between items-center ">
+          <h1 className=" flex items-center gap-x-2 font-bold">
+            <FaLaptopCode className="text-3xl 3xl:text-4xl " />
+            <span className="hidden md:flex text-xl 3xl:text-2xl">
+              {" "}
+              CartValderama
+            </span>
           </h1>
-          <div className="flex items-center gap-x-1">
+          <div className="flex items-center gap-x-1 3xl:gap-x-3">
             <ButtonMain
               variant={"ghost"}
               size={"icon"}
@@ -40,14 +43,18 @@ const Layout = () => {
                 );
               }}
               disabled={start}
-              className="text-base"
+              className="text-base 3xl:text-xl"
             >
               <i>
                 <BsGithub />
               </i>
             </ButtonMain>
 
-            <ThemeSwitch variant="ghost" size="icon" className="text-base" />
+            <ThemeSwitch
+              variant="ghost"
+              size="icon"
+              className="text-base 3xl:text-xl"
+            />
           </div>
         </nav>
       </motion.header>
@@ -66,12 +73,12 @@ const Layout = () => {
         initial={{ opacity: 1, y: 0 }}
         animate={start ? { opacity: 0, y: 200 } : { opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.6 }}
-        className={`absolute bottom-0 w-full flex justify-center items-center border-y border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear text-xs md:text-sm`}
+        className={`absolute bottom-0 w-full flex justify-center items-center border-y border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear text-xs lg:text-sm 3xl:text-base`}
         style={{
           transformOrigin: "left 300%",
         }}
       >
-        <div className="w-full max-w-[85rem] border-x border-dashed font-normal border-[#e4e4e7b3] dark:border-[#27272ab3] mobile:px-8 px-4 py-5 text-[#71717a] dark:text-white">
+        <div className="w-full 3xl:max-w-[1760px] max-w-[1360px] border-x border-dashed font-normal border-[#e4e4e7b3] dark:border-[#27272ab3] mobile:px-8 px-4 py-5 text-[#71717a] dark:text-white">
           <p>
             &copy; 2024 Built by Cart Antonio Valderama. The source code is
             available on Github

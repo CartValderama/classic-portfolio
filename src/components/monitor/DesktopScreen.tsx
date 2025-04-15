@@ -22,7 +22,7 @@ const DesktopScreen = () => {
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(4rem,1fr))] auto-cols-[4rem] gap-5 h-full w-full relative py-4 px-2 overflow-hidden"
+        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(4rem,1fr))] auto-cols-[4rem] 3xl:gap-8 gap-4 h-full w-full relative py-4 px-2 3xl:p-5 overflow-hidden "
         ref={constraintsRef}
       >
         {/* Render desktop icons */}
@@ -32,7 +32,7 @@ const DesktopScreen = () => {
           .map(({ DesktopIcon, label, id }) => (
             <button
               key={id}
-              className="bg-none shadow-none w-16 h-16 p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] gap-[5px] hover:bg-white/10"
+              className="bg-none shadow-none p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] 3xl:text-lg gap-[5px] cursor-pointer group focus:outline-none"
               onDoubleClick={() => handleOpenWindows(id)}
               onPointerDown={(e) => {
                 if (e.pointerType === "touch" || e.pointerType === "pen") {
@@ -41,15 +41,23 @@ const DesktopScreen = () => {
                 }
               }}
             >
-              <DesktopIcon className="w-[3rem]" variant="32x32_4" />
-              <span>{label}</span>
+              <div className="relative">
+                <DesktopIcon
+                  className="w-[2rem] h-[2rem] group-focus:-z-10 3xl:w-[2.5rem] 3xl:h-[2.5rem]"
+                  variant="32x32_4"
+                />
+                <div className="absolute inset-0 bg-[#091558] opacity-0 group-focus:opacity-80" />
+              </div>
+              <span className="group-focus:text-white group-focus:bg-[#091558] border-[.5px] border-dashed border-transparent group-focus:border-white">
+                {label}
+              </span>
             </button>
           ))}
 
         {/* Render windows */}
         {apps
           .filter(({ id }) => openWindows[id])
-          .map(({ id, Component, label, DesktopIcon, iWidth, iHeight }) => (
+          .map(({ id, component, label, DesktopIcon, iWidth, iHeight }) => (
             <Window
               id={id}
               key={id}
@@ -64,7 +72,7 @@ const DesktopScreen = () => {
               }
               constraintsRef={constraintsRef}
             >
-              <Component />
+              {component}
             </Window>
           ))}
       </motion.div>

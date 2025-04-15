@@ -25,11 +25,11 @@ const Monitor = () => {
         initial={{ width: "22rem", height: "16rem" }}
         animate={
           start
-            ? { width: "100%", height: "60rem" }
+            ? { width: "100%", height: "80rem" }
             : { width: "22rem", height: "16rem" }
         }
         transition={{ duration: 0.6, delay: 1 }}
-        className={`bg-[#dbd49d] xl:max-w-[1300px] xl:[@media(max-height:850px)]:max-w-[1000px] lg:[@media(max-height:750px)]:max-w-[1000px] lg:max-h-[900px] xl:max-h-full relative rounded-sm flex flex-col items-center justify-center z-10`}
+        className={`bg-[#dbd49d] 2xl:[@media(min-height:1070px)]:max-w-[1760px] xl:max-w-[1300px] xl:[@media(max-height:850px)]:max-w-[1000px] lg:[@media(max-height:750px)]:max-w-[1000px] lg:max-h-[900px] xl:max-h-full relative rounded-sm flex flex-col items-center justify-center z-10`}
       >
         {/* main screen */}
         <motion.div
@@ -63,11 +63,11 @@ const Monitor = () => {
           initial={{ width: "22rem", height: "8rem" }}
           animate={
             start
-              ? { width: "100%", height: "26rem" }
+              ? { width: "100%", height: "40rem" }
               : { width: "22rem", height: "8rem" }
           }
           transition={{ duration: 0.6, delay: 1 }}
-          className="absolute flex flex-col items-center justify-center rounded-xs xl:max-w-[1300px] xl:[@media(max-height:850px)]:max-w-[1000px] lg:[@media(max-height:750px)]:max-w-[1000px]"
+          className="absolute flex flex-col items-center justify-center rounded-xs 2xl:[@media(min-height:1070px)]:max-w-[1760px] xl:max-w-[1300px] xl:[@media(max-height:850px)]:max-w-[1000px] lg:[@media(max-height:750px)]:max-w-[1000px]"
         >
           <div className="w-[88%] h-[20%] bg-[#d3cc96] rounded-b-xs z-10 border border-[#d3cc96]"></div>
           <div className="w-[40%] h-[20%] bg-[#cac28d] relative flex justify-center z-10">

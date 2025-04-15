@@ -5,12 +5,12 @@ import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import { LuRectangleHorizontal } from "react-icons/lu";
 import { useApplicationStore } from "../store/AppStore/ApplicationStore";
 
-interface Slide {
+type Slide = {
   icon: React.ReactNode;
   title: string;
   description: string;
   iconBg?: React.ReactNode;
-}
+};
 
 const Guide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -117,8 +117,8 @@ const Guide = () => {
         </p>
       </div>
 
-      <div className="lg:border h-full w-full border-white border-l-[#868a8e] border-t-[#868a8e] lg:px-2 lg:py-1 mobile:[@media(max-height:450px)]:text-xs">
-        <div className="lg:hidden flex flex-col justify-between items-center h-full w-full relative overflow-hidden">
+      <div className="lg:border h-full w-full border-white border-l-[#868a8e] border-t-[#868a8e] lg:px-2 lg:py-1 ">
+        <div className="lg:hidden flex flex-col justify-between items-center h-full w-full relative overflow-hidden mobile:[@media(max-height:450px)]:text-xs">
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
               key={currentSlide}
@@ -197,7 +197,7 @@ const Guide = () => {
           </div>
         </div>
 
-        <ul className="lg:block hidden space-y-4 text-[1rem] leading-snug ml-1">
+        <ul className="lg:block hidden space-y-4 leading-snug ml-1">
           <li>
             <span className=" lg:text-green-900">Double-click</span> apps to
             open (or <span className=" lg:text-green-900">single tap</span> on

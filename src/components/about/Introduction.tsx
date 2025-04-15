@@ -1,12 +1,12 @@
 import { education, techStack } from "../../data/staticData";
 import ContactDivider from "./divider/ContactDivider";
 import HeadDivider from "./divider/HeadDivider";
-import { selectMenuProps } from "./AboutMe";
+import { selectMenuProps } from "../../lib/type";
 
 const Introduction = ({ selectMenu }: selectMenuProps) => {
   return (
     <div
-      className={`flex-col max-w-xl flex-1 gap-y-2 ${
+      className={`flex-col max-w-xl 3xl:max-w-3xl flex-1 gap-y-2 ${
         selectMenu === "Intro" ? "flex" : "hidden"
       }`}
     >

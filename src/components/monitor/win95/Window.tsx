@@ -52,12 +52,12 @@ const Window = ({
   const [isResizing, setIsResizing] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [monitorContainerSize, setMonitorContainerSize] = useState({
-    width: 0,
-    height: 0,
+    width: 1100,
+    height: 750,
   });
 
   const dragControls = useDragControls();
-  const x = useMotionValue(20 + Math.random() * 50);
+  const x = useMotionValue(100 + Math.random() * 200);
   const y = useMotionValue(20 + Math.random() * 50);
 
   const [preMaximizePosition, setPreMaximizePosition] = useState({
@@ -247,8 +247,8 @@ const Window = ({
             }
           }}
         >
-          <h1 className="flex items-center gap-x-1">
-            <Icon variant="16x16_4" />
+          <h1 className="flex items-center gap-x-1 3xl:text-2xl 3xl:gap-x-2">
+            <Icon variant="16x16_4" className="3xl:w-6 3xl:h-6" />
             {title}
           </h1>
           <div className="flex items-center gap-x-1">
@@ -258,8 +258,9 @@ const Window = ({
                 e.stopPropagation();
                 handleMinimizeRestore(id);
               }}
+              className="3xl:w-6 3xl:h-6"
             >
-              <MdMinimize className="text-black text-[.6rem]" />
+              <MdMinimize className="text-black" />
             </Button>
             <Button
               size={"icon"}
@@ -268,12 +269,12 @@ const Window = ({
                 handleMaximize();
                 handleActiveWindow(id);
               }}
-              className={`${!isResize && "hidden"}`}
+              className={`${!isResize && "hidden"} 3xl:w-6 3xl:h-6`}
             >
               {isMaximized ? (
-                <FaRegWindowRestore className="text-black text-[.6rem]" />
+                <FaRegWindowRestore className="text-black text-[.8rem]" />
               ) : (
-                <FaRegWindowMaximize className="text-black text-[.6rem]" />
+                <FaRegWindowMaximize className="text-black text-[.8rem]" />
               )}
             </Button>
             <Button
@@ -282,8 +283,9 @@ const Window = ({
                 e.stopPropagation();
                 handleClose();
               }}
+              className="3xl:w-6 3xl:h-6"
             >
-              <FaXmark className="text-black text-[.6rem]" />
+              <FaXmark className="text-black text-[.9rem]" />
             </Button>
           </div>
         </div>

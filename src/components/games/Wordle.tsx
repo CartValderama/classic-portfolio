@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { Button } from "../../monitor/win95/Button";
-import { PuzzleStore } from "../../../store/gameStore/PuzzleStore";
-import { Qwerty } from "./Qwerty";
-import { Guess } from "./Guess";
+import { Button } from "../monitor/win95/Button";
+import { WordleStore } from "../../store/gameStore/WordleStore";
+import { Qwerty } from "./wordle/Qwerty";
+import { Guess } from "./wordle/Guess";
 
 const Wordle = () => {
   const { init, word, guesses, currentGuess, handleKeyup, won, lost } =
-    PuzzleStore();
+    WordleStore();
 
   useEffect(() => {
     init();

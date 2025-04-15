@@ -8,7 +8,7 @@ const Desktop = () => {
 
   return (
     <div
-      className={`hidden lg:flex flex-row-reverse max-w-[85rem] items-center relative w-full h-screen xl:min-h-[800px] lg:[@media(max-height:750px)]:min-h-[720px] px-8`}
+      className={`hidden lg:flex flex-row-reverse 3xl:max-w-[1760px] max-w-[1360px] items-center relative w-full h-screen min-h-[760px] px-8`}
     >
       {/* text explanation */}
       <motion.div
@@ -20,10 +20,10 @@ const Desktop = () => {
         layout="position"
         className={`absolute left-0 flex flex-col justify-center gap-y-5 xl:w-6/10 lg:w-6/11 ml-8`}
       >
-        <h1 className="font-geist text-[2.5rem] font-bold leading-11">
+        <h1 className="font-geist text-[2.5rem] font-bold leading-11 3xl:text-5xl">
           Classic Portfolio
         </h1>
-        <div className="flex flex-col gap-y-2 font-geist text-base xl:text-lg leading-8 ">
+        <div className="flex flex-col gap-y-2 font-geist leading-8 3xl:leading-10 3xl:text-xl">
           <p>
             A portfolio inspired by the old devices I used as a kid, featuring
             Windows 95 interface and a Samsung Ace layout.{" "}
@@ -37,7 +37,7 @@ const Desktop = () => {
             of the portfolio by clicking the button below.
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 ">
           <ButtonMain
             variant={"default"}
             size={"lg"}
@@ -45,6 +45,7 @@ const Desktop = () => {
               setStart(!start);
             }}
             disabled={start}
+            className="3xl:text-lg"
           >
             Get Started
           </ButtonMain>
@@ -58,6 +59,7 @@ const Desktop = () => {
               );
             }}
             disabled={start}
+            className="3xl:text-lg"
           >
             Visit Accessible Version
           </ButtonMain>

@@ -20,8 +20,8 @@ export const Clock = () => {
   }, []);
 
   return (
-    <div className="border border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-0.5 items-center">
-      <FaBell className="text-xs text-stone-900" />
+    <div className="border border-white border-t-[#868a8e] border-l-[#868a8e] px-1 flex gap-x-0.5 items-center 3xl:text-2xl 3xl:py-1">
+      <FaBell className="text-xs 3xl:text-base text-stone-900" />
       {timer}
     </div>
   );

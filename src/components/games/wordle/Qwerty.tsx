@@ -1,12 +1,12 @@
 import { MdKeyboardBackspace } from "react-icons/md";
-import { PuzzleStore } from "../../../store/gameStore/PuzzleStore";
+import { WordleStore } from "../../../store/gameStore/WordleStore";
 import { Button } from "../../monitor/win95/Button";
 import { GrReturn } from "react-icons/gr";
 
 export const Qwerty = () => {
   const abcd = ["abcdefg", "hijklmn", "opqrstu", "vwxyz"];
   const { exactGuesses, allGuesses, inexactGuesses, handleKeyClick } =
-    PuzzleStore();
+    WordleStore();
 
   return (
     <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[40%] mobile:[@media(max-height:450px)]:max-w-[500px]">

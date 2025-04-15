@@ -42,7 +42,7 @@ const BootUpScreen = () => {
         duration: 0.1,
         delay: 7,
       }}
-      className="z-10 absolute flex w-full h-full font-system opacity-85 text-xl blur-[.4px] bg-black text-neutral-200"
+      className="z-10 absolute flex w-full h-full font-system opacity-85 blur-[.4px] bg-black text-neutral-200"
     >
       {/* boot up screen */}
       <motion.div
@@ -75,9 +75,9 @@ const BootUpScreen = () => {
               duration: 0.1,
               delay: index === 0 ? 2 : 2 + index * 0.1,
             }}
-            className={`${
+            className={`text-xl 3xl:text-3xl ${
               index === bootMessages.length - 1 &&
-              "animate-loading absolute bottom-0 mb-5 text-4xl"
+              "animate-loading absolute bottom-0 mb-5 text-4xl "
             } ${text.startsWith("Detecting") && "ml-5"}`}
           >
             {formatMessage(text)}
@@ -95,8 +95,10 @@ const BootUpScreen = () => {
         }}
         className={`w-full h-full flex flex-col justify-center items-center absolute leading-6 font-system p-5`}
       >
-        <h1 className="text-2xl">Welcome to My Personal Portfolio</h1>
-        <p className="text-lg">Version 2.0 - February 2025</p>
+        <h1 className="text-2xl 3xl:text-4xl">
+          Welcome to My Personal Portfolio
+        </h1>
+        <p className="text-lg 3xl:text-2xl">Version 2.0 - February 2025</p>
       </motion.div>
     </motion.div>
   );

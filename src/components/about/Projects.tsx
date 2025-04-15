@@ -1,13 +1,13 @@
 import { BsGithub, BsGlobe } from "react-icons/bs";
 import { projects } from "../../data/staticData";
 import ContactDivider from "./divider/ContactDivider";
-import { selectMenuProps } from "./AboutMe";
+import { selectMenuProps } from "../../lib/type";
 import ResumeDivider from "./divider/ResumeDivider";
 
 const Projects = ({ selectMenu }: selectMenuProps) => {
   return (
     <div
-      className={`flex-col max-w-xl flex-1 gap-y-2
+      className={`flex-col max-w-xl 3xl:max-w-3xl flex-1 gap-y-2
           ${selectMenu === "Projects" ? "flex" : "hidden"}`}
     >
       <div className="flex flex-col gap-y-2">

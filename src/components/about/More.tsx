@@ -1,13 +1,13 @@
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { certificates } from "../../data/staticData";
-import { selectMenuProps } from "./AboutMe";
+import { selectMenuProps } from "../../lib/type";
 import HeadDivider from "./divider/HeadDivider";
 import ContactDivider from "./divider/ContactDivider";
 
 const More = ({ selectMenu }: selectMenuProps) => {
   return (
     <div
-      className={`flex-col max-w-xl flex-1 gap-y-2 ${
+      className={`flex-col max-w-xl 3xl:max-w-3xl flex-1 gap-y-2 ${
         selectMenu === "More" ? "flex" : "hidden"
       }`}
     >
