@@ -17,7 +17,7 @@ const Header = () => {
         transformOrigin: "center -300%",
       }}
     >
-      <nav className="w-full 3xl:max-w-[1900px] max-w-[1300px] border-x border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] mobile:px-8 px-4 py-5 flex justify-between items-center ">
+      <nav className="w-full 3xl:max-w-[1660px] max-w-[1360px] border-x border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] mobile:px-8 px-4 py-5 flex justify-between items-center ">
         <h1 className=" flex items-center gap-x-2 font-bold">
           <FaLaptopCode className="text-3xl 3xl:text-4xl " />
           <span className="hidden md:flex text-xl 3xl:text-2xl">
