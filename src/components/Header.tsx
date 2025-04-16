@@ -21,7 +21,6 @@ const Header = () => {
         <h1 className=" flex items-center gap-x-2 font-bold">
           <FaLaptopCode className="text-3xl 3xl:text-4xl " />
           <span className="hidden md:flex text-xl 3xl:text-2xl">
-            {" "}
             CartValderama
           </span>
         </h1>
@@ -31,7 +30,7 @@ const Header = () => {
             size={"icon"}
             onClick={() => {
               window.open(
-                "https://github.com/CartValderama/latest-portfolio",
+                "https://github.com/CartValderama/classic-portfolio",
                 "_blank"
               );
             }}

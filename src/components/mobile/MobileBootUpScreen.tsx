@@ -59,7 +59,7 @@ const MobileBootUpScreen = () => {
         className={`w-full h-full flex flex-col justify-center items-center absolute font-system p-5 mobile:[@media(max-height:450px)]:rotate-90`}
       >
         <h1>Welcome to My Personal Portfolio</h1>
-        <p className="text-sm">Version 2.0 - February 2025</p>
+        <p className="text-sm">Version 2.0 - March 2025</p>
       </motion.div>
     </motion.div>
   );

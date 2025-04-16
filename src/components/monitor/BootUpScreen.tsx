@@ -99,7 +99,7 @@ const BootUpScreen = () => {
           Welcome to My Personal Portfolio
         </h1>
         <p className="text-lg 3xl:[@media(min-height:1060px)]:text-2xl">
-          Version 2.0 - February 2025
+          Version 2.0 - March 2025
         </p>
       </motion.div>
     </motion.div>
