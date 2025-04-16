@@ -6,7 +6,7 @@ const Monitor = () => {
   const { start } = useStart();
   return (
     <motion.div
-      initial={{ width: "22rem", height: "16rem" }}
+      initial={{ width: "22rem", height: "18rem" }}
       animate={
         start
           ? {
@@ -15,7 +15,7 @@ const Monitor = () => {
               marginTop: "6.5rem",
               paddingRight: "0",
             }
-          : { width: "22rem", height: "16rem" }
+          : { width: "22rem", height: "18rem" }
       }
       transition={{ duration: 0.6, delay: 1 }}
       className={`flex flex-col items-center justify-center relative mb-[6.5rem]`}
@@ -25,7 +25,7 @@ const Monitor = () => {
         initial={{ width: "22rem", height: "16rem" }}
         animate={
           start
-            ? { width: "100%", height: "82rem" }
+            ? { width: "100%", height: "76rem" }
             : { width: "22rem", height: "16rem" }
         }
         transition={{ duration: 0.6, delay: 1 }}
