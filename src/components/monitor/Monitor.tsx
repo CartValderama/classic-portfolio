@@ -29,8 +29,8 @@ const Monitor = () => {
             : { width: "22rem", height: "16rem" }
         }
         transition={{ duration: 0.6, delay: 1 }}
-        className="bg-[#dbd49d] max-w-[1800px] max-h-[850px]
-        2xl:max-h-full xl:max-h-[1100px] 
+        className="bg-[#dbd49d] max-w-[1800px] max-h-[900px]
+        2xl:max-h-full xl:max-h-[1000px] 
         [@media(max-height:1060px)]:max-w-[1300px] 
         [@media(max-height:900px)]:max-w-[1020px] 
         relative rounded-sm flex flex-col items-center justify-center z-10"
