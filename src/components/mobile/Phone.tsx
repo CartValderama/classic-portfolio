@@ -64,7 +64,7 @@ const Phone = () => {
                     showNotification({
                       title: "Shutting Down",
                       message:
-                        "This will shut down the computer. Are you sure you want to proceed?",
+                        "This will shut down the phone. Press OK to proceed",
                       type: "question",
                       action: () => {
                         setHideStatus(true);
