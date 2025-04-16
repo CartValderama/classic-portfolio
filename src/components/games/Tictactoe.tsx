@@ -29,7 +29,7 @@ const Tictactoe = () => {
   }, [openWindows]);
 
   return (
-    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 lg:h-auto h-full lg:bg-transparent bg-amber-700 lg:text-black text-white lg:p-0 p-4">
+    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 lg:h-auto h-full lg:bg-transparent bg-amber-700 lg:text-black text-white lg:p-0 p-4 select-none">
       <div className="h-7 border-b  border-b-[#868a8e] items-center gap-x-4  p-1 py-2 lg:flex hidden">
         <Button
           variant={"subtle"}

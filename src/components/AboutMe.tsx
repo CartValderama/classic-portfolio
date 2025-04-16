@@ -23,8 +23,8 @@ const AboutMe = () => {
   }, [selectMenu]);
 
   return (
-    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 ">
-      <div className="bg-white flex justify-between lg:justify-start items-center max-w-xl w-full lg:gap-x-4 p-4 lg:p-0 lg:bg-transparent border-b border-b-[#868a8e] select-none">
+    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5">
+      <div className="bg-white flex justify-between lg:justify-start items-center w-full lg:gap-x-4 p-4 lg:p-0 lg:bg-transparent border-b border-b-[#868a8e] select-none">
         {aboutMeMenu.map((menu, idx) => (
           <Button
             key={idx}

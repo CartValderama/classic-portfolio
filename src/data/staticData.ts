@@ -132,7 +132,7 @@ export const apps: AppProps[] = [
   },
 ] as const;
 
-export const homeApp = [
+export const links = [
   {
     label: "LinkedIn",
     url: "https://www.linkedin.com/in/cart-valderama/",

@@ -51,10 +51,6 @@ const Window = ({
   const [size, setSize] = useState({ width: iWidth, height: iHeight });
   const [isResizing, setIsResizing] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  const [monitorContainerSize, setMonitorContainerSize] = useState({
-    width: 1100,
-    height: 750,
-  });
 
   const dragControls = useDragControls();
   const x = useMotionValue(100 + Math.random() * 200);
@@ -70,60 +66,25 @@ const Window = ({
   });
 
   useEffect(() => {
-    const container = constraintsRef.current;
-    if (!container) return;
-
-    const updateContainerSize = () => {
-      setMonitorContainerSize({
-        width: container.clientWidth,
-        height: container.clientHeight,
-      });
-    };
-
-    updateContainerSize();
-
-    const observer = new ResizeObserver(updateContainerSize);
-    observer.observe(container);
-
-    return () => observer.disconnect();
-  }, [constraintsRef]);
-
-  useEffect(() => {
-    if (isMaximized) return;
-
-    const currentX = x.get();
-    const currentY = y.get();
-    const currentWidth = size.width;
-    const currentHeight = size.height;
-
-    const maxX = monitorContainerSize.width - currentWidth;
-    const maxY = monitorContainerSize.height - currentHeight;
-
-    if (
-      currentX > maxX ||
-      currentY > maxY ||
-      currentWidth > monitorContainerSize.width ||
-      currentHeight > monitorContainerSize.height
-    ) {
-      const newX = Math.max(0, Math.min(currentX, maxX));
-      const newY = Math.max(0, Math.min(currentY, maxY));
-      const newWidth = Math.min(currentWidth, monitorContainerSize.width);
-      const newHeight = Math.min(currentHeight, monitorContainerSize.height);
-
-      x.set(newX);
-      y.set(newY);
-      setSize({
-        width: Math.max(iWidth, newWidth),
-        height: Math.max(iHeight, newHeight),
-      });
-    }
-  }, [monitorContainerSize, x, y, size, isMaximized, iWidth, iHeight]);
-
-  useEffect(() => {
     if (!start) {
       handleClose();
     } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [start]);
+
+  useEffect(() => {
+    const node = constraintsRef.current;
+    if (!node) return;
+
+    const observer = new ResizeObserver(() => {
+      setSize({ width: iWidth, height: iHeight });
+    });
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [constraintsRef, iWidth, iHeight]);
 
   const handleMaximize = () => {
     if (!isMaximized) {

@@ -23,7 +23,7 @@ const Mobile = () => {
         }
         transition={{ duration: 0.6, delay: 1 }}
         layout="position"
-        className={`flex flex-col justify-center items-start mobile:items-center text-sm mobile:text-lg gap-y-2 w-full`}
+        className={`flex flex-col justify-center items-start mobile:items-center text-sm mobile:text-base gap-y-2 w-full`}
       >
         <h1 className="font-geist text-3xl mobile:text-4xl font-bold">
           Classic Portfolio

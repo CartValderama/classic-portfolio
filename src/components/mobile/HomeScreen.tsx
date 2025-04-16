@@ -1,11 +1,13 @@
 import { useStart } from "../../context/StartContext";
-import { apps, homeApp } from "../../data/staticData";
+import { apps, links } from "../../data/staticData";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 import { motion } from "framer-motion";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import { MainMobileScreenProps } from "./MainMobileScreen";
 import StatusBar from "./StatusBar";
+import NotificationMobile from "./samsung/NotificationMobile";
+import { useNotification } from "../../context/NotifcationContext";
 
 const HomeScreen = ({
   isShowApps,
@@ -15,6 +17,7 @@ const HomeScreen = ({
 }: MainMobileScreenProps) => {
   const { start } = useStart();
   const { activeWindow, handleOpenWindows } = useApplicationStore();
+  const { showNotification } = useNotification();
 
   return (
     <motion.div
@@ -37,6 +40,7 @@ const HomeScreen = ({
       <StatusBar isHideStatus={isHideStatus} />
 
       <div className="z-10 h-full flex flex-col justify-between relative mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:items-stretch ">
+        <NotificationMobile />
         <div className="p-4 h-full flex flex-col justify-between mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:flex-row-reverse">
           <div
             className={`${
@@ -65,12 +69,18 @@ const HomeScreen = ({
                   </span>
                 </button>
               ))}
-            {homeApp.map(({ HomeIcon, url, style, label }, index) => (
-              <a
+            {links.map(({ HomeIcon, url, style, label }, index) => (
+              <button
                 key={index}
-                className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
-                href={url}
-                onClick={() => {}}
+                className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row "
+                onClick={() => {
+                  showNotification({
+                    title: `Redirecting to ${label}`,
+                    message: `You will be redirected to a ${label} tab. Press OK to visit the link.`,
+                    type: "warning",
+                    action: () => window.open(url, "_blank"),
+                  });
+                }}
               >
                 <HomeIcon
                   className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${style} mobile:[@media(max-height:450px)]:rotate-90`}
@@ -78,7 +88,7 @@ const HomeScreen = ({
                 <span className="text-xs mobile:[@media(max-height:450px)]:text-[0.5rem] mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
                   {label}
                 </span>
-              </a>
+              </button>
             ))}
           </div>
 

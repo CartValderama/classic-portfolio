@@ -5,9 +5,10 @@ import { AppProps } from "../../../data/staticData";
 import { AiFillRobot } from "react-icons/ai";
 import { useEffect, useRef, useState } from "react";
 import { Computer3 } from "@react95/icons";
-import { FaSquareGithub } from "react-icons/fa6";
+import { FaLinkedin, FaSquareGithub } from "react-icons/fa6";
 import { useStart } from "../../../context/StartContext";
 import { useApplicationStore } from "../../../store/AppStore/ApplicationStore";
+import { useNotification } from "../../../context/NotifcationContext";
 
 type TaskBarProps = {
   apps: AppProps[];
@@ -16,9 +17,11 @@ type TaskBarProps = {
 const TaskBar = ({ apps }: TaskBarProps) => {
   const { start, setStart } = useStart();
   const [showTaskBarMenu, setShowTaskBarMenu] = useState(false);
+  const { showNotification } = useNotification();
   const menuRef = useRef<HTMLDivElement>(null);
   const {
     openWindows,
+    windowOrder,
     activeWindow,
     minimizedWindows,
     handleActiveWindow,
@@ -58,7 +61,13 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               className="px-2 py-2 gap-x-2 pr-8"
               onClick={() => {
                 setShowTaskBarMenu(false);
-                setStart(false);
+                showNotification({
+                  title: "Shutting Down",
+                  message:
+                    "This will shut down the computer. Are you sure you want to proceed?",
+                  type: "question",
+                  action: () => setStart(false),
+                });
               }}
             >
               <i>
@@ -72,17 +81,49 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               className="px-2 py-2 gap-x-2 pr-4"
               onClick={() => {
                 setShowTaskBarMenu(false);
-                window.open(
-                  "https://github.com/CartValderama/portfolio-main",
-                  "_blank"
-                );
+                showNotification({
+                  title: "Redirecting to Github",
+                  message:
+                    "You will be redirected to a new tab. Are you sure you want to visit this link?",
+                  type: "warning",
+                  action: () => {
+                    window.open(
+                      "https://github.com/CartValderama/win95-portfolio",
+                      "_blank"
+                    );
+                  },
+                });
               }}
             >
               <i>
                 <FaSquareGithub className="text-3xl text-black" />
               </i>
               <span className="text-sm 3xl:text-xl">Source Code</span>
-            </Button>{" "}
+            </Button>
+            <Button
+              variant={"ghost"}
+              className="px-2 py-2 gap-x-2 pr-4"
+              onClick={() => {
+                setShowTaskBarMenu(false);
+                showNotification({
+                  title: "Redirecting to LinkedIn",
+                  message:
+                    "You will be redirected to a new tab. Are you sure you want to visit this link?",
+                  type: "warning",
+                  action: () => {
+                    window.open(
+                      "https://www.linkedin.com/in/cart-valderama/",
+                      "_blank"
+                    );
+                  },
+                });
+              }}
+            >
+              <i>
+                <FaLinkedin className="text-3xl text-sky-800" />
+              </i>
+              <span className="text-sm 3xl:text-xl">Source Code</span>
+            </Button>
           </div>
         </div>
         <Button
@@ -99,38 +140,44 @@ const TaskBar = ({ apps }: TaskBarProps) => {
 
       {/* Taskbar Buttons for Open Windows */}
       <div className="w-full h-full flex items-baseline justify-start gap-x-1">
-        {apps
-          .filter(({ id }) => openWindows[id])
-          .reverse()
-          .map(({ id, DesktopIcon, label }) => (
-            <Button
-              key={id}
-              variant={"tab"}
-              className={`h-full flex items-center 
-              min-w-0 flex-1
-              max-w-36 3xl:max-w-50 px-2 gap-1
-              ${
-                minimizedWindows[id]
-                  ? "shadow-outline"
-                  : activeWindow === id
-                  ? "bg-[#c3c7cb] border-[#868a8e] border-r-white border-b-white"
-                  : "shadow-outline"
-              }`}
-              onClick={() => {
-                if (minimizedWindows[id]) {
-                  handleActiveWindow(id);
-                  handleMinimizeRestore(id);
-                } else if (activeWindow !== id) {
-                  handleActiveWindow(id);
-                } else {
-                  handleMinimizeRestore(id);
-                }
-              }}
-            >
-              <DesktopIcon variant="16x16_4" className="3xl:h-5 3xl:w-5" />
-              <span className="truncate 3xl:text-2xl">{label}</span>
-            </Button>
-          ))}
+        {windowOrder
+          .filter((id) => openWindows[id])
+          .map((id) => {
+            const app = apps.find((a) => a.id === id);
+            if (!app) return null;
+
+            const { DesktopIcon, label } = app;
+
+            return (
+              <Button
+                key={id}
+                variant={"tab"}
+                className={`h-full flex items-center 
+            min-w-0 flex-1
+            max-w-36 3xl:max-w-50 px-2 gap-1
+            ${
+              minimizedWindows[id]
+                ? "shadow-outline"
+                : activeWindow === id
+                ? "bg-[#c3c7cb] border-[#868a8e] border-r-white border-b-white"
+                : "shadow-outline"
+            }`}
+                onClick={() => {
+                  if (minimizedWindows[id]) {
+                    handleActiveWindow(id);
+                    handleMinimizeRestore(id);
+                  } else if (activeWindow !== id) {
+                    handleActiveWindow(id);
+                  } else {
+                    handleMinimizeRestore(id);
+                  }
+                }}
+              >
+                <DesktopIcon variant="16x16_4" className="3xl:h-5 3xl:w-5" />
+                <span className="truncate 3xl:text-2xl">{label}</span>
+              </Button>
+            );
+          })}
       </div>
 
       {/* Clock */}

@@ -5,6 +5,7 @@ import Window from "./win95/Window";
 import { useRef } from "react";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 import { apps } from "../../data/staticData";
+import Notification from "./win95/Notification";
 
 const DesktopScreen = () => {
   const { start } = useStart();
@@ -18,6 +19,7 @@ const DesktopScreen = () => {
       transition={{ duration: 0, delay: start ? 7 : 0 }}
       className={`relative flex w-full h-full flex-col justify-between bg-[#196364] font-system text-black`}
     >
+      <Notification />
       <motion.div
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
@@ -76,7 +78,6 @@ const DesktopScreen = () => {
             </Window>
           ))}
       </motion.div>
-
       {/* TaskBar */}
       <TaskBar apps={apps} />
     </motion.div>

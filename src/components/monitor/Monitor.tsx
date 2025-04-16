@@ -79,7 +79,7 @@ const Monitor = () => {
           <div className="w-[88%] h-[20%] bg-[#d3cc96] rounded-b-xs z-10 border border-[#d3cc96]"></div>
           <div className="w-[40%] h-[20%] bg-[#cac28d] relative flex justify-center z-10">
             <div className="w-[130%] h-[110%] bg-[#bbb380] absolute -bottom-[35%] rounded-[60%] scale-110"></div>
-            <div className="w-[110%] h-[80%] bg-[#cac28d] absolute -bottom-[1%] rounded-[50%] scale-110"></div>
+            <div className="w-[110%] h-[80%] bg-[#cac28d] absolute bottom-[2%] rounded-[50%] scale-110"></div>
           </div>
 
           <div className="w-[100%] h-[90%] bg-[#dbd49d] flex flex-col justify-center px-[3%] p-[1.5%] mt-[3%] relative rounded-xs">

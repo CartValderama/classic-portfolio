@@ -12,9 +12,10 @@ type AppState = Record<AppID, boolean>;
 
 type ApplicationStore = {
   openWindows: AppState;
-  activeWindow: AppID | ""; // Now a single string
+  activeWindow: AppID | "";
   minimizedWindows: AppState;
-  handleActiveWindow: (id: AppID) => void; // Renamed to singular
+  windowOrder: AppID[];
+  handleActiveWindow: (id: AppID) => void;
   handleOpenWindows: (id: AppID) => void;
   handleMinimizeRestore: (id: AppID) => void;
   InactiveAll: () => void;
@@ -34,15 +35,27 @@ export const useApplicationStore = create<ApplicationStore>((set) => ({
   openWindows: { ...initialWindowState },
   minimizedWindows: { ...initialWindowState },
   activeWindow: "",
+  windowOrder: [],
 
   handleActiveWindow: (id) => set({ activeWindow: id }),
 
   handleOpenWindows: (id) =>
-    set((state) => ({
-      openWindows: { ...state.openWindows, [id]: true },
-      minimizedWindows: { ...state.minimizedWindows, [id]: false },
-      activeWindow: id,
-    })),
+    set((state) => {
+      if (state.openWindows[id]) {
+        return {
+          openWindows: { ...state.openWindows, [id]: true },
+          minimizedWindows: { ...state.minimizedWindows, [id]: false },
+          activeWindow: id,
+        };
+      }
+
+      return {
+        openWindows: { ...state.openWindows, [id]: true },
+        minimizedWindows: { ...state.minimizedWindows, [id]: false },
+        activeWindow: id,
+        windowOrder: [...state.windowOrder, id],
+      };
+    }),
 
   handleMinimizeRestore: (id) =>
     set((state) => {
@@ -68,5 +81,6 @@ export const useApplicationStore = create<ApplicationStore>((set) => ({
       openWindows: { ...state.openWindows, [id]: false },
       minimizedWindows: { ...state.minimizedWindows, [id]: false },
       activeWindow: state.activeWindow === id ? "" : state.activeWindow,
+      windowOrder: state.windowOrder.filter((windowId) => windowId !== id),
     })),
 }));

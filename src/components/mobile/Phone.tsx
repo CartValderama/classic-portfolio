@@ -4,12 +4,14 @@ import MainMobileScreen from "./MainMobileScreen";
 import { useState } from "react";
 import { AiOutlinePoweroff, AiOutlineRollback } from "react-icons/ai";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
+import { useNotification } from "../../context/NotifcationContext";
 
 const Phone = () => {
   const { start, setStart } = useStart();
   const [isShowApps, setShowApps] = useState(false);
   const [isHideStatus, setHideStatus] = useState(false);
   const { activeWindow, InactiveAll, closeWindow } = useApplicationStore();
+  const { showNotification } = useNotification();
 
   return (
     <motion.div
@@ -59,9 +61,17 @@ const Phone = () => {
                 <button
                   className="active:scale-98 cursor-pointer"
                   onClick={() => {
-                    setHideStatus(true);
-                    setStart(!start);
-                    setShowApps(false);
+                    showNotification({
+                      title: "Shutting Down",
+                      message:
+                        "This will shut down the computer. Are you sure you want to proceed?",
+                      type: "question",
+                      action: () => {
+                        setHideStatus(true);
+                        setShowApps(false);
+                        setStart(false);
+                      },
+                    });
                   }}
                 >
                   <AiOutlinePoweroff className="text-3xl font-bold text-[#797777] mobile:[@media(max-height:450px)]:rotate-90" />
