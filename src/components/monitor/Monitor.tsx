@@ -25,11 +25,11 @@ const Monitor = () => {
         initial={{ width: "22rem", height: "16rem" }}
         animate={
           start
-            ? { width: "100%", height: "80rem" }
+            ? { width: "100%", height: "82rem" }
             : { width: "22rem", height: "16rem" }
         }
         transition={{ duration: 0.6, delay: 1 }}
-        className="bg-[#dbd49d] max-w-[1760px] max-h-[850px]
+        className="bg-[#dbd49d] max-w-[1800px] max-h-[850px]
         2xl:max-h-full xl:max-h-[1100px] 
         [@media(max-height:1060px)]:max-w-[1300px] 
         [@media(max-height:900px)]:max-w-[1020px] 
@@ -40,7 +40,7 @@ const Monitor = () => {
           initial={{ width: "86%", height: "82%" }}
           animate={
             start
-              ? { width: "88%", height: "86%", marginBottom: ".3rem" }
+              ? { width: "89%", height: "86%", marginBottom: ".3rem" }
               : { width: "86%", height: "82%" }
           }
           transition={{ duration: 0.6, delay: 1 }}
@@ -71,7 +71,7 @@ const Monitor = () => {
               : { width: "22rem", height: "8rem" }
           }
           transition={{ duration: 0.6, delay: 1 }}
-          className="absolute flex flex-col items-center justify-center rounded-xs max-w-[1760px]
+          className="absolute flex flex-col items-center justify-center rounded-xs max-w-[1800px]
           [@media(max-height:1060px)]:max-w-[1300px] 
           [@media(max-height:900px)]:max-w-[1020px] 
           2xl:max-h-full xl:max-h-[500px] max-h-[400px]"

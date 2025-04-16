@@ -8,7 +8,7 @@ const Desktop = () => {
 
   return (
     <div
-      className={`hidden lg:flex flex-row-reverse 3xl:max-w-[1760px] max-w-[1460px] items-center relative w-full h-screen min-h-[730px] px-8`}
+      className={`hidden lg:flex flex-row-reverse 3xl:max-w-[1800px] max-w-[1560px] items-center relative w-full h-screen min-h-[730px] px-8`}
     >
       {/* text explanation */}
       <motion.div
