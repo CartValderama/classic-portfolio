@@ -25,12 +25,12 @@ const Monitor = () => {
         initial={{ width: "22rem", height: "16rem" }}
         animate={
           start
-            ? { width: "100%", height: "78rem" }
+            ? { width: "100%", height: "82rem" }
             : { width: "22rem", height: "16rem" }
         }
         transition={{ duration: 0.6, delay: 1 }}
-        className="bg-[#dbd49d] max-w-[1700px] max-h-[900px]
-        2xl:max-h-full xl:max-h-[1000px] 
+        className="bg-[#dbd49d] max-w-[1700px] max-h-[860px]
+        3xl:max-h-full 2xl:max-h-[1160px] xl:max-h-[960px] 
         [@media(max-height:1060px)]:max-w-[1360px] 
         [@media(max-height:900px)]:max-w-[1060px] 
         relative rounded-sm flex flex-col items-center justify-center z-10"

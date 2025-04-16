@@ -24,7 +24,7 @@ const DesktopScreen = () => {
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(68px,1fr))] auto-cols-[4rem] 3xl:gap-8 gap-2 h-full w-full relative py-4 px-2 3xl:p-5 overflow-hidden "
+        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(68px,1fr))] auto-cols-[4rem] 3xl:[@media(min-height:1060px)]:gap-8 gap-2 h-full w-full relative py-4 px-2 3xl:[@media(min-height:1060px)]:p-5 overflow-hidden "
         ref={constraintsRef}
       >
         {/* Render desktop icons */}
@@ -34,7 +34,7 @@ const DesktopScreen = () => {
           .map(({ DesktopIcon, label, id }) => (
             <button
               key={id}
-              className="bg-none shadow-none p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] 3xl:text-lg gap-[5px] cursor-pointer group focus:outline-none"
+              className="bg-none shadow-none p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] 3xl:[@media(min-height:1060px)]:text-lg gap-[5px] cursor-pointer group focus:outline-none"
               onDoubleClick={() => handleOpenWindows(id)}
               onPointerDown={(e) => {
                 if (e.pointerType === "touch" || e.pointerType === "pen") {
@@ -45,12 +45,12 @@ const DesktopScreen = () => {
             >
               <div className="relative">
                 <DesktopIcon
-                  className="w-[2rem] h-[2rem] group-focus:-z-10 3xl:w-[2.5rem] 3xl:h-[2.5rem]"
+                  className="w-[2rem] h-[2rem] group-focus:-z-10 3xl:[@media(min-height:1060px)]:w-[2.5rem] 3xl:[@media(min-height:1060px)]:h-[2.5rem]"
                   variant="32x32_4"
                 />
                 <div className="absolute inset-0 bg-[#091558] opacity-0 group-focus:opacity-80" />
               </div>
-              <span className="group-focus:text-white group-focus:bg-[#091558] border-[.5px] border-dashed border-transparent group-focus:border-white truncate w-14 3xl:w-18">
+              <span className="group-focus:text-white group-focus:bg-[#091558] border-[.5px] border-dashed border-transparent group-focus:border-white truncate w-14 3xl:[@media(min-height:1060px)]:w-18">
                 {label}
               </span>
             </button>

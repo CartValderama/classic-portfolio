@@ -75,7 +75,7 @@ const BootUpScreen = () => {
               duration: 0.1,
               delay: index === 0 ? 2 : 2 + index * 0.1,
             }}
-            className={`text-xl 3xl:text-3xl ${
+            className={`text-xl 3xl:[@media(min-height:1060px)]:text-3xl ${
               index === bootMessages.length - 1 &&
               "animate-loading absolute bottom-0 mb-5 text-4xl "
             } ${text.startsWith("Detecting") && "ml-5"}`}
@@ -95,10 +95,12 @@ const BootUpScreen = () => {
         }}
         className={`w-full h-full flex flex-col justify-center items-center absolute leading-6 font-system p-5`}
       >
-        <h1 className="text-2xl 3xl:text-4xl">
+        <h1 className="text-2xl 3xl:[@media(min-height:1060px)]:text-4xl">
           Welcome to My Personal Portfolio
         </h1>
-        <p className="text-lg 3xl:text-2xl">Version 2.0 - February 2025</p>
+        <p className="text-lg 3xl:[@media(min-height:1060px)]:text-2xl">
+          Version 2.0 - February 2025
+        </p>
       </motion.div>
     </motion.div>
   );

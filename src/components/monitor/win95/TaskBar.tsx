@@ -50,9 +50,9 @@ const TaskBar = ({ apps }: TaskBarProps) => {
         <div
           className={`absolute flex ${
             showTaskBarMenu ? "block z-10" : "hidden"
-          } bottom-9 3xl:bottom-12 -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-h-60`}
+          } bottom-9 3xl:[@media(min-height:1060px)]:bottom-12 -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-h-60`}
         >
-          <p className="bg-[#7b7d7b] text-[#c3c7cb] flex flex-col items-start rotate-180 [writing-mode:vertical-rl] text-xl 3xl:text-3xl font-black font-ms px-2 py-1 3xl:px-4 3xl:py-2 ">
+          <p className="bg-[#7b7d7b] text-[#c3c7cb] flex flex-col items-start rotate-180 [writing-mode:vertical-rl] text-xl 3xl:[@media(min-height:1060px)]:text-3xl font-black font-ms px-2 py-1 3xl:[@media(min-height:1060px)]:px-4 3xl:[@media(min-height:1060px)]:py-2 ">
             ValderamaOS
           </p>
           <div className="flex flex-col-reverse">
@@ -73,7 +73,9 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               <i>
                 <Computer3 variant="32x32_4" />
               </i>
-              <span className="text-sm 3xl:text-xl">Shutdown...</span>
+              <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
+                Shutdown...
+              </span>
             </Button>
             <span className="border border-white border-t-[#7b7d7b] border-l-[#7b7d7b] flex mx-1"></span>
             <Button
@@ -98,7 +100,9 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               <i>
                 <FaSquareGithub className="text-3xl text-black" />
               </i>
-              <span className="text-sm 3xl:text-xl">Source Code</span>
+              <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
+                Source Code
+              </span>
             </Button>
             <Button
               variant={"ghost"}
@@ -122,17 +126,19 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               <i>
                 <FaLinkedin className="text-3xl text-sky-800" />
               </i>
-              <span className="text-sm 3xl:text-xl">Source Code</span>
+              <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
+                Source Code
+              </span>
             </Button>
           </div>
         </div>
         <Button
           variant={"default"}
-          className="shadow-outline focus:outline-none px-2 3xl:py-1"
+          className="shadow-outline focus:outline-none px-2 3xl:[@media(min-height:1060px)]:py-1"
           onClick={() => setShowTaskBarMenu(!showTaskBarMenu)}
         >
-          <span className="flex items-center gap-x-0.5 3xl:text-2xl">
-            <AiFillRobot className="text-[.9rem] text-stone-900 3xl:text-2xl" />
+          <span className="flex items-center gap-x-0.5 3xl:[@media(min-height:1060px)]:text-2xl">
+            <AiFillRobot className="text-[.9rem] text-stone-900 3xl:[@media(min-height:1060px)]:text-2xl" />
             Menu
           </span>
         </Button>
@@ -154,7 +160,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                 variant={"tab"}
                 className={`h-full flex items-center 
             min-w-0 flex-1
-            max-w-36 3xl:max-w-50 px-2 gap-1
+            max-w-36 3xl:[@media(min-height:1060px)]:max-w-50 px-2 gap-1
             ${
               minimizedWindows[id]
                 ? "shadow-outline"
@@ -173,8 +179,13 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                   }
                 }}
               >
-                <DesktopIcon variant="16x16_4" className="3xl:h-5 3xl:w-5" />
-                <span className="truncate 3xl:text-2xl">{label}</span>
+                <DesktopIcon
+                  variant="16x16_4"
+                  className="3xl:[@media(min-height:1060px)]:h-5 3xl:[@media(min-height:1060px)]:w-5"
+                />
+                <span className="truncate 3xl:[@media(min-height:1060px)]:text-2xl">
+                  {label}
+                </span>
               </Button>
             );
           })}

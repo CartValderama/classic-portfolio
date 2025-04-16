@@ -7,7 +7,7 @@ import ContactDivider from "./divider/ContactDivider";
 const More = ({ selectMenu }: selectMenuProps) => {
   return (
     <div
-      className={`flex-col max-w-xl 3xl:max-w-3xl flex-1 gap-y-2 ${
+      className={`flex-col max-w-xl 3xl:[@media(min-height:1060px)]:max-w-3xl flex-1 gap-y-2 ${
         selectMenu === "More" ? "flex" : "hidden"
       }`}
     >

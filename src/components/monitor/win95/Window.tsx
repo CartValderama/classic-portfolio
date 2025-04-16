@@ -208,8 +208,11 @@ const Window = ({
             }
           }}
         >
-          <h1 className="flex items-center gap-x-1 3xl:text-2xl 3xl:gap-x-2">
-            <Icon variant="16x16_4" className="3xl:w-6 3xl:h-6" />
+          <h1 className="flex items-center gap-x-1 3xl:[@media(min-height:1060px)]:text-2xl 3xl:[@media(min-height:1060px)]:gap-x-2">
+            <Icon
+              variant="16x16_4"
+              className="3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
+            />
             {title}
           </h1>
           <div className="flex items-center gap-x-1">
@@ -219,7 +222,7 @@ const Window = ({
                 e.stopPropagation();
                 handleMinimizeRestore(id);
               }}
-              className="3xl:w-6 3xl:h-6"
+              className="3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
             >
               <MdMinimize className="text-black" />
             </Button>
@@ -230,7 +233,9 @@ const Window = ({
                 handleMaximize();
                 handleActiveWindow(id);
               }}
-              className={`${!isResize && "hidden"} 3xl:w-6 3xl:h-6`}
+              className={`${
+                !isResize && "hidden"
+              } 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6`}
             >
               {isMaximized ? (
                 <FaRegWindowRestore className="text-black text-[.8rem]" />
@@ -244,7 +249,7 @@ const Window = ({
                 e.stopPropagation();
                 handleClose();
               }}
-              className="3xl:w-6 3xl:h-6"
+              className="3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
             >
               <FaXmark className="text-black text-[.9rem]" />
             </Button>
