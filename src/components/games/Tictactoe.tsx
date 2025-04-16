@@ -34,7 +34,7 @@ const Tictactoe = () => {
         <Button
           variant={"subtle"}
           onClick={resetGame}
-          className="lowercase lg:text-black text-white hover:bg-transparent active:scale-90 transition-transform duration-100"
+          className="lowercase lg:text-black text-white hover:bg-transparent transition-transform duration-100"
         >
           {board.every((cell) => cell !== null) ? (
             <p>
@@ -51,7 +51,9 @@ const Tictactoe = () => {
           onClick={() => setGameMode("human")}
           className={`lowercase ${
             gameStarted && "opacity-50"
-          } lg:text-black text-white hover:bg-transparent active:scale-90 transition-transform duration-100`}
+          } lg:text-black text-white hover:bg-transparent transition-transform duration-100 ${
+            gameMode === "human" && "underline"
+          }`}
           disabled={gameStarted}
         >
           <span className="lg:underline uppercase">H</span>uman
@@ -61,7 +63,9 @@ const Tictactoe = () => {
           onClick={() => setGameMode("ai")}
           className={` ${
             gameStarted && "opacity-50"
-          } lg:text-black text-white hover:bg-transparent active:scale-90 transition-transform duration-100 lowercase`}
+          } lg:text-black text-white hover:bg-transparent transition-transform duration-100 lowercase ${
+            gameMode === "ai" && "underline"
+          }`}
           disabled={gameStarted}
         >
           <span className="lg:underline uppercase">C</span> omputer
