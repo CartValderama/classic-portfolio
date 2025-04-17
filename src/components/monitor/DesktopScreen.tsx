@@ -25,7 +25,7 @@ const DesktopScreen = () => {
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(68px,1fr))] auto-cols-[4rem] 3xl:[@media(min-height:1060px)]:gap-8 2xl:gap-4 gap-2 h-full w-full relative py-4 px-2 3xl:[@media(min-height:1060px)]:p-5 overflow-hidden "
+        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(68px,1fr))] auto-cols-[4rem] 3xl:[@media(min-height:1060px)]:gap-8 2xl:gap-4 gap-2 h-full w-full relative pt-4 pb-8 px-2 3xl:[@media(min-height:1060px)]:p-5 overflow-hidden "
         ref={constraintsRef}
       >
         {/* Render desktop icons */}
@@ -49,7 +49,7 @@ const DesktopScreen = () => {
                 <img
                   src={url}
                   alt="Wordle"
-                  className="w-10 h-10 3xl:w-13 3xl:h-13"
+                  className="w-8 h-8 2xl:w-10 2xl:h-10 3xl:w-13 3xl:h-13"
                 />
                 <div className="absolute inset-0 bg-[#091558] opacity-0 group-focus:opacity-80" />
               </div>
