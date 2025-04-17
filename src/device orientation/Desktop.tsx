@@ -13,7 +13,7 @@ const Desktop = () => {
       <motion.div
         initial={{ x: 0, opacity: 1 }}
         animate={
-          start ? { x: -1300, opacity: 0, scale: 2 } : { opacity: 1, y: 0 }
+          start ? { x: -2000, opacity: 0, scale: 2 } : { opacity: 1, y: 0 }
         }
         transition={{ duration: 1 }}
         layout="position"
