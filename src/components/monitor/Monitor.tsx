@@ -64,7 +64,6 @@ const Monitor = () => {
         transition={{
           duration: 0.5,
           delay: start ? 0 : 1,
-          delay: start ? 0 : 1,
         }}
         className="bg-[#dbd49d] relative rounded-sm flex flex-col items-center justify-center z-10 
 
