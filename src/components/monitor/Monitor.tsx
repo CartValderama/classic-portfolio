@@ -57,7 +57,7 @@ const Monitor = () => {
           start
             ? {
                 width: parseInt(collapsedSize.width) * 3.6 + "rem",
-                height: parseInt(collapsedSize.height) * 3.7 + "rem",
+                height: parseInt(collapsedSize.height) * 3.8 + "rem",
               }
             : collapsedSize
         }
