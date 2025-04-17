@@ -19,7 +19,7 @@ const Monitor = () => {
       ? "24.5rem"
       : isXL
       ? "20.5rem"
-      : "20.5rem",
+      : "19.5rem",
 
     height: is4XL
       ? "24rem"
