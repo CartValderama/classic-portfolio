@@ -71,7 +71,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                 });
               }}
             >
-              <RiShutDownFill className="text-3xl text-red-900 " />
+              <RiShutDownFill className="text-3xl text-red-950 " />
               <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
                 Shutdown...
               </span>

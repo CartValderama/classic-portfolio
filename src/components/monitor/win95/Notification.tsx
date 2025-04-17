@@ -29,7 +29,7 @@ function Notification() {
           <div className="flex h-7 items-center justify-between bg-[#000e7a] px-1 text-white">
             <p className="capitalize flex items-center gap-x-1 ml-1">{title}</p>
             <button
-              className="win95-button w-5.5 h-5 shadow-outline"
+              className="win95-button w-5.5 h-5 shadow-outline flex"
               onClick={hideNotification}
             >
               <FaXmark size={12} />
@@ -45,7 +45,7 @@ function Notification() {
             {/* Buttons */}
             <div className="mt-6 flex justify-end gap-x-1.5">
               <button
-                className="win95-button shadow-outline w-20"
+                className="win95-button shadow-outline w-20 flex"
                 onClick={() => {
                   action();
                   hideNotification();
@@ -54,7 +54,7 @@ function Notification() {
                 ok
               </button>
               <button
-                className="win95-button shadow-outline w-20"
+                className="win95-button shadow-outline w-20 flex"
                 onClick={hideNotification}
               >
                 cancel
