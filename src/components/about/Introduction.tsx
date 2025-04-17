@@ -33,9 +33,9 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
           frontend of web applications.
         </p>
         <ul className="flex flex-wrap gap-y-5 gap-x-7 mt-2">
-          {techStack.map(({ icon, skill }, idx) => (
+          {techStack.map(({ Icon, skill }, idx) => (
             <li key={idx} className="flex flex-col items-center gap-y-1">
-              <span className="text-3xl">{icon}</span>
+              <Icon className="text-3xl" />
               <span className="text-xs">{skill}</span>
             </li>
           ))}

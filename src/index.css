@@ -113,7 +113,7 @@ body {
 }
 
 .win95-button {
-  @apply bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white text-black capitalize active:scale-95 active:outline flex items-center cursor-pointer justify-center;
+  @apply lg:bg-[#c3c7cb] lg:border border-[#868a8e] border-l-white border-t-white lg:text-black capitalize active:scale-95 active:outline items-center cursor-pointer justify-center;
 }
 
 .win95-tab {
@@ -121,7 +121,7 @@ body {
 }
 
 .win95-select {
-  @apply text-black capitalize cursor-pointer px-2 bg-transparent border-none border-b min-w-0;
+  @apply text-black capitalize cursor-pointer bg-transparent border-none border-b;
 }
 
 @media (pointer: fine) {

@@ -1,6 +1,7 @@
 import useTicTacToeStore from "../../store/gameStore/TitactoeStore";
 import { useEffect } from "react";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
+import Board from "./tictactoe/Board";
 
 // Constants
 const PLAYER_X = "X";
@@ -15,7 +16,6 @@ const Tictactoe = () => {
     isDraw,
     setGameMode,
     resetGame,
-    makeMove,
   } = useTicTacToeStore();
 
   const { openWindows } = useApplicationStore();
@@ -29,7 +29,7 @@ const Tictactoe = () => {
 
   return (
     <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 lg:h-auto h-full lg:bg-transparent bg-amber-700 lg:text-black text-white lg:p-0 p-4 select-none">
-      <div className="h-7 border-b  border-b-[#868a8e] items-center gap-x-2  p-1 py-2 lg:flex hidden">
+      <div className="h-7 border-b  border-b-[#868a8e] items-center gap-x-4  p-1 py-2 lg:flex hidden">
         <button
           className="win95-select lowercase lg:text-black text-white hover:bg-transparent transition-transform duration-100"
           onClick={resetGame}
@@ -45,7 +45,7 @@ const Tictactoe = () => {
           )}
         </button>
         <button
-          className={`win95-select lowercase ${
+          className={`win95-select lowercase  ${
             gameStarted && "opacity-50"
           } lg:text-black text-white hover:bg-transparent transition-transform duration-100 ${
             gameMode === "human" && "underline"
@@ -113,29 +113,7 @@ const Tictactoe = () => {
             </span>
           </p>
         </div>
-        <div className="grid grid-cols-3 justify-items-center place-items-center flex-1 w-full lg:border border-white border-l-[#868a8e] border-t-[#868a8e] lg:gap-0 gap-2 relative mobile:[@media(max-height:450px)]:max-w-[500px]">
-          {(winner || isDraw) && (
-            <button
-              onClick={resetGame}
-              className="lg:text-black active:scale-95 transition-transform duration-100 text-amber-100 bg-amber-800 font-semibold px-4 py-3 absolute capitalize lg:hidden text-3xl"
-            >
-              <p>
-                <span className="lg:underline uppercase ">P</span>lay Again
-              </p>
-            </button>
-          )}
-
-          {board.map((cell, index) => (
-            <button
-              key={index}
-              className="w-full h-full flex justify-center items-center text-4xl lg:bg-transparent bg-amber-100 lg:border border-0 lg:text-black font-bold text-amber-800"
-              onClick={() => makeMove(index)}
-              disabled={!!cell || !!winner || isDraw}
-            >
-              {cell || <span className="opacity-0">X</span>}
-            </button>
-          ))}
-        </div>
+        <Board />
       </div>
     </div>
   );

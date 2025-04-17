@@ -1,4 +1,3 @@
-import React from "react";
 import {
   SiBootstrap,
   SiCss3,
@@ -11,51 +10,51 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiVite,
-} from "react-icons/si";
+} from "react-Icons/si";
 
 export const techStack = [
   {
     skill: "HTML",
-    icon: React.createElement(SiHtml5),
+    Icon: SiHtml5,
   },
   {
     skill: "CSS",
-    icon: React.createElement(SiCss3),
+    Icon: SiCss3,
   },
   {
     skill: "TypeScript",
-    icon: React.createElement(SiTypescript),
+    Icon: SiTypescript,
   },
   {
     skill: "JavaScript",
-    icon: React.createElement(SiJavascript),
+    Icon: SiJavascript,
   },
   {
     skill: "React",
-    icon: React.createElement(SiReact),
+    Icon: SiReact,
   },
   {
     skill: "Vite",
-    icon: React.createElement(SiVite),
+    Icon: SiVite,
   },
   {
     skill: "Git",
-    icon: React.createElement(SiGit),
+    Icon: SiGit,
   },
   {
     skill: "Redux",
-    icon: React.createElement(SiRedux),
+    Icon: SiRedux,
   },
   {
     skill: "Tailwind",
-    icon: React.createElement(SiTailwindcss),
+    Icon: SiTailwindcss,
   },
   {
     skill: "Bootstrap",
-    icon: React.createElement(SiBootstrap),
+    Icon: SiBootstrap,
   },
   {
     skill: "Shadcn",
-    icon: React.createElement(SiShadcnui),
+    Icon: SiShadcnui,
   },
 ];

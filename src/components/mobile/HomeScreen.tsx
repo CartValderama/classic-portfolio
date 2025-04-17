@@ -121,9 +121,9 @@ const HomeScreen = ({
               onClick={() => setShowApps(!isShowApps)}
             >
               {isShowApps ? (
-                <AiFillHome className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90 shadow-xs shadow-black" />
+                <AiFillHome className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
               ) : (
-                <IoAppsSharp className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90 shadow-xs shadow-black" />
+                <IoAppsSharp className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
               )}
             </button>
           </div>

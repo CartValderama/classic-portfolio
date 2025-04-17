@@ -17,7 +17,7 @@ export const Qwerty = () => {
           {/* Add Backspace button to the last row */}
           {idx === 3 && (
             <button
-              className="win95-button lg:bg-gray-200 bg-white h-full w-full border-0 rounded lg:border lg:rounded-none flex items-center justify-center"
+              className="win95-button  bg-white h-full w-full rounded lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Delete")}
             >
               <MdKeyboardBackspace className="lg:text-black text-[#38753b] text-xl" />
@@ -36,9 +36,9 @@ export const Qwerty = () => {
             return (
               <button
                 key={idy}
-                className={`win95-button uppercase h-full w-full ${color} border-0 rounded flex items-center justify-center   ${
+                className={`win95-button uppercase h-full w-full ${color} rounded flex items-center justify-center   ${
                   char && "active:scale-95"
-                } transition-transform duration-100 lg:border lg:rounded-none`}
+                } transition-transform duration-100 lg:rounded-none`}
                 onClick={() => handleKeyClick(char)}
               >
                 <span className="text-sm mobile:[@media(max-height:450px)]:text-[.7rem] py-0.5 lg:text-black ">
@@ -51,7 +51,7 @@ export const Qwerty = () => {
           {/* Add Return button to the last row */}
           {idx === 3 && (
             <button
-              className="win95-button lg:bg-gray-200 bg-white h-full w-full border-0 rounded lg:border lg:rounded-none flex items-center justify-center"
+              className="win95-button lg:bg-gray-200 bg-white h-full w-full rounded lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Enter")}
             >
               <GrReturn className="lg:text-black text-[#38753b] text-xl" />

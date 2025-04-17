@@ -1,6 +1,7 @@
 import { useStart } from "../../context/StartContext";
 import React, { Suspense } from "react";
 import MobileBootUpScreen from "./MobileBootUpScreen";
+import Loading from "../Loading";
 
 const HomeScreen = React.lazy(() => import("./HomeScreen"));
 
@@ -23,10 +24,7 @@ const MainMobileScreen = ({
       className={`w-full h-full relative ${!start && "select-none "} bg-black`}
     >
       <MobileBootUpScreen />
-
-      <Suspense
-        fallback={<div className="bg-black text-white">Loading screen...</div>}
-      >
+      <Suspense fallback={<Loading />}>
         <HomeScreen
           isShowApps={isShowApps}
           setShowApps={setShowApps}

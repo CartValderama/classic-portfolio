@@ -218,7 +218,7 @@ const Window = ({
             </button>
             <button
               className={`win95-button p-0.5 ${
-                !isResize && "hidden"
+                !isResize ? "hidden" : "flex"
               } 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6`}
               onClick={(e) => {
                 e.stopPropagation();
