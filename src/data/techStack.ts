@@ -10,7 +10,7 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiVite,
-} from "react-Icons/si";
+} from "react-icons/si";
 
 export const techStack = [
   {
