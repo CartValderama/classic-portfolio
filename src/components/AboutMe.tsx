@@ -38,7 +38,7 @@ const AboutMe = () => {
         ))}
       </div>
       <div
-        className="flex items-start justify-center flex-1 overflow-auto bg-white lg:border border-white border-t-none border-l-[#868a8e] p-4 font-geist"
+        className="flex items-start justify-center flex-1 overflow-auto bg-white lg:border border-white border-t-none border-l-[#868a8e] py-6 px-4 font-geist"
         ref={aboutMeContentRef}
       >
         <Introduction selectMenu={selectMenu} />
