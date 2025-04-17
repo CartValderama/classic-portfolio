@@ -57,4 +57,4 @@ export const techStack = [
     skill: "Shadcn",
     Icon: SiShadcnui,
   },
-];
+] as const;
