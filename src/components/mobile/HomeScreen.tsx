@@ -25,7 +25,7 @@ const HomeScreen = ({
       key={start ? "start-true" : "start-false"}
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0, delay: 8 }}
+      transition={{ duration: 0, delay: 7 }}
       className="flex h-full flex-col justify-between bg-black bg-cover bg-center text-white relative  mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:h-full mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:items-stretch "
     >
       {/* Background image - fixed at the back */}

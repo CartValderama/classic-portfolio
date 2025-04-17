@@ -12,7 +12,7 @@ const MobileBootUpScreen = () => {
       animate={start ? { opacity: 0, zIndex: -10 } : { opacity: 1, zIndex: 10 }}
       transition={{
         duration: 0.1,
-        delay: 7,
+        delay: 6,
       }}
       className="z-10 absolute flex w-full h-full font-system opacity-85 text-xl text-neutral-200"
     >
@@ -20,14 +20,14 @@ const MobileBootUpScreen = () => {
       <motion.div
         initial={{ opacity: 1 }}
         animate={start ? { opacity: 0 } : { opacity: 1 }}
-        transition={{ duration: 0.1, delay: 5 }}
+        transition={{ duration: 0.1, delay: 4 }}
         className="relative flex-1 flex flex-col gap-4 items-center justify-center mobile:[@media(max-height:450px)]:rotate-90"
       >
         {/* Android */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={start ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 3 }}
+          transition={{ delay: 1.5 }}
         >
           <DiAndroid className="text-7xl text-lime-500" />
         </motion.div>
@@ -36,13 +36,13 @@ const MobileBootUpScreen = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={start ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 3.5 }}
+          transition={{ delay: 2 }}
           className="w-20 h-2.5 bg-gray-700 rounded-full overflow-hidden"
         >
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
-            transition={{ duration: 0.5, delay: 3.7, ease: "easeInOut" }}
+            transition={{ duration: 0.5, delay: 2.5, ease: "easeInOut" }}
             className="h-full bg-white rounded-full"
           />
         </motion.div>
@@ -54,7 +54,7 @@ const MobileBootUpScreen = () => {
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{
           duration: 0.1,
-          delay: 5.5,
+          delay: 4.5,
         }}
         className={`w-full h-full flex flex-col justify-center items-center absolute font-system p-5 mobile:[@media(max-height:450px)]:rotate-90`}
       >

@@ -15,11 +15,10 @@ const Phone = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.4 }}
-      animate={start ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.4 }}
+      initial={{ opacity: 0, scale: 0.2 }}
+      animate={start ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.2 }}
       transition={{
         duration: 0.6,
-        delay: start ? 2 : 0,
         ease: "easeInOut",
       }}
       layout="position"

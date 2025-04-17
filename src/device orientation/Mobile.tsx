@@ -20,7 +20,7 @@ const Mobile = () => {
             ? { opacity: 0, zIndex: 0, marginTop: "0rem", marginBottom: "0" }
             : { opacity: 1, zIndex: 1, marginTop: "8rem", marginBottom: "8rem" }
         }
-        transition={{ duration: 0.6, delay: 1 }}
+        transition={{ duration: 0.5, delay: start ? 0 : 1 }}
         layout="position"
         className={`flex flex-col justify-center items-start mobile:items-center text-sm mobile:text-base gap-y-2 w-full`}
       >

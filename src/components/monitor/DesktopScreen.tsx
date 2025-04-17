@@ -16,7 +16,7 @@ const DesktopScreen = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={start ? { opacity: 1, zIndex: 10 } : { opacity: 0, zIndex: -1 }}
-      transition={{ duration: 0, delay: start ? 7 : 0 }}
+      transition={{ duration: 0, delay: start ? 6.5 : 0 }}
       className={`relative flex w-full h-full flex-col justify-between bg-[#196364] font-system text-black`}
     >
       <Notification />
@@ -24,7 +24,7 @@ const DesktopScreen = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0, delay: start ? 8 : 0 }}
+        transition={{ duration: 0, delay: start ? 7 : 0 }}
         className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(70px,1fr))] auto-cols-[4rem] 3xl:[@media(min-height:860px)]:gap-8 2xl:[@media(min-height:860px)]:gap-4 gap-2 h-full w-full relative pt-4 pb-8 px-2 3xl:[@media(min-height:860px)]:py-8 3xl:[@media(min-height:860px)]:px-4 overflow-hidden "
         ref={constraintsRef}
       >
