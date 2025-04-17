@@ -20,6 +20,7 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "tailwindcss": "^4.0.8",
+    "usehooks-ts": "^3.1.1",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

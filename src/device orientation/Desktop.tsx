@@ -7,7 +7,7 @@ const Desktop = () => {
 
   return (
     <div
-      className={`hidden lg:flex flex-row-reverse 3xl:max-w-[1700px] 2xl:max-w-[1500px] max-w-[1300px] items-center relative w-full h-screen min-h-[735px] px-8`}
+      className={`hidden lg:flex flex-row-reverse items-center relative w-full h-screen 4xl:max-w-[2200px] 3xl:max-w-[1800px] 2xl:max-w-[1400px] max-w-[1200px] 3xl:min-h-[900px] min-h-[735px] px-8`}
     >
       {/* text explanation */}
       <motion.div
@@ -15,18 +15,19 @@ const Desktop = () => {
         animate={
           start ? { x: -1300, opacity: 0, scale: 2 } : { opacity: 1, y: 0 }
         }
-        transition={{ duration: 0.6, delay: 1 }}
+        transition={{ duration: 1 }}
         layout="position"
-        className={`absolute left-0 flex flex-col justify-center gap-y-5 xl:w-6/10 lg:w-6/11 ml-8`}
+        className={`absolute left-0 flex flex-col justify-center gap-y-4 3xl:gap-y-6 xl:w-6/10 lg:w-6/11 ml-8`}
       >
-        <h1 className="font-geist text-[2.5rem] font-bold leading-11 3xl:text-5xl">
+        <h1 className="font-geist text-5xl font-bold 3xl:text-6xl 4xl:text-7xl">
           Classic Portfolio
         </h1>
-        <div className="flex flex-col gap-y-2 font-geist leading-8 3xl:leading-10 3xl:text-xl">
+        <div className="flex flex-col gap-y-2 font-geist 3xl:text-xl 4xl:text-2xl leading-8 2xl:leading-8 3xl:leading-9 4xl:leading-11">
           <p>
             A portfolio inspired by the old devices I used as a kid, featuring
-            Windows 95 interface and a Samsung Ace layout.{" "}
+            Windows 95 interface and a Samsung Ace layout.
             <span className="font-bold">
+              {" "}
               Since you're viewing this on a desktop-sized screen, you're
               currently in Windows 95 layout.
             </span>
@@ -36,9 +37,9 @@ const Desktop = () => {
             of the portfolio by clicking the button below.
           </p>
         </div>
-        <div className="flex gap-2 ">
+        <div className="flex gap-2 mt-2">
           <button
-            className="3xl:text-lg button-primary h-10 py-2 px-4"
+            className="button-primary py-2 px-4 text-sm 3xl:text-xl 3xl:py-3 3xl:px-5 4xl:text-2xl 4xl:py-4 4xl:px-6"
             onClick={() => {
               setStart(!start);
             }}
@@ -47,7 +48,7 @@ const Desktop = () => {
             Get Started
           </button>
           <button
-            className="3xl:text-lg button-secondary h-10 py-2 px-4"
+            className="button-secondary py-2 px-4 text-sm 3xl:text-xl 3xl:py-3 3xl:px-5 4xl:text-2xl 4xl:py-4 4xl:px-6"
             onClick={() => {
               window.open(
                 "https://cart-valderama-portfolio.vercel.app/",

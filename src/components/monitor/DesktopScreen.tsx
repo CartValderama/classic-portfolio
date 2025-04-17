@@ -25,7 +25,7 @@ const DesktopScreen = () => {
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(68px,1fr))] auto-cols-[4rem] 3xl:[@media(min-height:1060px)]:gap-8 2xl:gap-4 gap-2 h-full w-full relative pt-4 pb-8 px-2 3xl:[@media(min-height:1060px)]:p-5 overflow-hidden "
+        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(70px,1fr))] auto-cols-[4rem] 4xl:[@media(min-height:860px)]:gap-8 2xl:[@media(min-height:860px)]:gap-4 gap-2 h-full w-full relative pt-4 pb-8 px-2 4xl:[@media(min-height:860px)]:p-5 overflow-hidden "
         ref={constraintsRef}
       >
         {/* Render desktop icons */}
@@ -36,7 +36,7 @@ const DesktopScreen = () => {
           .map(({ url, label, id }) => (
             <button
               key={id}
-              className="bg-none shadow-none p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] 3xl:[@media(min-height:1060px)]:text-lg gap-[5px] cursor-pointer group focus:outline-none"
+              className="bg-none shadow-none p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] 4xl:[@media(min-height:860px)]:text-lg gap-[5px] cursor-pointer group focus:outline-none"
               onDoubleClick={() => handleOpenWindows(id)}
               onPointerDown={(e) => {
                 if (e.pointerType === "touch" || e.pointerType === "pen") {
@@ -49,11 +49,11 @@ const DesktopScreen = () => {
                 <img
                   src={url}
                   alt="Wordle"
-                  className="w-8 h-8 2xl:w-10 2xl:h-10 3xl:w-13 3xl:h-13"
+                  className="w-8 h-8 3xl:[@media(min-height:860px)]:w-10 3xl:[@media(min-height:860px)]:h-10 4xl:[@media(min-height:860px)]:w-12 4xl:[@media(min-height:860px)]:h-12"
                 />
                 <div className="absolute inset-0 bg-[#091558] opacity-0 group-focus:opacity-80" />
               </div>
-              <span className="group-focus:text-white group-focus:bg-[#091558] border-[.5px] border-dashed border-transparent group-focus:border-white truncate w-14 3xl:[@media(min-height:1060px)]:w-18">
+              <span className="group-focus:text-white group-focus:bg-[#091558] border-[.5px] border-dashed border-transparent group-focus:border-white truncate w-14 4xl:[@media(min-height:860px)]:w-18">
                 {label}
               </span>
             </button>
