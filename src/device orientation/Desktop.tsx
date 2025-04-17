@@ -1,4 +1,3 @@
-import { ButtonMain } from "../components/ButtonMain";
 import Monitor from "../components/monitor/Monitor";
 import { useStart } from "../context/StartContext";
 import { motion } from "framer-motion";
@@ -38,20 +37,17 @@ const Desktop = () => {
           </p>
         </div>
         <div className="flex gap-2 ">
-          <ButtonMain
-            variant={"default"}
-            size={"lg"}
+          <button
+            className="3xl:text-lg button-primary h-10 py-2 px-4"
             onClick={() => {
               setStart(!start);
             }}
             disabled={start}
-            className="3xl:text-lg"
           >
             Get Started
-          </ButtonMain>
-          <ButtonMain
-            variant={"ghost"}
-            size={"lg"}
+          </button>
+          <button
+            className="3xl:text-lg button-secondary h-10 py-2 px-4"
             onClick={() => {
               window.open(
                 "https://cart-valderama-portfolio.vercel.app/",
@@ -59,10 +55,9 @@ const Desktop = () => {
               );
             }}
             disabled={start}
-            className="3xl:text-lg"
           >
             Visit Accessible Version
-          </ButtonMain>
+          </button>
         </div>
       </motion.div>
       {/* small scaled monitor */}

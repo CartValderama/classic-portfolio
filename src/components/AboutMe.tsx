@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { Button } from "./monitor/win95/Button";
+import { useStart } from "../context/StartContext";
+import { aboutMeMenu } from "../data/menu";
 import Introduction from "./about/Introduction";
 import Projects from "./about/Projects";
 import Experience from "./about/Experience";
-import { useStart } from "../context/StartContext";
-import { aboutMeMenu } from "../data/staticData";
 import More from "./about/More";
 
 const AboutMe = () => {
@@ -26,15 +25,14 @@ const AboutMe = () => {
     <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5">
       <div className="bg-white flex justify-between lg:justify-start items-center w-full lg:gap-x-4 p-4 lg:p-0 lg:bg-transparent border-b border-b-[#868a8e] select-none">
         {aboutMeMenu.map((menu, idx) => (
-          <Button
+          <button
             key={idx}
-            variant={"subtle"}
-            className={`lowercase ${menu === selectMenu && "underline"}`}
+            className={`win95-select ${menu === selectMenu && "underline"}`}
             onClick={() => setSelectMenu(menu)}
           >
             <span className="lg:underline uppercase">{menu[0]}</span>
-            {menu.slice(1)}
-          </Button>
+            <span>{menu.slice(1)}</span>
+          </button>
         ))}
       </div>
       <div

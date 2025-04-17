@@ -1,5 +1,5 @@
 import { RxOpenInNewWindow } from "react-icons/rx";
-import { certificates } from "../../data/staticData";
+import { certificates } from "../../data/certificates";
 import { selectMenuProps } from "../../lib/type";
 import HeadDivider from "./divider/HeadDivider";
 import ContactDivider from "./divider/ContactDivider";

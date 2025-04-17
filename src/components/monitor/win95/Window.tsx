@@ -1,6 +1,5 @@
 import { useDragControls, motion, useMotionValue } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { Button } from "./Button";
 import {
   FaRegWindowMaximize,
   FaRegWindowRestore,
@@ -8,19 +7,14 @@ import {
 } from "react-icons/fa6";
 import { MdMinimize } from "react-icons/md";
 import { useStart } from "../../../context/StartContext";
-import {
-  AppID,
-  useApplicationStore,
-} from "../../../store/AppStore/ApplicationStore";
+import { useApplicationStore } from "../../../store/AppStore/ApplicationStore";
+import { AppID } from "../../../lib/type";
 
 type WindowProps = {
   id: AppID;
   constraintsRef: React.RefObject<HTMLDivElement | null>;
   title: string;
-  Icon: React.ComponentType<{
-    className?: string;
-    variant?: "32x32_4" | "16x16_4";
-  }>;
+  icon: string;
   iWidth: number;
   iHeight: number;
   isResize: boolean;
@@ -31,7 +25,7 @@ const Window = ({
   id,
   constraintsRef,
   title,
-  Icon,
+  icon,
   iWidth,
   iHeight,
   isResize,
@@ -208,51 +202,45 @@ const Window = ({
             }
           }}
         >
-          <h1 className="flex items-center gap-x-1 3xl:[@media(min-height:1060px)]:text-2xl 3xl:[@media(min-height:1060px)]:gap-x-2">
-            <Icon
-              variant="16x16_4"
-              className="3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
-            />
-            {title}
+          <h1 className="flex items-center gap-x-1.5 3xl:[@media(min-height:1060px)]:text-2xl">
+            <img src={icon} className="w-4 h-4 3xl:w-5 3xl:h-5" />
+            <span> {title}</span>
           </h1>
           <div className="flex items-center gap-x-1">
-            <Button
-              size={"icon"}
+            <button
+              className="win95-button 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
               onClick={(e) => {
                 e.stopPropagation();
                 handleMinimizeRestore(id);
               }}
-              className="3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
             >
               <MdMinimize className="text-black" />
-            </Button>
-            <Button
-              size={"icon"}
+            </button>
+            <button
+              className={`win95-button p-0.5 ${
+                !isResize && "hidden"
+              } 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6`}
               onClick={(e) => {
                 e.stopPropagation();
                 handleMaximize();
                 handleActiveWindow(id);
               }}
-              className={`${
-                !isResize && "hidden"
-              } 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6`}
             >
               {isMaximized ? (
-                <FaRegWindowRestore className="text-black text-[.8rem]" />
+                <FaRegWindowRestore className="text-black text-[.88rem]" />
               ) : (
-                <FaRegWindowMaximize className="text-black text-[.8rem]" />
+                <FaRegWindowMaximize className="text-black text-[.88rem]" />
               )}
-            </Button>
-            <Button
-              size={"icon"}
+            </button>
+            <button
+              className="win95-button p-0.5 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
               onClick={(e) => {
                 e.stopPropagation();
                 handleClose();
               }}
-              className="3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
             >
-              <FaXmark className="text-black text-[.9rem]" />
-            </Button>
+              <FaXmark className="text-black text-[.88rem]" />
+            </button>
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import { useStart } from "../../context/StartContext";
-import { apps, links } from "../../data/staticData";
+import { apps } from "../../data/apps";
+import { links } from "../../data/links";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 import { motion } from "framer-motion";
 import { IoAppsSharp } from "react-icons/io5";
@@ -52,7 +53,7 @@ const HomeScreen = ({
             {apps
               .slice()
               .reverse()
-              .map(({ MobileIcon, label, id, iconStyle }) => (
+              .map(({ Icon, label, id, style }) => (
                 <button
                   key={id}
                   className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
@@ -61,15 +62,15 @@ const HomeScreen = ({
                     handleOpenWindows(id);
                   }}
                 >
-                  <MobileIcon
-                    className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
+                  <Icon
+                    className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${style} mobile:[@media(max-height:450px)]:rotate-90`}
                   />
                   <span className="text-xs mobile:[@media(max-height:450px)]:text-[0.5rem] mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
                     {label}
                   </span>
                 </button>
               ))}
-            {links.map(({ HomeIcon, url, style, label }, index) => (
+            {links.map(({ Icon, url, style, label }, index) => (
               <button
                 key={index}
                 className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row "
@@ -82,7 +83,7 @@ const HomeScreen = ({
                   });
                 }}
               >
-                <HomeIcon
+                <Icon
                   className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${style} mobile:[@media(max-height:450px)]:rotate-90`}
                 />
                 <span className="text-xs mobile:[@media(max-height:450px)]:text-[0.5rem] mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
@@ -100,7 +101,7 @@ const HomeScreen = ({
                   app.id !== "tictactoe" &&
                   app.id !== "oldportfolio"
               )
-              .map(({ MobileIcon, id, iconStyle }) => (
+              .map(({ Icon, id, style }) => (
                 <button
                   key={id}
                   className="flex flex-col justify-center items-center cursor-pointer transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
@@ -109,8 +110,8 @@ const HomeScreen = ({
                     handleOpenWindows(id);
                   }}
                 >
-                  <MobileIcon
-                    className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${iconStyle} mobile:[@media(max-height:450px)]:rotate-90`}
+                  <Icon
+                    className={`text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] ${style} mobile:[@media(max-height:450px)]:rotate-90`}
                   />
                 </button>
               ))}
@@ -120,9 +121,9 @@ const HomeScreen = ({
               onClick={() => setShowApps(!isShowApps)}
             >
               {isShowApps ? (
-                <AiFillHome className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
+                <AiFillHome className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1.5 rounded-lg mobile:[@media(max-height:450px)]:rotate-90 shadow-xs shadow-black" />
               ) : (
-                <IoAppsSharp className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90" />
+                <IoAppsSharp className="text-[3.2rem] mobile:[@media(max-height:450px)]:text-[2.8rem] text-white bg-sky-900 p-1 rounded-lg mobile:[@media(max-height:450px)]:rotate-90 shadow-xs shadow-black" />
               )}
             </button>
           </div>
@@ -130,7 +131,7 @@ const HomeScreen = ({
 
         {/* Wordle Window */}
 
-        {apps.map(({ id, component }) => (
+        {apps.map(({ id, Component }) => (
           <motion.div
             key={id}
             className="absolute inset-0 text-black overflow-auto [&::-webkit-scrollbar]:hidden"
@@ -144,7 +145,7 @@ const HomeScreen = ({
             }}
             transition={{ duration: 0.1 }}
           >
-            {component}
+            <Component />
           </motion.div>
         ))}
       </div>

@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Button } from "../monitor/win95/Button";
 import { WordleStore } from "../../store/gameStore/WordleStore";
 import { Qwerty } from "./wordle/Qwerty";
 import { Guess } from "./wordle/Guess";
@@ -32,9 +31,8 @@ const Wordle = () => {
             />
           ))}
         </div>
-        <Button
-          variant={"default"}
-          className={` ${
+        <button
+          className={`win95-button ${
             won
               ? "bg-green-900 text-white lg:bg-gray-200 lg:text-black"
               : "bg-red-900 text-white lg:bg-gray-200 lg:text-black"
@@ -45,7 +43,7 @@ const Wordle = () => {
           onClick={() => init()}
         >
           Play Again
-        </Button>
+        </button>
       </div>
       <Qwerty />
     </div>

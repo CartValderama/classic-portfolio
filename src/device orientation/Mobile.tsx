@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useStart } from "../context/StartContext";
-import { ButtonMain } from "../components/ButtonMain";
 import Phone from "../components/mobile/Phone";
 
 const Mobile = () => {
@@ -44,18 +43,17 @@ const Mobile = () => {
           </p>
         </div>
         <div className="flex gap-2 mt-2">
-          <ButtonMain
-            variant={"default"}
+          <button
+            className="3xl:text-lg button-primary h-10 py-2 px-4 mobile:min-w-42 w-full text-sm mobile:text-lg mobile:py-6"
             onClick={() => {
               setStart(!start);
             }}
             disabled={start}
-            className="mobile:min-w-42 w-full text-sm mobile:text-lg mobile:py-6"
           >
             Get Started
-          </ButtonMain>
-          <ButtonMain
-            variant={"ghost"}
+          </button>
+          <button
+            className="3xl:text-lg button-secondary h-10 py-2 px-4 min-w-fit mobile:min-w-42 w-full text-sm mobile:text-lg mobile:py-6"
             onClick={() => {
               window.open(
                 "https://cart-valderama-portfolio.vercel.app/",
@@ -63,10 +61,9 @@ const Mobile = () => {
               );
             }}
             disabled={start}
-            className="min-w-fit mobile:min-w-42 w-full text-sm mobile:text-lg mobile:py-6"
           >
             Visit Old Version
-          </ButtonMain>
+          </button>
         </div>
       </motion.div>
       <Phone />

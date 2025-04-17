@@ -1,6 +1,8 @@
 import { useStart } from "../../context/StartContext";
-import HomeScreen from "./HomeScreen";
+import React, { Suspense } from "react";
 import MobileBootUpScreen from "./MobileBootUpScreen";
+
+const HomeScreen = React.lazy(() => import("./HomeScreen"));
 
 export type MainMobileScreenProps = {
   isShowApps: boolean;
@@ -21,12 +23,17 @@ const MainMobileScreen = ({
       className={`w-full h-full relative ${!start && "select-none "} bg-black`}
     >
       <MobileBootUpScreen />
-      <HomeScreen
-        isShowApps={isShowApps}
-        setShowApps={setShowApps}
-        isHideStatus={isHideStatus}
-        setHideStatus={setHideStatus}
-      />
+
+      <Suspense
+        fallback={<div className="bg-black text-white">Loading screen...</div>}
+      >
+        <HomeScreen
+          isShowApps={isShowApps}
+          setShowApps={setShowApps}
+          isHideStatus={isHideStatus}
+          setHideStatus={setHideStatus}
+        />
+      </Suspense>
     </div>
   );
 };

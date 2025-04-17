@@ -1,4 +1,4 @@
-import { GuessProps } from "../../../store/gameStore/WordleStore";
+import { GuessProps } from "../../../lib/type";
 
 export const Guess = ({ word, guess, isGuessed }: GuessProps) => {
   return (

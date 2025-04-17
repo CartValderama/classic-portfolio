@@ -1,7 +1,8 @@
-import { education, techStack } from "../../data/staticData";
+import { education } from "../../data/education";
+import { techStack } from "../../data/techStack";
+import { selectMenuProps } from "../../lib/type";
 import ContactDivider from "./divider/ContactDivider";
 import HeadDivider from "./divider/HeadDivider";
-import { selectMenuProps } from "../../lib/type";
 
 const Introduction = ({ selectMenu }: selectMenuProps) => {
   return (
@@ -32,9 +33,9 @@ const Introduction = ({ selectMenu }: selectMenuProps) => {
           frontend of web applications.
         </p>
         <ul className="flex flex-wrap gap-y-5 gap-x-7 mt-2">
-          {techStack.map(({ svg, skill }, idx) => (
+          {techStack.map(({ icon, skill }, idx) => (
             <li key={idx} className="flex flex-col items-center gap-y-1">
-              <span>{svg}</span>
+              <span className="text-3xl">{icon}</span>
               <span className="text-xs">{skill}</span>
             </li>
           ))}

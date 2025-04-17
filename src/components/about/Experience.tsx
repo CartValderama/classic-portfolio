@@ -1,7 +1,7 @@
-import { experience } from "../../data/staticData";
+import { experience } from "../../data/experience";
+import { selectMenuProps } from "../../lib/type";
 import ResumeDivider from "./divider/ResumeDivider";
 import SocialsDivider from "./divider/SocialsDivider";
-import { selectMenuProps } from "../../lib/type";
 
 const Experience = ({ selectMenu }: selectMenuProps) => {
   return (

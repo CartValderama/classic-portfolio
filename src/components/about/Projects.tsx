@@ -1,8 +1,8 @@
 import { BsGithub, BsGlobe } from "react-icons/bs";
-import { projects } from "../../data/staticData";
-import ContactDivider from "./divider/ContactDivider";
 import { selectMenuProps } from "../../lib/type";
+import { projects } from "../../data/projects";
 import ResumeDivider from "./divider/ResumeDivider";
+import ContactDivider from "./divider/ContactDivider";
 
 const Projects = ({ selectMenu }: selectMenuProps) => {
   return (

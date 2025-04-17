@@ -1,5 +1,4 @@
 import { FaLaptopCode } from "react-icons/fa6";
-import { ButtonMain } from "./ButtonMain";
 import { BsGithub } from "react-icons/bs";
 import { motion } from "framer-motion";
 import ThemeSwitch from "./ThemeSwitch";
@@ -25,9 +24,8 @@ const Header = () => {
           </span>
         </h1>
         <div className="flex items-center gap-x-1 3xl:gap-x-3">
-          <ButtonMain
-            variant={"ghost"}
-            size={"icon"}
+          <button
+            className="button-secondary h-10 w-10 "
             onClick={() => {
               window.open(
                 "https://github.com/CartValderama/classic-portfolio",
@@ -35,18 +33,11 @@ const Header = () => {
               );
             }}
             disabled={start}
-            className="text-base 3xl:text-xl"
           >
-            <i>
-              <BsGithub />
-            </i>
-          </ButtonMain>
+            <BsGithub className="text-xl" />
+          </button>
 
-          <ThemeSwitch
-            variant="ghost"
-            size="icon"
-            className="text-base 3xl:text-xl"
-          />
+          <ThemeSwitch className="button-secondary h-10 w-10" />
         </div>
       </nav>
     </motion.header>

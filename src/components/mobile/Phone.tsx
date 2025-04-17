@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
-import MainMobileScreen from "./MainMobileScreen";
 import { useState } from "react";
 import { AiOutlinePoweroff, AiOutlineRollback } from "react-icons/ai";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 import { useNotification } from "../../context/NotifcationContext";
+import MainMobileScreen from "./MainMobileScreen";
 
 const Phone = () => {
   const { start, setStart } = useStart();

@@ -1,4 +1,3 @@
-import { Button } from "../monitor/win95/Button";
 import useTicTacToeStore from "../../store/gameStore/TitactoeStore";
 import { useEffect } from "react";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
@@ -30,11 +29,10 @@ const Tictactoe = () => {
 
   return (
     <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 lg:h-auto h-full lg:bg-transparent bg-amber-700 lg:text-black text-white lg:p-0 p-4 select-none">
-      <div className="h-7 border-b  border-b-[#868a8e] items-center gap-x-4  p-1 py-2 lg:flex hidden">
-        <Button
-          variant={"subtle"}
+      <div className="h-7 border-b  border-b-[#868a8e] items-center gap-x-2  p-1 py-2 lg:flex hidden">
+        <button
+          className="win95-select lowercase lg:text-black text-white hover:bg-transparent transition-transform duration-100"
           onClick={resetGame}
-          className="lowercase lg:text-black text-white hover:bg-transparent transition-transform duration-100"
         >
           {board.every((cell) => cell !== null) ? (
             <p>
@@ -45,31 +43,29 @@ const Tictactoe = () => {
               <span className="lg:underline uppercase ">R</span>estart
             </p>
           )}
-        </Button>
-        <Button
-          variant={"subtle"}
-          onClick={() => setGameMode("human")}
-          className={`lowercase ${
+        </button>
+        <button
+          className={`win95-select lowercase ${
             gameStarted && "opacity-50"
           } lg:text-black text-white hover:bg-transparent transition-transform duration-100 ${
             gameMode === "human" && "underline"
           }`}
+          onClick={() => setGameMode("human")}
           disabled={gameStarted}
         >
           <span className="lg:underline uppercase">H</span>uman
-        </Button>
-        <Button
-          variant={"subtle"}
-          onClick={() => setGameMode("ai")}
-          className={` ${
+        </button>
+        <button
+          className={`win95-select lowercas ${
             gameStarted && "opacity-50"
           } lg:text-black text-white hover:bg-transparent transition-transform duration-100 lowercase ${
             gameMode === "ai" && "underline"
           }`}
+          onClick={() => setGameMode("ai")}
           disabled={gameStarted}
         >
-          <span className="lg:underline uppercase">C</span> omputer
-        </Button>
+          <span className="lg:underline uppercase">C</span>omputer
+        </button>
       </div>
       <h1 className="lg:hidden font-bold text-5xl mobile:[@media(max-height:450px)]:hidden text-center text-amber-100 my-2 mobile:[@media(max-height:450px)]:m-0">
         Tictactoe
@@ -130,14 +126,14 @@ const Tictactoe = () => {
           )}
 
           {board.map((cell, index) => (
-            <Button
+            <button
               key={index}
+              className="w-full h-full flex justify-center items-center text-4xl lg:bg-transparent bg-amber-100 lg:border border-0 lg:text-black font-bold text-amber-800"
               onClick={() => makeMove(index)}
               disabled={!!cell || !!winner || isDraw}
-              className="w-full h-full flex justify-center items-center text-4xl lg:bg-transparent bg-amber-100 lg:border border-0 lg:text-black font-bold text-amber-800"
             >
               {cell || <span className="opacity-0">X</span>}
-            </Button>
+            </button>
           ))}
         </div>
       </div>

@@ -1,13 +1,12 @@
 import { FaXmark } from "react-icons/fa6";
 import { useNotification } from "../../../context/NotifcationContext";
-import { Button } from "./Button";
-import { InfoBubble, QuestionBubble, User4, Warning } from "@react95/icons";
+import { MdError, MdInfo, MdQuestionMark, MdWarning } from "react-icons/md";
 
 const Icons = {
-  warning: <Warning className="w-12 h-12" />,
-  question: <QuestionBubble className="w-12 h-12" />,
-  error: <User4 className="w-12 h-12" />,
-  info: <InfoBubble className="w-12 h-12" />,
+  warning: <MdWarning className="w-12 h-12" />,
+  question: <MdQuestionMark className="w-12 h-12" />,
+  error: <MdError className="w-12 h-12" />,
+  info: <MdInfo className="w-12 h-12" />,
 };
 
 function Notification() {
@@ -29,13 +28,12 @@ function Notification() {
           {/* Title bar */}
           <div className="flex h-7 items-center justify-between bg-[#000e7a] px-1 text-white">
             <p className="capitalize flex items-center gap-x-1 ml-1">{title}</p>
-            <Button
-              variant={"default"}
-              size={"icon"}
+            <button
+              className="win95-button w-5.5 h-5 shadow-outline"
               onClick={hideNotification}
             >
               <FaXmark size={12} />
-            </Button>
+            </button>
           </div>
 
           {/* Content */}
@@ -45,24 +43,22 @@ function Notification() {
             </div>
 
             {/* Buttons */}
-            <div className="mt-6 flex justify-end gap-x-1">
-              <Button
-                variant={"default"}
+            <div className="mt-6 flex justify-end gap-x-1.5">
+              <button
+                className="win95-button shadow-outline w-20"
                 onClick={() => {
                   action();
                   hideNotification();
                 }}
-                className="w-20"
               >
                 ok
-              </Button>
-              <Button
-                variant={"default"}
+              </button>
+              <button
+                className="win95-button shadow-outline w-20"
                 onClick={hideNotification}
-                className="w-20"
               >
                 cancel
-              </Button>
+              </button>
             </div>
           </div>
         </div>

@@ -1,9 +1,6 @@
-import { FileFind2 } from "@react95/icons";
-
 const ResumeDivider = () => {
   return (
     <div className="border-y flex items-center w-full gap-x-4 py-2 my-2">
-      <FileFind2 variant="32x32_1" />
       <div>
         <p className="font-medium">Want to see my CV?</p>
         <a

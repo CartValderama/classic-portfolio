@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
-import TaskBar from "./win95/TaskBar";
 import Window from "./win95/Window";
 import { useRef } from "react";
 import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
-import { apps } from "../../data/staticData";
 import Notification from "./win95/Notification";
+import TaskBar from "./win95/TaskBar";
+import { apps } from "../../data/apps";
 
 const DesktopScreen = () => {
   const { start } = useStart();
@@ -20,18 +20,20 @@ const DesktopScreen = () => {
       className={`relative flex w-full h-full flex-col justify-between bg-[#196364] font-system text-black`}
     >
       <Notification />
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0, delay: start ? 8 : 0 }}
-        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(68px,1fr))] auto-cols-[4rem] 3xl:[@media(min-height:1060px)]:gap-8 gap-2 h-full w-full relative py-4 px-2 3xl:[@media(min-height:1060px)]:p-5 overflow-hidden "
+        className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(68px,1fr))] auto-cols-[4rem] 3xl:[@media(min-height:1060px)]:gap-8 2xl:gap-4 gap-2 h-full w-full relative py-4 px-2 3xl:[@media(min-height:1060px)]:p-5 overflow-hidden "
         ref={constraintsRef}
       >
         {/* Render desktop icons */}
+
         {apps
           .slice()
           .reverse()
-          .map(({ DesktopIcon, label, id }) => (
+          .map(({ url, label, id }) => (
             <button
               key={id}
               className="bg-none shadow-none p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] 3xl:[@media(min-height:1060px)]:text-lg gap-[5px] cursor-pointer group focus:outline-none"
@@ -43,10 +45,11 @@ const DesktopScreen = () => {
                 }
               }}
             >
-              <div className="relative">
-                <DesktopIcon
-                  className="w-[2rem] h-[2rem] group-focus:-z-10 3xl:[@media(min-height:1060px)]:w-[2.5rem] 3xl:[@media(min-height:1060px)]:h-[2.5rem]"
-                  variant="32x32_4"
+              <div className="relative ">
+                <img
+                  src={url}
+                  alt="Wordle"
+                  className="w-10 h-10 3xl:w-13 3xl:h-13"
                 />
                 <div className="absolute inset-0 bg-[#091558] opacity-0 group-focus:opacity-80" />
               </div>
@@ -55,16 +58,15 @@ const DesktopScreen = () => {
               </span>
             </button>
           ))}
-
         {/* Render windows */}
         {apps
           .filter(({ id }) => openWindows[id])
-          .map(({ id, component, label, DesktopIcon, iWidth, iHeight }) => (
+          .map(({ id, Component, label, url, iWidth, iHeight }) => (
             <Window
               id={id}
               key={id}
               title={label}
-              Icon={DesktopIcon}
+              icon={url}
               iWidth={iWidth}
               iHeight={iHeight}
               isResize={
@@ -74,10 +76,11 @@ const DesktopScreen = () => {
               }
               constraintsRef={constraintsRef}
             >
-              {component}
+              <Component />
             </Window>
           ))}
       </motion.div>
+
       {/* TaskBar */}
       <TaskBar apps={apps} />
     </motion.div>

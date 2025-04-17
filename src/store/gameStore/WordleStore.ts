@@ -1,12 +1,6 @@
 import { create } from "zustand";
 import words from "./gameData/word.json";
 
-export type GuessProps = {
-  word: string;
-  guess: string;
-  isGuessed: boolean;
-};
-
 type WordleStoreProps = {
   word: string;
   guesses: string[];

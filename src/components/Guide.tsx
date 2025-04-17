@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { AiOutlinePoweroff, AiOutlineRollback } from "react-icons/ai";
 import { IoAppsSharp } from "react-icons/io5";
-import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import { LuRectangleHorizontal } from "react-icons/lu";
 import { useApplicationStore } from "../store/AppStore/ApplicationStore";
 
@@ -14,8 +13,6 @@ type Slide = {
 
 const Guide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const { activeWindow } = useApplicationStore();
 
   const slides: Slide[] = [
@@ -54,57 +51,18 @@ const Guide = () => {
   ];
 
   const nextSlide = (): void => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setDirection(1);
     setCurrentSlide((prev) =>
       prev === slides.length - 1 ? slides.length - 1 : prev + 1
     );
   };
 
   const prevSlide = (): void => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setDirection(-1);
     setCurrentSlide((prev) => (prev === 0 ? 0 : prev - 1));
-  };
-
-  const handleDragEnd = (
-    _: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
-  ): void => {
-    if (isAnimating) return;
-    const swipe =
-      Math.abs(info.offset.x) > 100 || Math.abs(info.velocity.x) > 200;
-
-    if (swipe) {
-      setIsAnimating(true);
-      if (info.offset.x > 0) {
-        prevSlide();
-      } else {
-        nextSlide();
-      }
-    }
   };
 
   useEffect(() => {
     setCurrentSlide(0);
   }, [activeWindow]);
-
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-  };
 
   return (
     <div className="relative h-full w-full flex-col lg:gap-y-3 flex-1 lg:text-black text-white lg:bg-transparent bg-emerald-800 flex lg:p-1 p-4 overflow-auto mobile:[@media(max-height:450px)]:p-4">
@@ -119,36 +77,20 @@ const Guide = () => {
 
       <div className="lg:border h-full w-full border-white border-l-[#868a8e] border-t-[#868a8e] lg:px-2 lg:py-1 ">
         <div className="lg:hidden flex flex-col justify-between items-center h-full w-full relative overflow-hidden mobile:[@media(max-height:450px)]:text-xs">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.div
-              key={currentSlide}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                opacity: { duration: 0.1 },
-              }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.5}
-              onDragEnd={handleDragEnd}
-              onAnimationStart={() => setIsAnimating(true)}
-              onAnimationComplete={() => setIsAnimating(false)}
-              className="flex w-full h-full flex-col justify-center items-center "
-            >
-              <div className="flex flex-col items-center justify-center mobile:[@media(max-height:450px)]:max-w-[500px]">
-                <h3 className="font-medium text-white text-3xl mb-2 mobile:[@media(max-height:450px)]:text-lg">
-                  {slides[currentSlide].title}
-                </h3>
-                {slides[currentSlide].icon}
-              </div>
-              <p className="text-base text-center mt-2 mobile:[@media(max-height:450px)]:max-w-[500px] mobile:[@media(max-height:450px)]:text-xs">
-                {slides[currentSlide].description}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+          <div
+            key={currentSlide}
+            className="flex w-full h-full flex-col justify-center items-center "
+          >
+            <div className="flex flex-col items-center justify-center mobile:[@media(max-height:450px)]:max-w-[500px]">
+              <h3 className="font-medium text-white text-3xl mb-2 mobile:[@media(max-height:450px)]:text-lg">
+                {slides[currentSlide].title}
+              </h3>
+              {slides[currentSlide].icon}
+            </div>
+            <p className="text-base text-center mt-2 mobile:[@media(max-height:450px)]:max-w-[500px] mobile:[@media(max-height:450px)]:text-xs">
+              {slides[currentSlide].description}
+            </p>
+          </div>
 
           {/* Navigation buttons */}
           <div className="flex justify-between items-center mt-4 mobile:[@media(max-height:450px)]:max-w-[500px] w-full">
@@ -157,7 +99,7 @@ const Guide = () => {
               className={`w-20 px-4 py-2 rounded bg-emerald-950 active:scale-90 transition-transform duration-300  font-medium ${
                 currentSlide === 0 && "opacity-0"
               }`}
-              disabled={currentSlide === 0 || isAnimating}
+              disabled={currentSlide === 0}
             >
               Prev
             </button>
@@ -165,14 +107,8 @@ const Guide = () => {
             {/* Slide indicators */}
             <div className="flex gap-2">
               {slides.map((_, index) => (
-                <button
+                <p
                   key={index}
-                  onClick={() => {
-                    if (!isAnimating) {
-                      setDirection(index > currentSlide ? 1 : -1);
-                      setCurrentSlide(index);
-                    }
-                  }}
                   className={`
                     w-1 h-1 rounded-full transition-all ${
                       currentSlide === index
@@ -180,9 +116,7 @@ const Guide = () => {
                         : "bg-gray-300"
                     } 
                   `}
-                  aria-label={`Go to slide ${index + 1}`}
-                  disabled={isAnimating}
-                />
+                ></p>
               ))}
             </div>
 
@@ -190,7 +124,7 @@ const Guide = () => {
               onClick={nextSlide}
               className={`w-20 px-4 py-2 rounded bg-emerald-950 active:scale-90 transition-transform duration-300  font-medium 
                  ${currentSlide === slides.length - 1 && "opacity-0"}`}
-              disabled={isAnimating || currentSlide === slides.length - 1}
+              disabled={currentSlide === slides.length - 1}
             >
               Next
             </button>

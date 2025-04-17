@@ -1,12 +1,5 @@
 import { create } from "zustand";
-
-export type AppID =
-  | "about"
-  | "tictactoe"
-  | "wordle"
-  | "oldportfolio"
-  | "credits"
-  | "guide";
+import { AppID } from "../../lib/type";
 
 type AppState = Record<AppID, boolean>;
 

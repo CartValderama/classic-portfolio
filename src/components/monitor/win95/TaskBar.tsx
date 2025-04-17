@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { Clock } from "./Clock";
-import { Button } from "./Button";
-import { AppProps } from "../../../data/staticData";
-import { AiFillRobot } from "react-icons/ai";
+import { AppProps } from "../../../lib/type";
 import { useEffect, useRef, useState } from "react";
-import { Computer3 } from "@react95/icons";
-import { FaLinkedin, FaSquareGithub } from "react-icons/fa6";
 import { useStart } from "../../../context/StartContext";
 import { useApplicationStore } from "../../../store/AppStore/ApplicationStore";
 import { useNotification } from "../../../context/NotifcationContext";
+import {
+  RiGithubFill,
+  RiLinkedinBoxFill,
+  RiListSettingsFill,
+  RiShutDownFill,
+} from "react-icons/ri";
 
 type TaskBarProps = {
   apps: AppProps[];
@@ -50,15 +52,14 @@ const TaskBar = ({ apps }: TaskBarProps) => {
         <div
           className={`absolute flex ${
             showTaskBarMenu ? "block z-10" : "hidden"
-          } bottom-9 3xl:[@media(min-height:1060px)]:bottom-12 -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-h-60`}
+          } bottom-9 3xl:[@media(min-height:1060px)]:bottom-12 -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-h-60 min-w-50`}
         >
           <p className="bg-[#7b7d7b] text-[#c3c7cb] flex flex-col items-start rotate-180 [writing-mode:vertical-rl] text-xl 3xl:[@media(min-height:1060px)]:text-3xl font-black font-ms px-2 py-1 3xl:[@media(min-height:1060px)]:px-4 3xl:[@media(min-height:1060px)]:py-2 ">
             ValderamaOS
           </p>
-          <div className="flex flex-col-reverse">
-            <Button
-              variant={"ghost"}
-              className="px-2 py-2 gap-x-2 pr-8"
+          <div className="flex flex-col-reverse w-full">
+            <button
+              className="flex p-2 gap-x-2 items-center hover:bg-[#000e7a] hover:text-white"
               onClick={() => {
                 setShowTaskBarMenu(false);
                 showNotification({
@@ -70,17 +71,14 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                 });
               }}
             >
-              <i>
-                <Computer3 variant="32x32_4" />
-              </i>
+              <RiShutDownFill className="text-3xl text-red-900 " />
               <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
                 Shutdown...
               </span>
-            </Button>
+            </button>
             <span className="border border-white border-t-[#7b7d7b] border-l-[#7b7d7b] flex mx-1"></span>
-            <Button
-              variant={"ghost"}
-              className="px-2 py-2 gap-x-2 pr-4"
+            <button
+              className="flex p-2 gap-x-2 items-center hover:bg-[#000e7a] hover:text-white"
               onClick={() => {
                 setShowTaskBarMenu(false);
                 showNotification({
@@ -97,16 +95,13 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                 });
               }}
             >
-              <i>
-                <FaSquareGithub className="text-3xl text-black" />
-              </i>
+              <RiGithubFill className="text-3xl text-black" />
               <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
                 Source Code
               </span>
-            </Button>
-            <Button
-              variant={"ghost"}
-              className="px-2 py-2 gap-x-2 pr-4"
+            </button>
+            <button
+              className=" flex p-2 gap-x-2 items-center hover:bg-[#000e7a] hover:text-white"
               onClick={() => {
                 setShowTaskBarMenu(false);
                 showNotification({
@@ -123,25 +118,22 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                 });
               }}
             >
-              <i>
-                <FaLinkedin className="text-3xl text-sky-800" />
-              </i>
+              <RiLinkedinBoxFill className="text-3xl text-sky-800" />
               <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
-                Source Code
+                Connect With Me
               </span>
-            </Button>
+            </button>
           </div>
         </div>
-        <Button
-          variant={"default"}
-          className="shadow-outline focus:outline-none px-2 3xl:[@media(min-height:1060px)]:py-1"
+        <button
+          className="win95-button shadow-outline px-2 3xl:[@media(min-height:1060px)]:py-1 flex items-center gap-x-1.5"
           onClick={() => setShowTaskBarMenu(!showTaskBarMenu)}
         >
-          <span className="flex items-center gap-x-0.5 3xl:[@media(min-height:1060px)]:text-2xl">
-            <AiFillRobot className="text-[.9rem] text-stone-900 3xl:[@media(min-height:1060px)]:text-2xl" />
+          <RiListSettingsFill className="text-[1rem] text-stone-900 3xl:[@media(min-height:1060px)]:text-2xl" />
+          <span className="text-xl 3xl:[@media(min-height:1060px)]:text-2xl">
             Menu
           </span>
-        </Button>
+        </button>
       </div>
 
       {/* Taskbar Buttons for Open Windows */}
@@ -152,22 +144,18 @@ const TaskBar = ({ apps }: TaskBarProps) => {
             const app = apps.find((a) => a.id === id);
             if (!app) return null;
 
-            const { DesktopIcon, label } = app;
+            const { url, label } = app;
 
             return (
-              <Button
+              <button
                 key={id}
-                variant={"tab"}
-                className={`h-full flex items-center 
-            min-w-0 flex-1
-            max-w-36 3xl:[@media(min-height:1060px)]:max-w-50 px-2 gap-1
-            ${
-              minimizedWindows[id]
-                ? "shadow-outline"
-                : activeWindow === id
-                ? "bg-[#c3c7cb] border-[#868a8e] border-r-white border-b-white"
-                : "shadow-outline"
-            }`}
+                className={`bg-[#c3c7cb] text-black capitalize flex items-center cursor-pointer h-full min-w-0 flex-1 max-w-36 3xl:[@media(min-height:1060px)]:max-w-50 px-2 gap-1 ${
+                  minimizedWindows[id]
+                    ? "shadow-outline border border-[#868a8e] border-l-white border-t-white"
+                    : activeWindow === id
+                    ? "border border-white border-l-[#868a8e] border-t-[#868a8e]"
+                    : "shadow-outline border border-white border-r-[#868a8e] border-b-[#868a8e]"
+                }`}
                 onClick={() => {
                   if (minimizedWindows[id]) {
                     handleActiveWindow(id);
@@ -179,14 +167,11 @@ const TaskBar = ({ apps }: TaskBarProps) => {
                   }
                 }}
               >
-                <DesktopIcon
-                  variant="16x16_4"
-                  className="3xl:[@media(min-height:1060px)]:h-5 3xl:[@media(min-height:1060px)]:w-5"
-                />
+                <img src={url} className="w-4 h-4 3xl:w-5 3xl:h-5" />
                 <span className="truncate 3xl:[@media(min-height:1060px)]:text-2xl">
                   {label}
                 </span>
-              </Button>
+              </button>
             );
           })}
       </div>

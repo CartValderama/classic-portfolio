@@ -1,6 +1,6 @@
-import MainScreen from "./MainScreen";
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
+import MainScreen from "./MainScreen";
 
 const Monitor = () => {
   const { start } = useStart();
