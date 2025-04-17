@@ -10,7 +10,7 @@ const Header = () => {
     <motion.header
       initial={{ opacity: 1, y: 0 }}
       animate={start ? { opacity: 0, y: -200 } : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: start ? 0 : 1 }}
       className={`fixed top-0 z-[999] w-full flex justify-center border-b border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear backdrop-blur-[0.5rem] shadow-black/[0.03] bg-[#f9fafb] dark:bg-[#09090b] `}
       style={{
         transformOrigin: "center -300%",

@@ -7,7 +7,7 @@ const Footer = () => {
     <motion.footer
       initial={{ opacity: 1, y: 0 }}
       animate={start ? { opacity: 0, y: 200 } : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: start ? 0 : 1 }}
       className={`absolute bottom-0 w-full flex justify-center items-center border-y border-dashed border-[#e4e4e7b3] dark:border-[#27272ab3] transition-transform ease-linear text-xs lg:text-sm 3xl:text-base`}
       style={{
         transformOrigin: "left 300%",

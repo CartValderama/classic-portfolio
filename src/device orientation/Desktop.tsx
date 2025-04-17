@@ -15,7 +15,7 @@ const Desktop = () => {
         animate={
           start ? { x: -1600, opacity: 0, scale: 2 } : { opacity: 1, y: 0 }
         }
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: start ? 0 : 1 }}
         layout="position"
         className={`absolute left-0 flex flex-col justify-center gap-y-4 3xl:gap-y-6 xl:w-6/10 lg:w-6/11 ml-8`}
       >
