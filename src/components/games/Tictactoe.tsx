@@ -85,7 +85,7 @@ const Tictactoe = () => {
               onClick={() => setGameMode("human")}
               className={`capitalize ${
                 gameStarted && "opacity-50"
-              } lg:text-black active:scale-95 transition-transform duration-100 bg-amber-100 text-amber-800 font-semibold px-2 py-1 w-1/2 ${
+              } lg:text-black active:scale-95 transition-transform duration-100 bg-amber-100 text-amber-800 font-semibold px-2 py-1 w-1/2 cursor-pointer ${
                 gameMode === "human" && "bg-amber-900 text-white"
               }`}
               disabled={gameStarted}
@@ -96,7 +96,7 @@ const Tictactoe = () => {
               onClick={() => setGameMode("ai")}
               className={`capitalize ${
                 gameStarted && "opacity-50"
-              } lg:text-black active:scale-95 transition-transform duration-100 bg-amber-100 text-amber-800 font-semibold px-2 py-1 w-1/2 ${
+              } lg:text-black active:scale-95 transition-transform duration-100 bg-amber-100 text-amber-800 font-semibold px-2 py-1 w-1/2 cursor-pointer ${
                 gameMode === "ai" && "bg-amber-900 text-white"
               }`}
               disabled={gameStarted}

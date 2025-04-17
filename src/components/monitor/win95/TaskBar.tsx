@@ -52,7 +52,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
         <div
           className={`absolute flex ${
             showTaskBarMenu ? "block z-10" : "hidden"
-          } bottom-9 3xl:[@media(min-height:1060px)]:bottom-12 -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-h-60 min-w-50`}
+          } bottom-9 3xl:[@media(min-height:1060px)]:bottom-12 -left-[1px] bg-[#c3c7cb] border border-[#868a8e] border-l-white border-t-white shadow-outline min-h-60 min-w-55 3xl:min-w-65`}
         >
           <p className="bg-[#7b7d7b] text-[#c3c7cb] flex flex-col items-start rotate-180 [writing-mode:vertical-rl] text-xl 3xl:[@media(min-height:1060px)]:text-3xl font-black font-ms px-2 py-1 3xl:[@media(min-height:1060px)]:px-4 3xl:[@media(min-height:1060px)]:py-2 ">
             ValderamaOS
@@ -72,7 +72,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               }}
             >
               <RiShutDownFill className="text-3xl text-red-950 " />
-              <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
+              <span className="3xl:[@media(min-height:1060px)]:text-xl">
                 Shutdown...
               </span>
             </button>
@@ -96,7 +96,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               }}
             >
               <RiGithubFill className="text-3xl text-black" />
-              <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
+              <span className="3xl:[@media(min-height:1060px)]:text-xl">
                 Source Code
               </span>
             </button>
@@ -119,7 +119,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               }}
             >
               <RiLinkedinBoxFill className="text-3xl text-sky-800" />
-              <span className="text-sm 3xl:[@media(min-height:1060px)]:text-xl">
+              <span className="3xl:[@media(min-height:1060px)]:text-xl">
                 Connect With Me
               </span>
             </button>
