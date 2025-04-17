@@ -27,11 +27,13 @@ const AboutMe = () => {
         {aboutMeMenu.map((menu, idx) => (
           <button
             key={idx}
-            className={`win95-select ${menu === selectMenu && "underline"}`}
+            className={`win95-select`}
             onClick={() => setSelectMenu(menu)}
           >
             <span className="lg:underline uppercase">{menu[0]}</span>
-            <span>{menu.slice(1)}</span>
+            <span className={`${menu === selectMenu && "underline"}`}>
+              {menu.slice(1)}
+            </span>
           </button>
         ))}
       </div>

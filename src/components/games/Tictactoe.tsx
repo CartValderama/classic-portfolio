@@ -53,7 +53,8 @@ const Tictactoe = () => {
           onClick={() => setGameMode("human")}
           disabled={gameStarted}
         >
-          <span className="lg:underline uppercase">H</span>uman
+          <span className="lg:underline uppercase">H</span>
+          <span className={`${gameMode === "human" && "underline"}`}>uman</span>
         </button>
         <button
           className={`win95-select lowercas ${
@@ -64,7 +65,8 @@ const Tictactoe = () => {
           onClick={() => setGameMode("ai")}
           disabled={gameStarted}
         >
-          <span className="lg:underline uppercase">C</span>omputer
+          <span className="lg:underline uppercase">C</span>
+          <span className={`${gameMode === "ai" && "underline"}`}>omputer</span>
         </button>
       </div>
       <h1 className="lg:hidden font-bold text-5xl mobile:[@media(max-height:450px)]:hidden text-center text-amber-100 my-2 mobile:[@media(max-height:450px)]:m-0">

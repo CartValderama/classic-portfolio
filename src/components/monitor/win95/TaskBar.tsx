@@ -120,7 +120,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
             >
               <RiLinkedinBoxFill className="text-3xl text-sky-800" />
               <span className="3xl:[@media(min-height:1060px)]:text-xl">
-                Connect With Me
+                Let's Connect!
               </span>
             </button>
           </div>
