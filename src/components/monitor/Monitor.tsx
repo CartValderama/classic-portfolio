@@ -22,13 +22,13 @@ const Monitor = () => {
       : "19.5rem",
 
     height: is4XL
-      ? "24rem"
+      ? "25.5rem"
       : is3XL
-      ? "21rem"
+      ? "22rem"
       : is2XL
-      ? "17.5rem"
+      ? "18rem"
       : isXL
-      ? "14.5rem"
+      ? "15rem"
       : "14.5rem",
   };
 
@@ -40,14 +40,14 @@ const Monitor = () => {
           ? {
               width: "100%",
               height: "100%",
-              marginTop: is3XL ? "9rem" : "7.5rem",
+              marginTop: is2XL ? "9rem" : "7.5rem",
               paddingRight: "0",
             }
           : collapsedSize
       }
       transition={{ duration: 1 }}
       className={`flex flex-col items-center justify-center relative ${
-        is3XL ? "mb-[9rem]" : "mb-[7.5rem]"
+        is2XL ? "mb-[9rem]" : "mb-[7.5rem]"
       }`}
     >
       {/* monitor head*/}
@@ -57,7 +57,7 @@ const Monitor = () => {
           start
             ? {
                 width: parseInt(collapsedSize.width) * 3.6 + "rem",
-                height: parseInt(collapsedSize.height) * 3.8 + "rem",
+                height: parseInt(collapsedSize.height) * 3.7 + "rem",
               }
             : collapsedSize
         }
