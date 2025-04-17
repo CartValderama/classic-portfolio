@@ -26,7 +26,7 @@ const HeadDivider = ({ dateOnly }: headDividerProps) => {
     >
       <p>{date}</p>
       <a
-        href="/docs/CV_ValderamaCart.pdf"
+        href="/docs/CV_Cart.pdf"
         download
         className={`flex gap-1 items-center underline ${dateOnly && "hidden"}`}
         aria-label="Download Cart Valderama's resume as a PDF"

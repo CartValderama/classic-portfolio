@@ -4,7 +4,7 @@ const ResumeDivider = () => {
       <div>
         <p className="font-medium">Want to see my CV?</p>
         <a
-          href="/docs/CV_ValderamaCart.pdf"
+          href="/docs/CV_Cart.pdf"
           download
           className="flex gap-1 items-center underline text-sm"
           aria-label="Download Cart Valderama's resume as a PDF"
