@@ -153,7 +153,7 @@ const Window = ({
   return (
     <motion.div
       drag={!isResizing && !isMaximized}
-      dragElastic={0.05}
+      dragElastic={0}
       dragMomentum={false}
       dragConstraints={constraintsRef}
       dragControls={dragControls}

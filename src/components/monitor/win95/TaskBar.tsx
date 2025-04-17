@@ -149,7 +149,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
             return (
               <button
                 key={id}
-                className={`bg-[#c3c7cb] text-black capitalize flex items-center cursor-pointer h-full min-w-0 flex-1 max-w-36 3xl:[@media(min-height:1060px)]:max-w-50 px-2 gap-1 ${
+                className={`bg-[#c3c7cb] text-black capitalize flex items-center cursor-pointer active:scale-95 active:outline h-full min-w-0 flex-1 max-w-36 3xl:[@media(min-height:1060px)]:max-w-50 px-2 gap-1 ${
                   minimizedWindows[id]
                     ? "shadow-outline border border-[#868a8e] border-l-white border-t-white"
                     : activeWindow === id
