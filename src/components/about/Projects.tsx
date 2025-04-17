@@ -51,14 +51,14 @@ const Projects = ({ selectMenu }: selectMenuProps) => {
                 {topics.map((topic, idx) => (
                   <li
                     key={idx}
-                    className="bg-black text-white font-light px-2 text-[.6rem] uppercase"
+                    className="bg-black text-white font-light px-2 py-1 text-xs uppercase"
                   >
                     {topic}
                   </li>
                 ))}
               </ul>
 
-              <div className="flex flex-col items-center gap-y-1 mt-2">
+              <div className="flex flex-col items-center gap-y-1 mt-2 mb-1">
                 <img src={img} alt={name} />
                 <p className="text-xs lg:text-sm text-center italic w-3/5">
                   {figDesc}

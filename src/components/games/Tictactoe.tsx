@@ -105,7 +105,7 @@ const Tictactoe = () => {
             </button>
           </div>
           <p className="lg:block hidden 3xl:text-base">
-            Human vs{" "}
+            You vs{" "}
             <span
               className={`${gameMode === "ai" ? "uppercase" : "capitalize"}`}
             >
