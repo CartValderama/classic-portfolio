@@ -32,6 +32,7 @@ const Wordle = () => {
           ))}
         </div>
         <button
+          type="button"
           className={`win95-button active:scale-95 ${
             won
               ? "bg-green-900 text-white lg:bg-gray-200 lg:text-black"

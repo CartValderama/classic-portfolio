@@ -29,6 +29,7 @@ function Notification() {
           <div className="flex h-7 items-center justify-between bg-[#000e7a] px-1 text-white">
             <p className="capitalize flex items-center gap-x-1 ml-1">{title}</p>
             <button
+              type="button"
               className="win95-button w-5.5 h-5 shadow-outline flex"
               onClick={hideNotification}
             >
@@ -45,6 +46,7 @@ function Notification() {
             {/* Buttons */}
             <div className="mt-6 flex justify-end gap-x-1.5">
               <button
+                type="button"
                 className="win95-button shadow-outline w-20 flex"
                 onClick={() => {
                   action();
@@ -54,6 +56,7 @@ function Notification() {
                 ok
               </button>
               <button
+                type="button"
                 className="win95-button shadow-outline w-20 flex"
                 onClick={hideNotification}
               >

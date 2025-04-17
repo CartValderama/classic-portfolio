@@ -26,6 +26,7 @@ const AboutMe = () => {
       <div className="bg-white flex justify-between lg:justify-start items-center w-full lg:gap-x-4 p-4 lg:p-0 lg:bg-transparent border-b border-b-[#868a8e] select-none">
         {aboutMeMenu.map((menu, idx) => (
           <button
+            type="button"
             key={idx}
             className={`win95-select`}
             onClick={() => setSelectMenu(menu)}

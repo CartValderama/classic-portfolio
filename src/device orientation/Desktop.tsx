@@ -39,6 +39,7 @@ const Desktop = () => {
         </div>
         <div className="flex gap-2 mt-2">
           <button
+            type="button"
             className="button-primary py-2 px-4 text-sm 3xl:text-xl 3xl:py-3 3xl:px-5 4xl:text-2xl 4xl:py-4 4xl:px-6"
             onClick={() => {
               setStart(!start);
@@ -48,6 +49,7 @@ const Desktop = () => {
             Get Started
           </button>
           <button
+            type="button"
             className="button-secondary py-2 px-4 text-sm 3xl:text-xl 3xl:py-3 3xl:px-5 4xl:text-2xl 4xl:py-4 4xl:px-6"
             onClick={() => {
               window.open(

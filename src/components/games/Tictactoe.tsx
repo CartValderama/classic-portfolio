@@ -31,6 +31,7 @@ const Tictactoe = () => {
     <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 lg:h-auto h-full lg:bg-transparent bg-amber-700 lg:text-black text-white lg:p-0 p-4 select-none">
       <div className="h-7 border-b  border-b-[#868a8e] items-center gap-x-4  p-1 py-2 lg:flex hidden">
         <button
+          type="button"
           className="win95-select lowercase lg:text-black text-white hover:bg-transparent transition-transform duration-100"
           onClick={resetGame}
         >
@@ -45,6 +46,7 @@ const Tictactoe = () => {
           )}
         </button>
         <button
+          type="button"
           className={`win95-select lowercase  ${
             gameStarted && "opacity-50"
           } lg:text-black text-white hover:bg-transparent transition-transform duration-100 ${
@@ -57,6 +59,7 @@ const Tictactoe = () => {
           <span className={`${gameMode === "human" && "underline"}`}>uman</span>
         </button>
         <button
+          type="button"
           className={`win95-select lowercas ${
             gameStarted && "opacity-50"
           } lg:text-black text-white hover:bg-transparent transition-transform duration-100 lowercase ${
@@ -84,6 +87,7 @@ const Tictactoe = () => {
           </div>
           <div className="lg:hidden flex gap-x-0.5 w-full">
             <button
+              type="button"
               onClick={() => setGameMode("human")}
               className={`capitalize ${
                 gameStarted && "opacity-50"
@@ -95,6 +99,7 @@ const Tictactoe = () => {
               versus human
             </button>
             <button
+              type="button"
               onClick={() => setGameMode("ai")}
               className={`capitalize ${
                 gameStarted && "opacity-50"

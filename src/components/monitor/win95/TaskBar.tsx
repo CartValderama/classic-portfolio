@@ -59,6 +59,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
           </p>
           <div className="flex flex-col-reverse w-full">
             <button
+              type="button"
               className="flex p-2 gap-x-2 items-center hover:bg-[#000e7a] hover:text-white"
               onClick={() => {
                 setShowTaskBarMenu(false);
@@ -78,6 +79,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
             </button>
             <span className="border border-white border-t-[#7b7d7b] border-l-[#7b7d7b] flex mx-1"></span>
             <button
+              type="button"
               className="flex p-2 gap-x-2 items-center hover:bg-[#000e7a] hover:text-white"
               onClick={() => {
                 setShowTaskBarMenu(false);
@@ -101,6 +103,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
               </span>
             </button>
             <button
+              type="button"
               className=" flex p-2 gap-x-2 items-center hover:bg-[#000e7a] hover:text-white"
               onClick={() => {
                 setShowTaskBarMenu(false);
@@ -126,6 +129,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
           </div>
         </div>
         <button
+          type="button"
           className="win95-button shadow-outline px-2 3xl:[@media(min-height:1060px)]:py-1 flex items-center gap-x-1.5"
           onClick={() => setShowTaskBarMenu(!showTaskBarMenu)}
         >
@@ -148,6 +152,7 @@ const TaskBar = ({ apps }: TaskBarProps) => {
 
             return (
               <button
+                type="button"
                 key={id}
                 className={`bg-[#c3c7cb] text-black capitalize flex items-center cursor-pointer active:scale-95 active:outline h-full min-w-0 flex-1 max-w-36 3xl:[@media(min-height:1060px)]:max-w-50 px-2 gap-1 ${
                   minimizedWindows[id]

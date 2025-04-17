@@ -55,6 +55,7 @@ const HomeScreen = ({
               .reverse()
               .map(({ Icon, label, id, style }) => (
                 <button
+                  type="button"
                   key={id}
                   className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row"
                   onClick={() => {
@@ -72,6 +73,7 @@ const HomeScreen = ({
               ))}
             {links.map(({ Icon, url, style, label }, index) => (
               <button
+                type="button"
                 key={index}
                 className="flex flex-col justify-center items-center cursor-pointer text-[0.9rem] gap-[5px] transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row "
                 onClick={() => {
@@ -103,6 +105,7 @@ const HomeScreen = ({
               )
               .map(({ Icon, id, style }) => (
                 <button
+                  type="button"
                   key={id}
                   className="flex flex-col justify-center items-center cursor-pointer transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
                   onClick={() => {
@@ -117,6 +120,7 @@ const HomeScreen = ({
               ))}
 
             <button
+              type="button"
               className="flex flex-col justify-center items-center cursor-pointer transition-opacity duration-200 hover:opacity-80 active:scale-95 mobile:[@media(max-height:450px)]:flex-row-reverse"
               onClick={() => setShowApps(!isShowApps)}
             >

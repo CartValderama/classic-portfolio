@@ -95,6 +95,7 @@ const Guide = () => {
           {/* Navigation buttons */}
           <div className="flex justify-between items-center mt-4 mobile:[@media(max-height:450px)]:max-w-[500px] w-full">
             <button
+              type="button"
               onClick={prevSlide}
               className={`w-20 px-4 py-2 rounded bg-emerald-950 active:scale-90 transition-transform duration-300  font-medium ${
                 currentSlide === 0 && "opacity-0"
@@ -121,6 +122,7 @@ const Guide = () => {
             </div>
 
             <button
+              type="button"
               onClick={nextSlide}
               className={`w-20 px-4 py-2 rounded bg-emerald-950 active:scale-90 transition-transform duration-300  font-medium 
                  ${currentSlide === slides.length - 1 && "opacity-0"}`}

@@ -35,8 +35,9 @@ const DesktopScreen = () => {
           .reverse()
           .map(({ url, label, id }) => (
             <button
+              type="button"
               key={id}
-              className="bg-none shadow-none p-0 flex flex-col justify-center items-center leading-[1.1] text-[0.9rem] 3xl:[@media(min-height:860px)]:text-lg gap-[5px] cursor-pointer group focus:outline-none"
+              className="flex flex-col justify-center items-center text-[0.9rem] cursor-pointer group focus:outline-none 3xl:[@media(min-height:860px)]:text-lg "
               onDoubleClick={() => handleOpenWindows(id)}
               onPointerDown={(e) => {
                 if (e.pointerType === "touch" || e.pointerType === "pen") {

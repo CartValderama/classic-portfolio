@@ -25,6 +25,7 @@ const Header = () => {
         </h1>
         <div className="flex items-center gap-x-1 3xl:gap-x-3">
           <button
+            type="button"
             className="button-secondary h-10 w-10 "
             onClick={() => {
               window.open(

@@ -11,7 +11,12 @@ export default function ThemeSwitch({ className }: ThemeSwitchProps) {
   const { theme, toggleTheme } = useTheme();
   const { start } = useStart();
   return (
-    <button onClick={toggleTheme} disabled={start} className={className}>
+    <button
+      type="button"
+      onClick={toggleTheme}
+      disabled={start}
+      className={className}
+    >
       {theme === "light" ? (
         <BiMoon className="text-xl" />
       ) : (

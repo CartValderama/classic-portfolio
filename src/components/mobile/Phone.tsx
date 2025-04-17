@@ -58,6 +58,7 @@ const Phone = () => {
 
               <div className="w-full flex items-center justify-around mt-6 mobile:[@media(max-height:450px)]:mt-0 mobile:[@media(max-height:450px)]:mr-6 mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:h-full mobile:[@media(max-height:450px)]:flex-col">
                 <button
+                  type="button"
                   className="active:scale-98 cursor-pointer"
                   onClick={() => {
                     showNotification({
@@ -76,6 +77,7 @@ const Phone = () => {
                   <AiOutlinePoweroff className="text-3xl font-bold text-[#797777] mobile:[@media(max-height:450px)]:rotate-90" />
                 </button>
                 <button
+                  type="button"
                   className="w-24 h-12 border-3 border-[#515455] rounded-xl active:scale-98 cursor-pointer mobile:[@media(max-height:450px)]:w-12 mobile:[@media(max-height:450px)]:h-[25%]"
                   onClick={() => {
                     setHideStatus(false);
@@ -86,6 +88,7 @@ const Phone = () => {
                   <div className="w-full h-full bg-[#131314] rounded-lg border-[#797777] border"></div>
                 </button>
                 <button
+                  type="button"
                   className="active:scale-98 cursor-pointer"
                   onClick={() => {
                     setHideStatus(false);

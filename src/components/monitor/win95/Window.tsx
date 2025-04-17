@@ -208,6 +208,7 @@ const Window = ({
           </h1>
           <div className="flex items-center gap-x-1">
             <button
+              type="button"
               className="win95-button flex 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
               onClick={(e) => {
                 e.stopPropagation();
@@ -217,6 +218,7 @@ const Window = ({
               <MdMinimize className="text-black" />
             </button>
             <button
+              type="button"
               className={`win95-button p-0.5 ${
                 !isResize ? "hidden" : "flex"
               } 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6`}
@@ -233,6 +235,7 @@ const Window = ({
               )}
             </button>
             <button
+              type="button"
               className="win95-button flex p-0.5 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
               onClick={(e) => {
                 e.stopPropagation();

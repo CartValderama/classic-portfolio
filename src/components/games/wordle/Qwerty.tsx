@@ -17,6 +17,7 @@ export const Qwerty = () => {
           {/* Add Backspace button to the last row */}
           {idx === 3 && (
             <button
+              type="button"
               className="win95-button  bg-white h-full w-full rounded lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Delete")}
             >
@@ -35,6 +36,7 @@ export const Qwerty = () => {
               : "lg:bg-gray-200 bg-white text-[#38753b]";
             return (
               <button
+                type="button"
                 key={idy}
                 className={`win95-button uppercase h-full w-full ${color} rounded flex items-center justify-center   ${
                   char && "active:scale-95"
@@ -51,6 +53,7 @@ export const Qwerty = () => {
           {/* Add Return button to the last row */}
           {idx === 3 && (
             <button
+              type="button"
               className="win95-button lg:bg-gray-200 bg-white h-full w-full rounded lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Enter")}
             >

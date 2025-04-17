@@ -23,6 +23,7 @@ const NotificationMobile = () => {
 
         <div className="flex justify-center w-full text-base">
           <button
+            type="button"
             className="w-full border-t border-stone-300  text-black font-semibold  py-2 active:bg-stone-100 transition-colors duration-150 cursor-pointer"
             onClick={() => {
               action();
@@ -32,6 +33,7 @@ const NotificationMobile = () => {
             OK
           </button>
           <button
+            type="button"
             className="w-full border-stone-300 border-t border-l text-black font-semibold  py-2 active:bg-stone-100 transition-colors duration-150 cursor-pointer"
             onClick={() => {
               hideNotification();
