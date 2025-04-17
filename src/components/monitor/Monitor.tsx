@@ -45,7 +45,7 @@ const Monitor = () => {
             }
           : collapsedSize
       }
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
       className={`flex flex-col items-center justify-center relative ${
         is2XL ? "mb-[9rem]" : "mb-[7.5rem]"
       }`}
@@ -61,7 +61,7 @@ const Monitor = () => {
               }
             : collapsedSize
         }
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         className="bg-[#dbd49d] relative rounded-sm flex flex-col items-center justify-center z-10 
 
         [@media(max-height:1200px)]:max-w-[1600px] [@media(max-height:900px)]:max-w-[1200px]
@@ -75,7 +75,7 @@ const Monitor = () => {
               ? { width: "89%", height: "86%", marginBottom: ".3rem" }
               : { width: "86%", height: "82%" }
           }
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           className=" rounded-xl relative flex justify-center items-center"
         >
           <div className="absolute bg-[#a0926f] w-full h-full opacity-35 rounded-lg"></div>
@@ -84,7 +84,7 @@ const Monitor = () => {
             animate={
               start ? { borderWidth: "0.8rem" } : { borderWidth: "0.3rem" }
             }
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.5 }}
             className="absolute w-[99.5%] h-[99.5%] rounded border-t-[#847959] border-x-[#a0926f] border-b-transparent"
           >
             <div className="absolute w-[100%] h-[100%] border-2 border-[#534f33]">
@@ -111,7 +111,7 @@ const Monitor = () => {
                   height: parseInt(collapsedSize.height) / 1.85 + "rem",
                 }
           }
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           className="absolute flex flex-col items-center justify-center rounded-xs"
         >
           <div className="w-[88%] h-[20%] bg-[#d3cc96] rounded-b-xs z-10 border border-[#d3cc96]"></div>
@@ -134,7 +134,7 @@ const Monitor = () => {
                 animate={
                   start ? { borderWidth: ".4rem" } : { borderWidth: ".15rem" }
                 }
-                transition={{ duration: 1 }}
+                transition={{ duration: 0.5 }}
                 className="w-[50%] h-[50%] border-3 border-[#ece8c8] border-t-[#8d8969] border-l-[#817e62]"
               ></motion.div>
               <div className="w-[30%] h-[12%] bg-[#3d3a22] relative flex justify-center rounded"></div>
@@ -147,7 +147,7 @@ const Monitor = () => {
                     animate={
                       start ? { fontSize: "1.2rem" } : { fontSize: ".35rem" }
                     }
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 0.5 }}
                     key={index}
                     className="text-[#948d4e] font-black p-1 pt-0"
                   >
@@ -176,7 +176,7 @@ const Monitor = () => {
                           borderWidth: ".15rem",
                         }
                   }
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 0.5 }}
                   className="rounded-full border-2 border-[#ece8c8] border-t-[#99966f] border-r-[#ebe6d1] border-b-[#e6e1cb] border-l-[#999674]"
                 ></motion.div>
               </div>

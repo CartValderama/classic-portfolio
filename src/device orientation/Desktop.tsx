@@ -13,9 +13,9 @@ const Desktop = () => {
       <motion.div
         initial={{ x: 0, opacity: 1 }}
         animate={
-          start ? { x: -2200, opacity: 0, scale: 2 } : { opacity: 1, y: 0 }
+          start ? { x: -1600, opacity: 0, scale: 2 } : { opacity: 1, y: 0 }
         }
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         layout="position"
         className={`absolute left-0 flex flex-col justify-center gap-y-4 3xl:gap-y-6 xl:w-6/10 lg:w-6/11 ml-8`}
       >
