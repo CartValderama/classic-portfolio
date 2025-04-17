@@ -208,7 +208,7 @@ const Window = ({
           </h1>
           <div className="flex items-center gap-x-1">
             <button
-              className="win95-button 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
+              className="win95-button flex 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
               onClick={(e) => {
                 e.stopPropagation();
                 handleMinimizeRestore(id);
@@ -233,7 +233,7 @@ const Window = ({
               )}
             </button>
             <button
-              className="win95-button p-0.5 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
+              className="win95-button flex p-0.5 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
               onClick={(e) => {
                 e.stopPropagation();
                 handleClose();
