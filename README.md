@@ -6,19 +6,31 @@
 
 ### 🖥️ Desktop (Windows 95 Mode)
 
-![Windows 95 - Clean Desktop](image.png) ![Windows 95 - Open Windows](image-3.png)  
-**Figure 1:** Windows 95 mode. Left: clean desktop. Right: multiple open windows.
-
 - Authentic 90s interface with draggable, resizable windows
 - Right-click menus, taskbar, and double-click interactions
 
+<p align="center">
+  <img src="image.png" alt="Clean Desktop" width="45%" />
+  <img src="image-3.png" alt="Open Windows" width="45%" />
+</p>
+
+<p align="center">
+  <em>Figure 1 & 2: Windows 95 mode — clean desktop (left) and multiple open windows (right).</em>
+</p>
+
 ### 📱 Mobile (Samsung Galaxy J1 Mode)
 
-![Samsung J1 - Clean](image-1.png) ![Samsung J1 - Open App](image-2.png)  
-**Figure 2:** Samsung J1 mode. Left: clean home screen. Right: an open app.
-
-- **Main Home Button** — returns to home screen
+- **Main Home Button** — returns to the home screen
 - **Shutdown Button** — replaces the traditional tab switcher
+
+<p align="center">
+  <img src="image-1.png" alt="App List" width="45%" />
+  <img src="image-2.png" alt="Open App" width="45%" />
+</p>
+
+<p align="center">
+  <em>Figure 3 & 4: Samsung J1 mode — app list (left) and an open app (right).</em>
+</p>
 
 ## 🛠️ Tech Stack
 
