@@ -10,8 +10,8 @@
 - Right-click menus, taskbar, and double-click interactions
 
 <p>
-  <img src="image.png" alt="Clean Desktop" width="45%" />
-  <img src="image-3.png" alt="Open Windows" width="45%" />
+  <img src="src/assets/pics/image.png" alt="Clean Desktop" width="45%" />
+  <img src="src/assets/pics/image-3.png" alt="Open Windows" width="45%" />
 </p>
 <p>
   <em>Figure 1 & 2: Windows 95 mode — clean desktop (left) and multiple open windows (right).</em>
@@ -23,8 +23,8 @@
 - **Shutdown Button** — replaces the traditional tab switcher
 
 <p>
-  <img src="image-1.png" alt="App List" width="45%"  />
-  <img src="image-2.png" alt="Open App" width="45%" />
+  <img src="src/assets/pics/image-1.png" alt="App List" width="45%"  />
+  <img src="src/assets/pics/image-2.png" alt="Open App" width="45%" />
 </p>
 <p>
   <em>Figure 3 & 4: Samsung Galaxy Ace mode — app list (left) and an open app (right).</em>
