@@ -7,8 +7,8 @@ const Monitor = () => {
   const { start } = useStart();
   const isXL = useMediaQuery("(min-width: 1280px)");
   const is2XL = useMediaQuery("(min-width: 1536px)");
-  const is3XL = useMediaQuery("(min-width: 1920px)");
-  const is4XL = useMediaQuery("(min-width: 2550px)");
+  const is3XL = useMediaQuery("(min-width: 1912px)");
+  const is4XL = useMediaQuery("(min-width: 2552px)");
 
   const collapsedSize = {
     width: is4XL
