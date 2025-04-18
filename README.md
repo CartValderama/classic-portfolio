@@ -32,10 +32,10 @@
 
 ## 🛠️ Tech Stack
 
-- ⚡ **Vite + React** – Fast build & dev experience
-- 🎨 **Tailwind CSS** – Custom Win95-inspired theming
-- ✨ **Framer Motion** – CRT effects and smooth window transitions
-- 🧠 **Zustand** – Lightweight global state for system behavior
+- ⚡ **Vite + React**
+- 🎨 **Tailwind CSS**
+- ✨ **Framer Motion**
+- 🧠 **Zustand**
 
 ## 📐 Responsive Behavior
 
