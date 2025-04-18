@@ -34,3 +34,10 @@ export type StartType = {
 export type selectMenuProps = {
   selectMenu: string;
 };
+
+export type HomeScreenProps = {
+  isShowApps: boolean;
+  setShowApps: (value: boolean) => void;
+  isHideStatus: boolean;
+  setHideStatus: (value: boolean) => void;
+};

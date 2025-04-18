@@ -5,7 +5,7 @@ import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
 import { motion } from "framer-motion";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
-import { MainMobileScreenProps } from "./MainMobileScreen";
+import { HomeScreenProps } from "../../lib/type";
 import StatusBar from "./StatusBar";
 import NotificationMobile from "./samsung/NotificationMobile";
 import { useNotification } from "../../context/NotifcationContext";
@@ -15,7 +15,7 @@ const HomeScreen = ({
   setShowApps,
   isHideStatus,
   setHideStatus,
-}: MainMobileScreenProps) => {
+}: HomeScreenProps) => {
   const { start } = useStart();
   const { activeWindow, handleOpenWindows } = useApplicationStore();
   const { showNotification } = useNotification();
