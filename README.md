@@ -2,7 +2,7 @@
 
 **A hybrid web experience** that adapts from a fully interactive _Windows 95-style desktop_ on larger screens to a _Samsung Glaxy Ace-inspired_ interface on mobile.
 
-## 🌟 Key Features
+## Key Features
 
 ### 🖥️ Desktop (Windows 95 Mode)
 
@@ -30,19 +30,19 @@
   <em>Figure 3 & 4: Samsung Galaxy Ace mode — app list (left) and an open app (right).</em>
 </p>
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- ⚡ **Vite + React**
-- 🎨 **Tailwind CSS**
-- ✨ **Framer Motion**
-- 🧠 **Zustand**
+- **Vite + React**
+- **Tailwind CSS**
+- **Framer Motion**
+- **Zustand**
 
 ## 📐 Responsive Behavior
 
 - `> 1040px`: Full desktop layout
 - `< 1040px`: Mobile layout
 
-## 🚀 Run Locally
+## Run Locally
 
 ```bash
 git clone https://github.com/CartValderama/classic-portfolio
