@@ -1,6 +1,6 @@
 # Classic Portfolio
 
-**A hybrid web experience** that adapts seamlessly from a fully interactive _Windows 95-style desktop_ on larger screens to a _Samsung Glaxy Ace-inspired_ interface on mobile.
+**A hybrid web experience** that adapts from a fully interactive _Windows 95-style desktop_ on larger screens to a _Samsung Glaxy Ace-inspired_ interface on mobile.
 
 ## 🌟 Key Features
 
