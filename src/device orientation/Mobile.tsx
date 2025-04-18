@@ -30,10 +30,10 @@ const Mobile = () => {
         <div className="flex flex-col gap-y-3 font-geist leading-7 mobile:text-center mobile:w-[70%]">
           <p>
             A portfolio inspired by the old devices I used as a kid, featuring
-            Windows 95 interface and a Samsung Ace layout.{" "}
+            Windows 95 interface and a Samsung Galaxy Ace layout.{" "}
             <span className="font-bold">
               Since you're viewing this on a mobile or tablet-sized screen,
-              you're currently in the Samsung Ace layout.
+              you're currently in the Samsung Galaxy Ace layout.
             </span>
           </p>
 

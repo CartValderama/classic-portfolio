@@ -25,7 +25,7 @@ const Desktop = () => {
         <div className="flex flex-col gap-y-2 font-geist 3xl:text-xl 4xl:text-2xl leading-8 2xl:leading-8 3xl:leading-9 4xl:leading-11">
           <p>
             A portfolio inspired by the old devices I used as a kid, featuring
-            Windows 95 interface and a Samsung Ace layout.
+            Windows 95 interface and a Samsung Galaxy Ace layout.
             <span className="font-bold">
               {" "}
               Since you're viewing this on a desktop-sized screen, you're
