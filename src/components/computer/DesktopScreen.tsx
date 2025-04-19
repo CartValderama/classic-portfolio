@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useApplicationStore } from "../../store/applicationStore";
 import ApplicationLauncher from "./win95/ApplicationLauncher";
 import Notification from "./win95/Notification";
-import TaskBar from "./win95/TaskBar";
+import Taskbar from "./win95/TaskBar";
 import Window from "./win95/Window";
 
 const DesktopScreen = () => {
@@ -43,19 +43,19 @@ const DesktopScreen = () => {
               icon={url}
               iWidth={iWidth}
               iHeight={iHeight}
+              constraintsRef={constraintsRef}
               isResize={
                 id === "tictactoe" || id === "wordle" || id === "guide"
                   ? false
                   : true
               }
-              constraintsRef={constraintsRef}
             >
               <Component />
             </Window>
           ))}
       </motion.div>
 
-      <TaskBar apps={apps} />
+      <Taskbar />
     </motion.div>
   );
 };
