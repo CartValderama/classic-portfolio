@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useStart } from "../context/StartContext";
-import Phone from "../components/mobile/Phone";
+import Phone from "../components/phone/Phone";
 import LandingIntro from "../components/LandingIntro";
 
 const Mobile = () => {
