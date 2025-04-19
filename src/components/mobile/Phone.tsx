@@ -5,7 +5,7 @@ import MainPhoneScreen from "./MainPhoneScreen";
 import PhoneButtons from "./phone_parts/PhoneButtons";
 
 const Phone = () => {
-  const { start } = useStart();
+  const { start, transition } = useStart();
 
   const initial = { opacity: 0, zIndex: 0, scale: 0 };
   const animate = { opacity: 1, zIndex: 1, scale: 1 };
@@ -14,10 +14,7 @@ const Phone = () => {
     <motion.div
       initial={initial}
       animate={start ? animate : initial}
-      transition={{
-        duration: 0.6,
-        ease: "easeInOut",
-      }}
+      transition={transition}
       layout="position"
       className="flex w-full h-full items-center justify-center absolute"
     >

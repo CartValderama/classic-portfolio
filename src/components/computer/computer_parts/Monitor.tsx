@@ -4,10 +4,11 @@ import { useBreakpoints } from "../../../lib/hooks/useBreakpoints";
 import MainScreen from "../MainScreen";
 
 const Monitor = () => {
-  const { start } = useStart();
+  const { start, transition } = useStart();
   const breakpoints = useBreakpoints();
 
   const initialSize = breakpoints;
+
   const expandedWidth = "100%";
   const expandedHeight = parseInt(breakpoints.height) * 3.7 + "rem";
 
@@ -17,7 +18,7 @@ const Monitor = () => {
       animate={
         start ? { width: expandedWidth, height: expandedHeight } : initialSize
       }
-      transition={{ duration: 0.5, delay: start ? 0 : 1 }}
+      transition={transition}
       className="bg-[#dbd49d] relative rounded-sm flex flex-col items-center justify-center z-10 
 
       [@media(min-height:1220px)]:[@media(max-height:1320px)]:max-w-[1960px] 
@@ -37,7 +38,7 @@ const Monitor = () => {
             ? { width: "89%", height: "86%" }
             : { width: "86%", height: "82%" }
         }
-        transition={{ duration: 0.5, delay: start ? 0 : 1 }}
+        transition={transition}
         className=" rounded-xl relative flex justify-center items-center"
       >
         <div className="absolute bg-[#a0926f] w-full h-full opacity-35 rounded-lg" />
@@ -46,7 +47,7 @@ const Monitor = () => {
           animate={
             start ? { borderWidth: "0.8rem" } : { borderWidth: "0.3rem" }
           }
-          transition={{ duration: 0.5, delay: start ? 0 : 1 }}
+          transition={transition}
           className="absolute w-[99.5%] h-[99.5%] rounded border-t-[#847959] border-x-[#a0926f] border-b-transparent"
         >
           <div className="absolute w-[100%] h-[100%] border-2 border-[#534f33]">

@@ -45,7 +45,7 @@ const WindowsBootup = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={start ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0, delay: 1 }}
+        transition={{ duration: 0, delay: 1.5 }}
       >
         <img
           src="https://i.imgur.com/wA8i2DU.png"

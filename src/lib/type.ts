@@ -29,6 +29,10 @@ export type AppProps = {
 export type StartType = {
   start: boolean;
   setStart: React.Dispatch<React.SetStateAction<boolean>>;
+  transition: {
+    duration: number;
+    delay: number;
+  };
 };
 
 export type selectMenuProps = {

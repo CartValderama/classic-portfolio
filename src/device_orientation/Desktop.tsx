@@ -4,7 +4,7 @@ import { useStart } from "../context/StartContext";
 import { motion } from "framer-motion";
 
 const Desktop = () => {
-  const { start } = useStart();
+  const { start, transition } = useStart();
 
   return (
     <div
@@ -15,7 +15,7 @@ const Desktop = () => {
         animate={
           start ? { x: -2000, opacity: 0, scale: 2 } : { opacity: 1, y: 0 }
         }
-        transition={{ duration: 0.5, delay: start ? 0 : 1 }}
+        transition={transition}
         layout="position"
         className={`absolute left-0 flex flex-col justify-center gap-y-4 3xl:gap-y-6 w-[55%] ml-8`}
       >

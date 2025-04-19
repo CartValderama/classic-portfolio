@@ -9,9 +9,10 @@ const StartContext = createContext<StartType | null>(null);
 
 const StartContextProvider = ({ children }: StartContextProviderProps) => {
   const [start, setStart] = useState(false);
+  const transition = { duration: 0.5, delay: 1 };
 
   return (
-    <StartContext.Provider value={{ start, setStart }}>
+    <StartContext.Provider value={{ start, setStart, transition }}>
       {children}
     </StartContext.Provider>
   );

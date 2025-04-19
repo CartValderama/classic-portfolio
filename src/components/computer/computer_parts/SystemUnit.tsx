@@ -6,7 +6,7 @@ import SystemUnitButtons from "./SystemUnitButtons";
 import Stand from "./Stand";
 
 const SystemUnit = () => {
-  const { start } = useStart();
+  const { start, transition } = useStart();
   const breakpoints = useBreakpoints();
 
   const initialWidth = breakpoints.width;
@@ -24,7 +24,7 @@ const SystemUnit = () => {
             ? { width: expandedWidth, height: expandedHeight }
             : { width: initialWidth, height: initialHeight }
         }
-        transition={{ duration: 0.5, delay: start ? 0 : 1 }}
+        transition={transition}
         className="absolute flex flex-col items-center justify-center rounded-xs"
       >
         <Stand />
@@ -43,7 +43,7 @@ const SystemUnit = () => {
               animate={
                 start ? { borderWidth: ".4rem" } : { borderWidth: ".15rem" }
               }
-              transition={{ duration: 0.5, delay: start ? 0 : 1 }}
+              transition={transition}
               className="w-[50%] h-[50%] border-3 border-[#ece8c8] border-t-[#8d8969] border-l-[#817e62]"
             />
             <div className="w-[30%] h-[12%] bg-[#3d3a22] relative flex justify-center rounded" />

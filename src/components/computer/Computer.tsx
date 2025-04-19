@@ -7,6 +7,7 @@ import { useBreakpoints } from "../../lib/hooks/useBreakpoints";
 const Computer = () => {
   const { start } = useStart();
   const breakpoints = useBreakpoints();
+  const transition = { duration: 0.5, delay: 1 };
 
   return (
     <motion.div
@@ -16,7 +17,7 @@ const Computer = () => {
           ? { width: "100%", height: "100%", marginTop: "11%" }
           : breakpoints
       }
-      transition={{ duration: 0.5, delay: start ? 0 : 1 }}
+      transition={transition}
       className={`flex flex-col items-center justify-center relative mb-[11%]`}
     >
       <Monitor />

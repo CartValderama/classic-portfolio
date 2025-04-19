@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useStart } from "../../../context/StartContext";
 
 const Speaker = () => {
-  const { start } = useStart();
+  const { start, transition } = useStart();
 
   return (
     <div className="w-[50%] h-[70%] grid grid-cols-18 grid-rows-3 gap-x-1 ">
@@ -10,7 +10,7 @@ const Speaker = () => {
         <motion.div
           initial={{ fontSize: ".35rem" }}
           animate={start ? { fontSize: "1.2rem" } : { fontSize: ".35rem" }}
-          transition={{ duration: 0.5, delay: start ? 0 : 1 }}
+          transition={transition}
           key={index}
           className="text-[#948d4e] font-black"
         >
