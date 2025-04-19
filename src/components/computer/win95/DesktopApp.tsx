@@ -1,13 +1,13 @@
 import { PointerEvent } from "react";
 import { useApplicationStore } from "../../../store/applicationStore";
 
-type ApplicationLauncherProps = {
+type DesktopAppProps = {
   id: string;
   label: string;
   url: string;
 };
 
-const ApplicationLauncher = ({ id, label, url }: ApplicationLauncherProps) => {
+const DesktopApp = ({ id, label, url }: DesktopAppProps) => {
   const { handleOpenWindows } = useApplicationStore();
 
   const handleTouchScreen = (e: PointerEvent) => {
@@ -39,4 +39,4 @@ const ApplicationLauncher = ({ id, label, url }: ApplicationLauncherProps) => {
   );
 };
 
-export default ApplicationLauncher;
+export default DesktopApp;

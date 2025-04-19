@@ -7,7 +7,7 @@ import {
 } from "react-icons/ri";
 import { useNotification } from "../../../../context/NotifcationContext";
 import { useStart } from "../../../../context/StartContext";
-import TaskBarMenuItems from "./MenuItems";
+import MenuItems from "./MenuItems";
 
 const Menu = () => {
   const [showTaskBarMenu, setShowTaskBarMenu] = useState(false);
@@ -36,15 +36,15 @@ const Menu = () => {
     });
   };
 
-  const handleRedirect = (link: string) => {
+  const handleRedirect = (url: string, label: string) => {
     setShowTaskBarMenu(false);
     showNotification({
-      title: "Redirecting to Github",
+      title: "Redirecting to " + label,
       message:
         "You will be redirected to a new tab. Are you sure you want to visit this link?",
       type: "warning",
       action: () => {
-        window.open(link, "_blank");
+        window.open(url, "_blank");
       },
     });
   };
@@ -60,24 +60,30 @@ const Menu = () => {
           ValderamaOS
         </p>
         <div className="flex flex-col-reverse w-full">
-          <TaskBarMenuItems
+          <MenuItems
             icon={<RiShutDownFill className="text-3xl text-red-950 " />}
             text="Shutdown..."
             action={handleShutDown}
           />
           <span className="border border-white border-t-[#7b7d7b] border-l-[#7b7d7b] flex mx-1" />
-          <TaskBarMenuItems
+          <MenuItems
             icon={<RiGithubFill className="text-3xl text-black" />}
             text="Source Code"
             action={() =>
-              handleRedirect("https://github.com/CartValderama/win95-portfolio")
+              handleRedirect(
+                "https://github.com/CartValderama/win95-portfolio",
+                "Github"
+              )
             }
           />
-          <TaskBarMenuItems
+          <MenuItems
             icon={<RiLinkedinBoxFill className="text-3xl text-sky-800" />}
             text="Let's Connect!"
             action={() =>
-              handleRedirect("https://www.linkedin.com/in/cart-valderama/")
+              handleRedirect(
+                "https://www.linkedin.com/in/cart-valderama/",
+                "LinkedIn"
+              )
             }
           />
         </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BsLightningChargeFill } from "react-icons/bs";
+import { usePhoneUIStore } from "../../../store/phoneUIStore";
 
 interface BatteryManager extends EventTarget {
   charging: boolean;
@@ -14,12 +15,13 @@ declare global {
   }
 }
 
-const StatusBar = ({ isHideStatus }: { isHideStatus: boolean }) => {
+const StatusBar = () => {
   const [time, setTime] = useState<Date>(new Date());
   const [batteryLevel, setBatteryLevel] = useState<number>(100);
   const [isCharging, setIsCharging] = useState<boolean>(false);
-
   const [batterySupported, setBatterySupported] = useState<boolean>(true);
+
+  const { isHideStatus } = usePhoneUIStore();
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);

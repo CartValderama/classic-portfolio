@@ -3,10 +3,10 @@ import { useStart } from "../../context/StartContext";
 import { apps } from "../../data/apps";
 import { useRef } from "react";
 import { useApplicationStore } from "../../store/applicationStore";
-import ApplicationLauncher from "./win95/ApplicationLauncher";
 import Notification from "./win95/Notification";
 import Taskbar from "./win95/TaskBar";
 import Window from "./win95/Window";
+import DesktopApp from "./win95/DesktopApp";
 
 const DesktopScreen = () => {
   const { start } = useStart();
@@ -30,7 +30,7 @@ const DesktopScreen = () => {
         ref={constraintsRef}
       >
         {apps.map(({ url, label, id }) => (
-          <ApplicationLauncher key={id} id={id} url={url} label={label} />
+          <DesktopApp key={id} id={id} url={url} label={label} />
         ))}
 
         {apps

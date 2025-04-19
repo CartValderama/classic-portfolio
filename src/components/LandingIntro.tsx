@@ -20,10 +20,10 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
       </h1>
 
       <div
-        className={`flex flex-col gap-y-2 leading-7 ${
+        className={`flex flex-col gap-y-2 leading-8 ${
           isMobileLayout
-            ? "font-geist mobile:text-center mobile:w-[80%] text-md mobile:text-lg"
-            : "font-geist leading-8 xl:leadin-9 2xl:leading-10 3xl:leading-12 4xl:leading-14 2xl:text-xl 3xl:text-2xl 4xl:text-3xl"
+            ? "font-geist mobile:text-center mobile:w-[80%] text-md mobile:text-lg "
+            : "font-geist  xl:leadin-9 2xl:leading-10 3xl:leading-12 4xl:leading-14 2xl:text-xl 3xl:text-2xl 4xl:text-3xl"
         }`}
       >
         <p>
@@ -47,7 +47,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
           type="button"
           className={`button-primary ${
             isMobileLayout
-              ? "text-sm mobile:text-md min-w-42"
+              ? "mobile:text-md min-w-42 py-3 px-4"
               : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6 4xl:text-2xl 4xl:py-5 4xl:px-7"
           }`}
           onClick={() => setStart(!start)}
@@ -60,7 +60,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
           type="button"
           className={`button-secondary  ${
             isMobileLayout
-              ? "text-sm mobile:text-md min-w-42"
+              ? "mobile:text-md min-w-42 py-3 px-4"
               : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6 4xl:text-2xl 4xl:py-5 4xl:px-7"
           }`}
           onClick={() =>
