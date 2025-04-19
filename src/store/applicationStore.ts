@@ -1,18 +1,17 @@
 import { create } from "zustand";
-import { AppID } from "../../lib/type";
 
-type AppState = Record<AppID, boolean>;
+type AppState = Record<string, boolean>;
 
 type ApplicationStore = {
   openWindows: AppState;
-  activeWindow: AppID | "";
+  activeWindow: string | "";
   minimizedWindows: AppState;
-  windowOrder: AppID[];
-  handleActiveWindow: (id: AppID) => void;
-  handleOpenWindows: (id: AppID) => void;
-  handleMinimizeRestore: (id: AppID) => void;
+  windowOrder: string[];
+  handleActiveWindow: (id: string) => void;
+  handleOpenWindows: (id: string) => void;
+  handleMinimizeRestore: (id: string) => void;
   InactiveAll: () => void;
-  closeWindow: (id: AppID) => void;
+  closeWindow: (id: string) => void;
 };
 
 const initialWindowState: AppState = {

@@ -3,7 +3,7 @@ import { Clock } from "./Clock";
 import { AppProps } from "../../../lib/type";
 import { useEffect, useRef, useState } from "react";
 import { useStart } from "../../../context/StartContext";
-import { useApplicationStore } from "../../../store/AppStore/ApplicationStore";
+import { useApplicationStore } from "../../../store/applicationStore";
 import { useNotification } from "../../../context/NotifcationContext";
 import {
   RiGithubFill,

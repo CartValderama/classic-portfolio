@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { WordleStore } from "../../store/gameStore/WordleStore";
+import { WordleStore } from "../../store/gameStore/wordleStore";
 import { Qwerty } from "./wordle/Qwerty";
 import { Guess } from "./wordle/Guess";
 

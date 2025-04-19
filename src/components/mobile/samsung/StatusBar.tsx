@@ -21,22 +21,18 @@ const StatusBar = ({ isHideStatus }: { isHideStatus: boolean }) => {
 
   const [batterySupported, setBatterySupported] = useState<boolean>(true);
 
-  // Update time every second
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  // Get actual battery information
   useEffect(() => {
     if (navigator.getBattery) {
       navigator
         .getBattery()
         .then((battery: BatteryManager) => {
-          // Update state with current battery info
           updateBatteryInfo(battery);
 
-          // Set up event listeners
           battery.addEventListener("levelchange", () =>
             updateBatteryInfo(battery)
           );
@@ -61,7 +57,6 @@ const StatusBar = ({ isHideStatus }: { isHideStatus: boolean }) => {
       setBatterySupported(false);
     }
 
-    // Fallback simulation if battery API not supported
     if (!navigator.getBattery) {
       const interval = setInterval(() => {
         setBatteryLevel((prev) => Math.max(5, (prev - 1) % 100));

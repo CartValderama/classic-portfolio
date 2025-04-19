@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import { useStart } from "../../context/StartContext";
-import Window from "./win95/Window";
+import { apps } from "../../data/apps";
 import { useRef } from "react";
-import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
+import { useApplicationStore } from "../../store/applicationStore";
+import ApplicationLauncher from "./win95/ApplicationLauncher";
 import Notification from "./win95/Notification";
 import TaskBar from "./win95/TaskBar";
-import { apps } from "../../data/apps";
+import Window from "./win95/Window";
 
 const DesktopScreen = () => {
   const { start } = useStart();
   const constraintsRef = useRef<HTMLDivElement | null>(null);
-  const { handleOpenWindows, openWindows } = useApplicationStore();
+  const { openWindows } = useApplicationStore();
 
   return (
     <motion.div
@@ -28,38 +29,10 @@ const DesktopScreen = () => {
         className="grid grid-flow-col-dense grid-rows-[repeat(auto-fill,minmax(70px,1fr))] auto-cols-[4rem] 3xl:[@media(min-height:860px)]:gap-8 2xl:[@media(min-height:860px)]:gap-4 gap-2 h-full w-full relative pt-4 pb-8 px-2 3xl:[@media(min-height:860px)]:py-8 3xl:[@media(min-height:860px)]:px-4 overflow-hidden "
         ref={constraintsRef}
       >
-        {/* Render desktop icons */}
+        {apps.map(({ url, label, id }) => (
+          <ApplicationLauncher key={id} id={id} url={url} label={label} />
+        ))}
 
-        {apps
-          .slice()
-          .reverse()
-          .map(({ url, label, id }) => (
-            <button
-              type="button"
-              key={id}
-              className="flex flex-col justify-center items-center text-[0.9rem] cursor-pointer group focus:outline-none 3xl:[@media(min-height:860px)]:text-lg "
-              onDoubleClick={() => handleOpenWindows(id)}
-              onPointerDown={(e) => {
-                if (e.pointerType === "touch" || e.pointerType === "pen") {
-                  e.preventDefault();
-                  handleOpenWindows(id);
-                }
-              }}
-            >
-              <div className="relative ">
-                <img
-                  src={url}
-                  alt="Wordle"
-                  className="w-8 h-8 3xl:[@media(min-height:860px)]:w-10 3xl:[@media(min-height:860px)]:h-10 4xl:[@media(min-height:860px)]:w-12 4xl:[@media(min-height:860px)]:h-12"
-                />
-                <div className="absolute inset-0 bg-[#091558] opacity-0 group-focus:opacity-80" />
-              </div>
-              <span className="group-focus:text-white group-focus:bg-[#091558] border-[.5px] border-dashed border-transparent group-focus:border-white truncate w-14 3xl:[@media(min-height:860px)]:w-18">
-                {label}
-              </span>
-            </button>
-          ))}
-        {/* Render windows */}
         {apps
           .filter(({ id }) => openWindows[id])
           .map(({ id, Component, label, url, iWidth, iHeight }) => (
@@ -82,7 +55,6 @@ const DesktopScreen = () => {
           ))}
       </motion.div>
 
-      {/* TaskBar */}
       <TaskBar apps={apps} />
     </motion.div>
   );

@@ -1,5 +1,5 @@
 import { MdKeyboardBackspace } from "react-icons/md";
-import { WordleStore } from "../../../store/gameStore/WordleStore";
+import { WordleStore } from "../../../store/gameStore/wordleStore";
 import { GrReturn } from "react-icons/gr";
 
 export const Qwerty = () => {

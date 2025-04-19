@@ -9,7 +9,7 @@ import {
 import { AppProps } from "../lib/type";
 import AboutMe from "../components/AboutMe";
 import Credits from "../components/Credits";
-import OldPorfolio from "../components/monitor/OldPortolio";
+import OldPorfolio from "../components/OldPortolio";
 import Tictactoe from "../components/games/Tictactoe";
 import Guide from "../components/Guide";
 import Wordle from "../components/games/Wordle";
@@ -21,6 +21,26 @@ import guide_icon from "../assets/icons/guide_icon.svg";
 import aboutme_icon from "../assets/icons/aboutme_icon.svg";
 
 export const apps: AppProps[] = [
+  {
+    Icon: TbHelp,
+    Component: Guide,
+    url: guide_icon,
+    style: "text-green-200 bg-green-900 p-2 rounded",
+    label: "Guide",
+    id: "guide",
+    iWidth: 300,
+    iHeight: 390,
+  },
+  {
+    Icon: TbNews,
+    Component: AboutMe,
+    url: aboutme_icon,
+    style: "text-amber-900 bg-amber-300 p-2 rounded",
+    label: "About Me",
+    id: "about",
+    iWidth: 400,
+    iHeight: 400,
+  },
   {
     Icon: TbAccessible,
     Component: OldPorfolio,
@@ -60,26 +80,5 @@ export const apps: AppProps[] = [
     id: "tictactoe",
     iWidth: 300,
     iHeight: 400,
-  },
-
-  {
-    Icon: TbNews,
-    Component: AboutMe,
-    url: aboutme_icon,
-    style: "text-amber-900 bg-amber-300 p-2 rounded",
-    label: "About Me",
-    id: "about",
-    iWidth: 400,
-    iHeight: 400,
-  },
-  {
-    Icon: TbHelp,
-    Component: Guide,
-    url: guide_icon,
-    style: "text-green-200 bg-green-900 p-2 rounded",
-    label: "Guide",
-    id: "guide",
-    iWidth: 300,
-    iHeight: 390,
   },
 ] as const;

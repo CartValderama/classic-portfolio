@@ -1,23 +1,20 @@
 import { useStart } from "../../context/StartContext";
 import { apps } from "../../data/apps";
 import { links } from "../../data/links";
-import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
+import { useApplicationStore } from "../../store/applicationStore";
 import { motion } from "framer-motion";
 import { IoAppsSharp } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
-import { HomeScreenProps } from "../../lib/type";
-import StatusBar from "./StatusBar";
-import NotificationMobile from "./samsung/NotificationMobile";
 import { useNotification } from "../../context/NotifcationContext";
+import { usePhoneUIStore } from "../../store/phoneUIStore";
+import StatusBar from "./samsung/StatusBar";
+import NotificationPhone from "./samsung/NotificationPhone";
 
-const HomeScreen = ({
-  isShowApps,
-  setShowApps,
-  isHideStatus,
-  setHideStatus,
-}: HomeScreenProps) => {
+const HomeScreen = () => {
   const { start } = useStart();
   const { activeWindow, handleOpenWindows } = useApplicationStore();
+  const { isShowApps, isHideStatus, setShowApps, setHideStatus } =
+    usePhoneUIStore();
   const { showNotification } = useNotification();
 
   return (
@@ -41,7 +38,7 @@ const HomeScreen = ({
       <StatusBar isHideStatus={isHideStatus} />
 
       <div className="z-10 h-full flex flex-col justify-between relative mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:flex-row-reverse mobile:[@media(max-height:450px)]:items-stretch ">
-        <NotificationMobile />
+        <NotificationPhone />
         <div className="p-4 h-full flex flex-col justify-between mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:h-auto mobile:[@media(max-height:450px)]:flex-row-reverse">
           <div
             className={`${
@@ -132,8 +129,6 @@ const HomeScreen = ({
             </button>
           </div>
         </div>
-
-        {/* Wordle Window */}
 
         {apps.map(({ id, Component }) => (
           <motion.div

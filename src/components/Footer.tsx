@@ -13,7 +13,7 @@ const Footer = () => {
         transformOrigin: "left 300%",
       }}
     >
-      <div className="w-full 4xl:max-w-[2200px] 3xl:max-w-[1800px] 2xl:max-w-[1400px] max-w-[1200px] border-x border-dashed font-normal border-[#e4e4e7b3] dark:border-[#27272ab3] mobile:px-8 px-4 py-5 text-[#71717a] dark:text-white">
+      <div className="w-full 4xl:max-w-[2260px] 3xl:max-w-[1860px] 2xl:max-w-[1460px] xl:max-w-[1260px] max-w-[1060px] border-x border-dashed font-normal border-[#e4e4e7b3] dark:border-[#27272ab3] mobile:px-8 px-4 py-5 text-[#71717a] dark:text-white">
         <p>
           &copy; 2024 Built by Cart Antonio Valderama. The source code is
           available on Github

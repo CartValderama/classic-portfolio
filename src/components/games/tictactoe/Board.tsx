@@ -1,4 +1,4 @@
-import useTicTacToeStore from "../../../store/gameStore/TitactoeStore";
+import useTicTacToeStore from "../../../store/gameStore/tictactoeStore";
 
 const Board = () => {
   const { board, winner, isDraw, resetGame, makeMove } = useTicTacToeStore();

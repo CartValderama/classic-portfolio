@@ -1,6 +1,6 @@
-import useTicTacToeStore from "../../store/gameStore/TitactoeStore";
+import useTicTacToeStore from "../../store/gameStore/tictactoeStore";
 import { useEffect } from "react";
-import { useApplicationStore } from "../../store/AppStore/ApplicationStore";
+import { useApplicationStore } from "../../store/applicationStore";
 import Board from "./tictactoe/Board";
 
 // Constants

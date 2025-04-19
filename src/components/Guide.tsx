@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AiOutlinePoweroff, AiOutlineRollback } from "react-icons/ai";
 import { IoAppsSharp } from "react-icons/io5";
 import { LuRectangleHorizontal } from "react-icons/lu";
-import { useApplicationStore } from "../store/AppStore/ApplicationStore";
+import { useApplicationStore } from "../store/applicationStore";
 
 type Slide = {
   icon: React.ReactNode;

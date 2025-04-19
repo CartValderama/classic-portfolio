@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa6";
 import { MdMinimize } from "react-icons/md";
 import { useStart } from "../../../context/StartContext";
-import { useApplicationStore } from "../../../store/AppStore/ApplicationStore";
+import { useApplicationStore } from "../../../store/applicationStore";
 import { AppID } from "../../../lib/type";
 
 type WindowProps = {

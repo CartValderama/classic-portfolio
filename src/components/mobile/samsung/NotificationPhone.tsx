@@ -1,6 +1,6 @@
 import { useNotification } from "../../../context/NotifcationContext";
 
-const NotificationMobile = () => {
+const NotificationPhone = () => {
   const { notification, isVisible, hideNotification } = useNotification();
 
   if (!notification) return null;
@@ -47,4 +47,4 @@ const NotificationMobile = () => {
   );
 };
 
-export default NotificationMobile;
+export default NotificationPhone;
