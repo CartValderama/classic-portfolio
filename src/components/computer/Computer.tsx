@@ -5,9 +5,8 @@ import Monitor from "./computer_parts/Monitor";
 import { useBreakpoints } from "../../lib/hooks/useBreakpoints";
 
 const Computer = () => {
-  const { start } = useStart();
+  const { start, transition } = useStart();
   const breakpoints = useBreakpoints();
-  const transition = { duration: 0.5, delay: 1 };
 
   return (
     <motion.div
