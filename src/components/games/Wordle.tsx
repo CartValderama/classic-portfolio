@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useWorldStore } from "../../store/gameStore/wordleStore";
+import { useWordleStore } from "../../store/game_store/wordleStore";
 import { Qwerty } from "./wordle/Qwerty";
 import { Guess } from "./wordle/Guess";
 
 const Wordle = () => {
   const { init, word, guesses, currentGuess, handleKeyup, won, lost } =
-    useWorldStore();
+    useWordleStore();
 
   useEffect(() => {
     init();

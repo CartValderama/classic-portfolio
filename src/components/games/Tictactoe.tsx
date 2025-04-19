@@ -1,4 +1,4 @@
-import useTicTacToeStore from "../../store/gameStore/tictactoeStore";
+import useTicTacToeStore from "../../store/game_store/tictactoeStore";
 import { useEffect } from "react";
 import { useApplicationStore } from "../../store/applicationStore";
 import Board from "./tictactoe/Board";

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import words from "./gameData/word.json";
+import words from "./game_data/word.json";
 
 type WordleStoreProps = {
   word: string;
@@ -16,7 +16,7 @@ type WordleStoreProps = {
   inexactGuesses: () => string[];
 };
 
-export const useWorldStore = create<WordleStoreProps>((set, get) => ({
+export const useWordleStore = create<WordleStoreProps>((set, get) => ({
   word: "",
   guesses: Array(5).fill(""),
   currentGuess: 0,
