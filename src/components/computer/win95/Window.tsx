@@ -1,17 +1,13 @@
 import { useDragControls, motion, useMotionValue } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import {
-  FaRegWindowMaximize,
-  FaRegWindowRestore,
-  FaXmark,
-} from "react-icons/fa6";
-import { MdMinimize } from "react-icons/md";
 import { useStart } from "../../../context/StartContext";
 import { useApplicationStore } from "../../../store/applicationStore";
-import { AppID } from "../../../lib/type";
+import { PiBrowserBold, PiBrowsersBold } from "react-icons/pi";
+import { FaXmark } from "react-icons/fa6";
+import { MdMinimize } from "react-icons/md";
 
 type WindowProps = {
-  id: AppID;
+  id: string;
   constraintsRef: React.RefObject<HTMLDivElement | null>;
   title: string;
   icon: string;
@@ -219,7 +215,7 @@ const Window = ({
             </button>
             <button
               type="button"
-              className={`win95-button p-0.5 ${
+              className={`win95-button ${
                 !isResize ? "hidden" : "flex"
               } 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6`}
               onClick={(e) => {
@@ -229,20 +225,20 @@ const Window = ({
               }}
             >
               {isMaximized ? (
-                <FaRegWindowRestore className="text-black text-[.88rem]" />
+                <PiBrowsersBold className="text-black" />
               ) : (
-                <FaRegWindowMaximize className="text-black text-[.88rem]" />
+                <PiBrowserBold className="text-black" />
               )}
             </button>
             <button
               type="button"
-              className="win95-button flex p-0.5 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
+              className="win95-button flex 3xl:[@media(min-height:1060px)]:w-6 3xl:[@media(min-height:1060px)]:h-6"
               onClick={(e) => {
                 e.stopPropagation();
                 handleClose();
               }}
             >
-              <FaXmark className="text-black text-[.88rem]" />
+              <FaXmark className="text-black" />
             </button>
           </div>
         </div>
