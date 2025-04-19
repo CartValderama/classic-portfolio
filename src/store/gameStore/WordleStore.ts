@@ -16,7 +16,7 @@ type WordleStoreProps = {
   inexactGuesses: () => string[];
 };
 
-export const WordleStore = create<WordleStoreProps>((set, get) => ({
+export const useWorldStore = create<WordleStoreProps>((set, get) => ({
   word: "",
   guesses: Array(5).fill(""),
   currentGuess: 0,
