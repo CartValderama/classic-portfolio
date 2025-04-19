@@ -1,4 +1,5 @@
 import { useStart } from "../context/StartContext";
+import { useThemeMonitor } from "../lib/hooks/useThemeMonitorChanges";
 
 type LandingIntroProps = {
   isMobileLayout: boolean;
@@ -6,11 +7,16 @@ type LandingIntroProps = {
 
 const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
   const { start, setStart } = useStart();
+  const isThemeChanging = useThemeMonitor();
+
+  const colorTransition = isThemeChanging
+    ? "transition-colors duration-1000"
+    : "transition-none";
 
   return (
     <>
       <h1
-        className={`font-bold ${
+        className={`font-bold ${colorTransition} ${
           isMobileLayout
             ? "text-3xl mobile:text-4xl"
             : "font-geist text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl"
@@ -20,7 +26,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
       </h1>
 
       <div
-        className={`flex flex-col gap-y-2 leading-8 ${
+        className={`flex flex-col gap-y-2 leading-8 ${colorTransition} ${
           isMobileLayout
             ? "font-geist mobile:text-center mobile:w-[80%] text-md mobile:text-lg "
             : "font-geist  xl:leadin-9 2xl:leading-10 3xl:leading-12 4xl:leading-14 2xl:text-xl 3xl:text-2xl 4xl:text-3xl"
@@ -42,10 +48,12 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
         </p>
       </div>
 
-      <div className="flex lg:justify-start mobile:justify-center gap-x-3 mt-2 w-full">
+      <div
+        className={`flex lg:justify-start mobile:justify-center gap-x-3 mt-2 w-full `}
+      >
         <button
           type="button"
-          className={`button-primary ${
+          className={`button-primary ${colorTransition} ${
             isMobileLayout
               ? "mobile:text-md min-w-42 py-3 px-4"
               : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6 4xl:text-2xl 4xl:py-5 4xl:px-7"
@@ -58,7 +66,8 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
 
         <button
           type="button"
-          className={`button-secondary  ${
+          className={`button-secondary ${colorTransition}
+          ${
             isMobileLayout
               ? "mobile:text-md min-w-42 py-3 px-4"
               : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6 4xl:text-2xl 4xl:py-5 4xl:px-7"

@@ -4,7 +4,7 @@ import { useStart } from "../../../context/StartContext";
 import Menu from "./taskbar/Menu";
 import TabList from "./taskbar/TabList";
 
-const TaskBar = () => {
+const Taskbar = () => {
   const { start } = useStart();
 
   return (
@@ -21,4 +21,4 @@ const TaskBar = () => {
   );
 };
 
-export default TaskBar;
+export default Taskbar;

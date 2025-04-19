@@ -16,7 +16,7 @@ const SystemUnit = () => {
   const expandedHeight = parseInt(breakpoints.height) * 1.85 + "rem";
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center select-none">
       <motion.div
         initial={{ width: initialWidth, height: initialHeight }}
         animate={

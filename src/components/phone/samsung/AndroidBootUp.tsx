@@ -1,38 +1,66 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useStart } from "../../../context/StartContext";
 import { DiAndroid } from "react-icons/di";
+import { useEffect, useState } from "react";
 
 const AndroidBootUp = () => {
   const { start } = useStart();
+  const [showContent, setContent] = useState(true);
+
+  useEffect(() => {
+    const contentTimer = setTimeout(() => {
+      setContent(false);
+    }, 6500);
+
+    return () => {
+      clearTimeout(contentTimer);
+      setContent(true);
+    };
+  }, [start]);
 
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      animate={start ? { opacity: 0 } : { opacity: 1 }}
-      transition={{ duration: 0.1, delay: 4 }}
-      className="relative flex-1 flex flex-col gap-4 items-center justify-center mobile:[@media(max-height:450px)]:rotate-90"
+      initial={{ display: "none" }}
+      animate={{ display: start ? "flex" : "none" }}
+      transition={{ delay: 1 }}
+      className="w-full h-full flex flex-col items-center justify-center bg-black gap-6 mobile:[@media(max-height:450px)]:rotate-90"
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={start ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ delay: 1.5 }}
-      >
-        <DiAndroid className="text-7xl text-lime-500" />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={start ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ delay: 2 }}
-        className="w-20 h-2.5 bg-gray-700 rounded-full overflow-hidden"
-      >
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 0.5, delay: 2.5, ease: "easeInOut" }}
-          className="h-full bg-white rounded-full"
-        />
-      </motion.div>
+      <AnimatePresence>
+        {showContent && start && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: start ? 1 : 0 }}
+              transition={{ delay: 1.1 }}
+            >
+              <DiAndroid className="text-7xl text-lime-500" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{
+                opacity: start ? 1 : 0,
+                width: start ? "160px" : 0,
+              }}
+              transition={{
+                opacity: { delay: 2 },
+                width: { delay: 2, duration: 0 },
+              }}
+              className="h-2.5 bg-gray-700 rounded-full overflow-hidden"
+            >
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: start ? "100%" : 0 }}
+                transition={{
+                  delay: 2.5,
+                  duration: 3,
+                  ease: "easeInOut",
+                }}
+                className="h-full bg-lime-500 rounded-full"
+              />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
