@@ -4,9 +4,9 @@ import { apps } from "../../data/apps";
 import { useRef } from "react";
 import { useApplicationStore } from "../../store/applicationStore";
 import Notification from "./win95/Notification";
-import Taskbar from "./win95/Taskbar";
 import Window from "./win95/Window";
 import DesktopApp from "./win95/DesktopApp";
+import Taskbar from "./win95/Taskbar";
 
 const DesktopScreen = () => {
   const { start } = useStart();
