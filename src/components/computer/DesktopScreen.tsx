@@ -6,7 +6,7 @@ import { useApplicationStore } from "../../store/applicationStore";
 import Notification from "./win95/Notification";
 import Window from "./win95/Window";
 import DesktopApp from "./win95/DesktopApp";
-import Taskbar from "./win95/Taskbar";
+import taskbar from "./win95/Taskbar";
 
 const DesktopScreen = () => {
   const { start } = useStart();
