@@ -6,7 +6,8 @@ import { usePhoneUIStore } from "../../../store/phoneUIStore";
 
 const PhoneButtons = () => {
   const { setStart } = useStart();
-  const { activeWindow, InactiveAll, closeWindow } = useApplicationStore();
+  const { activeWindow, InactiveAll, closeWindow, closeAllWindows } =
+    useApplicationStore();
   const { setShowApps, setHideStatus } = usePhoneUIStore();
   const { showNotification } = useNotification();
 
@@ -19,6 +20,7 @@ const PhoneButtons = () => {
         setHideStatus(true);
         setShowApps(false);
         setStart(false);
+        closeAllWindows();
       },
     });
   };

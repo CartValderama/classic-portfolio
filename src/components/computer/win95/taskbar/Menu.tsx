@@ -1,19 +1,21 @@
 import { useEffect, useRef, useState } from "react";
+import { useNotification } from "../../../../context/NotifcationContext";
+import { useStart } from "../../../../context/StartContext";
+import { useApplicationStore } from "../../../../store/applicationStore";
 import {
   RiShutDownFill,
   RiGithubFill,
   RiLinkedinBoxFill,
   RiListSettingsFill,
 } from "react-icons/ri";
-import { useNotification } from "../../../../context/NotifcationContext";
-import { useStart } from "../../../../context/StartContext";
-import MenuItems from "./MenuItems";
+import MenuItem from "./MenuItem";
 
 const Menu = () => {
   const [showTaskBarMenu, setShowTaskBarMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { showNotification } = useNotification();
   const { setStart } = useStart();
+  const { closeAllWindows } = useApplicationStore();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -32,7 +34,10 @@ const Menu = () => {
       message:
         "This will shut down the computer. Are you sure you want to proceed?",
       type: "question",
-      action: () => setStart(false),
+      action: () => {
+        setStart(false);
+        closeAllWindows();
+      },
     });
   };
 
@@ -60,13 +65,13 @@ const Menu = () => {
           ValderamaOS
         </p>
         <div className="flex flex-col-reverse w-full">
-          <MenuItems
+          <MenuItem
             icon={<RiShutDownFill className="text-3xl text-red-950 " />}
             text="Shutdown..."
             action={handleShutDown}
           />
           <span className="border border-white border-t-[#7b7d7b] border-l-[#7b7d7b] flex mx-1" />
-          <MenuItems
+          <MenuItem
             icon={<RiGithubFill className="text-3xl text-black" />}
             text="Source Code"
             action={() =>
@@ -76,7 +81,7 @@ const Menu = () => {
               )
             }
           />
-          <MenuItems
+          <MenuItem
             icon={<RiLinkedinBoxFill className="text-3xl text-sky-800" />}
             text="Let's Connect!"
             action={() =>

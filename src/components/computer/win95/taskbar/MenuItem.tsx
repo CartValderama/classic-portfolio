@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
 
-type MenuItemsProps = {
+type MenuItemProps = {
   icon: ReactNode;
   text: string;
   action: () => void;
 };
 
-const MenuItems = ({ icon, text, action }: MenuItemsProps) => {
+const MenuItem = ({ icon, text, action }: MenuItemProps) => {
   return (
     <button
       type="button"
@@ -19,4 +19,4 @@ const MenuItems = ({ icon, text, action }: MenuItemsProps) => {
   );
 };
 
-export default MenuItems;
+export default MenuItem;
