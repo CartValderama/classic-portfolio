@@ -10,7 +10,7 @@ const Monitor = () => {
   const initialSize = breakpoints;
 
   const expandedWidth = "100%";
-  const expandedHeight = parseInt(breakpoints.height) * 3.7 + "rem";
+  const expandedHeight = parseInt(breakpoints.height) * 3.6 + "rem";
 
   return (
     <motion.div
