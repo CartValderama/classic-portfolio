@@ -24,7 +24,7 @@ const Footer = () => {
         className={`w-full 4xl:max-w-[2060px] 3xl:max-w-[1860px] 2xl:max-w-[1460px] xl:max-w-[1260px] max-w-[1060px] font-normal px-4 lg:px-8 py-5`}
       >
         <p className={`${colorTransition} lg:text-base text-sm`}>
-          &copy; 2024 Built by Cart Antonio Valderama. The source code is
+          &copy; 2025 Built by Cart Antonio Valderama. The source code is
           available on Github
         </p>
       </div>
