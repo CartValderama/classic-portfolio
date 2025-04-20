@@ -10,7 +10,7 @@ const MainScreen = () => {
   const { start } = useStart();
 
   return (
-    <div className="w-full h-full relative bg-black">
+    <div className="w-full h-full relative bg-[#09090b]">
       <BootUpScreen>
         <WindowsBootup />
       </BootUpScreen>

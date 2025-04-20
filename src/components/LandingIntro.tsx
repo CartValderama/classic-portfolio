@@ -10,7 +10,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
   const isThemeChanging = useThemeMonitor();
 
   const colorTransition = isThemeChanging
-    ? "transition-colors duration-1000"
+    ? "transition-colors duration-500"
     : "transition-none";
 
   return (
@@ -18,7 +18,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
       <h1
         className={`font-bold ${colorTransition} ${
           isMobileLayout
-            ? "text-3xl mobile:text-4xl"
+            ? "text-4xl mobile:text-5xl"
             : "font-geist text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl"
         }`}
       >
@@ -28,14 +28,14 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
       <div
         className={`flex flex-col gap-y-2 leading-8 ${colorTransition} ${
           isMobileLayout
-            ? "font-geist mobile:text-center mobile:w-[80%] text-md mobile:text-lg "
-            : "font-geist  xl:leadin-9 2xl:leading-10 3xl:leading-12 4xl:leading-14 2xl:text-xl 3xl:text-2xl 4xl:text-3xl"
+            ? "font-geist mobile:text-center mobile:w-[80%] mobile:text-xl mobile:leading-9"
+            : "font-geist xl:leadin-9 2xl:leading-10 3xl:leading-12 4xl:leading-14 2xl:text-xl 3xl:text-2xl 4xl:text-3xl"
         }`}
       >
         <p>
           A portfolio inspired by the old devices I used as a kid, featuring
           Windows 95 interface and a Samsung Galaxy Ace layout.
-          <span className="font-bold">
+          <span className="font-bold text-shadow-sm">
             {isMobileLayout
               ? " Since you're viewing this on a mobile or tablet-sized screen, you're currently in the Samsung Galaxy Ace layout."
               : " Since you're viewing this on a desktop-sized screen, you're currently in Windows 95 layout."}
@@ -49,7 +49,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
       </div>
 
       <div
-        className={`flex lg:justify-start mobile:justify-center gap-x-3 mt-2 w-full `}
+        className={`flex lg:justify-start mobile:justify-center gap-x-1 mt-2 w-full `}
       >
         <button
           type="button"

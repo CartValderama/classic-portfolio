@@ -22,15 +22,16 @@ export default function ThemeProvider({
   }, [theme]);
 
   useEffect(() => {
-    setTheme("dark");
-    document.documentElement.classList.add("dark");
-    localStorage.setItem("theme", "dark");
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
+    const initialTheme = savedTheme || "dark";
+    setTheme(initialTheme);
+
+    document.documentElement.classList.add(initialTheme);
   }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => {
       const newTheme = prev === "light" ? "dark" : "light";
-      // Update localStorage when toggling
       localStorage.setItem("theme", newTheme);
       return newTheme;
     });

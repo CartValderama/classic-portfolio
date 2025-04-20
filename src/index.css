@@ -106,11 +106,11 @@ body {
 }
 
 .button-secondary {
-  @apply inline-flex items-center justify-center rounded-md font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:pointer-events-none text-[#09090b] hover:bg-[#09090b]/5 dark:text-white dark:hover:bg-white/10 cursor-pointer;
+  @apply inline-flex items-center justify-center rounded-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:pointer-events-none bg-[#FD9A02] text-[#B44819] hover:bg-[#01928B] hover:text-[#f5f3c7] dark:bg-transparent dark:text-amber-50 dark:hover:bg-white/10 dark:hover:text-amber-50 cursor-pointer;
 }
 
 .button-primary {
-  @apply inline-flex items-center justify-center rounded-md font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:pointer-events-none bg-[#09090b] text-white hover:bg-[#09090b]/90 dark:bg-white dark:text-black dark:hover:bg-white/90 shadow-sm cursor-pointer;
+  @apply inline-flex items-center justify-center rounded-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:pointer-events-none bg-[#B44819] text-[#f5f3c7]  hover:bg-[#01928B] hover:text-[#f5f3c7] dark:bg-amber-50 dark:text-[#09090b] dark:hover:bg-amber-50/70 dark:hover:text-amber-50 shadow-sm cursor-pointer;
 }
 
 .win95-button {

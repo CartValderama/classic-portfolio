@@ -7,7 +7,7 @@ import LayoutBG from "./components/LayoutBG";
 const Layout = () => {
   return (
     <div
-      className={`relative overflow-hidden flex items-center default-scroll text-black dark:text-white`}
+      className={`relative overflow-hidden flex items-center default-scroll text-[#774320] dark:text-amber-50`}
     >
       <LayoutBG />
       <Header />

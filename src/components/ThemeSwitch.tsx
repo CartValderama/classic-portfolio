@@ -18,9 +18,9 @@ export default function ThemeSwitch({ className }: ThemeSwitchProps) {
       className={className}
     >
       {theme === "light" ? (
-        <BiMoon className="text-xl" />
+        <BiMoon className="text-2xl" />
       ) : (
-        <BiSun className="text-xl" />
+        <BiSun className="text-2xl" />
       )}
     </button>
   );

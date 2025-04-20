@@ -10,4 +10,11 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      const preferredTheme = savedTheme || "dark";
+      document.documentElement.classList.add(preferredTheme);
+    })();
+  </script>
 </html>

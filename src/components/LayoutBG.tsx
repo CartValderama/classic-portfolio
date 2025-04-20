@@ -12,7 +12,7 @@ const LayoutBG = () => {
       animate={
         theme === "light"
           ? {
-              backgroundColor: "#f9fafb",
+              backgroundColor: "#F5F3C7",
               clipPath: "circle(141.42% at 100% 0%)",
             }
           : {
@@ -21,7 +21,7 @@ const LayoutBG = () => {
             }
       }
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="absolute inset-0 w-full h-full"
+      className="absolute inset-0 w-full h-full -z-10"
     />
   );
 };
