@@ -68,8 +68,8 @@ export const apps: AppProps[] = [
     style: "text-white bg-[#55a459] p-2 rounded",
     label: "Wordle",
     id: "wordle",
-    iWidth: 300,
-    iHeight: 450,
+    iWidth: 350,
+    iHeight: 500,
   },
   {
     Icon: TbTicTac,
@@ -78,7 +78,7 @@ export const apps: AppProps[] = [
     style: "text-white bg-amber-700 p-2 rounded",
     label: "Tictactoe",
     id: "tictactoe",
-    iWidth: 300,
-    iHeight: 400,
+    iWidth: 350,
+    iHeight: 450,
   },
 ] as const;

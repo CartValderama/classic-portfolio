@@ -28,7 +28,7 @@ const Tictactoe = () => {
   }, [openWindows]);
 
   return (
-    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 lg:h-auto h-full lg:bg-transparent bg-amber-700 lg:text-black text-white lg:p-0 p-4 select-none">
+    <div className="relative flex flex-col flex-1 overflow-auto lg:px-0.5 lg:h-auto h-full lg:bg-transparent bg-amber-700 lg:text-black text-white lg:p-0 p-4 select-none lg:text-lg">
       <div className="h-7 border-b  border-b-[#868a8e] items-center gap-x-4  p-1 py-2 lg:flex hidden">
         <button
           type="button"
@@ -78,7 +78,7 @@ const Tictactoe = () => {
 
       <div className="flex flex-col items-center justify-between flex-1 gap-y-2 overflow-auto lg:border border-white border-t-none border-r-[#868a8e] border-b-[#868a8e] text-[.85rem] leading-6 p-2 lg:p-1 ">
         <div className="flex items-center lg:justify-between justify-center lg:border border-white border-l-[#868a8e] border-t-[#868a8e] w-full mt-2 mb-2 lg:m-0 lg:p-2">
-          <div className="lg:block hidden 3xl:text-base">
+          <div className="lg:block hidden text-lg">
             {winner && <p>{winner === PLAYER_X ? "X wins!" : "O wins!"}</p>}
             {isDraw && <p>It's a draw!</p>}
             <p className={winner || isDraw ? "hidden" : ""}>
@@ -111,7 +111,7 @@ const Tictactoe = () => {
               versus computer
             </button>
           </div>
-          <p className="lg:block hidden 3xl:text-base">
+          <p className="lg:block hidden text-lg">
             You vs{" "}
             <span
               className={`${gameMode === "ai" ? "uppercase" : "capitalize"}`}

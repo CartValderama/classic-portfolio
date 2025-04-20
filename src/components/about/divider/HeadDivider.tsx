@@ -22,7 +22,7 @@ const HeadDivider = ({ dateOnly }: headDividerProps) => {
     <div
       className={` flex border-y my-2 ${
         dateOnly ? "justify-center " : "justify-between "
-      } items-center w-full gap-x-4 py-2 text-xs`}
+      } items-center w-full gap-x-4 py-2 lg:text-base text-sm`}
     >
       <p>{date}</p>
       <a

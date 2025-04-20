@@ -11,7 +11,9 @@ const SocialsDivider = () => {
           className="flex gap-1 items-center underline"
         >
           <FaLinkedin />
-          <span className="text-sm">Connect with me on LinkedIn</span>
+          <span className="lg:text-base text-sm">
+            Connect with me on LinkedIn
+          </span>
         </a>
       </div>
     </div>

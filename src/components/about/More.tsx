@@ -7,12 +7,14 @@ import ContactDivider from "./divider/ContactDivider";
 const More = ({ selectMenu }: selectMenuProps) => {
   return (
     <div
-      className={`flex-col max-w-xl 3xl:[@media(min-height:1060px)]:max-w-3xl flex-1 gap-y-2 ${
+      className={`flex-col max-w-2xl 3xl:[@media(min-height:1060px)]:max-w-3xl flex-1 gap-y-2 ${
         selectMenu === "More" ? "flex" : "hidden"
       }`}
     >
       <div className="flex flex-col gap-y-2">
-        <h1 className="text-4xl capitalize font-bold">Some Extra Bits</h1>
+        <h1 className="3xl:text-5xl text-4xl capitalize font-bold">
+          Some Extra Bits
+        </h1>
 
         <p>
           If you've made it this far, thanks for sticking around! Here, I'll
@@ -23,7 +25,9 @@ const More = ({ selectMenu }: selectMenuProps) => {
       <HeadDivider dateOnly={false} />
 
       <div className="flex flex-col gap-y-2 my-2">
-        <h2 className="text-2xl capitalize font-bold">languages i speak</h2>
+        <h2 className="3xl:text-4xl text-3xl capitalize font-bold">
+          languages i speak
+        </h2>
 
         <p>
           I am fluent in Filipino (Tagalog) and proficient in English (US). In
@@ -34,7 +38,9 @@ const More = ({ selectMenu }: selectMenuProps) => {
       </div>
 
       <div className="flex flex-col gap-y-2 my-2">
-        <h2 className="text-2xl capitalize font-bold">Certificates</h2>
+        <h2 className="3xl:text-4xl text-3xl capitalize font-bold">
+          Certificates
+        </h2>
         <p className="mb-2">
           Outside of academics, I have pursued additional learning through
           certifications from freeCodeCamp. These certifications have allowed me
@@ -45,7 +51,7 @@ const More = ({ selectMenu }: selectMenuProps) => {
             <li key={idx} className="flex flex-col gap-y-2">
               <div className="flex flex-col">
                 <div className="flex items-center gap-x-2">
-                  <h3 className="font-medium text-lg">{title}</h3>
+                  <h3 className="font-medium lg:text-xl text-lg">{title}</h3>
                   <a
                     href={url}
                     target="_blank"
@@ -55,7 +61,7 @@ const More = ({ selectMenu }: selectMenuProps) => {
                     <RxOpenInNewWindow />
                   </a>
                 </div>
-                <p className="text-sm">{date}</p>
+                <p className="3xl:text-base text-sm">{date}</p>
               </div>
               <p className="">{desc}</p>
             </li>

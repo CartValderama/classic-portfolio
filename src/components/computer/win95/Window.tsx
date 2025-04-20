@@ -179,7 +179,7 @@ const Window = ({
       onClick={() => handleActiveWindow(id)}
     >
       <div
-        className={`flex h-full flex-col justify-between p-0.5 overflow-hidden bg-[#c3c7cb] border border-white border-r-[#868a8e] border-b-[#868a8e] shadow-outline touch-none`}
+        className={`flex h-full flex-col justify-between p-0.5 overflow-hidden bg-[#c3c7cb] border border-white border-r-[#868a8e] border-b-[#868a8e] shadow-outline touch-none text-lg`}
       >
         {/* Title bar */}
         <div

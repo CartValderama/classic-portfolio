@@ -21,7 +21,7 @@ export const Qwerty = () => {
               className="win95-button  bg-white h-full w-full rounded lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Delete")}
             >
-              <MdKeyboardBackspace className="lg:text-black text-[#38753b] text-xl" />
+              <MdKeyboardBackspace className="lg:text-black text-[#38753b] text-base" />
             </button>
           )}
 
@@ -43,7 +43,7 @@ export const Qwerty = () => {
                 } transition-transform duration-100 lg:rounded-none`}
                 onClick={() => handleKeyClick(char)}
               >
-                <span className="text-sm py-0.5 lg:text-black ">{char}</span>
+                <span className="text-base py-0.5 lg:text-black ">{char}</span>
               </button>
             );
           })}
@@ -55,7 +55,7 @@ export const Qwerty = () => {
               className="win95-button lg:bg-gray-200 bg-white h-full w-full rounded lg:rounded-none flex items-center justify-center"
               onClick={() => handleKeyClick("Enter")}
             >
-              <GrReturn className="lg:text-black text-[#38753b] text-xl" />
+              <GrReturn className="lg:text-black text-[#38753b] text-base" />
             </button>
           )}
         </div>
