@@ -12,7 +12,7 @@ const BootUpScreen = ({ children }: { children: ReactElement }) => {
       transition={{
         delay: start ? 0.5 : 0,
       }}
-      className="absolute flex w-full h-full font-system opacity-85 blur-[.4px] bg-[#09090b] text-neutral-200 select-none"
+      className="absolute flex w-full h-full font-system bg-[#09090b] text-neutral-200 select-none"
     >
       {children}
     </motion.div>

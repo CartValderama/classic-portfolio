@@ -31,7 +31,13 @@ const AboutMe = () => {
             className={`win95-select`}
             onClick={() => setSelectMenu(menu)}
           >
-            <span className="lg:underline uppercase">{menu[0]}</span>
+            <span
+              className={`lg:underline uppercase ${
+                menu === selectMenu && "underline"
+              }`}
+            >
+              {menu[0]}
+            </span>
             <span className={`${menu === selectMenu && "underline"}`}>
               {menu.slice(1)}
             </span>
