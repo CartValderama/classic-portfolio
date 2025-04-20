@@ -1,7 +1,6 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { BiMoon, BiSun } from "react-icons/bi";
-import { useStart } from "../context/StartContext";
 
 interface ThemeSwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className: string | undefined;
@@ -9,14 +8,19 @@ interface ThemeSwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function ThemeSwitch({ className }: ThemeSwitchProps) {
   const { theme, toggleTheme } = useTheme();
-  const { start } = useStart();
+  const [isTemporarilyDisabled, setIsTemporarilyDisabled] = useState(false);
+
+  const handleClick = () => {
+    if (isTemporarilyDisabled) return;
+    toggleTheme();
+    setIsTemporarilyDisabled(true);
+    setTimeout(() => {
+      setIsTemporarilyDisabled(false);
+    }, 600);
+  };
+
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      disabled={start}
-      className={className}
-    >
+    <button type="button" onClick={handleClick} className={className}>
       {theme === "light" ? (
         <BiMoon className="text-xl 2xl:text-2xl" />
       ) : (
