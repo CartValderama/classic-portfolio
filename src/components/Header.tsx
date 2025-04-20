@@ -18,15 +18,17 @@ const Header = () => {
       initial={{ opacity: 1, y: 0 }}
       animate={start ? { opacity: 0, y: -200 } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: start ? 0 : 1 }}
-      className={`fixed top-0 z-[999] w-full flex justify-center backdrop-blur-[2.5rem] ${colorTransition}`}
+      className={`fixed top-0 z-[999] w-full flex justify-center backdrop-blur-[2.5rem]`}
       style={{
         transformOrigin: "center -300%",
       }}
     >
       <nav
-        className={`w-full 4xl:max-w-[2260px] 3xl:max-w-[1860px] 2xl:max-w-[1460px] xl:max-w-[1260px] max-w-[1060px] dark:border-[#27272ab3] px-4 lg:px-8 py-5 flex justify-between items-center ${colorTransition}`}
+        className={`w-full 4xl:max-w-[2260px] 3xl:max-w-[1860px] 2xl:max-w-[1460px] xl:max-w-[1260px] max-w-[1060px] px-4 lg:px-8 py-5 flex justify-between items-center`}
       >
-        <h1 className={`flex items-center gap-x-2 font-bold `}>
+        <h1
+          className={`flex items-center gap-x-2 font-bold ${colorTransition}`}
+        >
           <i
             className={`bg-[#B44819] text-[#f5f3c7] dark:bg-amber-50 dark:text-[#09090b] rounded-full p-2 ${colorTransition}`}
           >
