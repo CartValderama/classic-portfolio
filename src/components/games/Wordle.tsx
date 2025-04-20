@@ -17,8 +17,8 @@ const Wordle = () => {
 
   return (
     <div className="flex h-full flex-col flex-1 items-center justify-around overflow-auto lg:bg-white bg-[#55a459] lg:border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-5 py-4 select-none">
-      <div className="flex lg:w-[80%] w-full h-full flex-col gap-y-3">
-        <h1 className="lg:inline font-bold text-center lg:text-black text-white">
+      <div className="flex w-[80%] h-full flex-col gap-y-3">
+        <h1 className="lg:inline font-bold text-center lg:text-black text-white lg:text-2xl mobile:text-xl text-2xl">
           {won ? "You Win!" : lost ? "You Lose!" : "Guess The Word"}
         </h1>
         <div className="flex flex-col items-center gap-y-1 h-full">

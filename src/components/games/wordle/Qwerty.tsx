@@ -8,7 +8,7 @@ export const Qwerty = () => {
     useWordleStore();
 
   return (
-    <div className="flex flex-col items-center justify-end gap-0.5 w-full mobile:h-[35%] h-[40%] ">
+    <div className="flex flex-col items-center justify-end gap-0.5 w-full h-[30%] ">
       {abcd.map((row, idx) => (
         <div
           key={idx}
