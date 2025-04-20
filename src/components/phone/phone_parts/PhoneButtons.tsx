@@ -26,17 +26,17 @@ const PhoneButtons = () => {
   };
 
   return (
-    <div className="w-full flex items-center justify-around mt-6 mobile:[@media(max-height:450px)]:mt-0 mobile:[@media(max-height:450px)]:mr-6 mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:h-full mobile:[@media(max-height:450px)]:flex-col">
+    <div className="w-full flex items-center justify-around mt-6">
       <button
         type="button"
         className="active:scale-98 cursor-pointer"
         onClick={handleNotification}
       >
-        <AiOutlinePoweroff className="text-3xl font-bold text-[#797777] mobile:[@media(max-height:450px)]:rotate-90" />
+        <AiOutlinePoweroff className="text-3xl font-bold text-[#797777]" />
       </button>
       <button
         type="button"
-        className="w-24 h-12 border-3 border-[#515455] rounded-xl active:scale-98 cursor-pointer mobile:[@media(max-height:450px)]:w-12 mobile:[@media(max-height:450px)]:h-[25%]"
+        className="w-24 h-12 border-3 border-[#515455] rounded-xl active:scale-98 cursor-pointer"
         onClick={() => {
           setHideStatus(false);
           setShowApps(false);
@@ -55,7 +55,7 @@ const PhoneButtons = () => {
           }
         }}
       >
-        <AiOutlineRollback className="text-3xl text-[#797777] mobile:[@media(max-height:450px)]:rotate-90" />
+        <AiOutlineRollback className="text-3xl text-[#797777]" />
       </button>
     </div>
   );

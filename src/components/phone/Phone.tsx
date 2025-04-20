@@ -20,35 +20,27 @@ const Phone = () => {
     >
       <div
         className="w-full h-full min-h-[600px] max-h-[950px] relative bg-[#2b2b2e] border-[#262627]
-                  mobile:w-[600px] mobile:min-h-[800px] mobile:border-2 mobile:rounded-[7rem]
-                  mobile:[@media(max-height:450px)]:w-full mobile:[@media(max-height:450px)]:min-h-auto mobile:[@media(max-height:450px)]:h-full 
-                  [@media(max-height:450px)]:border-0 [@media(max-height:450px)]:rounded-none"
+                  mobile:w-[600px] mobile:min-h-[800px] mobile:border-2 mobile:rounded-[7rem]"
       >
         <div
           className="bg-[#868484] hidden w-0.5 h-18 absolute -right-1 rounded-r-lg top-40
-                    mobile:rounded-r-2xl mobile:block
-                    [@media(max-height:450px)]:hidden"
+                    mobile:rounded-r-2xl mobile:block"
         />
         <div
           className="bg-[#868484] hidden w-0.5 h-30 absolute -left-1 rounded-l-lg top-60
-                    mobile:rounded-r-2xl mobile:block
-                    [@media(max-height:450px)]:hidden"
+                    mobile:rounded-r-2xl mobile:block"
         />
         <div
           className="w-full h-full border-[#242429] 
-                    mobile:border-10 mobile:rounded-[7rem]  
-                    [@media(max-height:450px)]:border-0"
+                    mobile:border-10 mobile:rounded-[7rem]"
         >
           <div
             className="border-[#515455] w-full h-full flex flex-col items-center justify-center
-                      mobile:border-2 mobile:rounded-[6rem]
-                      [@media(max-height:450px)]:border-0"
+                      mobile:border-2 mobile:rounded-[6rem]"
           >
             <div
               className="w-full h-full flex flex-col items-center justify-center bg-[#131314] p-4
-                        mobile:border-2 border-[#171718] mobile:rounded-[6rem] mobile:py-12 mobile:px-12
-                        mobile:[@media(max-height:450px)]:py-4 mobile:[@media(max-height:450px)]:flex-row-reverse
-                        [@media(max-height:450px)]:border-0 [@media(max-height:450px)]:rounded-none mobile:[@media(max-height:450px)]:px-4"
+                        mobile:border-2 border-[#171718] mobile:rounded-[6rem] mobile:py-12 mobile:px-12"
             >
               <PhoneHeader />
               <MainPhoneScreen />

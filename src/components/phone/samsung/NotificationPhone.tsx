@@ -13,9 +13,7 @@ const NotificationPhone = () => {
         isVisible ? "block z-100 backdrop-blur-[.7px]" : "hidden"
       }`}
     >
-      <div
-        className={`w-[80%] mobile:[@media(max-height:450px)]:w-[60%] select-none bg-white rounded-md shadow`}
-      >
+      <div className={`w-[80%] select-none bg-white rounded-md shadow`}>
         <div className="p-4">
           <h2 className="text-black font-semibold mb-2 text-lg">{title}</h2>
           <p className="text-gray-800 text-base font-normal">{message}</p>

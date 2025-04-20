@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { BsLightningChargeFill } from "react-icons/bs";
-import { usePhoneUIStore } from "../../../store/phoneUIStore";
 
 interface BatteryManager extends EventTarget {
   charging: boolean;
@@ -20,8 +19,6 @@ const StatusBar = () => {
   const [batteryLevel, setBatteryLevel] = useState<number>(100);
   const [isCharging, setIsCharging] = useState<boolean>(false);
   const [batterySupported, setBatterySupported] = useState<boolean>(true);
-
-  const { isHideStatus } = usePhoneUIStore();
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -88,20 +85,17 @@ const StatusBar = () => {
 
   return (
     <div
-      className={`w-full mobile:[@media(max-height:450px)]:h-full bg-black justify-end px-2 text-sm gap-x-2 py-1.5 mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:items-end mobile:[@media(max-height:450px)]:px-0 mobile:[@media(max-height:450px)]:gap-x-0 mobile:[@media(max-height:450px)]:py-4 mobile:[@media(max-height:450px)]:gap-y-2 mobile:[@media(max-height:450px)]:flex-col z-20 flex border border-black ${
-        isHideStatus &&
-        "mobile:[@media(max-height:450px)]:absolute mobile:[@media(max-height:450px)]:opacity-0 "
-      }`}
+      className={`w-full bg-black justify-end px-2 text-sm gap-x-2 py-1.5 z-20 flex border border-black`}
     >
       {/* Battery + Icons */}
 
-      <div className="relative flex flex-col items-center mt-[1px] mobile:[@media(max-height:450px)]:rotate-90 mobile:[@media(max-height:450px)]:mt-0 mobile:[@media(max-height:450px)]:mr-1.5">
+      <div className="relative flex flex-col items-center mt-[1px]">
         <div className={`w-[4px] h-[2px] ${getBatteryColor()} rounded-t-sm`} />
         <div
           className={`w-3 h-4 border-[1px] ${getBatteryBorderColor()} flex flex-col justify-end relative `}
         >
           <div
-            className={`w-full ${getBatteryColor()} mobile:[@media(max-height:450px)]:w-auto mobile:[@media(max-height:450px)]:h-full`}
+            className={`w-full ${getBatteryColor()}`}
             style={{
               height: batterySupported ? `${batteryLevel}%` : "100%",
             }}
@@ -113,7 +107,7 @@ const StatusBar = () => {
       </div>
 
       {/* Clock */}
-      <div className="font-medium text-base p-0 mobile:[@media(max-height:450px)]:[writing-mode:vertical-lr]">
+      <div className="font-medium text-base p-0">
         {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
       </div>
     </div>

@@ -5,7 +5,7 @@ const Wallpaper = () => {
 
   return (
     <div
-      className={`absolute inset-0 bg-cover bg-center transition-opacity duration-200 mobile:[@media(max-height:450px)]:w-full  ${
+      className={`absolute inset-0 bg-cover bg-center transition-opacity duration-200 ${
         isShowApps ? "opacity-30" : "opacity-100"
       }`}
       style={{

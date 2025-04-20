@@ -23,7 +23,7 @@ const AndroidBootUp = () => {
       initial={{ display: "none" }}
       animate={{ display: start ? "flex" : "none" }}
       transition={{ delay: 1 }}
-      className="w-full h-full flex flex-col items-center justify-center bg-black gap-6 mobile:[@media(max-height:450px)]:rotate-90"
+      className="flex flex-col items-center justify-center bg-black gap-6"
     >
       <AnimatePresence>
         {showContent && start && (

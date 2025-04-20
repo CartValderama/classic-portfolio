@@ -8,7 +8,7 @@ export const Qwerty = () => {
     useWordleStore();
 
   return (
-    <div className="flex flex-col items-center justify-end gap-0.5 w-full mobile:h-[35%] h-[40%] mobile:[@media(max-height:450px)]:max-w-[500px]">
+    <div className="flex flex-col items-center justify-end gap-0.5 w-full mobile:h-[35%] h-[40%] ">
       {abcd.map((row, idx) => (
         <div
           key={idx}
@@ -43,9 +43,7 @@ export const Qwerty = () => {
                 } transition-transform duration-100 lg:rounded-none`}
                 onClick={() => handleKeyClick(char)}
               >
-                <span className="text-sm mobile:[@media(max-height:450px)]:text-[.7rem] py-0.5 lg:text-black ">
-                  {char}
-                </span>
+                <span className="text-sm py-0.5 lg:text-black ">{char}</span>
               </button>
             );
           })}

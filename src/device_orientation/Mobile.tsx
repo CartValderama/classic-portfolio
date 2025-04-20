@@ -8,9 +8,7 @@ const Mobile = () => {
 
   return (
     <div
-      className={`lg:hidden flex items-center justify-center mobile:px-8 px-4 min-h-[600px] mobile:min-h-[660px] font-geist ${
-        start && "mobile:[@media(max-height:450px)]:min-h-auto"
-      }`}
+      className={`lg:hidden flex items-center justify-center mobile:px-8 px-4 min-h-[700px] `}
     >
       <motion.div
         initial={{ opacity: 1 }}
