@@ -24,7 +24,7 @@ const Header = () => {
       }}
     >
       <nav
-        className={`w-full 4xl:max-w-[2260px] 3xl:max-w-[1860px] 2xl:max-w-[1460px] xl:max-w-[1260px] max-w-[1060px] px-4 lg:px-8 py-5 flex justify-between items-center`}
+        className={`w-full 4xl:max-w-[2060px] 3xl:max-w-[1860px] 2xl:max-w-[1460px] xl:max-w-[1260px] max-w-[1060px] px-4 lg:px-8 py-5 flex justify-between items-center`}
       >
         <h1
           className={`flex items-center gap-x-2 font-bold ${colorTransition}`}
@@ -41,7 +41,7 @@ const Header = () => {
             CartValderama
           </span>
         </h1>
-        <div className="flex items-center gap-x-1 3xl:gap-x-3 ">
+        <div className="flex items-center gap-x-1 2xl:gap-x-2">
           <button
             type="button"
             className={`button-secondary p-2 ${colorTransition}`}

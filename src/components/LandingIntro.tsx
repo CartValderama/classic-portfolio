@@ -19,7 +19,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
         className={`font-bold ${colorTransition} ${
           isMobileLayout
             ? "text-4xl mobile:text-5xl"
-            : "font-geist text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl"
+            : "font-geist text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl"
         }`}
       >
         Classic Portfolio
@@ -29,7 +29,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
         className={`flex flex-col gap-y-2 leading-7 ${colorTransition} ${
           isMobileLayout
             ? "font-geist mobile:text-center mobile:w-[80%] text-sm mobile:text-xl mobile:leading-9"
-            : "font-geist xl:leadin-9 2xl:leading-10 3xl:leading-12 4xl:leading-14 2xl:text-xl 3xl:text-2xl 4xl:text-3xl"
+            : "font-geist xl:leadin-9 2xl:leading-10 3xl:leading-12 2xl:text-xl 3xl:text-2xl"
         }`}
       >
         <p>
@@ -49,14 +49,14 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
       </div>
 
       <div
-        className={`flex lg:justify-start mobile:justify-center gap-x-1 mt-2 w-full `}
+        className={`flex lg:justify-start mobile:justify-center gap-x-1 2xl:gap-x-2 mt-2 w-full `}
       >
         <button
           type="button"
           className={`button-primary ${colorTransition} ${
             isMobileLayout
               ? "mobile:text-base text-sm mobile:min-w-42 py-3 px-4"
-              : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6 4xl:text-2xl 4xl:py-5 4xl:px-7"
+              : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6"
           }`}
           onClick={() => setStart(!start)}
           disabled={start}
@@ -70,7 +70,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
           ${
             isMobileLayout
               ? "mobile:text-base text-sm  mobile:min-w-42 py-3 px-4"
-              : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6 4xl:text-2xl 4xl:py-5 4xl:px-7"
+              : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6"
           }`}
           onClick={() =>
             window.open(

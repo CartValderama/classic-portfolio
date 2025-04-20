@@ -9,7 +9,7 @@ export const useBreakpoints = () => {
   const getBreakpoints = () => {
     switch (true) {
       case is4XL:
-        return { width: "40rem", height: "29em" };
+        return { width: "36rem", height: "26em" };
       case is3XL:
         return { width: "32rem", height: "24rem" };
       case is2XL:
