@@ -32,7 +32,9 @@ const Header = () => {
           <i
             className={`bg-[#B44819] text-[#f5f3c7] dark:bg-amber-50 dark:text-[#09090b] rounded-full p-2 ${colorTransition}`}
           >
-            <GiPowerLightning className={`text-3xl 3xl:text-4xl  `} />
+            <GiPowerLightning
+              className={`text-xl mobile:text-3xl 3xl:text-4xl `}
+            />
           </i>
 
           <span className="hidden md:flex text-2xl 3xl:text-3xl">
@@ -51,7 +53,7 @@ const Header = () => {
             }}
             disabled={start}
           >
-            <BsGithub className="text-2xl" />
+            <BsGithub className="text-xl 2xl:text-2xl" />
           </button>
 
           <ThemeSwitch className={`button-secondary p-2 ${colorTransition}`} />

@@ -44,7 +44,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
 
         <p>
           For a more accessible experience, you can switch to the old version of
-          the portfolio by clicking the button below.
+          my portfolio by clicking the button below.
         </p>
       </div>
 
@@ -55,7 +55,7 @@ const LandingIntro = ({ isMobileLayout }: LandingIntroProps) => {
           type="button"
           className={`button-primary ${colorTransition} ${
             isMobileLayout
-              ? "mobile:text-base text-sm  mobile:min-w-42 py-3 px-4"
+              ? "mobile:text-base text-sm mobile:min-w-42 py-3 px-4"
               : "text-sm py-2 px-3 xl:py-3 xl:px-4 xl:text-base 3xl:text-xl 3xl:py-4 3xl:px-6 4xl:text-2xl 4xl:py-5 4xl:px-7"
           }`}
           onClick={() => setStart(!start)}

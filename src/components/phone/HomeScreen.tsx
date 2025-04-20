@@ -49,9 +49,9 @@ const HomeScreen = () => {
       <div className="z-10 h-full flex flex-col justify-between relative">
         <NotificationPhone />
 
-        <div className="p-4 h-full flex flex-col justify-between">
+        <div className="px-2 py-4 h-full flex flex-col justify-between">
           <div
-            className={`grid grid-cols-4 grid-rows-4 gap-x-3 gap-y-6 justify-items-center place-items-center
+            className={`grid grid-cols-4 grid-rows-4 gap-x-5 gap-y-6 justify-items-center place-items-center
               ${isShowApps ? "opacity-100" : "opacity-0 -z-10"} `}
           >
             {apps.map(({ Icon, label, id, style }) => (
@@ -74,7 +74,7 @@ const HomeScreen = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-4">
+          <div className="grid grid-cols-4 gap-x-5">
             {apps
               .filter(
                 (app) =>

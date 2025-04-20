@@ -23,7 +23,7 @@ const AndroidBootUp = () => {
       initial={{ display: "none" }}
       animate={{ display: start ? "flex" : "none" }}
       transition={{ delay: 1 }}
-      className="flex flex-col items-center justify-center bg-black gap-6"
+      className="w-full h-full flex flex-col items-center justify-center bg-black gap-6"
     >
       <AnimatePresence>
         {showContent && start && (
@@ -39,7 +39,7 @@ const AndroidBootUp = () => {
               initial={{ opacity: 0, width: 0 }}
               animate={{
                 opacity: start ? 1 : 0,
-                width: start ? "160px" : 0,
+                width: start ? "100px" : 0,
               }}
               transition={{
                 opacity: { delay: 2 },
@@ -52,7 +52,7 @@ const AndroidBootUp = () => {
                 animate={{ width: start ? "100%" : 0 }}
                 transition={{
                   delay: 2.5,
-                  duration: 3,
+                  duration: 2.5,
                   ease: "easeInOut",
                 }}
                 className="h-full bg-lime-500 rounded-full"
