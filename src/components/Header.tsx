@@ -18,7 +18,7 @@ const Header = () => {
       initial={{ opacity: 1, y: 0 }}
       animate={start ? { opacity: 0, y: -200 } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: start ? 0 : 1 }}
-      className={`fixed top-0 z-[999] w-full flex justify-center backdrop-blur-[2.5rem]`}
+      className={`fixed top-0 z-[999] w-full flex justify-center backdrop-blur-[2rem]`}
       style={{
         transformOrigin: "center -300%",
       }}
