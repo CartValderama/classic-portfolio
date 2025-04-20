@@ -37,7 +37,7 @@ const Wordle = () => {
             won
               ? "bg-green-900 text-white lg:bg-gray-200 lg:text-black"
               : "bg-red-900 text-white lg:bg-gray-200 lg:text-black "
-          } p-4 border-0 rounded lg:border-1 lg:rounded-none lg:w-[45%] w-[35%] ${
+          } p-4 border-0 rounded lg:border-1 lg:rounded-none lg:w-[45%] w-[40%] ${
             lost || won
               ? "flex  justify-center absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-2xl font-semibold lg:font-normal"
               : "hidden"
