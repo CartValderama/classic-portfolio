@@ -14,7 +14,7 @@ const Footer = () => {
     <motion.footer
       initial={{ opacity: 1, y: 0 }}
       animate={start ? { opacity: 0, y: 200 } : { opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: start ? 0 : 1 }}
+      transition={{ duration: 0.8, delay: start ? 0 : 1 }}
       className={`absolute bottom-0 w-full flex justify-center items-centertext-xs lg:text-sm 3xl:text-base`}
       style={{
         transformOrigin: "left 300%",
