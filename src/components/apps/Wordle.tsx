@@ -9,10 +9,11 @@ const Wordle = () => {
 
   useEffect(() => {
     init();
-    const stableKeyHandler = (e: KeyboardEvent) => handleKeyup(e);
-    window.addEventListener("keyup", stableKeyHandler);
-    return () => window.removeEventListener("keyup", stableKeyHandler);
-  }, [init, handleKeyup]);
+    window.addEventListener("keyup", handleKeyup);
+    return () => {
+      window.removeEventListener("keyup", handleKeyup);
+    };
+  }, []);
 
   return (
     <div className="flex h-full flex-col flex-1 items-center justify-around overflow-auto lg:bg-white bg-[#55a459] lg:border border-white border-t-none border-l-[#868a8e] leading-6 px-4 gap-y-5 py-4 select-none">
