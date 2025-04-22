@@ -32,13 +32,13 @@ export const Qwerty = () => {
               : inexactGuesses().includes(char)
               ? "bg-yellow-400 text-[#38753b]"
               : allGuesses().includes(char)
-              ? "lg:bg-gray-400 bg-gray-500 text-white"
-              : "lg:bg-gray-200 bg-white text-[#38753b]";
+              ? "bg-gray-400 text-white"
+              : "lg:bg-[#c3c7cb] lg:border border-[#868a8e] border-l-white border-t-white bg-white text-[#38753b]";
             return (
               <button
                 type="button"
                 key={idy}
-                className={`win95-button uppercase h-full w-full ${color} rounded flex items-center justify-center   ${
+                className={` uppercase h-full w-full ${color} rounded flex items-center justify-center   ${
                   char && "active:scale-95"
                 } transition-transform duration-100 lg:rounded-none`}
                 onClick={() => handleKeyClick(char)}
