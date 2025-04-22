@@ -1,6 +1,6 @@
 import { BsGithub, BsGlobe } from "react-icons/bs";
-import { selectMenuProps } from "../../lib/type";
-import { projects } from "../../data/projects";
+import { selectMenuProps } from "../../../lib/type";
+import { projects } from "../../../data/projects";
 import ResumeDivider from "./divider/ResumeDivider";
 import ContactDivider from "./divider/ContactDivider";
 

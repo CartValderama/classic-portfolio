@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useStart } from "../context/StartContext";
-import { aboutMeMenu } from "../data/menu";
+import { useStart } from "../../context/StartContext";
+import { aboutMeMenu } from "../../data/menu";
 import Introduction from "./about/Introduction";
 import Projects from "./about/Projects";
 import Experience from "./about/Experience";

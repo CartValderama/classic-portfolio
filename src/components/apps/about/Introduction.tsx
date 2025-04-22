@@ -1,6 +1,6 @@
-import { education } from "../../data/education";
-import { techStack } from "../../data/techStack";
-import { selectMenuProps } from "../../lib/type";
+import { education } from "../../../data/education";
+import { techStack } from "../../../data/techStack";
+import { selectMenuProps } from "../../../lib/type";
 import ContactDivider from "./divider/ContactDivider";
 import HeadDivider from "./divider/HeadDivider";
 

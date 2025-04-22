@@ -1,7 +1,7 @@
-import useTicTacToeStore from "../../../store/game_store/tictactoeStore";
+import useTictactoeStore from "../../../../store/game_store/tictactoeStore";
 
 const Board = () => {
-  const { board, winner, isDraw, resetGame, makeMove } = useTicTacToeStore();
+  const { board, winner, isDraw, resetGame, makeMove } = useTictactoeStore();
   return (
     <div className="grid grid-cols-3 justify-items-center place-items-center flex-1 w-full lg:border border-white border-l-[#868a8e] border-t-[#868a8e] lg:gap-0 gap-2 relative ">
       {(winner || isDraw) && (

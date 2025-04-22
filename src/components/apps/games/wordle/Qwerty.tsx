@@ -1,6 +1,6 @@
 import { MdKeyboardBackspace } from "react-icons/md";
 import { GrReturn } from "react-icons/gr";
-import { useWordleStore } from "../../../store/game_store/wordleStore";
+import { useWordleStore } from "../../../../store/game_store/wordleStore";
 
 export const Qwerty = () => {
   const abcd = ["abcdefg", "hijklmn", "opqrstu", "vwxyz"];

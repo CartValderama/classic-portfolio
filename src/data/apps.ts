@@ -7,12 +7,12 @@ import {
   TbTicTac,
 } from "react-icons/tb";
 import { AppProps } from "../lib/type";
-import AboutMe from "../components/AboutMe";
-import Credits from "../components/Credits";
-import OldPorfolio from "../components/OldPortolio";
-import Tictactoe from "../components/games/Tictactoe";
-import Guide from "../components/Guide";
-import Wordle from "../components/games/Wordle";
+import AboutMe from "../components/apps/AboutMe";
+import Credits from "../components/apps/Credits";
+import OldPorfolio from "../components/apps/OldPortolio";
+import Tictactoe from "../components/apps/Tictactoe";
+import Guide from "../components/apps/Guide";
+import Wordle from "../components/apps/Wordle";
 import wordle_icon from "../assets/icons/wordle_icon.svg";
 import oldportfolio_icon from "../assets/icons/oldportfolio_icon.svg";
 import credit_icon from "../assets/icons/credit_icon.svg";
@@ -29,7 +29,7 @@ export const apps: AppProps[] = [
     label: "Guide",
     id: "guide",
     iWidth: 300,
-    iHeight: 390,
+    iHeight: 400,
   },
   {
     Icon: TbNews,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { credits } from "../data/credits";
+import { credits } from "../../data/credits";
 
 const Credits = () => {
   const [currentCredit, setCurrentCredit] = useState(0);

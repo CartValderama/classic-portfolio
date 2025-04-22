@@ -1,6 +1,12 @@
 import { JSX } from "react";
 import { IconType } from "react-icons";
 
+export type Slide = {
+  icon: IconType;
+  title: string;
+  description: string;
+};
+
 export type GuessProps = {
   word: string;
   guess: string;

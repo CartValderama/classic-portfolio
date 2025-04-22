@@ -125,6 +125,14 @@ body {
   @apply text-black capitalize cursor-pointer bg-transparent border-none border-b;
 }
 
+.border-in {
+  @apply border-r-white border-b-white border-l-[#868a8e] border-t-[#868a8e];
+}
+
+.border-out {
+  @apply border-t-white border-l-white border-r-[#868a8e] border-b-[#868a8e];
+}
+
 @media (pointer: fine) {
   body {
     cursor: auto !important;

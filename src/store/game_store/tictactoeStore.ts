@@ -5,7 +5,7 @@ type CellValue = null | Player;
 type Board = CellValue[];
 type GameMode = "human" | "ai";
 
-interface TicTacToeStore {
+interface TictactoeStore {
   board: Board;
   currentPlayer: Player;
   gameMode: GameMode;
@@ -25,7 +25,7 @@ interface TicTacToeStore {
   getAIMove: () => number;
 }
 
-const useTicTacToeStore = create<TicTacToeStore>((set, get) => {
+const useTictactoeStore = create<TictactoeStore>((set, get) => {
   const checkWinner = (board: Board): Player | null => {
     const winningCombinations = [
       [0, 1, 2],
@@ -185,4 +185,4 @@ const useTicTacToeStore = create<TicTacToeStore>((set, get) => {
   };
 });
 
-export default useTicTacToeStore;
+export default useTictactoeStore;
