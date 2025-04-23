@@ -10,7 +10,7 @@ export const projects = [
     source: "https://github.com/CartValderama/win95-portfolio",
     demo: "https://cart-valderama-portfolio.vercel.app/",
     topics: ["tailwind", "react", "framer", "vite", "typescript"],
-    img: "https://i.imgur.com/fNGx6zl.gif",
+    img: "https://i.imgur.com/pFSKeUY.gif",
     status: false,
     solo: true,
   },
