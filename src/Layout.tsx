@@ -12,7 +12,7 @@ const Layout = () => {
       <LayoutBG />
       <Header />
       <main
-        className={`flex min-h-svh lg:min-h-screen min-w-screen items-center justify-center`}
+        className={`flex min-h-svh lg:h-[100vh] min-w-screen items-center justify-center`}
       >
         <Desktop />
         <Mobile />

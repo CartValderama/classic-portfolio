@@ -14,7 +14,7 @@ const Desktop = () => {
 
   return (
     <motion.div
-      className={`hidden lg:flex flex-row-reverse items-center relative w-full h-screen 4xl:max-w-[2060px] 3xl:max-w-[1860px] 2xl:max-w-[1460px] xl:max-w-[1260px] max-w-[1060px] min-h-[760px] px-4 lg:px-8 font-geist ${colorTransition}`}
+      className={`hidden lg:flex flex-row-reverse items-center relative w-full h-[100vh] 4xl:max-w-[2060px] 3xl:max-w-[1860px] 2xl:max-w-[1460px] xl:max-w-[1260px] max-w-[1060px] min-h-[760px] px-4 lg:px-8 font-geist ${colorTransition}`}
     >
       <motion.div
         initial={{ x: 0, opacity: 1 }}
