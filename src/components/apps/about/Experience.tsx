@@ -24,31 +24,36 @@ const Experience = ({ selectMenu }: selectMenuProps) => {
       <ResumeDivider />
 
       <div className="flex flex-col gap-y-8 my-2">
-        {experience.map(({ img, company, date, desc, outcomes }, idx) => (
-          <div key={idx} className="flex flex-col gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <img
-                src={img}
-                alt="company logo"
-                className="lg:w-14 lg:h-14 w-12 h-12"
-              />
-              <div className="flex flex-col justify-center">
-                <h2 className="3xl:text-4xl text-3xl capitalize font-bold mr-2">
-                  {company}
-                </h2>
-                <p className="3xl:text-base text-sm">{date}</p>
+        {experience.map(
+          ({ img, company, date, desc, outcomes, position }, idx) => (
+            <div key={idx} className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-2">
+                <img
+                  src={img}
+                  alt="company logo"
+                  className="lg:w-14 lg:h-14 w-12 h-12"
+                />
+                <div className="flex flex-col justify-center">
+                  <h2 className="3xl:text-3xl text-3xl capitalize font-bold mr-2">
+                    {company}
+                  </h2>
+                  <div className="flex gap-x-1 items-center text-sm">
+                    <p>{position}</p>
+                    <p className="text-xs">( {date} )</p>
+                  </div>
+                </div>
               </div>
+              <p>{desc}</p>
+              <ul className="flex flex-col gap-y-1">
+                {outcomes.map((outcome, idx) => (
+                  <li key={idx} className="ml-2">
+                    <span className="font-bold text-xl">~</span> {outcome}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <p>{desc}</p>
-            <ul className="flex flex-col gap-y-1">
-              {outcomes.map((outcome, idx) => (
-                <li key={idx} className="ml-2">
-                  <span className="font-bold text-xl">~</span> {outcome}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          )
+        )}
       </div>
 
       <SocialsDivider />

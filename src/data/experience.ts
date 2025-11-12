@@ -1,7 +1,18 @@
 export const experience = [
   {
-    position: "Bachelor Collaboration",
-    date: "January 2024 - June 2024",
+    position: "Research Assistant",
+    date: "09/2025 - Present",
+    desc: "Developing a TV application enabling elderly users to make and receive calls, improving communication and digital accessibility for elderly users.",
+    outcomes: [
+      "Handling backend services, including authentication, WebRTC-based communication, and database management.",
+      "Managing frontend interfaces to implement provided designs while ensuring usability and accessibility.",
+    ],
+    company: "OsloMet",
+    img: "https://i.imgur.com/HXvyNGU.jpeg",
+  },
+  {
+    position: "Bachelor Intern",
+    date: "01/2024 - 06/2024",
     desc: "Developed a proof-of-concept flashcard app for Forte Digital that integrated AI to enhance user feedback and automate flashcard creation, leading to more effective and engaging study sessions.",
     outcomes: [
       "Evaluated the flashcard app’s interface, addressing common issues to ensure compliance with common web accessibility standards.",
@@ -14,8 +25,8 @@ export const experience = [
     img: "https://i.imgur.com/JCGTfPZ.jpeg",
   },
   {
-    position: "Internship",
-    date: "January 2018 - February 2018",
+    position: "Student Intern",
+    date: "01/2018 - 02/2018",
     desc: "Completed a one-month internship in a structural engineering company during senior high school, gaining practical experience in engineering concepts and project development.",
     company: "Nander Group",
     outcomes: [
