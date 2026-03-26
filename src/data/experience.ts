@@ -1,7 +1,17 @@
 export const experience = [
   {
     position: "Research Assistant",
-    date: "09/2025 - Present",
+    date: "02/2026 - Present",
+    desc: "Currently serving as the fullstack developer of the Food Product Management web application.",
+    outcomes: [
+      "Currently working on the deployment of both the backend and frontend",
+    ],
+    company: "OsloMet",
+    img: "https://i.imgur.com/HXvyNGU.jpeg",
+  },
+  {
+    position: "Research Assistant",
+    date: "09/2025 - 12/2025",
     desc: "Developing a TV application enabling elderly users to make and receive calls, improving communication and digital accessibility for elderly users.",
     outcomes: [
       "Handling backend services, including authentication, WebRTC-based communication, and database management.",
