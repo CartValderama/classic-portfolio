@@ -25,7 +25,13 @@ const SystemUnit = () => {
             : { width: initialWidth, height: initialHeight }
         }
         transition={transition}
-        className="absolute flex flex-col items-center justify-center rounded-xs"
+        className="absolute flex flex-col items-center justify-center rounded-xs
+        
+        [@media(min-height:1220px)]:[@media(max-height:1320px)]:max-w-[1724px]
+        [@media(min-height:1120px)]:[@media(max-height:1220px)]:max-w-[1580px]
+        [@media(min-height:1020px)]:[@media(max-height:1120px)]:max-w-[1372px]
+        [@media(min-height:900px)]:[@media(max-height:1020px)]:max-w-[1228px]
+        [@media(max-height:900px)]:max-w-[1052px]"
       >
         <Stand />
 
